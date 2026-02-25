@@ -13,13 +13,13 @@
 
 /* CALLOUT */
 .callout {
-    font-style: italic !important;
-    border: 3px outset var(--text-color) !important;
+    font-style: italic;
+    border: 3px outset var(--text-color);
     margin-left: 3ch;
 }
 .callout p {
-    padding-left: 0 !important;
-    margin-top: -20px !important;
+    padding-left: 0;
+    margin-top: -20px;
 }
 .callout legend {
     margin-left: 0;
@@ -28,30 +28,33 @@
     display: inline-block;
     font-size: 25px;
 }
-.callout .source{
+.callout .source {
     text-align: right;
-    margin-top: 5px !important;
+    margin-top: 5px;
 }
 
 .callout_empty {
-    font-style: italic !important;
-    border: 3px outset var(--text-color) !important;
+    font-style: italic;
+    border: 3px outset var(--text-color);
     margin-left: 3ch;
 }
 .callout_empty p {
-    padding-left: 0 !important;
+    padding-left: 0;
 }
 /* --- */
 
 
-p {
-    padding-left: 3ch !important;
-    padding-bottom: 3px !important;
-    margin: 5px !important;
+/* Use "body X" prefix (specificity 0,0,2) to reliably beat night_mode.css
+   and styling.css element rules (specificity 0,0,1), regardless of load order. */
+
+body p {
+    padding-left: 3ch;
+    padding-bottom: 3px;
+    margin: 5px;
 }
 
-b {
-    color: var(--bold_color) !important;
+body b {
+    color: var(--bold_color);
 }
 
 .tldr {
@@ -59,57 +62,57 @@ b {
     border-width: 5px;
 }
 
-body {
-    margin-left: 30% !important;
-    margin-right: 5% !important;
+html body {
+    margin-left: 30%;
+    margin-right: 5%;
 }
 
-h2, h3 {
-    text-align: left !important;
+body h2, body h3 {
+    text-align: left;
 }
 .subtitle {
-    text-align: center !important;
+    text-align: center;
     margin-bottom: 1ch;
 }
 
-h2 a, h3 a {
+body h2 a, body h3 a {
     padding-right: 20px;
-    background: transparent url(../img/icon/link.png) no-repeat right; /* Updated path */
+    background: transparent url(../img/icon/link.png) no-repeat right;
     background-size: 15px 15px;
     color: var(--text-color);
 }
-h2 a:hover, h3 a:hover {
+body h2 a:hover, body h3 a:hover {
     color: var(--link-color);
 }
 
 
-hr {
-    border-width: 1px 1px 0 !important;
-    border-style: double !important;
+body hr {
+    border-width: 1px 1px 0;
+    border-style: double;
     width: 30%;
-    margin-bottom: 30px !important;
-    margin-top: 30px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-ul {
-   padding-left: 5ch !important;
-   text-align: left !important;
-    list-style-type: disc !important;
+body ul {
+    padding-left: 5ch;
+    text-align: left;
+    list-style-type: disc;
 }
 
 
 /* Stili per dispositivi mobili */
 @media only screen and (max-width: 950px) {
-    body {
-        margin-left: 5% !important;
-        margin-right: 5% !important;
+    html body {
+        margin-left: 2%;
+        margin-right: 2%;
     }
     .toc {
         position: static;
         margin: auto;
-        width: 90%;
+        width: 96%;
         border: 1px solid var(--text-color);
         padding: 10px;
         line-height: 25px;
