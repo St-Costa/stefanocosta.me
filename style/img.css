@@ -6,8 +6,12 @@ img {
 }
 
 .animated_img:hover {
-    transform: scale(1.2); /* Ingrandisce l'immagine del 10% */
+    transform: scale(1.2);
     cursor: pointer;
+}
+
+.icon.animated_img:hover {
+    filter: brightness(0) invert(1);
 }
 
 /* Index image */
