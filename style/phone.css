@@ -69,3 +69,40 @@
         text-align: left;
     }
 }
+
+/* Tablet (up to 768px) */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 34px;
+    }
+    .index_img {
+        width: 100px !important;
+    }
+    .poster_img {
+        width: 70%;
+    }
+}
+
+/* Small phones (up to 480px) */
+@media only screen and (max-width: 480px) {
+    body {
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: 15px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .index_img {
+        width: 80px !important;
+    }
+    .poster_img {
+        width: 90%;
+    }
+    .list_span {
+        font-size: 19px !important;
+    }
+}

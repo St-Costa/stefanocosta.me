@@ -116,7 +116,12 @@ body ul {
 }
 
 
-/* Stili per dispositivi mobili */
+/* Gallery / image caption container */
+.center-padding {
+    padding: 13px;
+}
+
+/* Mobile styles */
 @media only screen and (max-width: 950px) {
     html body {
         margin-left: 2%;

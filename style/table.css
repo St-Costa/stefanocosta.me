@@ -23,3 +23,10 @@ td {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+/* Color swatches used in colophon.html */
+.color-swatch-link     { background-color: var(--link-color);       color: #000; }
+.color-swatch-italic   { background-color: var(--italic-color);     color: #000; }
+.color-swatch-bg       { background-color: var(--background-color); color: #fff; }
+.color-swatch-text     { background-color: var(--text-color);       color: #000; }
+.color-swatch-bold     { background-color: var(--bold_color);       color: #000; }

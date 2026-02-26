@@ -1,5 +1,3 @@
-@import url('night_mode.css');
-
 button {
     background-color: transparent;
     color: var(--link-color);

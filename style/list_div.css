@@ -1,6 +1,3 @@
-@import url('night_mode.css');
-
-
 /* Create space between elements */
 .list_div > * {
     margin-top: 5px;  /* Space above each element */

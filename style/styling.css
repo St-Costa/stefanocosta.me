@@ -71,3 +71,20 @@ li {
 .box-title h4, .box-title h5, .box-title h6 {
     margin: 0;
 }
+
+/* Decorative section divider with centered label */
+.section-divider {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+}
+.section-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--text-color);
+    margin: 0;
+}
+.section-divider span {
+    padding: 0 12px;
+    font-weight: bold;
+}
