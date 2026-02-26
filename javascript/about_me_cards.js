@@ -38,15 +38,38 @@ $cards.forEach(($card) => {
     }
   }
 
-  $card.addEventListener('mouseenter', () => {
-    bounds = $card.getBoundingClientRect();
-    $card.addEventListener('mousemove', rotateToMouse);
-  });
-
-  $card.addEventListener('mouseleave', () => {
+  function resetCard() {
     $card.removeEventListener('mousemove', rotateToMouse);
     $card.style.transform = '';
     const $glow = $card.querySelector('.glow');
     if ($glow) $glow.style.backgroundImage = '';
+  }
+
+  // Mouse
+  $card.addEventListener('mouseenter', () => {
+    bounds = $card.getBoundingClientRect();
+    $card.addEventListener('mousemove', rotateToMouse);
   });
+  $card.addEventListener('mouseleave', resetCard);
+
+  // Touch
+  $card.addEventListener('touchstart', (e) => {
+    bounds = $card.getBoundingClientRect();
+    const touch = e.touches[0];
+    rotateToMouse({ clientX: touch.clientX, clientY: touch.clientY });
+  }, { passive: true });
+
+  $card.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    rotateToMouse({ clientX: touch.clientX, clientY: touch.clientY });
+  }, { passive: true });
+
+  $card.addEventListener('touchend', resetCard);
+
+  // Keyboard (focus/blur)
+  $card.setAttribute('tabindex', '0');
+  $card.addEventListener('focus', () => {
+    $card.style.transform = 'scale3d(1.07, 1.07, 1.07)';
+  });
+  $card.addEventListener('blur', resetCard);
 });

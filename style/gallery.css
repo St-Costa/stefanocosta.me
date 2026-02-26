@@ -44,8 +44,10 @@ img {
 .prev {
   left: 0;
 }
-.prev:hover, .next:hover {
+.prev:hover, .next:hover,
+.prev:focus, .next:focus {
   color: var(--text-color);
+  outline: 2px solid var(--link-color);
 }
 
 /* The dots/bullets/indicators */

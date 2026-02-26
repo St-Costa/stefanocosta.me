@@ -26,9 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
       caption.textContent = img ? img.alt : "";
     }
 
-    // Eventi frecce
+    // Click events
     prev.addEventListener("click", () => showSlide(slideIndex - 1));
     next.addEventListener("click", () => showSlide(slideIndex + 1));
+
+    // Keyboard events: Space activates the focused arrow; arrow keys navigate globally within container
+    function handleKeydown(e) {
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        if (document.activeElement === prev) showSlide(slideIndex - 1);
+        if (document.activeElement === next) showSlide(slideIndex + 1);
+      }
+    }
+    prev.addEventListener("keydown", handleKeydown);
+    next.addEventListener("keydown", handleKeydown);
 
     // Inizializza slideshow
     showSlide(0);
