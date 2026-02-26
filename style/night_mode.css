@@ -6,6 +6,10 @@
     --text-color: #D7D7D7;
     --hover-color: #000ecc;
     --bold_color: #FFA500;
+
+    --space-sm: 0.3cm;
+    --space-md: 0.8cm;
+    --space-lg: 1.2cm;
 }
 
 body {

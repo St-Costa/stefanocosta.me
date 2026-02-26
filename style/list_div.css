@@ -1,27 +1,27 @@
 @import url('night_mode.css');
 
 
-/* Create space between elements*/
+/* Create space between elements */
 .list_div > * {
-    margin-top: 5px;  /* Spazio sopra ogni elemento */
-    margin-bottom: 5px;  /* Spazio sotto ogni elemento */
+    margin-top: 5px;  /* Space above each element */
+    margin-bottom: 5px;  /* Space below each element */
     margin: auto;
 }
 
 .bottom_space {
-    margin-bottom: 0.3cm;
+    margin-bottom: var(--space-sm);
 }
 
 .bottom_space_big {
-    margin-bottom: 0.8cm;
+    margin-bottom: var(--space-md);
 }
 
 .bottom_space_very_big {
-    margin-bottom: 1.2cm;
+    margin-bottom: var(--space-lg);
 }
 
 .top_space_big {
-    margin-top: 0.8cm;
+    margin-top: var(--space-md);
 }
 
 .not_so_bold {
@@ -40,7 +40,7 @@
     width: 80%;
     text-align: center;
     margin: auto;
-    margin-bottom: 0.8cm;
+    margin-bottom: var(--space-md);
     position: relative;
     padding-top: 1.4em;
 }
