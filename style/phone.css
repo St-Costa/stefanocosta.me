@@ -1,4 +1,4 @@
-/* Stili per dispositivi mobili */
+/* Mobile device styles */
 @media only screen and (max-width: 950px) {
     body {
         margin-left: 5%;
@@ -7,12 +7,12 @@
     }
 
     .left_div, .right_div {
-        width: 100%; /* I div occupano tutta la larghezza */
-        margin-right: 0; /* Rimuove il margine tra i div su mobile */
+        width: 100%; /* Divs take full width */
+        margin-right: 0; /* Remove margin between divs on mobile */
     }
 
     .right_div {
-        margin-top: 10px; /* Aggiunge spazio tra i div quando vanno uno sotto l'altro */
+        margin-top: 10px; /* Add space between divs when stacked */
     }
 
     .list_div {
@@ -24,8 +24,8 @@
     }
 
     .poster_img {
-        width: 50%; /* Mantiene l'immagine responsive */
-        height: auto; /* Permette all'immagine di ridimensionarsi correttamente */
+        width: 50%; /* Keep image responsive */
+        height: auto; /* Allow image to resize correctly */
     }
 
     .poster_table {
@@ -39,7 +39,7 @@
         width: 100% !important;
     }
     .poster_table td + td {
-        margin-top: 20px; /* Spazio tra le colonne trasformate in righe */
+        margin-top: 20px; /* Space between columns turned into rows on mobile */
         padding-left: 0;
     }
     .footer_index {
@@ -65,7 +65,7 @@
         width: 100% !important;
         margin-bottom: 20px;
     }
-    .giustifica {
+    .justify {
         text-align: left;
     }
 }
