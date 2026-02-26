@@ -9,21 +9,21 @@ _Tutti gli item di alta priorità sono stati completati._
 ## 🟡 Media priorità
 
 ### CSS
-- **Un solo breakpoint responsive (950px)** — `phone.css` ha un solo breakpoint. Aggiungere almeno 480px e 768px per coprire tablet e telefoni piccoli.
-- **Stili inline residui nell'HTML**:
-  - `mainPages/colophon.html` righe 22–38: `style="background-color: ..."` su ogni cella della tabella → estrarre in classi CSS
-  - `blogPosts/Things from Graz.html`: `style="padding: 13px;"` ripetuto 16+ volte → creare classe `.center-padding`
-  - `mainPages/Projects.html` riga 185: `#ccc` hardcoded inline → usare variabile CSS
-- **Dipendenza circolare CSS** — `style/button.css` e `style/list_div.css` importano entrambi `night_mode.css`, che viene già caricato da `commonHeader.js`. Rimuovere i `@import` ridondanti.
-- **`!important` residui in phone.css** — `.index_img`, `.poster_table td`, `.footer_index`, `.divTd`, `.image_divTd`, `.list_span` hanno ancora `!important` perché i loro CSS di pagina vengono caricati dopo `phone.css`. Valutare se ristrutturare l'ordine di caricamento.
+- ~~**Un solo breakpoint responsive (950px)**~~ — **COMPLETATO**: aggiunti breakpoint `768px` (tablet) e `480px` (telefoni piccoli) a `phone.css`.
+- ~~**Stili inline residui nell'HTML**~~ — **COMPLETATO**:
+  - `colophon.html`: celle colore → classi `.color-swatch-*` in `table.css` con variabili CSS.
+  - Blog post: `style="padding: 13px;"` → classe `.center-padding` in `blog.css` (aggiornati tutti i blog post).
+  - `Projects.html`: divider con `#ccc` → classe `.section-divider` in `styling.css` con `var(--text-color)`.
+- ~~**Dipendenza circolare CSS**~~ — **COMPLETATO**: rimossi `@import url('night_mode.css')` da `button.css` e `list_div.css`.
+- **`!important` residui in phone.css** — **ANALISI**: i fogli JS-iniettati da `commonHeader.js` vengono applicati DOPO i `<link>` inline, quindi `phone.css` dovrebbe già vincere senza `!important`. Appaiono ridondanti ma rimuoverli richiede testing cross-browser. Lasciare invariato.
 
 ### JavaScript
-- **Nessuna gestione degli errori** — `gallery.js`, `toc.js`, `about_me_cards.js` manipolano il DOM senza verificare che gli elementi esistano. Aggiungere null check minimi.
-- **`toc.js` riga 8**: `if (index < 2) return;` — salta i primi 2 header senza commento esplicativo. Chiarire l'intenzione.
+- ~~**Nessuna gestione degli errori**~~ — **COMPLETATO**: aggiunti null check in `toc.js` (guard su `.toc`) e `gallery.js` (guard su `slides`, `prev`, `next`, `caption`). `about_me_cards.js` era già robusto.
+- ~~**`toc.js` riga 8**: `if (index < 2) return;`~~ — **COMPLETATO**: aggiunto commento esplicativo: salta H2/H3 del titolo e sottotitolo.
 
 ### HTML
-- **`styling.css` duplicato nelle pagine `mainPages/`** — analogamente a quanto fatto per i blog post, le pagine in `mainPages/` hanno ancora `<link href="../style/styling.css">` inline anche se già caricato da `commonHeader.js`. Non causa bug (a differenza dei blog post) ma è ridondante.
-- **Gerarchia heading inconsistente** — alcune pagine saltano livelli (H1 → H3) o usano H3 dove sarebbe appropriato H2. Revisione pagina per pagina.
+- ~~**`styling.css` duplicato nelle pagine `mainPages/`**~~ — **COMPLETATO**: rimosso `<link href="../style/styling.css">` da `Academic_past.html` e `Blog_pages.html`.
+- ~~**Gerarchia heading inconsistente**~~ — **COMPLETATO**: corretti `Thesis.html` (H2→H4 → H2→H3) e `Academic_projects.html` (H1→H3 → H1→H2→H3→H4). Blog post e altre pagine avevano già gerarchia corretta.
 
 ---
 
