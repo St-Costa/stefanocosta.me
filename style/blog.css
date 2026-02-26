@@ -1,14 +1,18 @@
 .toc {
     position: fixed;
-    top: 0;
+    top: 1em;
     margin-left: -28%;
     width: 26%;
     border: 1px solid var(--text-color);
     padding: 10px;
+    padding-top: 1.4em;
+    overflow: visible;
+}
+.toc-scroll {
+    overflow-y: auto;
+    max-height: 90vh;
     line-height: 25px;
     word-break: break-all;
-    max-height: 95%;
-    overflow-y: auto;
 }
 
 /* CALLOUT */
@@ -16,13 +20,17 @@
     font-style: italic;
     border: 3px outset var(--text-color);
     margin-left: 3ch;
+    position: relative;
+    padding-top: 1.4em;
+    margin-top: 1.5em;
 }
 .callout p {
     padding-left: 0;
-    margin-top: -20px;
 }
-.callout legend {
-    margin-left: 0;
+.callout .box-title {
+    font-style: normal;
+    left: 0.7em;
+    transform: translateY(-50%);
 }
 .callout h4 {
     display: inline-block;
@@ -37,6 +45,7 @@
     font-style: italic;
     border: 3px outset var(--text-color);
     margin-left: 3ch;
+    margin-top: 1.5em;
 }
 .callout_empty p {
     padding-left: 0;
@@ -60,6 +69,10 @@ body b {
 .tldr {
     border-style: double;
     border-width: 5px;
+    position: relative;
+    padding-top: 1.4em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
 
 html body {
@@ -110,11 +123,15 @@ body ul {
         margin-right: 2%;
     }
     .toc {
-        position: static;
-        margin: auto;
+        position: relative;
+        margin: 1.5em auto 0;
         width: 96%;
         border: 1px solid var(--text-color);
         padding: 10px;
+        padding-top: 1.4em;
+    }
+    .toc-scroll {
         line-height: 25px;
+        word-break: break-all;
     }
 }

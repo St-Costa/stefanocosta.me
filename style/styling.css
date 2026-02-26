@@ -49,7 +49,25 @@ li {
 }
 
 .briefAboutMe {
-    width: 60%; 
-    border-right-style: none; 
-    border-left-style: none;
+    width: fit-content;
+    border-top: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    position: relative;
+    padding: 0.8em 1.5em 0.5em;
+    margin: 1em auto;
+}
+
+/* Floating label replacement for <legend> */
+.box-title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.3em;
+    background-color: var(--background-color);
+    white-space: nowrap;
+}
+.box-title h1, .box-title h2, .box-title h3,
+.box-title h4, .box-title h5, .box-title h6 {
+    margin: 0;
 }

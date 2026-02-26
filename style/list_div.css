@@ -20,6 +20,10 @@
     margin-bottom: 1.2cm;
 }
 
+.top_space_big {
+    margin-top: 0.8cm;
+}
+
 .not_so_bold {
     font-weight: 550;
 }
@@ -29,21 +33,19 @@
 }
 
 /* Explanation callout */
-.explanation_box{
-    border: 2px solid; 
-    padding-bottom: 20px; 
-    padding-top: 0;
+.explanation_box {
+    border: 2px solid;
+    padding-bottom: 20px;
     border-radius: 10px;
     width: 80%;
     text-align: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 0.8cm;
+    position: relative;
+    padding-top: 1.4em;
 }
-legend {
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
+.explanation_box .box-title {
     padding-left: 10px;
     padding-right: 10px;
-    color: yellow !important;
+    color: yellow;
 }

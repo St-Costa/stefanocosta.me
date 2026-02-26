@@ -25,5 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    tocContainer.innerHTML += tocHTML;
+    const scrollDiv = document.createElement('div');
+    scrollDiv.className = 'toc-scroll';
+    scrollDiv.innerHTML = tocHTML;
+    tocContainer.appendChild(scrollDiv);
 });
