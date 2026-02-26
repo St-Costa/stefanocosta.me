@@ -30,16 +30,16 @@ _Tutti gli item di alta priorità sono stati completati._
 ## 🟢 Bassa priorità
 
 ### Naming e convenzioni
-- **Classi CSS con nomi italiani** — `giustifica`, commenti in italiano nei CSS. Uniformare in inglese per coerenza (o lasciare intenzionalmente in italiano — scelta stilistica).
-- **Scala di spaziatura ad hoc** — `bottom_space`, `bottom_space_big`, `bottom_space_very_big` (0.3cm / 0.8cm / 1.2cm). Considerare una scala sistematica (sm/md/lg) o variabili CSS.
+- ~~**Classi CSS con nomi italiani**~~ — **COMPLETATO**: `.giustifica` rinominato `.justify` in tutti i CSS e HTML; commenti italiani in `phone.css` e `list_div.css` tradotti in inglese.
+- ~~**Scala di spaziatura ad hoc**~~ — **COMPLETATO**: aggiunte variabili `--space-sm` / `--space-md` / `--space-lg` in `:root` (`night_mode.css`); `list_div.css` aggiornato per usarle.
 
 ### Template e duplicazione
-- **Pattern HTML ripetuto nei blog post** — ogni blog post ha lo stesso markup per TOC, TL;DR, footer. Creare un template base da cui partire quando si scrive un nuovo post.
+- ~~**Pattern HTML ripetuto nei blog post**~~ — **COMPLETATO**: creato `blogPosts/_template.html` con struttura base (head, TOC, TL;DR, sezioni H2/H3, callout commentati).
 - **Icone social** — lo stesso pattern `<a><img class="icon animated_img"></a>` appare in `index.html` e `mainPages/Blog_pages.html`. Se dovesse comparire in altre pagine, considerare un componente condiviso.
 
 ### Performance
 - **12 file CSS separati** — caricamento di 12 `<link>` separati per ogni pagina. Valutare un bundle minificato per produzione (opzionale su un sito statico piccolo).
-- **Immagini icone** — le versioni `_white.png` delle icone social non sono più usate (sostituiti da CSS filter). Possono essere rimosse da `img/icon/`.
+- ~~**Immagini icone**~~ — **INVESTIGATO, NON RIMUOVERE**: `external-link_white.png` è usata in `night_mode.css` (link hover), e le altre (`linkedin_white.png`, `Bluesky_white.png`, `X_white.png`, `github_white.png`, `rss_white.png`) sono usate in `mainPages/colophon.html`. Non sono eliminabili.
 
 ---
 
