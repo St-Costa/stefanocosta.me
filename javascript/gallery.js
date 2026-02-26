@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const prev = container.querySelector(".prev");
     const next = container.querySelector(".next");
 
+    if (!slides.length || !prev || !next) return; // Guard: incomplete slideshow markup
+
     function showSlide(n) {
       slideIndex = (n + slides.length) % slides.length;
 
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const img = slides[slideIndex].querySelector("img");
-      caption.textContent = img ? img.alt : "";
+      if (caption) caption.textContent = img ? img.alt : "";
     }
 
     // Click events
@@ -41,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     prev.addEventListener("keydown", handleKeydown);
     next.addEventListener("keydown", handleKeydown);
 
-    // Inizializza slideshow
     showSlide(0);
   });
 });
