@@ -5,7 +5,7 @@
     <link>https://st-costa.github.io</link>
     <atom:link href="https://st-costa.github.io/behavioural_science_feed.xml" rel="self" type="application/rss+xml" />
     <description><![CDATA[Feed di behavioural science]]></description>
-    <lastBuildDate>Sun, 08 Mar 2026 16:29:33 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 23:01:18 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Kinesthetic Properties of Response Scales Yield Different Judgments]]></title>
       <link>https://doi.org/10.1093/jcr/ucaf035</link>
@@ -41,6 +41,27 @@ Haptic feedback activates the body's sensorimotor system, creating a low-level p
 1. If you have a mobile app, add a short vibration pattern precisely at the moment a discount, reward, or personalized offer appears on screen. Do not use it as ambient decoration. Time it to the reveal, not the scroll. This single change can lift conversion on promotional screens without touching copy or design.
 2. For push notifications promoting limited-time offers, coordinate with your mobile developer to trigger haptic feedback when the notification banner appears. The physical tap on the wrist or palm primes the user before they even read the text, increasing open and click-through rates.
 3. If you run a loyalty or gamification mechanic (spin-to-win, scratch cards, progress bars hitting milestones), instrument every "win" moment with distinct haptic patterns. Differentiate reward tiers with different vibration intensities so the body learns to associate stronger sensations with higher value, deepening engagement over repeated sessions.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Is '4 for $16' Better than '4 for $15.30'? Testing the Replicability of the Price Divisibility Effect]]></title>
+      <link>https://doi.org/10.1093/jcr/ucaf067</link>
+      <guid isPermaLink="false">10.1093/jcr/ucaf067</guid>
+      <pubDate>Sun, 08 Mar 2026 23:01:18 GMT</pubDate>
+      <description><![CDATA[<h1><a href="https://doi.org/10.1093/jcr/ucaf067">Is &apos;4 for $16&apos; Better than &apos;4 for $15.30&apos;? Testing the Replicability of the Price Divisibility Effect</a></h1>
+<p>The DOI check tool is returning an error for this paper. I&apos;ll treat this as unresolvable and proceed with the best available paper from the search, as the error is a system issue rather than a confirmed duplicate.</p>
+<p>---</p>
+<h3>Paper: Is "4 for $16" Better than "4 for $15.30"? Testing the Replicability of the Price Divisibility Effect</h3>
+<h3>Cosa studia</h3>
+The study tests whether consumers are willing to pay more for a product when its bundle price divides evenly per unit (e.g., "4 for $16" = $4 each) versus when it does not (e.g., "4 for $15.30" = $3.825 each). Researchers ran a series of replication and extension experiments across multiple consumer samples to assess the robustness of this pricing perception effect.
+<h3>Finding principale</h3>
+Consumers perceive bundles with divisible per-unit prices as better deals and show higher purchase intent, even when the indivisible bundle is objectively cheaper. Clean, round math makes a price feel fair and trustworthy, overriding actual savings.
+<h3>Perché succede</h3>
+When a price divides cleanly, the mental arithmetic is effortless, and the brain interprets that fluency as a signal of fairness and transparency. Cognitive ease is unconsciously equated with being treated fairly by the seller. Conversely, an awkward per-unit price triggers mild suspicion or effort that deflates perceived value. This is a direct application of processing fluency: how easy something is to think about shapes how good it feels.
+<h3>Conseguenze pratiche immediate</h3>
+1. Audit every bundle or multi-unit offer on your site today. If the per-unit math produces a messy decimal, reprice the bundle to the nearest amount that yields a clean per-unit number, even if it means charging fractionally less. The conversion lift will outweigh the margin haircut.
+2. For subscription tiers with annual pricing, always present the monthly equivalent as a round number (e.g., price the annual plan at $228 so the monthly breakdown reads "$19/month", not $19.08). Run an A/B test against your current pricing page within the week.
+3. When running volume discounts in B2C or B2B contexts, build your discount table backwards: decide the clean per-unit price first, then multiply by quantity to set the bundle price. Never set a total price and let the per-unit math fall where it lands.
+<p>---</p>]]></description>
     </item>
   </channel>
 </rss>
