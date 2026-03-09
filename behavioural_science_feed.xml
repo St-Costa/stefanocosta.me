@@ -5,43 +5,7 @@
     <link>https://st-costa.github.io</link>
     <atom:link href="https://st-costa.github.io/behavioural_science_feed.xml" rel="self" type="application/rss+xml" />
     <description><![CDATA[Feed di behavioural science]]></description>
-    <lastBuildDate>Sun, 08 Mar 2026 23:01:18 GMT</lastBuildDate>
-    <item>
-      <title><![CDATA[Kinesthetic Properties of Response Scales Yield Different Judgments]]></title>
-      <link>https://doi.org/10.1093/jcr/ucaf035</link>
-      <guid isPermaLink="false">10.1093/jcr/ucaf035</guid>
-      <pubDate>Sun, 08 Mar 2026 16:24:53 GMT</pubDate>
-      <description><![CDATA[<h1><a href="https://doi.org/10.1093/jcr/ucaf035">Kinesthetic Properties of Response Scales Yield Different Judgments</a></h1>
-<h3>Paper: Kinesthetic Properties of Response Scales Yield Different Judgments</h3>
-<h3>Cosa studia</h3>
-Researchers tested how the physical movement required to interact with a digital interface (swiping, scrolling, tapping) changes what consumers pay attention to and how they evaluate products. Multiple lab and online experiments were run across hundreds of participants using different interface types.
-<h3>Finding principale</h3>
-The way a consumer physically interacts with a rating or response scale shifts which product attributes they weight most heavily. A swipe gesture pulls attention toward holistic, emotional impressions. A tap or click pulls attention toward specific, analytical features. Same product, same consumer, different interface movement, different judgment.
-<h3>Perché succede</h3>
-The body does not just execute decisions, it shapes them. Kinesthetic movements activate different cognitive modes: fluid, continuous gestures like swiping engage more global, affective processing, while discrete, punctuated actions like tapping trigger local, feature-by-feature analysis. This is a form of embodied cognition where motor input bleeds into mental processing. Consumers are entirely unaware this is happening, which makes the effect both robust and hard to self-correct.
-<h3>Conseguenze pratiche immediate</h3>
-1. If your product sells on emotional or experiential value (fashion, travel, food), design your mobile checkout and review flows around swipe-based interactions rather than tap-based ones. You will get evaluations that favor the feeling of the product over its specs, which is exactly where you win.
-2. If you sell on rational superiority (SaaS, hardware, supplements with clinical backing), default your product comparison pages and rating tools to tap or click interactions. This activates the feature-by-feature thinking that makes your advantages land harder.
-3. Before your next A/B test on pricing or product pages, audit the interaction mechanics of each variant, not just the copy or visuals. A layout change that also changes the dominant gesture type is a confound that will corrupt your results and mislead your team.]]></description>
-    </item>
-    <item>
-      <title><![CDATA[How Mobile Vibrations Shape Reward Response and Consumer Behavior]]></title>
-      <link>https://doi.org/10.1093/jcr/ucaf025</link>
-      <guid isPermaLink="false">10.1093/jcr/ucaf025</guid>
-      <pubDate>Sun, 08 Mar 2026 16:29:33 GMT</pubDate>
-      <description><![CDATA[<h1><a href="https://doi.org/10.1093/jcr/ucaf025">How Mobile Vibrations Shape Reward Response and Consumer Behavior</a></h1>
-<h3>Paper: How Mobile Vibrations Shape Reward Response and Consumer Behavior</h3>
-<h3>Cosa studia</h3>
-Researchers investigated how haptic (vibrotactile) feedback from mobile devices influences consumers' psychological reward responses and downstream purchasing behavior. Across multiple lab and field experiments, participants interacted with mobile interfaces that either delivered or withheld vibration feedback during engagement with promotional offers and product evaluations.
-<h3>Finding principale</h3>
-When a mobile app or notification delivers a brief vibration at the moment of a reward or offer reveal, consumers show a measurably stronger reward response, rate products more favorably, and are more likely to complete a purchase compared to identical experiences without haptic feedback.
-<h3>Perché succede</h3>
-Haptic feedback activates the body's sensorimotor system, creating a low-level physical signal that the brain interprets as salience and significance. Because the brain bundles bodily sensations with ongoing cognitive appraisals, a vibration cue at the right moment inflates the perceived value of whatever is being presented. This is embodied cognition in action: the body is not a passive receiver of decisions, it actively shapes them. The effect is especially potent on mobile because the device is held in the hand, making the tactile channel always open and primed.
-<h3>Conseguenze pratiche immediate</h3>
-1. If you have a mobile app, add a short vibration pattern precisely at the moment a discount, reward, or personalized offer appears on screen. Do not use it as ambient decoration. Time it to the reveal, not the scroll. This single change can lift conversion on promotional screens without touching copy or design.
-2. For push notifications promoting limited-time offers, coordinate with your mobile developer to trigger haptic feedback when the notification banner appears. The physical tap on the wrist or palm primes the user before they even read the text, increasing open and click-through rates.
-3. If you run a loyalty or gamification mechanic (spin-to-win, scratch cards, progress bars hitting milestones), instrument every "win" moment with distinct haptic patterns. Differentiate reward tiers with different vibration intensities so the body learns to associate stronger sensations with higher value, deepening engagement over repeated sessions.]]></description>
-    </item>
+    <lastBuildDate>Mon, 09 Mar 2026 10:15:35 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Is '4 for $16' Better than '4 for $15.30'? Testing the Replicability of the Price Divisibility Effect]]></title>
       <link>https://doi.org/10.1093/jcr/ucaf067</link>
@@ -62,6 +26,14 @@ When a price divides cleanly, the mental arithmetic is effortless, and the brain
 2. For subscription tiers with annual pricing, always present the monthly equivalent as a round number (e.g., price the annual plan at $228 so the monthly breakdown reads "$19/month", not $19.08). Run an A/B test against your current pricing page within the week.
 3. When running volume discounts in B2C or B2B contexts, build your discount table backwards: decide the clean per-unit price first, then multiply by quantity to set the bundle price. Never set a total price and let the per-unit math fall where it lands.
 <p>---</p>]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Is '4 for $16' Better than '4 for $15.30'? Testing the Replicability of the Price Divisibility Effect.md]]></title>
+      <link>https://api.raindrop.io/v2/raindrop/1636001109/file?type=text/markdown</link>
+      <guid isPermaLink="false">https://api.raindrop.io/v2/raindrop/1636001109/file?type=text/markdown</guid>
+      <pubDate>Mon, 09 Mar 2026 10:15:27 GMT</pubDate>
+      <description><![CDATA[<h1><a href="https://api.raindrop.io/v2/raindrop/1636001109/file?type=text/markdown">Is &apos;4 for $16&apos; Better than &apos;4 for $15.30&apos;? Testing the Replicability of the Price Divisibility Effect.md</a></h1>
+<p>https://api.raindrop.io/v2/raindrop/1636001109/file?type=text/markdown</p>]]></description>
     </item>
   </channel>
 </rss>
