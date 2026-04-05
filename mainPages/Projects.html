@@ -34,6 +34,24 @@
         </p>
     </div>
 
+    <div class="list_div bottom_space_big" id="HomeServer">
+        <h3 class="inline">Home Server,</h3>
+        <h4 class="inline"><i>self-hosted infrastructure on a repurposed laptop</i></h4>
+        <h5 class="left not_so_bold bottom_space"></h5>
+        <p class="bottom_space justify">
+            I wanted to stop depending on cloud services for my personal data: photos, documents, music, books, finances. Instead of buying dedicated hardware, I repurposed an old Lenovo laptop (i7-8550U, 12GB RAM, 1TB NVMe + 2TB HDD) as a Debian server.
+            <br>
+            The server runs ~20 Docker services covering media (<a href="https://immich.app/" target="_blank">Immich</a>, <a href="https://www.navidrome.org/" target="_blank">Navidrome</a>, <a href="https://www.kavitareader.com/" target="_blank">Kavita</a>), productivity (<a href="https://docs.paperless-ngx.com/" target="_blank">Paperless-ngx</a>, <a href="https://paisa.fyi/" target="_blank">Paisa</a>, <a href="#DietPlanner2">DietPlanner</a>), and media tracking (<a href="https://github.com/FuzzyGrim/Yamtrack" target="_blank">Yamtrack</a>).
+            Some services I built myself to fill gaps (locally-built images triggered by cron): Paisa Input is a mobile-first Flask micro-app that lets me log expenses from my phone into Paisa's ledger file; YT Highlights is a Python script that pulls YouTube RSS feeds, extracts transcripts, sends them to Claude for highlights, and publishes the result as an RSS feed.
+            <br>
+            The server has no public IP (ISP behind CGNAT), all access goes through <a href="https://tailscale.com/" target="_blank">Tailscale</a>. This is the foundation of an 8-layer security architecture: Tailscale with tag-based ACLs, <a href="https://wiki.ubuntu.com/UncomplicatedFirewall" target="_blank">UFW</a> firewall, <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">AdGuard Home</a> for DNS-level ad/tracker blocking across all devices, <a href="https://mullvad.net/" target="_blank">Mullvad</a> DoH, <a href="https://github.com/fail2ban/fail2ban" target="_blank">Fail2ban</a> on SSH, kernel-level audit logging via auditd, <a href="https://nuetzlich.net/gocryptfs/" target="_blank">gocryptfs</a> encryption for sensitive documents, and a real-time container whitelist that alerts me if an unauthorized Docker container starts.
+            <br>
+            Every script and service reports to <a href="https://ntfy.sh/" target="_blank">ntfy</a>. About 15 monitoring scripts cover everything from disk space and CPU temperature to kernel errors and SSH logins, all running on cron or as systemd services. <a href="https://github.com/louislam/uptime-kuma" target="_blank">Uptime Kuma</a> checks every service endpoint every 60 seconds, <a href="https://github.com/AnalogJ/scrutiny" target="_blank">Scrutiny</a> tracks disk SMART attributes with historical trends, and <a href="https://www.netdata.cloud/" target="_blank">Netdata</a> handles real-time system metrics with auto-discovery of Postgres and Redis instances. I also can shut down or reboot the server with a tap from my phone through a custom ntfy listener.
+            <br>
+            Backups follow the 3-2-1 rule: <a href="https://www.borgbackup.org/" target="_blank">Borg</a> (encrypted, deduplicated, compressed) to a local HDD repo, then <a href="https://rclone.org/" target="_blank">rclone</a> to <a href="https://www.backblaze.com/cloud-storage" target="_blank">Backblaze B2</a> offsite. The nightly job dumps the Immich Postgres database, archives everything, prunes old snapshots, and syncs to B2. A weekly integrity check verifies the Borg repository.
+        </p>
+    </div>
+
 
     <div class="list_div bottom_space_big" id="DietPlanner2">
         <h3 class="inline">DietPlanner 2.0,</h3>
