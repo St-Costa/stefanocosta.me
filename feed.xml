@@ -5,8 +5,29 @@
     <title>YT Highlights</title>
     <link>https://st-costa.github.io</link>
     <description>AI-generated highlights from YouTube videos</description>
-    <lastBuildDate>Wed, 08 Apr 2026 22:25:04 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 09:56:41 +0000</lastBuildDate>
     <atom:link href="https://st-costa.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Reacting to My First Videos 10 Years Later</title>
+      <link>https://www.youtube.com/watch?v=Q8xXSMe8E4Q</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Q8xXSMe8E4Q</guid>
+      <pubDate>Thu, 09 Apr 2026 01:04:35 +0000</pubDate>
+      <dc:creator>Alex Hormozi</dc:creator>
+      <description><![CDATA[
+<p><strong>Reacting to My First Videos 10 Years Later</strong> — Alex Hormozi</p>
+<hr/>
+<h2>Amore Versus Disciplina nel Fitness</h2>
+<p>Nel settore del fitness, c'è una tendenza a enfatizzare eccessivamente la disciplina e la durezza, con messaggi come "stringi i denti" e "mangia sano o muori". Tuttavia, questo approccio fraintende completamente il vero significato della motivazione. L'equilibrio tra amore per se stessi e disciplina è fondamentale per il successo a lungo termine. La disciplina senza amore diventa insostenibile, mentre l'amore senza disciplina manca di direzione. Il vero cambiamento avviene quando combini entrambi gli elementi, creando una relazione positiva con il tuo corpo e i tuoi obiettivi di fitness.</p>
+<h2>L'Importanza del Monitoraggio dei Progressi</h2>
+<p>Misurare i progressi è essenziale per tracciare i risultati e apportare aggiustamenti significativi al piano nutrizionale e di allenamento. Tracciare più variabili possibili fornisce un quadro più completo della tua trasformazione. Esistono diversi strumenti come le macchine per misurare la composizione corporea e i dispositivi portatili che utilizzano l'impedenza elettrica. Comprendere come funzionano questi strumenti e come il corpo immagazzina acqua nei muscoli e nel fegato ti aiuta a interpretare correttamente i dati e a non farti scoraggiare dalle fluttuazioni normali.</p>
+<h2>Esecuzione Batte la Pianificazione Perfetta</h2>
+<p>Molte persone spreca tempo a creare piani dettagliatissimi prima di iniziare, ma la realtà mostra che l'esecuzione è ciò che conta veramente. Come disse un generale tedesco, "nessun piano sopravvive al primo contatto con il nemico". Quando inizi effettivamente a fare qualcosa, il tuo piano cambierà inevitabilmente. Non è necessario avere una strategia perfettamente elaborata; basta iniziare con un'idea generale, adattarsi mentre procedi e imparare da persone reali. La maggior parte del successo deriva dalla capacità di adattarsi rapidamente piuttosto che dalla perfezione iniziale.</p>
+<h2>Dal Servizio Gratuito a un Modello di Business Redditizio</h2>
+<p>Un approccio innovativo per lanciare un nuovo servizio è trovare clienti, promettere loro valore significativo e rimanere impegnato fino al loro completo soddisfacimento. L'autore ha iniziato a aiutare le palestre a lanciare i loro servizi gratuitamente, dividendo i risultati ottenuti. Dopo una presentazione, un potenziale cliente gli ha chiesto di comprare qualcosa da lui, senza nemmeno sapere il prezzo. Questa comunicazione autentica e incentrata sul valore ha trasformato quella breve conversazione in un'intera nuova linea di business. In un mese, ha lanciato tre palestre diverse, dimostrando che fornire valore reale crea opportunità inaspettate.</p>
+<h2>Risorse Gratuite per Aspiranti Imprenditori</h2>
+<p>Per chi inizia nel business, sono disponibili risorse straordinariamente economiche che insegnano le competenze fondamentali. Un pacchetto include tre libri che spiegano cosa vendere, come far scoprire il prodotto ai clienti e come monetizzare, oltre a trenta giorni di formazione online. L'intero pacchetto, compresi i libri e la spedizione, costa soltanto sedici dollari, un prezzo così basso che l'azienda perde denaro su ogni vendita. Questo è presentato come un dono agli aspiranti imprenditori che desiderano iniziare il loro percorso nel business.</p>
+      ]]></description>
+    </item>
     <item>
       <title>Trump alla fine ha rinunciato all’attacco finale all’Iran?</title>
       <link>https://www.youtube.com/watch?v=601sOJuf3OY</link>
@@ -1080,29 +1101,6 @@
 <p>La tecnica utilizza un meccanismo matematico chiamato attenzione temporale media che media i pixel da più fotogrammi per garantire che colori e linee corrispondano perfettamente nel tempo. Questo approccio produce leggermente meno nitidezza rispetto all'input originale perché l'averaging dei pezzi leggermente disallineati ammorbidisce i dettagli fini, ma il beneficio è una stabilità visiva senza sfarfallii, un compromesso considerato equo dalla comunità scientifica.</p>
 <h2>Identificazione intelligente di ombre e movimenti</h2>
 <p>Il sistema distingue tra oggetti da rimuovere e effetti da conservare osservando il movimento temporale: una'ombra che si muove insieme al cane viene rimossa, mentre l'ombra della panchina che rimane ferma viene conservata. Questa capacità di riconoscere quali elementi sono magnetically legati insieme permette di mantenere gli effetti di sfondo legittimi mentre si eliminano solo quelli associati all'oggetto rimosso.</p>
-      ]]></description>
-    </item>
-    <item>
-      <title>New DeepSeek Research - The Future Is Here!</title>
-      <link>https://www.youtube.com/watch?v=fFL7la73RO4</link>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=fFL7la73RO4</guid>
-      <pubDate>Wed, 04 Feb 2026 13:29:19 +0000</pubDate>
-      <dc:creator>Two Minute Papers</dc:creator>
-      <description><![CDATA[
-<p><strong>New DeepSeek Research - The Future Is Here!</strong> — Two Minute Papers</p>
-<hr/>
-<h2>La ricetta aperta di DeepSeek per l'intelligenza artificiale</h2>
-<p>DeepSeek ha pubblicato un lavoro straordinario che rappresenta il primo tentativo riuscito di condividere completamente la ricetta per creare un'intelligenza simile a ChatGPT in modo completamente gratuito e accessibile. A differenza di OpenAI, che mantiene segrete le parti cruciali del suo sviluppo e nei suoi documenti ufficiali afferma esplicitamente di non divulgare dettagli su architettura, hardware e metodi di addestramento, DeepSeek ha esteso il proprio lavoro da un articolo di venti pagine a un documento di ottanta pagine ricco di informazioni. Questo rappresenta un importante passo verso la scienza aperta e riproducibile, in linea con i principi fondamentali della ricerca scientifica.</p>
-<h2>GRPO: addestramento senza insegnante costoso</h2>
-<p>DeepSeek ha rivoluzionato il processo di addestramento eliminando il metodo tradizionale PPO, che richiede un secondo modello di intelligenza artificiale enorme per valutare ogni singola frase generata dal modello in training. Al contrario, DeepSeek utilizza un approccio radicalmente diverso: il modello genera sedici risposte diverse a una singola domanda, e queste risposte vengono valutate non da un insegnante esterno, ma l'una contro l'altra. Le migliori risposte ricevono un premio mentre quelle scadenti vengono scartate. Questa tecnica, chiamata GRPO (Group Relative Policy Optimization), risulta incredibilmente economica da eseguire su larga scala, eliminando la necessità di un modello insegnante separato e costoso.</p>
-<h2>L'intelligenza artificiale impara a riflettere autonomamente</h2>
-<p>Per la prima volta nella storia della ricerca sull'intelligenza artificiale, gli scienziati hanno osservato un modello che impara naturalmente a pensare prima di rispondere, senza ricevere istruzioni esplicite. Il modello ha iniziato a generare spontaneamente parole come "Aspetta..." o "Fammi ricalcolare", e nel tempo ha scoperto che dedicare più tempo al ragionamento porta a risultati migliori. Di conseguenza ha iniziato a pensare sempre più a lungo autonomamente. Questo rappresenta un momento rivoluzionario dove l'intelligenza artificiale sviluppa una capacità cognitiva fondamentale, simile a come un bambino impara a controllare i propri ragionamenti prima di rispondere.</p>
-<h2>Apprendimento puro senza esempi umani</h2>
-<p>DeepSeek ha provato che l'intelligenza artificiale non ha bisogno di esempi umani per imparare a ragionare: è sufficiente fornirle le regole e lasciarla giocare contro se stessa. In analogia con l'apprendimento degli scacchi, dove giocare milioni di partite contro se stessi supera qualsiasi manuale teorico, il modello è evoluto da un sistema disordinato e balbettante a un genio della matematica completamente autonomo. Ha iniziato con un tasso di successo del quindici percento nella risoluzione di problemi matematici complessi, raggiungendo quasi l'ottanta percento in tempi relativamente brevi. Straordinariamente, il modello ha scoperto nuove strategie che gli umani non gli avevano mai insegnato, rappresentando un vero e proprio salto evolutivo nell'apprendimento artificiale.</p>
-<h2>La distillazione della conoscenza: insegnare ai modelli piccoli</h2>
-<p>DeepSeek ha applicato il concetto di distillazione, analogo a un fisico premio Nobel che scrive un libro di fisica per principianti: il genio è necessario per scrivere il libro, ma non per leggerlo. Gli scienziati hanno preso il loro grande modello R1 e gli hanno fatto generare ottocentomila esempi di come ragiona, creando essenzialmente un manuale. Questo manuale è stato poi utilizzato per insegnare a modelli piccoli e economici come pensare in modo simile. I risultati sono sconvolgenti: un modello con soli sette miliardi di parametri supera il precedente modello GPT-4o di ben sei volte nei problemi matematici di competizione. Questo modello microscopico gira facilmente su molti laptop e probabilmente su smartphone nei prossimi anni, mentre il precedente stato dell'arte richiedeva miliardi di dollari per l'addestramento.</p>
-<h2>Applicare i principi di DeepSeek al miglioramento personale</h2>
-<p>I principi rivoluzionari di DeepSeek non si limitano al miglioramento dell'intelligenza artificiale, ma possono essere applicati direttamente al potenziamento della propria capacità cognitiva. Primo, l'apprendimento per politica di gruppo: invece di accontentarsi della prima idea, si dovrebbero generare cinque soluzioni diverse a un problema e valutarle reciprocamente per scegliere la migliore. Secondo, mettere in pausa il pensiero affrettato: quando si affronta una domanda difficile, non bisogna correre, ma costringere se stessi a dire "aspetta" e verificare il proprio ragionamento doppiamente. Terzo, la pratica supera la teoria: smettere di seguire tutorial infiniti e invece imparare facendo il compito vero, permettendo a se stessi di sbagliare e autocorreggersi. Questi principi dimostrano come la saggezza scientifica possa tradursi in strumenti pratici per il miglioramento personale.</p>
       ]]></description>
     </item>
   </channel>
