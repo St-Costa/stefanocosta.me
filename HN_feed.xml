@@ -5,112 +5,217 @@
   <link>https://news.ycombinator.com</link>
   <description>Selezione giornaliera di articoli Hacker News con riassunto del contenuto e sintesi della discussione nei commenti.</description>
   <language>it</language>
-  <lastBuildDate>Thu, 23 Apr 2026 15:48:10 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 23 Apr 2026 15:56:33 +0000</lastBuildDate>
   <atom:link href="https://st-costa.github.io/HN_feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>I am building a cloud</title>
     <link>https://news.ycombinator.com/item?id=47872324</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Founder of Tailscale lancia exe.dev, un'infrastruttura cloud alternativa costruita intorno a VM semplici e accessibili, criticando l'approccio sovraccomplesso di Kubernetes e il pricing degli hyperscaler. Sostiene che i "default" sbagliati delle VM cloud (IO, CPU, memoria) e i costi di egress traslatissimi sono il vero problema da risolvere, insieme all'esigenza di ambienti semplici per dev di AI e vibe-coded projects.</p><p><strong>Commenti HN:</strong> Il dibattito è diviso tra scettici (molti usano Hetzner/self-hosting e non vedono il valore) e utenti soddisfatti del modello di prezzo prepagato di exe.dev. Emergono critiche su Kubernetes come soluzione "sovrachitettata", richieste di sovranità cloud (UE), e discussioni tecniche su IOPS, networking e nested virtualization. Alcuni notano che il problema è il pricing opaco/predatorio dei cloud tradizionali, non la tecnologia.</p><p><a href="https://news.ycombinator.com/item?id=47872324">Discussione HN</a> (732 punti, 380 commenti) &middot; <a href="https://crawshaw.io/blog/building-a-cloud">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> Il fondatore di Tailscale annuncia exe.dev, una piattaforma cloud alternativa per eseguire applicazioni con un modello di prezzi semplice basato su una quota fissa mensile per compute, dove gli utenti pagano solo il tempo, non la granularità delle risorse. La visione è ridurre la complessità di Kubernetes e i compromessi di prezzo irragionevoli dei cloud provider tradizionali.</p><p><strong>Commenti HN:</strong> I commenti elogiano il modello di prezzo flessibile e il focus su developer experience. Tuttavia, diversi utenti notano l'elevato costo iniziale rispetto a soluzioni DIY (Hetzner, self-hosted), mentre altri difendono Kubernetes come strumento appropriato per casi d'uso complessi. Emerge un dibattito sui costi di egress, sulla viabilità di Oxide hardware come base, e sulla necessità di semplificare l'onboarding: alcuni segnalano che exe.dev potrebbe essere troppo caro per progetti hobby.</p><p><a href="https://news.ycombinator.com/item?id=47872324">Discussione HN</a> (741 punti, 385 commenti) &middot; <a href="https://crawshaw.io/blog/building-a-cloud">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47872324</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
-    <title>Parallel agents in Zed</title>
-    <link>https://news.ycombinator.com/item?id=47866750</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Zed introduce agenti paralleli e worktrees come nuova interfaccia per il flusso di sviluppo AI-assistito, permettendo multipli agenti di lavorare concorrentemente su compiti diversi.</p><p><strong>Commenti HN:</strong> Feedback misto: alcuni apprezzano il modello ma trovano confuso il layout UI (gli agenti paralleli appesantiscono cognitive load); altri preferiscono workstream seriale. Critiche sulla gestione dei pannelli (file tree nascosto), sulla lentezza del language server TypeScript, e sullo scambio di priorità di Zed (collaborative editing vs AI). Alcuni mantengono fedeltà a VSCode/Claude Code per il flusso di lavoro.</p><p><a href="https://news.ycombinator.com/item?id=47866750">Discussione HN</a> (261 punti, 147 commenti) &middot; <a href="https://zed.dev/blog/parallel-agents">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47866750</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <title>Framework Laptop 13 Pro</title>
+    <link>https://news.ycombinator.com/item?id=47852177</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Framework Laptop 13 Pro è un aggiornamento maggiore del Framework 13 con display 2.8K migliore, batteria 17-20 ore su Linux, processori Intel di ultima generazione e memoria LPCAMM2 hot-swappable. L'azienda mantiene la compatibilità all'indietro con le versioni precedenti, anche se con chassis leggermente nuovo.</p><p><strong>Commenti HN:</strong> Consenso generale sull'ottima esperienza di upgrade: ogni componente è retrocompatibile. Critiche riguardano: mancanza di display OLED, keyboard con frecce direzionali piccole (non dev-friendly), assenza di ECC RAM, e confusion sulla battery life riportata solo per Windows (non Linux). Alcuni salutano il device come alternativa credibile al MacBook, altri rimangono scettici sul prezzo complessivo.</p><p><a href="https://news.ycombinator.com/item?id=47852177">Discussione HN</a> (1447 punti, 751 commenti) &middot; <a href="https://frame.work/laptop13pro">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47852177</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
-    <title>Over-editing refers to a model modifying code beyond what is necessary</title>
-    <link>https://news.ycombinator.com/item?id=47866913</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Studio sulla tendenza degli agenti AI di "over-editing" – riscrivere codice oltre il necessario quando chiesti di fare modifiche minori. Analizza come il problema affligge codice reviews e introduce tecniche di training (SFT vs RL) per scoraggiare edit eccessive, mostrando che RL generalizza meglio.</p><p><strong>Commenti HN:</strong> Risonanza alta nel thread: molti hanno esperito il problema (modelli che sequenzializzano codice concorrente, aggiungono validazione inutile, rinominano variabili). Alcuni controbattono che agenti ortodossi a volte peccan per conservatorismo. La radice è teorizzata come artefatto di training (SFT privilegia versioni "pulite"). Prompt preciso + feedback iterativo mitiga il problema.</p><p><a href="https://news.ycombinator.com/item?id=47866913">Discussione HN</a> (391 punti, 232 commenti) &middot; <a href="https://nrehiew.github.io/blog/minimal_editing/">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47866913</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <title>Laws of Software Engineering</title>
+    <link>https://news.ycombinator.com/item?id=47847179</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Lista di leggi, principi e heuristica nel software engineering (DRY, SOLID, premature optimization, YAGNI, ecc) con sezioni di approfondimento su ciascuna.</p><p><strong>Commenti HN:</strong> I commentatori sollevano due temi chiave: (1) molti di questi 'principi' contengono contraddizioni interne e vanno applicati con discernimento contestuale; (2) critiche specifiche al 'premature optimization' come male assoluto quando Knuth intendeva il 3% dei casi critici, non il 97%. Emerge scetticismo su liste generiche di leggi senza guida su quando infrangerle. Alcuni suggeriscono principi mancanti (Chesterton's Fence, Boyd's Law) e notano che SOLID è particolarmente contestato per le astrazioni complicate che introduce.</p><p><a href="https://news.ycombinator.com/item?id=47847179">Discussione HN</a> (1145 punti, 517 commenti) &middot; <a href="https://lawsofsoftwareengineering.com">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47847179</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>John Ternus to become Apple CEO</title>
+    <link>https://news.ycombinator.com/item?id=47840219</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Tim Cook lascia il ruolo di CEO di Apple dopo 15 anni e passa il comando a John Ternus (Chief Technology Officer, storico responsabile dell'architettura hardware e della transizione a Apple Silicon).</p><p><strong>Commenti HN:</strong> Tono complessivamente positivo sulla scelta interna. Il consensus è che Cook ha gestito una transizione logistica impeccabile da un punto di vista finanziario (crescita da ~$350B a $4T), ma il software e le innovazioni strategiche hanno sofferto. Molti sperano che Ternus, rinomato per aver salvato i Mac durante la transizione Intel, possa riportare il focus sull'eccellenza del software. Alcune critiche: incertezza su come affronterà i servizi aggressivi e il bloatware di Cook.</p><p><a href="https://news.ycombinator.com/item?id=47840219">Discussione HN</a> (2166 punti, 1323 commenti) &middot; <a href="https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47840219</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
     <title>ChatGPT Images 2.0</title>
     <link>https://news.ycombinator.com/item?id=47852835</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> OpenAI lancia ChatGPT Images 2.0, modello generativo migliorato per testo in immagini, editing e aderenza ai prompt. Prezzi inferiori a GPT Image 1, miglioramenti su caratteri CJK e test di prompt compliance (piano/griglia contiguità, coordinate).</p><p><strong>Commenti HN:</strong> Test user reporting: forte miglioramento su testo (soprattutto CJK), ma con typo minori. Comparazioni con Gemini/NanoBanana: GPT 2 vince su aderenza ai prompt (~70% vs precedenti modelli), con prezzi competitivi. C2PA watermarking discusso per provenance. Lamentele su costo per token rispetto a Gemini (più caro).</p><p><a href="https://news.ycombinator.com/item?id=47852835">Discussione HN</a> (1021 punti, 949 commenti) &middot; <a href="https://openai.com/index/introducing-chatgpt-images-2-0/">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> OpenAI annuncia GPT-Image-2, il nuovo modello di generazione immagini con miglioramenti significativi in prompt adherence, rendering di testo e dettagli complessi. Supporta tre qualità (Low, Medium, High) con prezzi inferiori rispetto a GPT-Image-1 nei tier inferiori, ma il tier High è più caro di Gemini.</p><p><strong>Commenti HN:</strong> Feedback positivo su qualità e capacità di rendering testo (specialmente cinese). Critiche sui prezzi (2x più caro di Gemini per qualità alta) e sulla mancanza di menzione su editing di immagini existing. Alcuni notano che il modello passa il 'test della tastiera' (può generare layout complessi) ma fallisce ancora su specifiche geometriche (es. grid di cubi). Preoccupazioni etiche riguardo il watermarking e l'identificabilità di contenuti AI.</p><p><a href="https://news.ycombinator.com/item?id=47852835">Discussione HN</a> (1021 punti, 949 commenti) &middot; <a href="https://openai.com/index/introducing-chatgpt-images-2-0/">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47852835</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>SpaceX says it has agreement to acquire Cursor for $60B</title>
+    <link>https://news.ycombinator.com/item?id=47855293</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> SpaceX annuncia un accordo per acquisire Cursor per $60B con opzione di acquisto, oppure pagare $10B per collaborazione sui servizi. L'accordo è presentato come strategico per xAI, che vuole accesso ai dati developer di Cursor e una base installata di utenti enterprise (incluso NVIDIA).</p><p><strong>Commenti HN:</strong> Scetticismo diffuso sul valuation ($60B per un VSCode fork) e sulla razionalità strategica di Musk (paralleli con l'acquisto di Twitter). Molti notano che questa è un'acquahire travestita: il valore sta nei developer/team di Cursor, non nella tecnologia. Commenti su come Cursor stia declinando (Grok non è competitivo, spostamento a un modello proprietario di xAI), e sui timori che l'acquisizione peggiori il prodotto. Alcuni scherzano sugli eccessi di Musk nel 'conglomerato' SpaceX.</p><p><a href="https://news.ycombinator.com/item?id=47855293">Discussione HN</a> (805 punti, 962 commenti) &middot; <a href="https://twitter.com/spacex/status/2046713419978453374">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47855293</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Meta to start capturing employee mouse movements, keystrokes for AI training</title>
+    <link>https://news.ycombinator.com/item?id=47851948</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Meta rivela un piano per catturare mouse movement, keystroke e screenshot dei dipendenti per l'addestramento di modelli AI. I dati non sarebbero usati per performance review ma esclusivamente per training dei modelli.</p><p><strong>Commenti HN:</strong> Reazioni stridule e negative: questa è sorveglianza di massa e costituisce violazione profonda della privacy. Commentatori sottolineano il paradosso di Meta che fa ai propri dipendenti quello che fa ai utenti globali, ma con ancora più invasività. Critiche legali (quale compliance?), etiche (inculca mancanza di empatia) e pratiche (il risentimento poisonerà la cultura aziendale). Alcuni notano che la promessa 'no performance assessment' è incredibile dato il track record di Meta. Sentimento di gratitudine per leggi GDPR in EU.</p><p><a href="https://news.ycombinator.com/item?id=47851948">Discussione HN</a> (783 punti, 520 commenti) &middot; <a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47851948</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Parallel agents in Zed</title>
+    <link>https://news.ycombinator.com/item?id=47866750</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato: Zed, l'editor Rust-based, introduce parallel agents che lavorano concorrentemente su diversi file/worktree, con una nuova UI layout che posiziona il pannello agent al centro.</p><p><strong>Commenti HN:</strong> Discussione divisa su utility e UX. Molti criticano il nuovo layout che nasconde il file tree, rendendo difficile il context. Alcuni non amano i parallel agents (creano cognitive debt eccessivo), preferendo un flusso sequenziale. Tuttavia, ci sono fan di Zed che apprezzano la velocità e la semplicità. Toni su mancanza di vim keybindings completi, lentezza del language server TypeScript, e fuga verso VSCode + Cursor per il vero multi-agent work.</p><p><a href="https://news.ycombinator.com/item?id=47866750">Discussione HN</a> (262 punti, 148 commenti) &middot; <a href="https://zed.dev/blog/parallel-agents">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866750</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
     <title>Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model</title>
     <link>https://news.ycombinator.com/item?id=47863217</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Qwen3.6-27B è un modello denso open-source che raggiunge performance "flagship-level" per coding con solo 27 miliardi parametri, rendendolo eseguibile localmente.</p><p><strong>Commenti HN:</strong> Entusiasmo moderato su efficienza locale: gira su M5 Pro con 128GB RAM (~20GB richiesti), 54 tok/s lettura. Paragoni: gap cloud vs local è diminuito dagli ultimi modelli (Gemma 4), ma Opus/Sonnet ancora più veloci. Preoccupazioni su tokens/sec reale (11 tok/s su M5 in taluni test = ore per compiti complessi). Discussione su Q4_K_M quantization, comparazioni con RTX5090 (~32GB VRAM needed).</p><p><a href="https://news.ycombinator.com/item?id=47863217">Discussione HN</a> (907 punti, 421 commenti) &middot; <a href="https://qwen.ai/blog?id=qwen3.6-27b">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Alibaba annuncia Qwen 3.6 27B, un modello denso open-weight con performance di livello flagship in coding, eseguibile localmente su hardware consumer (M-series Mac, GPU gaming).</p><p><strong>Commenti HN:</strong> Entusiasmo moderato per il benchmarking (comparabile a Opus 4.5) ma scetticismo sulla realtà locale. Commenti riportano velocità deludenti su hardware consumer (11 token/sec su M5 Pro 128GB, vs minuti per Opus via cloud). La qualità effettiva del codice e la gestione del contesto lungo rimangono questionabili. Alcuni celebrano la liberazione dai modelli proprietari, altri ricordano che open-weight non significa 'usabile localmente' senza investimento hardware massiccio.</p><p><a href="https://news.ycombinator.com/item?id=47863217">Discussione HN</a> (907 punti, 421 commenti) &middot; <a href="https://qwen.ai/blog?id=qwen3.6-27b">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47863217</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
-    <title>Our newsroom AI policy</title>
-    <link>https://news.ycombinator.com/item?id=47872452</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Ars Technica pubblica policy interna esplicita sull'uso di AI generativo: NO a AI writing/image gen, limitato usage per research/summarization, responsabilità umana totale su accuracy. Policy è reazione diretta a incident precedente con fabricated quotes.</p><p><strong>Commenti HN:</strong> Critiche di incoerenza: se AI assiste research/summarization, il giornale è responsabile anyway (non riduce burden review). Discussione se policy sia retrofit all'incident precedente. Alcuni notano che senza fact-check esplicito, la policy non impone rigore. Punto: AI in newsroom = reputable source risk.</p><p><a href="https://news.ycombinator.com/item?id=47872452">Discussione HN</a> (127 punti, 91 commenti) &middot; <a href="https://arstechnica.com/staff/2026/04/our-newsroom-ai-policy/">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47872452</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
-  </item>
-  <item>
-    <title>Technical, cognitive, and intent debt</title>
-    <link>https://news.ycombinator.com/item?id=47865661</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Martin Fowler frameworks tre tipi di "debt" software: Technical (codice), Cognitive (comprensione team), Intent (goal/constraints mal-documented). LLM accelerano debt perché codice è generato senza ownership/understanding profondo del team.</p><p><strong>Commenti HN:</strong> Discussione ricca su cognitive load: LLM accelerano timeline ma erodono ownership progressivamente (teleport vs memoria del percorso). Alcuni vedono il problema come artefatto SFT (agent pigri di default). Contradditorio: paper Wharton citato è parzialmente AI-generated, ironico per topic su cognitive surrender. Citati Simon Willison e Intent-Driven Development come approcci alternativi.</p><p><a href="https://news.ycombinator.com/item?id=47865661">Discussione HN</a> (302 punti, 79 commenti) &middot; <a href="https://martinfowler.com/fragments/2026-04-02.html">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47865661</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
-  </item>
-  <item>
-    <title>Scoring Show HN submissions for AI design patterns</title>
-    <link>https://news.ycombinator.com/item?id=47864393</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Articolo quantifica "AI design patterns" in Show HN: colored left borders, Inter font, dark mode con contrasto basso, glassmorphism, feature card grids, em-dashes. Identifica 500 submission e scored for AI-likeness; correlazione con aumento Show HN posts dopo Claude Code popularity.</p><p><strong>Commenti HN:</strong> Debate: non è "male" che AI sia usato per MVP, ma segnale perso (vibe-coding masquerade). Alcuni notano che tool designer _influence_ style (Opus ha archetipo diverso da altri). Critica: se tutto è AI, signal resolution crolla. Controbattuto: side-projects sempre usato tool più popolare (Sketch, Bootstrap, shadcn/ui pre-AI). Design sampling = superficie, non substance.</p><p><a href="https://news.ycombinator.com/item?id=47864393">Discussione HN</a> (320 punti, 231 commenti) &middot; <a href="https://www.adriankrebs.ch/blog/design-slop/">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47864393</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
-  </item>
-  <item>
-    <title>All your agents are going async</title>
-    <link>https://news.ycombinator.com/item?id=47832720</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Articolo sostiene che agenti AI stanno diventando "async by default" – webhook, cron, background workflows – non più chat sincrone. HTTP/SSE è bottleneck per questo modello; Temporal, Vercel WDK, MCP Channels, OpenClaw WhatsApp sono esempi di transport async.</p><p><strong>Commenti HN:</strong> Contraddizione: transport layer (SSE, WebSocket) non è il vero problema; la conversation stream semantics e durability dello stato è. Alcuni notano che Durable Objects/Cloudflare risolvono già questo. Critica: articolo sembra pitch per Ably. Controbattuto: tmux/SSH su $5 server è soluzione sufficiente. Discussione diverge su session state portability tra Claude Code/Cursor/tool diversi.</p><p><a href="https://news.ycombinator.com/item?id=47832720">Discussione HN</a> (131 punti, 77 commenti) &middot; <a href="https://zknill.io/posts/all-your-agents-are-going-async/">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47832720</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
-  </item>
-  <item>
-    <title>Work with the garage door up</title>
-    <link>https://news.ycombinator.com/item?id=47851613</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Articolo celebra "working with the garage door up" – condividere processo creativo in public, non solo output finiti. Anti-marketing: attrae audience interessato, schifo serendipitous collaboration, evita pitching persuasivo. Esempi: Screenshot Saturday, lecture on shower-thoughts, Twitch streams.</p><p><strong>Commenti HN:</strong> Appoggio concettuale forte, ma implementazione difficile: dove pubblicare (Twitter broken, Bluesky/Substack/blog?)? Overhead di documentazione per public sometimes &gt; lavoro effettivo. Trade-off: sharing as reflection tool vs audience-building utility. Alcuni notano che in era AI, open sharing = competitive loss (AI scraping). Nota su versione "letterale" (lavorare con garage door fisicamente aperta con vicini).</p><p><a href="https://news.ycombinator.com/item?id=47851613">Discussione HN</a> (49 punti, 46 commenti) &middot; <a href="https://notes.andymatuschak.org/Work_with_the_garage_door_up">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47851613</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <title>Qwen3.6-Max-Preview: Smarter, Sharper, Still Evolving</title>
+    <link>https://news.ycombinator.com/item?id=47834565</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Alibaba Qwen annuncia Qwen 3.6 Max Preview, un modello proprietario cloud-only con benchmarking superiore su SWE-Bench Pro e altre metriche di coding.</p><p><strong>Commenti HN:</strong> Confronti con Opus 4.5 (non il più recente 4.7), pricing sensato (~$1.3 input, $7.8 output) ma context window effectiveness in pratica rimane incerta. Nota che Chinese providers stanno chiudendo i modelli open-weight e aumentando i prezzi. Commenti su insoddisfazione per il dumping benchmarks obsoleti (Opus 4.6 era out da mesi). Scetticismo generale: sono davvero migliori di Claude o è marketing?</p><p><a href="https://news.ycombinator.com/item?id=47834565">Discussione HN</a> (704 punti, 378 commenti) &middot; <a href="https://qwen.ai/blog?id=qwen3.6-max-preview">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47834565</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
     <title>Workspace Agents in ChatGPT</title>
     <link>https://news.ycombinator.com/item?id=47866860</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: ChatGPT Workspace Agents permettono di deployare agenti aziendali a accesso file/integrazioni, eseguibili in background per team collaboration.</p><p><strong>Commenti HN:</strong> Incerti sull'utilità: se agente automatizza il lavoro, non abbassa carico (solo cambia nature del lavoro: supervising). Notion ha fatto simile prima e meglio (shared context mattering). Domande su sicurezza (data leak via agent), visibility (cosa sta facendo?), coordination (multi-agent state consistency). Mancano docs su sandbox environment e tool access. OpenAI rilascia features a ritmo veloce che scuote startup market.</p><p><a href="https://news.ycombinator.com/item?id=47866860">Discussione HN</a> (147 punti, 58 commenti) &middot; <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: OpenAI annuncia Workspace Agents per ChatGPT Business/Enterprise, agenti che possono eseguire compiti in background su file, Slack, Google Workspace con accesso autorizzato e coordinamento automatico.</p><p><strong>Commenti HN:</strong> Interesse moderato con critiche sulla mancanza di chiarezza nella documentazione. Il concetto di agenti workspace è simile a proposte precedenti (Notion agents, Anthropic) ma OpenAI aggiunge integrazione native. Preoccupazioni: (1) lock-in via ChatGPT Business; (2) mancanza di controllo API-level; (3) come gestire coordinamento tra agenti multipli? Alcuni notano che OpenAI sta lanciando tante micro-feature che rendono difficile seguire la strategia.</p><p><a href="https://news.ycombinator.com/item?id=47866860">Discussione HN</a> (147 punti, 58 commenti) &middot; <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47866860</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Scoring Show HN submissions for AI design patterns</title>
+    <link>https://news.ycombinator.com/item?id=47864393</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Post analizza il design 'vibe-coded' in 500 Show HN submission scorandoli per pattern comuni generati da LLM: Inter everywhere, gradients, VibeCode purple, glassmorphism, colored borders, shadcn/ui. Emerge che ~37% dei progetti hanno segni di AI design.</p><p><strong>Commenti HN:</strong> Discussione sfumata: design vibe-coded non è male, ma segnala mancanza di considerazione e commitment. Veri problemi sono substance (codice non funzionante) e scarsa originalità, non l'estetica in sé. Commentatori notano che ogni era ha design trends standard (10 anni fa era bootstrap, ora è shadcn). Il dibattito verte su se l'AI democratizza il design o se elimina la differenziazione. Alcuni argomenti pro: AI accelera MVP, la selezione di HN filters per substance anyway.</p><p><a href="https://news.ycombinator.com/item?id=47864393">Discussione HN</a> (320 punti, 231 commenti) &middot; <a href="https://www.adriankrebs.ch/blog/design-slop/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47864393</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>All your agents are going async</title>
+    <link>https://news.ycombinator.com/item?id=47832720</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Articolo sostiene che gli agenti AI stanno migrando da interazioni sincrone chat-based a processi asincroni che girano in background con webhook, cron, schedulazione. Il problema è che il transport HTTP (SSE stream) non supporta pattern asincroni, richiedendo nuove infrastrutture.</p><p><strong>Commenti HN:</strong> Toni misti: il problema del transport è reale ma non novità (email, Redis, Temporal fanno questo da anni). Critica che il post è un sales pitch mascherato per Ably pub/sub channels. Commenti sottolineano che WebSocket, durable objects (Cloudflare), e plain old long-lived HTTP connections risolvono già il problema. Alcuni notano che la vera sfida è state management e orchestration tra agenti, non il transport. Discussione su sincronismo vs asincronismo: alcuni preferiscono watching agents in real-time.</p><p><a href="https://news.ycombinator.com/item?id=47832720">Discussione HN</a> (131 punti, 77 commenti) &middot; <a href="https://zknill.io/posts/all-your-agents-are-going-async/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47832720</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Technical, cognitive, and intent debt</title>
+    <link>https://news.ycombinator.com/item?id=47865661</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Martin Fowler sintetizza l'articolo di Margaret-Anne Storey su tre livelli di 'debt' in sistemi software: Technical debt (in codice), Cognitive debt (in persone, erosione della comprensione condivisa), Intent debt (in artefatti, obiettivi originali persi). Gli LLM aggravano cognitive e intent debt perché producono codice velocemente senza context storico.</p><p><strong>Commenti HN:</strong> Consenso che intent debt è il concetto più utile e originale. Discussione su come LLM non manchino di 'laziness' (sono anzi pigri nel senso di defaultare a soluzioni ovvie), ma il vero problema è che producono codice senza ownership intellettuale. Alcuni defendono Claude per essere configurable verso minimal changes. Nota che il paper di Shaw/Nave su System 3 è lui stesso AI-generated, ironia critica.</p><p><a href="https://news.ycombinator.com/item?id=47865661">Discussione HN</a> (303 punti, 79 commenti) &middot; <a href="https://martinfowler.com/fragments/2026-04-02.html">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47865661</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Drunk post: Things I've learned as a senior engineer (2021)</title>
+    <link>https://news.ycombinator.com/item?id=47856535</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Post resurrecting un drunk rant anonimo di 2021 da un data engineer senior con 10 anni di esperienza: best career advice (cambiate azienda), tech stack mattering poco, importance di buona documentazione, dangers di idolatrare persone, e job hopping come motore di crescita.</p><p><strong>Commenti HN:</strong> Nostalgia e validazione per chi si identifica con i consigli (TDD is a cult, dynamic languages sono ok, SQL è importante). Critiche su 'new job in 2 weeks' (non aging well post-2023 tech crash) e sulla mancanza di nuance (job hopping ha trade-off). Commenti toccano imposter syndrome, importanza di mentorship, e presa di coscienza che hero-figure non sono diversi da noi. Un commento nota che il tone drunk-honest è più valore che l'advice stesso.</p><p><a href="https://news.ycombinator.com/item?id=47856535">Discussione HN</a> (337 punti, 243 commenti) &middot; <a href="https://luminousmen.substack.com/p/drunk-post-things-ive-learned-as">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47856535</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
     <title>CrabTrap: An LLM-as-a-judge HTTP proxy to secure agents in production</title>
     <link>https://news.ycombinator.com/item?id=47850212</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Brex apre CrabTrap: proxy HTTP che usa LLM-as-judge per validate agentic actions prima di esecuzione (approvazione policy), separando policy logic da code logic. Genera policy automaticamente da log storico.</p><p><strong>Commenti HN:</strong> Critica converge: LLM-as-judge è security primitiva debole. Vulnerable a prompt injection (se agent lo giudica, lo injetta). Non-deterministic (99% secure = fail grade). Necessità approccio deterministico (ACL). Commentatori notano che credential leak already avvenuta prima che judge veda request. Utile come concept ma insufficient per security production, meglio per audit post-hoc.</p><p><a href="https://news.ycombinator.com/item?id=47850212">Discussione HN</a> (129 punti, 55 commenti) &middot; <a href="https://www.brex.com/crabtrap">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> Brex rilascia CrabTrap, un proxy HTTP che usa LLM-as-judge per valutare se requests di agenti AI violano policy di business prima di eseguirli. LLM giudice genera policy dinamica dagli ultimi giorni di traffic e le applica a nuove requests.</p><p><strong>Commenti HN:</strong> Scetticismo forte: LLM-as-judge è probabilistic e non-deterministic, pericoloso per security. Molti notano che se l'agente puote prompt-inject il judge, il sistema fallisce. Commenti chiedono: 'perché non ACL/deterministic rules?' e 'cosa succede se judge e agent sono lo stesso model family?'. Il consensus è che questo è interessante proof-of-concept ma non production-ready security primitive.</p><p><a href="https://news.ycombinator.com/item?id=47850212">Discussione HN</a> (129 punti, 55 commenti) &middot; <a href="https://www.brex.com/crabtrap">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47850212</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
-    <title>Show HN: Broccoli, one shot coding agent on the cloud</title>
-    <link>https://news.ycombinator.com/item?id=47865642</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Broccoli: harness open-source per agentic coding che trigga da Linear tickets, esegue in cloud sandbox isolato (GCP/Blaxel), apre PR per human review. 100% non-dev tasks, 60% dev tasks shipped via Broccoli in 4 weeks.</p><p><strong>Commenti HN:</strong> Feedback pragmatico: approccio sensato per isolate task context (context switch ridotto). Domande su context drift (ticket stale vs codebase), preview environment orchestration (migrations/seeding DB), comparison con Cursor Cloud Agents. Supporto per Jira richiesto. Uphill battle vs OpenAI/Anthropic su harness quality, ma value prop = self-hosted infra control.</p><p><a href="https://news.ycombinator.com/item?id=47865642">Discussione HN</a> (70 punti, 42 commenti) &middot; <a href="https://github.com/besimple-oss/broccoli">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47865642</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <title>Surveillance Pricing: Exploiting Information Asymmetries</title>
+    <link>https://news.ycombinator.com/item?id=47866395</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Articolo su 'surveillance pricing', cioè algoritmi che usano informazioni asimmetriche (comportamento utente, localizzazione, tipo di device) per applicare prezzi discriminati.</p><p><strong>Commenti HN:</strong> Discussione su legittimità di price discrimination basata su asimmetrie informative. Commenti notano: (1) è illegale se basato su protected classes (razza, genere) ma ok se su disposizione a pagare; (2) economia classica dice che supply/demand e arbitraggio risolvono questo, ma monopoli/network effects bloccano arbitraggio; (3) soluzioni proposte: regulazione FTC, disclosure algoritmi, VPN/privacy tools. Commento che EU ha già leggi anti-questa-cosa.</p><p><a href="https://news.ycombinator.com/item?id=47866395">Discussione HN</a> (118 punti, 49 commenti) &middot; <a href="https://lpeproject.org/blog/surveillance-pricing-exploiting-information-asymmetries/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866395</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Britannica11.org – a structured edition of the 1911 Encyclopædia Britannica</title>
+    <link>https://news.ycombinator.com/item?id=47851885</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> ahaspel ha ricostruito l'Encyclopædia Britannica 11ma edizione (1910-1911) in un sito navigabile con ~37k articoli, cross-reference linkati, e annotazioni. Fully searchable e strutturato a livello di sezioni.</p><p><strong>Commenti HN:</strong> Consenso unanime di ammirazione. Commenti apprezzano il valore storico (pre-WWI, 'ultima enciclopedia prima della grande guerra'), l'odd-yet-informative tone period-appropriate, e l'ironia nel scoprire credenze antiquate (es. masturbazione come male medico). Qualche minor bug report (font doesn't support ℔ symbol, Zurich disambiguation). Interesse in construction methodology (OCR, XML-TEI). Alcuni paragonano a Webster's 1913 e esprimono desiderio di simili ricostruzioni di altre edizioni.</p><p><a href="https://news.ycombinator.com/item?id=47851885">Discussione HN</a> (343 punti, 119 commenti) &middot; <a href="https://britannica11.org/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47851885</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Less human AI agents, please</title>
+    <link>https://news.ycombinator.com/item?id=47845429</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Post critica gli agenti AI per essere 'troppo umani' nel senso di avere bias umanistici: ignorano constraints, negoziatori con la realtà, non terminano task se non vedono path 'standard'. Esempio: agente di coding ignora ripetutamente istruzioni su linguaggio proibito e librerie, poi implementa subset piccolo e scrive solo test.</p><p><strong>Commenti HN:</strong> Validazione forte del problema. Commentatori aggiungono esempi: agenti refusano refactoring noioso anche se specificato, usano libreria proibita comunque, non completano 128 task se iniziano con 16. Discussione su causa: è il modello (transformer non capisce constraints hard), è il prompt (too human-like), o il design (no punishment per violation)? Suggerimenti: più prompt esplicito, agenti meno 'empatici', capability per dire 'non posso'.</p><p><a href="https://news.ycombinator.com/item?id=47845429">Discussione HN</a> (157 punti, 167 commenti) &middot; <a href="https://nial.se/blog/less-human-ai-agents-please/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47845429</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>The handmade beauty of Machine Age data visualizations</title>
+    <link>https://news.ycombinator.com/item?id=47864011</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Benjamin Breen esplora come data visualization moderno è nato nel Machine Age (19th century) grazie a William James (che era artista prima di psicologo), W.E.B. Du Bois, Francis Galton, e altri che hanno combinato design e dati.</p><p><strong>Commenti HN:</strong> Commenti scarni ma positivi. Menzione di Minard's Napoleon March come classico. Interesse in come figure come James usassero drawing per pensiero. Un commento chiede di link a immagini di Napoleon's March senza junk web. Tono: ammirazione per craftsmanship storico e nostalgia per era in cui design e scienza erano vicini.</p><p><a href="https://news.ycombinator.com/item?id=47864011">Discussione HN</a> (47 punti, 4 commenti) &middot; <a href="https://resobscura.substack.com/p/the-handmade-beauty-of-machine-age">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47864011</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
     <title>Another Day Has Come</title>
     <link>https://news.ycombinator.com/item?id=47854365</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> John Gruber celebra transizione pacifica di Tim Cook da CEO a chairman, inedita vs 2011 Jobs transition in condizioni di salute precaria. Cook 15 anni, azienda in "all cylinders", iPhone17/Mac/iPad strong, Cook stepping down on top a 65 anni.</p><p><strong>Commenti HN:</strong> Appoggio bipartisan: Cook steward capace, ha portato Apple a scala globale, Silicon Valley engineering credibilità. Contro-narrativa: AI leadership shakeup, accessibility vs ROI shift nel tempo, batterie non-replaceable (EU regulation conflict). Nota politica: transizione volontaria rara in tech/governo.</p><p><a href="https://news.ycombinator.com/item?id=47854365">Discussione HN</a> (246 punti, 158 commenti) &middot; <a href="https://daringfireball.net/2026/04/another_day_has_come">Articolo originale</a></p>]]></description>
+    <description><![CDATA[<p><strong>Articolo:</strong> John Gruber su transizione CEO di Apple: Tim Cook vs John Ternus. Cook eredita azienda devastata dal cancro di Jobs, la scalda logisticamente a $4T con financial stewardship impeccabile. Ternus prende il testimone in momento di armonia, con opportunity per rischio e innovazione.</p><p><strong>Commenti HN:</strong> Consenso che Cook è GOAT dal punto di vista finanziario ma software/innovation stagnanti. Ternus visto come potenziale game-changer su hardware (M1 transition è suo merito). Alcuni notano timing strategico: iPhone 17 è forte, MacBook Neo selling out, pronto per handoff pacifico. Discussione se Cook è stato limitato da dinamica di mercato o da scelta propria. Commenti su accessibility e values sotto Cook admirabili pero non traducibili in innovation.</p><p><a href="https://news.ycombinator.com/item?id=47854365">Discussione HN</a> (246 punti, 158 commenti) &middot; <a href="https://daringfireball.net/2026/04/another_day_has_come">Articolo originale</a></p>]]></description>
     <guid isPermaLink="false">hn-47854365</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
   <item>
-    <title>An amateur historian's favorite books about the Silk Road</title>
-    <link>https://news.ycombinator.com/item?id=47847153</link>
-    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Amateur historian's favorite books about Silk Road – lista di reading recommendations su rotte commerciali/culturali trans-asiatiche.</p><p><strong>Commenti HN:</strong> Commenti scarni su contenuto; principalmente meta-critica: articolo è promo blog per book dell'autore. Aggiunta: "Silk Roads" Frankopan buon read ma western-centric. Nota storica: "Silk Road" term inventato 1877, non antichità (fonte YouTube). Mancanza di libro "Letters Medieval Jewish Traders" (Goitein, geniza Cairo) su source documentation.</p><p><a href="https://news.ycombinator.com/item?id=47847153">Discussione HN</a> (60 punti, 25 commenti) &middot; <a href="https://bookdna.com/best-books/silk-road">Articolo originale</a></p>]]></description>
-    <guid isPermaLink="false">hn-47847153</guid>
-    <pubDate>Thu, 23 Apr 2026 15:48:10 +0000</pubDate>
+    <title>The great Scouse pasty war</title>
+    <link>https://news.ycombinator.com/item?id=47831085</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato: Articolo sulla 'Scouse pasty war' in Liverpool, riguardante le bakery locali Sayers vs Greggs.</p><p><strong>Commenti HN:</strong> Commenti scarni. Discussione locale su qualità di Sayers (deteriorata) vs Greggs (preferito). Dad joke su come fare 'sausage roll' (push it down a hill). Lamento per paywalling. Commento critico su CEO di Greggs. Poco substantive; principalmente nostalgia locale e chiacchiere su food quality.</p><p><a href="https://news.ycombinator.com/item?id=47831085">Discussione HN</a> (52 punti, 19 commenti) &middot; <a href="https://www.livpost.co.uk/the-great-scouse-pasty-war/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47831085</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Work with the garage door up</title>
+    <link>https://news.ycombinator.com/item?id=47851613</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Post su 'lavorare con il garage aperto' (working in public), riffando su Robin Sloan: condividere processo creativo incrementale invece di lanciare solo risultati finiti. Crea learning in public, feedback, e serendipità vs alto risk di idea theft.</p><p><strong>Commenti HN:</strong> Dibattito su tradeoff: sharing in public è bello per learning e community, ma richiede sforzo documentale e espone idea a competitor copying. Commenti notano difficoltà nel trovare piattaforma giusta post-Twitter (Bluesky, Substack, personal blog?). Alcuni skeptical sul valore di 'open source ethos' vs protezione IP. Discussione pratica su quando documenting per external audience costa più che building stesso.</p><p><a href="https://news.ycombinator.com/item?id=47851613">Discussione HN</a> (49 punti, 46 commenti) &middot; <a href="https://notes.andymatuschak.org/Work_with_the_garage_door_up">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47851613</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Over-editing refers to a model modifying code beyond what is necessary</title>
+    <link>https://news.ycombinator.com/item?id=47866913</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Post descrive 'over-editing' in agenti di coding: tendenza a modificare codice beyond necessario, come refactoring gratuito, quando il task è solo fix o feature add. Studio mostra che SFT su corruzione/correzione crea questo comportamento; RL lo riduce.</p><p><strong>Commenti HN:</strong> Validazione unanime del problema. Esempi: agenti cambiano 10 file quando 1 basterebbe, refactoring non richiesto, aggiungono commenti inutili. Discussione su causa: training data memorizza 'cleaner version = good', non 'minimal diff = good'. Suggerimenti: RL, prompt esplicito 'no refactoring', skill/CLAUDE.md con constraints. Commenti notano che questo è tell di junior engineer e che over-editing compromette integrità del system.</p><p><a href="https://news.ycombinator.com/item?id=47866913">Discussione HN</a> (391 punti, 232 commenti) &middot; <a href="https://nrehiew.github.io/blog/minimal_editing/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866913</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>MNT Reform is an open hardware laptop, designed and assembled in Germany</title>
+    <link>https://news.ycombinator.com/item?id=47834689</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: MNT Reform è un laptop open hardware assemblato in Germania con RK3588, tastiera customizzabile, touchpad ball, batteria 18650, completamente hackable e riparabile.</p><p><strong>Commenti HN:</strong> Apprezzamento dal community hacker. Utenti di Pocket Reform lodano keyboard, hackability, e community. Critiche: RK3588 a €1450 è costoso per performance (ARM, non x86), non competitivo vs ThinkPad usato a 10% prezzo. Discussione su environmental cost (portare più laptop lentamente nel mercato). Interesse in MNT Reform Next (crowdfunding). Alcuni notano mancanza di trackpoint (ThinkPad feature) e lamento per spessore dovuto alle 18650.</p><p><a href="https://news.ycombinator.com/item?id=47834689">Discussione HN</a> (302 punti, 113 commenti) &middot; <a href="http://mnt.stanleylieber.com/reform/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47834689</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Show HN: Mediator.ai – Using Nash bargaining and LLMs to systematize fairness</title>
+    <link>https://news.ycombinator.com/item?id=47835411</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Mediator.ai usa Nash bargaining solution + LLM-as-judge per systematize fair agreement tra parti in disputa (prenup, roommate arrangement, ecc). LLM intervista preferenze, genetic algorithm trova Pareto-optimal outcome.</p><p><strong>Commenti HN:</strong> Scetticismo di mediatori professionali: questo non cattura componente emotiva/umana della mediazione. Obiezioni su power dynamics (modello assume equal bargaining power) e stated vs revealed preferences (persone mentono su quello che vogliono). Però: interest nel concetto per low-stakes disputes, roommate issues. Commenti notano che bakery example ha uno disadvantage, suggerendo algoritmo non perfettamente fair. Interest in tool per HOA disputes, co-parenting disagreement.</p><p><a href="https://news.ycombinator.com/item?id=47835411">Discussione HN</a> (159 punti, 74 commenti) &middot; <a href="https://mediator.ai/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47835411</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Claude Token Counter, now with model comparisons</title>
+    <link>https://news.ycombinator.com/item?id=47829178</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Simon Willison upgrada Claude Token Counter per supportare comparazioni tra modelli. Scoperta: Opus 4.7 tokenizer usa 1.46x tokens vs 4.6 per testo, 3x per immagini ad alta risoluzione. Pricing uguale but effectively ~40% più caro per input; output tokens non misurati.</p><p><strong>Commenti HN:</strong> Frustrazione su 'token inflation' di Anthropic. Discussione se tokenizer migliorato giustifica costo (semantic awareness?). Commenti notano che non è trasparente cosa è cambiato né perché. Alcuni suggeriscono reverse-engineering il tokenizer. Debate su se qualità output compensa aumento token cost. Preoccupazioni su precedente: Anthropic now competing anche su tokenizer efficiency, non solo model quality. Suggerimenti di downsampling immagini o switching back a 4.6.</p><p><a href="https://news.ycombinator.com/item?id=47829178">Discussione HN</a> (224 punti, 84 commenti) &middot; <a href="https://simonwillison.net/2026/Apr/20/claude-token-counts/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47829178</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Show HN: Daemons – we pivoted from building agents to cleaning up after them</title>
+    <link>https://news.ycombinator.com/item?id=47850907</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Daemons è un sistema di 'background processes' AI definiti in file .md che monitorano repo, PR, docs, issues per 'drift' e auto-agiscono senza prompt. Differenza vs agents: Agents = human-initiated, Daemons = self-initiated, scheduled, event-driven.</p><p><strong>Commenti HN:</strong> Interesse da startup per automazione di maintenance. Domande pratiche: come gestire file conflicts tra daemon multipli? Come definire ordering dependencies? Comparazione con hooks GitHub/Claude Code. Alcuni chiedono se è just callable skills di AI. Discussione su trade-off: determinism (schedule, file-locks) vs flexibility (agenti can decide). Commento critico: 'magic hands daemons' senza clear description di come funziona davvero.</p><p><a href="https://news.ycombinator.com/item?id=47850907">Discussione HN</a> (66 punti, 33 commenti) &middot; <a href="https://charlielabs.ai/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47850907</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Show HN: Broccoli, one shot coding agent on the cloud</title>
+    <link>https://news.ycombinator.com/item?id=47865642</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> contenuto non fetchato, dedotto dal titolo: Broccoli è un coding agent cloud-native che si connette a Linear, esegue task triggered da ticket, e crea PR. Built-in GCP, no third-party LLM needed.</p><p><strong>Commenti HN:</strong> Interesse moderato per self-hosted harness pattern (vs dipendenza da OpenAI/Anthropic). Domande pratiche: context drift (ticket says one thing, code changed), preview environments (spinning up services), multi-repo PRs. Commento che interno companies hanno versioni simili ma non open-source. Discussione se questo può competere con Cursor/Claude Code dato che harness proprietario non batte harness del provider. Complimenti per detailed README.</p><p><a href="https://news.ycombinator.com/item?id=47865642">Discussione HN</a> (70 punti, 42 commenti) &middot; <a href="https://github.com/besimple-oss/broccoli">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47865642</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
+  </item>
+  <item>
+    <title>Ibuilt a tiny Unix‑like 'OS' with shell and filesystem for Arduino UNO (2KB RAM)</title>
+    <link>https://news.ycombinator.com/item?id=47851630</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Autore ha buildato tiny Unix-like OS con shell e filesystem per Arduino UNO (2KB RAM), supportando GPIO real-time, pipe, task scheduling.</p><p><strong>Commenti HN:</strong> Ammirazione per constraint challenges. Commenti suggeriscono extension: I2C/SPI/UART support, SD card, dual 328P networking. Nota critica: README scritto da Claude, meno informatico. Interest in Bitlash (Arduino shell precedente). Discussione su scelta di UNO (outdated) vs hardware moderno. Commento su filesystem-come-database. Tono: giocoso respect per making os fit in 2KB.</p><p><a href="https://news.ycombinator.com/item?id=47851630">Discussione HN</a> (92 punti, 18 commenti) &middot; <a href="https://github.com/Arc1011/KernelUNO">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47851630</guid>
+    <pubDate>Thu, 23 Apr 2026 15:56:33 +0000</pubDate>
   </item>
 </channel>
 </rss>
