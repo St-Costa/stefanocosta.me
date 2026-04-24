@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>HN Daily Digest</title>
+  <link>https://news.ycombinator.com</link>
+  <description>Selezione giornaliera di articoli Hacker News con riassunto del contenuto e sintesi della discussione nei commenti.</description>
+  <language>it</language>
+  <lastBuildDate>Thu, 23 Apr 2026 16:09:18 +0000</lastBuildDate>
+  <atom:link href="https://st-costa.github.io/HN_feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>John Ternus to become Apple CEO</title>
+    <link>https://news.ycombinator.com/item?id=47840219</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> John Ternus, Apple's hardware engineering leader, è stato nominato nuovo CEO a partire dal 1° settembre 2026, dopo Tim Cook. Ternus è celebre per il successo di Apple Silicon e la rinascita del Mac con i chip proprietari, e rappresenta un cambio di rotta verso l'innovazione hardware rispetto al focus operativo e finanziario di Cook.</p><p><strong>Commenti HN:</strong> I commentatori sono cautamente ottimisti: molti sperano che Ternus porti l'eccellenza hardware anche al software, dove Apple ha perso qualità negli ultimi anni. Alcuni lodano Cook per aver trasformato Apple da $350B a $4T di market cap, ma criticano il suo conservatorismo e la spinta verso i servizi in-app invasivi. Emerge preoccupazione su software, pricing dei servizi e servizi pesanti che appesantiscono la piattaforma.</p><p><a href="https://news.ycombinator.com/item?id=47840219">Discussione HN</a> (2167 punti, 1323 commenti) &middot; <a href="https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47840219</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Framework Laptop 13 Pro</title>
+    <link>https://news.ycombinator.com/item?id=47852177</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Framework Laptop 13 Pro introduce miglioramenti significativi: chassis più sottile con touchpad aptico, nuovo display 2.8K, batteria 17-20h su Linux, memoria LPCAMM2 user-replaceable, e compatibilità backwards con i vecchi modelli. Rimane un laptop Linux-first con architettura modulare e riparabilità.</p><p><strong>Commenti HN:</strong> I feedback sono generalmente positivi su design e batteria. Criticità ricorrenti: mancanza di tastiera davvero developer-friendly (niente tasti Page Up/Down/Home/End dedicati, solo frecce full-size), no ECC RAM opzionale, display tech non specificato, niente OLED. Alcuni apprezzano il salto da MacBook, altri notano il prezzo ancora alto vs ThinkPad e la mancanza di trackpoint.</p><p><a href="https://news.ycombinator.com/item?id=47852177">Discussione HN</a> (1447 punti, 752 commenti) &middot; <a href="https://frame.work/laptop13pro">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47852177</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Laws of Software Engineering</title>
+    <link>https://news.ycombinator.com/item?id=47847179</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Una raccolta di 56 'leggi' dell'ingegneria del software (Conway's Law, Premature Optimization, Brooks's Law, CAP Theorem, ecc.) organizzate per categoria e livello di esperienza, con schede dettagliate per ognuna. È una risorsa educativa che codifica principi e pattern consolidati nel settore.</p><p><strong>Commenti HN:</strong> Critiche costruttive sulla proliferazione dei 'debt metaphors' in software engineering. Commentatori segnalano che le 'leggi' sono spesso mal applicate (Knuth's Optimization citato senza contesto), contradditorie tra loro, e richiedono giudizio esperto per saperle usare. Molte leggi mancanti (Boyd's Law, Curly's Law, Kernighan's Law). Apprezzato come reference card condivisibile, ma con caveat sulla semantica: sono euristiche, non leggi fisiche.</p><p><a href="https://news.ycombinator.com/item?id=47847179">Discussione HN</a> (1145 punti, 517 commenti) &middot; <a href="https://lawsofsoftwareengineering.com">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47847179</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model</title>
+    <link>https://news.ycombinator.com/item?id=47863217</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Qwen3.6-27B è un modello open-weight da 27 miliardi di parametri dichiarato competitive con Opus 4.5 per coding, eseguibile su hardware consumer (M5 Pro 128GB, RTX5090, ecc.). Lanciato con benchmark forti su SWE-Bench e altri task di coding.</p><p><strong>Commenti HN:</strong> Scetticismo sui benchmark vs Opus: commentatori nota che confronti usano Opus 4.5 (non 4.7) e chiedono prove qualitative reali. Discussione su velocità d'inference locale (11-130 tok/s a seconda config), trade-off batteria/costo vs cloud models (Codex/Opus), e praticità reale. Emerso: già esistono modelli locali buoni (Gemma 4, Qwen 3.5), ma il gap vs frontier models su sessioni lunghe rimane.</p><p><a href="https://news.ycombinator.com/item?id=47863217">Discussione HN</a> (911 punti, 421 commenti) &middot; <a href="https://qwen.ai/blog?id=qwen3.6-27b">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47863217</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>SpaceX says it has agreement to acquire Cursor for $60B</title>
+    <link>https://news.ycombinator.com/item?id=47855293</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> SpaceX ha un accordo per acquisire Cursor per $60B in opzione, o pagare $10B per una partnership di AI model training. L'accordo combina accesso ai dati developer di Cursor con Grok (il modello xAI) per competere con OpenAI/Anthropic nel coding.</p><p><strong>Commenti HN:</strong> Reazioni fortemente negative: molti vedono Cursor in declino e il prezzo insostenibile, altri temono un acquihire mascherato. Commentatori notano che Grok è weak per coding e il deal mira a talent + training data. Preoccupazione su futura integrazione: se Cursor switchasse a Grok degraderebbe. Alcuni vedono il pattern Musk (Twitter→X): acquisizioni caotiche senza chiara visione.</p><p><a href="https://news.ycombinator.com/item?id=47855293">Discussione HN</a> (806 punti, 962 commenti) &middot; <a href="https://twitter.com/spacex/status/2046713419978453374">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47855293</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Meta to start capturing employee mouse movements, keystrokes for AI training</title>
+    <link>https://news.ycombinator.com/item?id=47851948</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Meta inizierà a catturare mouse movement, keystroke e screenshot dei dipendenti per AI training, con promessa che non saranno usati per valutazioni di performance. La raccolta avverrà su app/siti di lavoro inclusi Google Workspace e social media.</p><p><strong>Commenti HN:</strong> Raccapriccio universale: veduta come spyware aziendale che distrugge la fiducia e la privacy psicologica. Commentatori sottolineano l'ipocrisia (Meta stessa invade privacy utenti) e l'impatto sulla dissent interna. Emerge dibattito su legalità: se company property, forse legale negli USA; ma chiaramente tossico culturalmente. Alcuni evocano Player Piano di Vonnegut e modello sweatshop monitorato 24/7.</p><p><a href="https://news.ycombinator.com/item?id=47851948">Discussione HN</a> (784 punti, 520 commenti) &middot; <a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47851948</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>We found a stable Firefox identifier linking all your private Tor identities</title>
+    <link>https://news.ycombinator.com/item?id=47866697</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Ricercatori hanno scoperto un identificatore stabile Firefox basato su IndexedDB che persiste across Tor Browser sessions, permettendo fingerprinting pseudonimo di utenti Tor, anche se non vero deanonimization.</p><p><strong>Commenti HN:</strong> Discussione tecnica su IndexedDB UUID: perché non scoped per origin? Nota che persiste finché Firefox rimane aperto, non su restart. Alcuni dubitano della praticità (JS disabled lo mitiga), altri notano che Tor users esperti già usano Tails (memoria volatile) per evitare questo. Ricerca solida e disclosure responsabile a Mozilla, ma commenti dibattono se reale threat per chi usa Tor correttamente.</p><p><a href="https://news.ycombinator.com/item?id=47866697">Discussione HN</a> (830 punti, 249 commenti) &middot; <a href="https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866697</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Apple fixes bug that cops used to extract deleted chat messages from iPhones</title>
+    <link>https://news.ycombinator.com/item?id=47868867</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Apple ha fixato un bug per cui i dati di notifica push di app (es. Signal) erano cached in clear-text on-device per un mese, permettendo a law enforcement di estrarre messaggi cancellati via Cellebrite.</p><p><strong>Commenti HN:</strong> Il vero problema: push notifications passano through Apple/Google servers non E2E-encrypted, poi cached sul device. Signal offre opzione di notifiche generiche, ma deve opt-in esplicito. Commentatori notano che e2e è solo lato app; il OS layer (Apple) ha accesso alle stringhe di testo al rendering. Emerge che questo è unsolvable finché il notification handler rimane fuori dal sandbox app-level encryption.</p><p><a href="https://news.ycombinator.com/item?id=47868867">Discussione HN</a> (743 punti, 175 commenti) &middot; <a href="https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47868867</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>I am building a cloud</title>
+    <link>https://news.ycombinator.com/item?id=47872324</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Annuncio di exe.dev, una nuova cloud company co-fondata da un fondatore di Tailscale, che costruisce infrastruttura next-gen per sviluppatori e agenti. Critica Kubernetes come 'lipstick on a pig' e propone VMs con pricing fisso, SSH nativo, HTTPS/privacy di default, e agenti inclusi.</p><p><strong>Commenti HN:</strong> Apprezzamento per visione: semplificare e togliere layers. Discussione su se VMs siano ancora il right abstraction (vs containers, Firecracker). Alcuni lodano il pricing flat per compute (paghi per tot CPU/RAM, usi quante VMs vuoi), altri scettici su differentiation vs Hetzner/Fly. Emerso: interest in Oxide hardware. Commenti dibattono trade-off tra semplicità e funzionalità, e se developer really want 'full Linux' o just predicable pricing.</p><p><a href="https://news.ycombinator.com/item?id=47872324">Discussione HN</a> (753 punti, 391 commenti) &middot; <a href="https://crawshaw.io/blog/building-a-cloud">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47872324</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Qwen3.6-Max-Preview: Smarter, Sharper, Still Evolving</title>
+    <link>https://news.ycombinator.com/item?id=47834565</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Qwen3.6-Max-Preview è il modello cloud proprietario di Alibaba, dichiarato competitive con Opus 4.5 per coding e reasoning, con context window grande.</p><p><strong>Commenti HN:</strong> Confronti con Opus 4.5 (non 4.7) sollevato come datato. Discussione su costo ($1.3/$7.8 per 1M token vs Kimi K2.6 più cheap). Apprezzamento per modelli open-weight Qwen locali (32B, 72B) ma curiosità se Max preview vale premium. Notato pattern: Chinese providers ora closed-source, pricing up 100%. Alcuni usano GLM 5.1 o MiniMax M2.5 local/cheap con successo.</p><p><a href="https://news.ycombinator.com/item?id=47834565">Discussione HN</a> (704 punti, 378 commenti) &middot; <a href="https://qwen.ai/blog?id=qwen3.6-max-preview">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47834565</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Kimi K2.6: Advancing open-source coding</title>
+    <link>https://news.ycombinator.com/item?id=47835728</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Kimi K2.6 è un modello di coding open-source (o open-weight) che tenta di avanzare nell'ingegneria del software tramite formal methods e reasoning migliorato.</p><p><strong>Commenti HN:</strong> Commenti scarni e tecnici: dibattito su formal vs informal spec gap, riferimenti a SAT/SMT solvers e letteratura classica (Lamport, Knuth). Alcuni suggeriscono autore ignaro dell'ecosistema formal methods. Discussione poco animata, segnale che 'open-source coding' potrebbe significare qualcosa di tecnico stretto (formal), non broad audience appeal.</p><p><a href="https://news.ycombinator.com/item?id=47835728">Discussione HN</a> (706 punti, 370 commenti) &middot; <a href="https://www.kimi.com/blog/kimi-k2-6">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47835728</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Claude Code to be removed from Anthropic's Pro plan?</title>
+    <link>https://news.ycombinator.com/item?id=47854477</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Anthropic sta testando la rimozione di Claude Code dalla Pro plan ($20), mantenendolo solo su Max ($100+), tramite A/B test su ~2% di new signups. È motivato da capacity constraints e monetization (forzare upgrade a Max).</p><p><strong>Commenti HN:</strong> Backlash forte: sviluppatori minacciano di switch a Codex, GLM, Kimi per costi inferiori e no rate limits. Debate su capacity: Anthropic chiaramente ha problemi di scaling. Criticato l'A/B test come 'reputation speedrun destruction'—per PR disaster, annuncio vago genera anxiety. Alcuni notano è 'solo test' su new signups, non existing Pro, ma il danno di reputation fatto. Paragone a Google: rapid changes erode trust.</p><p><a href="https://news.ycombinator.com/item?id=47854477">Discussione HN</a> (674 punti, 635 commenti) &middot; <a href="https://bsky.app/profile/edzitron.com/post/3mjzxwfx3qs2a">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47854477</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Vercel April 2026 security incident</title>
+    <link>https://news.ycombinator.com/item?id=47824463</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Vercel ha subito un breach: un attacker ha usato un Google Workspace OAuth token compromesso per accedere ai sistemi Vercel e exfiltrare environment variables non-sensitive (dated pre-2024). Source: Context.ai employee infostealer'd, OAuth token sfruttato.</p><p><strong>Commenti HN:</strong> Critica all'announcement vago: Vercel non specifica quali sistemi compromised, impatto reale, timeline. Context.ai ha poi confessato: employee breach in Feb, accesso a Vercel Feb-Apr. Discussione sull'architecture: single OAuth token = accesso a CI, secrets, deploy (CVSS 10-like scenario). Vercel ha history: React2Shell, middleware bypass. Commenti chiedono why Vercel è SPOF per tanti developers; suggest Hetzner self-host.</p><p><a href="https://news.ycombinator.com/item?id=47824463">Discussione HN</a> (866 punti, 491 commenti) &middot; <a href="https://www.bleepingcomputer.com/news/security/vercel-confirms-breach-as-hackers-claim-to-be-selling-stolen-data/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47824463</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>GitHub's fake star economy</title>
+    <link>https://news.ycombinator.com/item?id=47831621</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Indagine mostra che GitHub stars sono facilmente manipolabili (bot, astroturfing); molti VCs usano star count come segnale di traction, creando perverse incentive per le startup di comprarle. È un market failure dove quantity (stars) overshadow quality (actual usage).</p><p><strong>Commenti HN:</strong> Accord ampio che stars ≠ quality o maintainability. Discussione su alternative: PageRank-style scoring (stars by important repos), activity metrics (commits, issues), contributor health. Alcuni difendono: side projects use AI, star è bookmark, VC herd behavior razionale (risk). Emerso: Goodhart's Law (measure become target cease be good measure). Citati esempi di fake star markets già esistenti.</p><p><a href="https://news.ycombinator.com/item?id=47831621">Discussione HN</a> (800 punti, 370 commenti) &middot; <a href="https://awesomeagents.ai/news/github-fake-stars-investigation/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47831621</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>GitHub CLI now collects pseudoanonymous telemetry</title>
+    <link>https://news.ycombinator.com/item?id=47862331</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> GitHub CLI aggiunge pseudonymous telemetry di default (disabilitabile via env var), raccogliendo command name, flags, device_id, is_tty, version, etc. Razionale: capire adoption features e prioritize work.</p><p><strong>Commenti HN:</strong> Obiezioni forti: telemetry in dev tools è tabù (potrebbe leak secrets in CI/CD, security workflows). GitHub già raccoglie request logs server-side; questa è aggressive surveillance ulteriore. Notato che env var per opt-out esiste ma scuro; PR era breve e low-visibility. Alcuni sottolineano: gh è tool critico per CI, default-off era migliore. Microsoft pattern: Embrace, Extend, Extinguish—temutosi che gh diventi mandatory-telemetry soon.</p><p><a href="https://news.ycombinator.com/item?id=47862331">Discussione HN</a> (450 punti, 329 commenti) &middot; <a href="https://cli.github.com/telemetry">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47862331</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Workspace Agents in ChatGPT</title>
+    <link>https://news.ycombinator.com/item?id=47866860</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo e commenti: OpenAI ha lanciato Workspace Agents in ChatGPT, permettendo a team di eseguire agenti paralleli con accesso a files e tools shared, invocabili da ChatGPT o Slack (ma non via API ancora).</p><p><strong>Commenti HN:</strong> Feedback misto: concept è utile (agenti paralleli su progetti), ma implementazione early. Preoccupazioni: come tenere track di cosa fanno? Come coordinano? Security + cost non chiari. Notion already has custom agents, Google Agent CLI launch today. Discussione su se parallel agents è davvero workflow default o exception—alcuni dicono interfere cognitive load. Slack non supportato yet è limitation.</p><p><a href="https://news.ycombinator.com/item?id=47866860">Discussione HN</a> (147 punti, 58 commenti) &middot; <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866860</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Parallel agents in Zed</title>
+    <link>https://news.ycombinator.com/item?id=47866750</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Zed (editor) ha lanciato Parallel Agents feature per eseguire molteplici AI agents in parallel worktrees/project threads con UI migliorata.</p><p><strong>Commenti HN:</strong> Opinioni divise sul layout default: alcuni adorano agent threads on left con file tree navigabile; altri trovano confuso (icons tiny, 'x' unpredictable close behavior). Discussione su se parallel agents è davvero needed (vs sequential deep work). Elogio per Zed speed e agent-agnostic design (vs Claude Code hard lock-in). Critica: UI regression vs VSCode usability, pane management needs work. Alcuni stancato dall'hype agents.</p><p><a href="https://news.ycombinator.com/item?id=47866750">Discussione HN</a> (263 punti, 148 commenti) &middot; <a href="https://zed.dev/blog/parallel-agents">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866750</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Over-editing refers to a model modifying code beyond what is necessary</title>
+    <link>https://news.ycombinator.com/item?id=47866913</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Over-Editing problem: AI coding models (GPT-5.4, Claude) tendono a riscrivere intere funzioni quando fixed bug è 1-line, aggiungendo validazione inutile e rendendo review impossibile. Autore propone SFT + RL per addestrare modelli a edits minimali.</p><p><strong>Commenti HN:</strong> Commenti da pratica: alcuni vedono over-editing spesso (especially su agent debugging), altri raro. Contrario: spesso models are under-editing, non toccano file relazionati che dovrebbe refactor. Discussione su se è training artifact (SFT memorizza 'cleaner version' patterns). Emergono skill specifiche: insistere su 'minimal changes', spiegare justification, far record learnings in project skills reduce repeats. Claude Code su questo improvement di una volta ago secondo alcuni.</p><p><a href="https://news.ycombinator.com/item?id=47866913">Discussione HN</a> (391 punti, 232 commenti) &middot; <a href="https://nrehiew.github.io/blog/minimal_editing/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866913</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Technical, cognitive, and intent debt</title>
+    <link>https://news.ycombinator.com/item?id=47865661</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Martin Fowler riassume framework di Margaret-Anne Storey su 3 tipi di debt: Technical (code), Cognitive (people's understanding), Intent (artifact goals). Con LLMs, Intent debt critico: manca contesto su perché decisions, limiting how humans + agents evolve system. Sistema3 (AI) intro nuovi risk di 'cognitive surrender'.</p><p><strong>Commenti HN:</strong> Apprezzamento per framing: intent debt utile. Dibattito su se è davvero nuovo o rename di 'tech debt' + 'documentation debt'. Critica: articolo linked da Wharton su 'cognitive surrender' è AI-generated e non peer-reviewed—ironic su paper su AI cognition. Alcuni concordano laziness è virtue (minimize code) ma LLMs no—preferiscono be lazy. Discussione su come cargo-cult 'YAGNI' mal-applied today.</p><p><a href="https://news.ycombinator.com/item?id=47865661">Discussione HN</a> (305 punti, 81 commenti) &middot; <a href="https://martinfowler.com/fragments/2026-04-02.html">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47865661</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Less human AI agents, please</title>
+    <link>https://news.ycombinator.com/item?id=47845231</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Articolo chiede meno 'human-like' AI agents, probabilmente argomentando per design più deterministic, predictable, o less-anthropomorphic.</p><p><strong>Commenti HN:</strong> Commenti apparentemente off-topic: iniziano con ricordo di Louis Zocchi (inventor of polyhedral dice, D100). Post su dice fairness, history of Gamescience. Niente discussion di AI agents vs human-like design—segnale che article content non fetchato correttamente o comments sono per wrong hn_id.</p><p><a href="https://news.ycombinator.com/item?id=47845231">Discussione HN</a> (157 punti, 167 commenti) &middot; <a href="https://nial.se/blog/less-human-ai-agents-please/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47845231</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Scoring Show HN submissions for AI design patterns</title>
+    <link>https://news.ycombinator.com/item?id=47864393</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Analisi di 500 Show HN submissions scoring per 'AI design patterns': Inter everywhere, dark mode + grey body text, gradient + glows, colored borders on cards, badge sopra hero, numbered step sequences, shadcn/ui, glassmorphism. Conclusione: many vibe-coded projects hanno recognizable AI aesthetic sterile.</p><p><strong>Commenti HN:</strong> Dibattito su se è problem: some defend (side projects time-constrained, AI legitimate tool), altri lamentano uninspired sameness (Mobbin study shows same too). Emerso: è indizio di 'didn't deeply consider UX', red flag. Polemica su 'proof-of-work' era 2016 (lines of code) vs now (tokens spent on Claude). Design materia per brand differentiation, less se AI agents primary web users. Suggerimenti: Show HN dip March 2026 da /showlim on new accounts.</p><p><a href="https://news.ycombinator.com/item?id=47864393">Discussione HN</a> (321 punti, 231 commenti) &middot; <a href="https://www.adriankrebs.ch/blog/design-slop/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47864393</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>CrabTrap: An LLM-as-a-judge HTTP proxy to secure agents in production</title>
+    <link>https://news.ycombinator.com/item?id=47850212</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> CrabTrap è open-source HTTP proxy 'LLM-as-judge' per secured AI agents: intercetta requests, valuta vs policy, permette/nega real-time. Policy embeddata come JSON escaped per prevent prompt injection.</p><p><strong>Commenti HN:</strong> Preoccupazioni forti su LLM-as-judge: non è security primitive deterministic, può essere prompt-injected, hallucinate. Commenti critici: 'judge from same model family = shared vulnerability'; 'inject at outbound POST already leaked cred'; 'non-deterministic business rules = bad'. Consensus emerge: ACLs e static rules better. Qualcuno nota 'self-signed cert MITM' e design issues. Emerso: non è silver bullet, utile perhaps per early agents but not production-grade security.</p><p><a href="https://news.ycombinator.com/item?id=47850212">Discussione HN</a> (129 punti, 55 commenti) &middot; <a href="https://www.brex.com/crabtrap">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47850212</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Investigation uncovers two sophisticated telecom surveillance campaigns</title>
+    <link>https://news.ycombinator.com/item?id=47874814</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Citizen Lab investigation scopre due sophisticated telecom surveillance campaigns usando compromised third-party Google Workspace OAuth app; uno attribuito a Israeli-based geo-intel provider. Vittime in Russia e altri paesi.</p><p><strong>Commenti HN:</strong> Commenti su surveillance state generale: NSA LOVEINT example, telecom employees stalk exes, Cellebrite tools, etc. Discussione su Israeli surveillance tech capabilities e dark market. Alcuni notano che governoitalic (Russia) semi-permette black market location data; US probably same covertly. Preoccupazione: if compromised OAuth token opens entire person's telecom data. Privacy advocates chiedo regulation, ma skepticism alto that it'll happen.</p><p><a href="https://news.ycombinator.com/item?id=47874814">Discussione HN</a> (285 punti, 92 commenti) &middot; <a href="https://techcrunch.com/2026/04/23/surveillance-vendors-caught-abusing-access-to-telcos-to-track-peoples-phone-locations-researchers-say/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47874814</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Surveillance Pricing: Exploiting Information Asymmetries</title>
+    <link>https://news.ycombinator.com/item?id=47866395</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo: Articolo su 'surveillance pricing'—come retailers usano data collection asimmetrica (age, location, device type, browsing history) per dynamic pricing discriminatorio.</p><p><strong>Commenti HN:</strong> Dibattito su prezzo discriminatorio: Orbitz hotel example (Macs charged more), Uber surge pricing, Amazon variable pricing. Alcuni argument è rational (supply-demand, cost variation), altri it's exploitative (information asymmetry unfair). Discussione su regulation: EU leggi contro this, US FTC weak enforcement. Suggerimenti: mandate transparency algorithm, use VPN/cash/PO box. Nozione che machine learning price discrimination è ethical-neutral tool ma used unethically per extract value.</p><p><a href="https://news.ycombinator.com/item?id=47866395">Discussione HN</a> (118 punti, 49 commenti) &middot; <a href="https://lpeproject.org/blog/surveillance-pricing-exploiting-information-asymmetries/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47866395</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Anthropic takes $5B from Amazon and pledges $100B in cloud spending in return</title>
+    <link>https://news.ycombinator.com/item?id=47848276</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Anthropic riceve $5B investment da Amazon + promette $100B spend AWS over next years. Deal include use di custom Amazon chips (Graviton CPU, Trainium accelerator).</p><p><strong>Commenti HN:</strong> Scetticismo alto: commentatori vedono come 'circular money'—Amazon da $5B che verrà speso da Anthropic back to Amazon (5% rebate effective). Domande sulla unit-economics: come Anthropic giustifica $100B spend se modelli open-source (Qwen, Kimi) sono già competitive? Speculation: models not that profitable yet, VC trying exit before collapse. Alcuni noti: same day announcements by multiple AI labs (Anthropic $5B, OpenAI?) = herd fundraising. Unease che sia house of cards pre-IPO.</p><p><a href="https://news.ycombinator.com/item?id=47848276">Discussione HN</a> (274 punti, 289 commenti) &middot; <a href="https://techcrunch.com/2026/04/20/anthropic-takes-5b-from-amazon-and-pledges-100b-in-cloud-spending-in-return/">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47848276</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Series A for Exe.dev</title>
+    <link>https://news.ycombinator.com/item?id=47865682</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> exe.dev ha raccolto Series A di $35M (Amplify, CRV, HeavyBit) per costruire next-gen cloud per developers + agenti. Differenziatori: SSH nativo, HTTPS/private by default, pricing flat (pay CPU/RAM, run any num VMs), propri datacenter + load balancer + DNS (no layer indirection).</p><p><strong>Commenti HN:</strong> Congrats warm, ma dibattito su differentiation vs Hetzner/Fly.io. Apprezzamento per 'less is more' ethos (vs Kubernetes hype). Alcuni skeptical on 'own datacenter' claim—scalability expensive. Interest in Oxide hardware integration. Discussion su whether VMs right abstraction per agenti. Pricing model flat compute budget praised. Commento: 'better than early Heroku' resonates. Alcuni chiedono WAF, cold start, e specifiche technical. Moderately bullish sentiment.</p><p><a href="https://news.ycombinator.com/item?id=47865682">Discussione HN</a> (18 punti, 5 commenti) &middot; <a href="https://blog.exe.dev/series-a">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47865682</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Anthropic says OpenClaw-style Claude CLI usage is allowed again</title>
+    <link>https://news.ycombinator.com/item?id=47844269</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Contenuto non fetchato, dedotto dal titolo e commenti: Anthropic chiarifica (via staff Twitter) che CLI-style usage (OpenClaw-style) è allowed again, ritrattando earlier confusion/restrictions.</p><p><strong>Commenti HN:</strong> Frustrazione immensa: Anthropic comunicazione incohesive, staff contradict each other Twitter. OpenClaw invest effort based on Boris permission, then hit w/ restrictions days after, now 'allowed again' senza official statement. Damage: users perso trust, switching to Codex/GLM/Kimi. Emerso: confusion tra OAuth credential reuse (allowed) vs API key scraping (banned). Alcuni account still banned no appeal recourse. Narrative: Anthropic burning goodwill fast, shortage capacity forcing pivot to max-only plan, community losing patience.</p><p><a href="https://news.ycombinator.com/item?id=47844269">Discussione HN</a> (506 punti, 294 commenti) &middot; <a href="https://docs.openclaw.ai/providers/anthropic">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47844269</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+  <item>
+    <title>Cal.diy: open-source community edition of cal.com</title>
+    <link>https://news.ycombinator.com/item?id=47852155</link>
+    <description><![CDATA[<p><strong>Articolo:</strong> Cal.com ha lanciato Cal.diy, una community edition open-source aggressivamente scoped down (niente Teams, Organizations, Workflows, SSO, Insights). Avviso: 'not for enterprise/production use'—cambio tono vs quando era vero OSS.</p><p><strong>Commenti HN:</strong> Ironia percepita: Cal.com precedentemente detto OSS on-prem era best per security-sensitive data, ora discourages use. GitHub history contiene full codebase non-castrato—potenziale forking imminente (Valkey/OpenTofu pattern). Commenti: 'liability shield more than community edition'; alcuni dicono Cal.com already had OSS edition, so rebrand? Preoccupazione che community fork supera official soon. Alternate: Calrs (written in Rust) già lancia e 'rocks'; some moving there instead.</p><p><a href="https://news.ycombinator.com/item?id=47852155">Discussione HN</a> (255 punti, 69 commenti) &middot; <a href="https://github.com/calcom/cal.diy">Articolo originale</a></p>]]></description>
+    <guid isPermaLink="false">hn-47852155</guid>
+    <pubDate>Thu, 23 Apr 2026 16:09:18 +0000</pubDate>
+  </item>
+</channel>
+</rss>
