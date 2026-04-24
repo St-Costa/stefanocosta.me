@@ -17,6 +17,23 @@
 
     <h2>2026</h2>
 
+    <div class="list_div bottom_space_big" id="AIContentCuration">
+        <h3 class="inline">AI Content Curation,</h3>
+        <h4 class="inline"><i>AI-curated RSS feeds</i></h4>
+        <h5 class="left not_so_bold bottom_space"><a href="../img/HN_daily_digest_example.jpg">HN Daily Digest example</a></h5>
+        <p class="bottom_space justify">
+            Following many (business, politics, communication...) YouTube channels, several podcasts, and Hacker News requires too many hours a day. As much as I love spending hours on HN, it wasn't sustainable, so I built three services that run on my <a href="#HomeServer">home server</a> and filter and summarize the content for me.
+            <br>
+            <b>YT Highlights</b> pulls the latest videos from my subscribed channels, fetches the transcript (<a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp</a>), and asks Claude to extract the key points.
+            <br>
+            <b>Podcast Highlights</b> does the same for podcasts, both YouTube-hosted (with available transcript) and native RSS (MP3 is downloaded and transcribed locally with <a href="https://github.com/SYSTRAN/faster-whisper" target="_blank">faster-whisper</a>). Surprisingly lightweight as a service, and it spares me the usual share of conversation that doesn't add value.
+            <br>
+            <b>HN Daily Digest</b> fetches the top 200 Hacker News articles, ranks them against my declared interests and picks the 30 most relevant, then pulls the comments and generates a summary of both the article and the discussion. By letting Claude help me define my interests through questions and letting it write the prompt, the filtered posts are remarkably precise: I ran a manual test on 200 articles and it worked perfectly!
+            <br>
+            The highlights become 3 RSS feeds that I read on <a href="https://newsblur.com/" target="_blank">Newsblur</a> (not self-hosted).
+        </p>
+    </div>
+
     <div class="list_div bottom_space_big" id="MyGymApp">
         <h3 class="inline">MyGymApp,</h3>
         <h4 class="inline"><i>Android app</i></h4>
@@ -36,7 +53,7 @@
 
     <div class="list_div bottom_space_big" id="HomeServer">
         <h3 class="inline">Home Server,</h3>
-        <h4 class="inline"><i>self-hosted infrastructure on a repurposed laptop</i></h4>
+        <h4 class="inline"><i>self-hosted on a repurposed laptop</i></h4>
         <h5 class="left not_so_bold bottom_space"></h5>
         <p class="bottom_space justify">
             I wanted to stop depending on cloud services for my personal data: photos, documents, music, books, finances. Instead of buying dedicated hardware, I repurposed an old Lenovo laptop (i7-8550U, 12GB RAM, 1TB NVMe + 2TB HDD) as a Debian server.
