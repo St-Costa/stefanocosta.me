@@ -5,8 +5,25 @@
     <title>YT Highlights</title>
     <link>https://st-costa.github.io</link>
     <description>AI-generated highlights from YouTube videos</description>
-    <lastBuildDate>Fri, 24 Apr 2026 22:22:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 22:23:35 +0000</lastBuildDate>
     <atom:link href="https://st-costa.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>NVIDIA's New AI Broke My Brain</title>
+      <link>https://www.youtube.com/watch?v=Xf_v62TQOx4</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Xf_v62TQOx4</guid>
+      <pubDate>Sat, 25 Apr 2026 17:09:47 +0000</pubDate>
+      <dc:creator>Two Minute Papers</dc:creator>
+      <description><![CDATA[
+<p><strong>NVIDIA's New AI Broke My Brain</strong> — Two Minute Papers</p>
+<hr/>
+<h2>I robot umani imparano da 100 milioni di fotogrammi, non da istruzioni esplicite</h2>
+<p>Il sistema Sonic di NVIDIA è stato addestrato osservando 100 milioni di fotogrammi di movimento umano senza richiedere etichette di azioni create manualmente. Invece di dire al sistema "questo è camminare" o "questo è raccogliere un oggetto", il modello ha imparato autonomamente a riconoscere i modelli di movimento e le transizioni naturali tra i compiti. Questo approccio è fondamentale perché elimina il collo di bottiglia rappresentato dall'etichettatura umana, che è costosa, lenta e spesso incoerente. Il sistema comprime questa diversità disordinata di movimenti umani in "token universali" astratti, concetti condivisi che fungono da linguaggio comune tra input visivi, musicali, testuali e vocali. Questo meccanismo è potente: quando il modello riceve comandi diversi (video di una persona che si muove, musica, o semplice testo), tutti vengono tradotti in questi stessi token universali, permettendo al sistema di generalizzare tra modalità completamente diverse.</p>
+<h2>Una rete neurale da 42 milioni di parametri sostituisce migliaia di ore di addestramento manuale</h2>
+<p>Il modello finale contiene solo 42 milioni di parametri, così piccolo da girare facilmente su uno smartphone senza consumare risorse significative. Questo è straordinario considerando che in precedenza, anche per insegnare a caratteri virtuali semplici in mondi simulati di camminare senza cadere erano necessarie migliaia di tentativi di addestramento. L'addestramento ha richiesto 128 GPU per 3 giorni, ma una volta completato, il prodotto finale è leggero al punto da non richiedere alcun hardware specializzato per l'uso quotidiano. NVIDIA ha reso i modelli disponibili gratuitamente per tutti, rendendo questa ricerca accessibile senza barriere proprietarie.</p>
+<h2>Il modello "root trajectory spring" protegge i robot da movimenti pericolosi</h2>
+<p>Il sistema affronta un problema fondamentale: i robot non si comportano come gli umani e non possono sopportare accelerazioni brusche. Se un utente comanda al robot di girarsi rapidamente, potrebbe danneggiarsi. La soluzione è un modello matematico che ammortizza i comandi improvvisi usando una funzione esponenziale decrescente nel tempo. Man mano che il tempo aumenta, questa funzione si riduce rapidamente a zero, costringendo il robot a raggiungere la posizione target in modo fluido senza oscillare indefinitamente. Il bilanciamento è critico: applicare troppo ammortizzamento rende il robot lento e inefficace, troppo poco lo danneggia.</p>
+      ]]></description>
+    </item>
     <item>
       <title>Helping 6 Business Owners Scale in 33 Minutes</title>
       <link>https://www.youtube.com/watch?v=0EqJD2o-Mnk</link>
@@ -1019,29 +1036,6 @@
 <p>Gli scienziati che hanno riprodotto la tecnica hanno confermato che funziona effettivamente, riducendo la memoria della cache KV del 30-40% e accelerando contemporaneamente l'elaborazione dei prompt di circa il 40%. Questi risultati sono straordinari perché tipicamente ridurre la memoria comporta rallentamenti. Tuttavia, i numeri più ambiziosi pubblicati dai media rappresentano casi ideali e non si applicano universalmente. La tecnica è particolarmente vantaggiosa per chi lavora con contesti molto lunghi, come analisi di documenti PDF voluminosi o film interi.</p>
 <h2>Controversie e Accettazione della Comunità Scientifica</h2>
 <p>Alcuni ricercatori hanno segnalato che il lavoro presenta somiglianze significative con tecniche precedenti e che queste overlap avrebbero meritato una discussione più approfondita. Nonostante iniziali preoccupazioni, il paper è stato eventualmente accettato per la pubblicazione, anche se non tutti i ricercatori concordano sul fatto che le critiche siano state completamente affrontate. Questo dibattito dimostra come la ricerca sull'IA rimanga ancora un campo vibrante dove competenze fondamentali vengono continuamente sviluppate e perfezionate.</p>
-      ]]></description>
-    </item>
-    <item>
-      <title>How Is Everything Outpacing Inflation At The Same Time?</title>
-      <link>https://www.youtube.com/watch?v=yU2raZftgmE</link>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=yU2raZftgmE</guid>
-      <pubDate>Wed, 01 Apr 2026 13:10:32 +0000</pubDate>
-      <dc:creator>How Money Works</dc:creator>
-      <description><![CDATA[
-<p><strong>How Is Everything Outpacing Inflation At The Same Time?</strong> — How Money Works</p>
-<hr/>
-<h2>Il Paradosso dell'Inflazione Misurata e Percepita</h2>
-<p>Secondo il Bureau of Labor Statistics, l'inflazione annuale si aggira intorno al 3% dal 2023, in lento calo verso il 2.5%. Tuttavia, questa cifra non corrisponde alla percezione reale dei consumatori. Quando si esaminano gli acquisti settimanali, è difficile trovare qualcosa che sia aumentato solo del 10% in tre anni. Il disaccordo tra i dati ufficiali e l'esperienza quotidiana suggerisce che il modo in cui misuriamo l'inflazione potrebbe nascondere una realtà più complessa.</p>
-<h2>Problemi nella Metodologia di Aggiustamento Qualitativo</h2>
-<p>L'Ufficio di Statistica utilizza aggiustamenti per la qualità nel calcolo dell'inflazione. Quando un iPhone diventa più costoso ma offre migliori prestazioni, il suo prezzo viene statisticamente ridotto per compensare il miglioramento. Lo stesso accade con i televisori: uno schermo da 65 pollici che era un lusso due decenni fa è ora standard. Sebbene questi aggiustamenti siano teoricamente corretti, molti consumatori pagano prezzi più alti senza beneficiare effettivamente dai miglioramenti tecnologici, creando un divario tra statistica e realtà economica.</p>
-<h2>L'Anomalia dell'Alloggio nel Calcolo dell'Inflazione</h2>
-<p>L'immobiliare rappresenta la categoria più grande nel paniere di consumo, ma viene misurato in modo non intuitivo. Anziché tracciare direttamente i prezzi delle case, il Bureau of Labor Statistics stima l'affitto equivalente che i proprietari potrebbero ricavare. Questo approccio ignora costi essenziali come tasse sulla proprietà, assicurazione, manutenzione e interessi ipotecari. Poiché gli accordi di affitto si sviluppano lentamente, i dati rimangono indietro rispetto alla realtà del mercato immobiliare, non riflettendo l'impatto vero del costo abitativo sulla maggior parte dei consumatori.</p>
-<h2>Il Deterioramento Progressivo della Qualità dei Prodotti</h2>
-<p>La "shitification" rappresenta un problema significativo che non emerge dalle statistiche ufficiali. Le aziende mantengono prezzi stabili riducendo qualità dei materiali, della costruzione o degli ingredienti. Inoltre, la difficile riparabilità dei prodotti e gli aggiornamenti software che rendono l'hardware più vecchio inutilizzabile costringono i consumatori a spendere più denaro. Questo declino qualitativo complessivo dei beni di consumo non è catturato adeguatamente dall'indice dei prezzi al consumo ufficiale.</p>
-<h2>La Strategia dei Prezzi Dinamici e degli Ostacoli all'Accesso</h2>
-<p>Le aziende implementano prezzi dinamici che variano in base al profilo personale e alle abitudini di acquisto di ogni cliente. Un professionista affrettato paga più di un pensionato per lo stesso carrello della spesa. Allo stesso modo, i ristoranti fast food moderni richiedono app scaricate, premi giornalieri e offerte bundle per ottenere prezzi ragionevoli. Questi ostacoli rendono quasi impossibile calcolare quello che il consumatore medio effettivamente paga, poiché il prezzo varia drasticamente in base al profilo di ricchezza e diligenza dell'individuo.</p>
-<h2>L'Impatto Diretto sui Giovani Professionisti</h2>
-<p>Per la maggior parte dei giovani professionisti che guardano questo video, il vero costo della vita aumenta probabilmente molto più rapidamente di quanto suggerisca il dato aggregato di inflazione. La ricerca di aumenti salariali per stare al passo, il mantenimento del potere d'acquisto dei risparmi e l'accettazione di aumenti di prezzo si basano tutti su una misura che non riflette accuratamente la realtà economica quotidiana. Comprendere questi difetti metodologici è cruciale per prendere decisioni finanziarie consapevoli e riconoscere il vero peso delle spese nel proprio bilancio personale.</p>
       ]]></description>
     </item>
   </channel>
