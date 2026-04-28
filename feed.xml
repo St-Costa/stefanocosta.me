@@ -5,8 +5,57 @@
     <title>YT Highlights</title>
     <link>https://st-costa.github.io</link>
     <description>AI-generated highlights from YouTube videos</description>
-    <lastBuildDate>Mon, 27 Apr 2026 22:41:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 22:31:58 +0000</lastBuildDate>
     <atom:link href="https://st-costa.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Il caso Nicole Minetti potrebbe far cadere il governo Meloni?</title>
+      <link>https://www.youtube.com/watch?v=1ICQyh9CO0w</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=1ICQyh9CO0w</guid>
+      <pubDate>Tue, 28 Apr 2026 17:19:09 +0000</pubDate>
+      <dc:creator>Breaking Italy</dc:creator>
+      <description><![CDATA[
+<p><strong>Il caso Nicole Minetti potrebbe far cadere il governo Meloni?</strong> — Breaking Italy</p>
+<hr/>
+<h2>Il Quirinale firma grazie sulla base di documenti falsificati: come il ministro della giustizia rimane scoperto</h2>
+<p>Nicole Minetti, ex politica di Forza Italia e condannata per peculato e favoreggiamento della prostituzione, ha ricevuto la grazia presidenziale a febbraio su spinta del ministro Carlo Nordio e del procuratore generale di Milano. Le motivazioni ufficiali erano umanitarie: Minetti doveva occuparsi di un minore con gravi patologie che richiedevano cure specialistiche al Boston Children's Hospital, impossibili da ottenere in Italia secondo la documentazione presentata.</p>
+<p>Tuttavia, il Fatto Quotidiano ha scoperto che praticamente tutto era falso. L'ospedale di Boston non ha mai visitato il minore. Due centri d'eccellenza italiani (San Raffaele e ospedale di Padova) hanno negato di aver mai trattato questo paziente e hanno confermato che interventi di quel tipo si praticano regolarmente in Italia. Il "minore abbandonato e adottato" in realtà ha genitori biologici ancora vivi, e Minetti ha intentato causa contro di loro per ottenere la piena genitorialità.</p>
+<p>Emerge inoltre che la madre biologica del bambino risulta scomparsa e l'avvocata che seguiva il caso è morta carbonizzata insieme al marito in una vicenda indagata per omicidio. Il Quirinale dichiara di non aver ricevuto queste informazioni, il che lo copre formalmente: la Corte Costituzionale ha stabilito che il presidente agisce solo in base agli atti del Ministero della Giustizia. Ma Nordio, nonostante possieda gli enormi strumenti investigativi del Ministero, si è rivelato meno efficace dei giornalisti nel verificare i fatti. Ora tenta di scaricare la responsabilità sulla sua ex capo di gabinetto Giusy Bartolozzi, già in uscita per altre ragioni.</p>
+<h2>La corsa all'intelligenza artificiale per gli attacchi informatici amplifica il vantaggio geopolitico degli Stati Uniti</h2>
+<p>Anthropic ha sviluppato Mythos, un modello di IA in grado di identificare vulnerabilità zero day (falle sconosciute nei sistemi informatici) e condurre attacchi multi-fase completamente automatizzati senza intervento umano. Quello che richiederebbe a professionisti settimane può essere eseguito in ore.</p>
+<p>Il problema di sicurezza è catastrofico. La cybersecurity tradizionale funziona come un gioco economico: entrare nel sistema deve costare più in tempo e risorse di quello che il proprietario è disposto a investire. Ma quando l'attacco viene automatizzato, quel rapporto salta completamente. Infrastrutture critiche—bancarie, energetiche, finanziarie—potrebbero essere compromesse in tempi impensabili.</p>
+<p>Anthropic ha fornito accesso a Mythos solo agli Stati Uniti e al Regno Unito, creando un vantaggio geopolitico enorme. Tuttavia, Anthropic stessa prevede che altri attori mondiali rilasceranno modelli simili entro 18 mesi. Qui emerge il paradosso pericoloso: mentre tappare le falle richiede lavoro massicchio, effettuare attacchi è molto più semplice. Come con le fake news, è sempre più facile creare il danno che difendersi da esso. Questo spostamento nei rapporti di forza tra attaccanti e difensori potrebbe riscrivere gli equilibri geopolitici globali, proprio come i droni commerciali hanno trasformato la guerra tradizionale in pochi anni.</p>
+      ]]></description>
+    </item>
+    <item>
+      <title>Solved: The Bug That Haunted AI Video For Years</title>
+      <link>https://www.youtube.com/watch?v=yzajLZXh9JU</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=yzajLZXh9JU</guid>
+      <pubDate>Tue, 28 Apr 2026 17:16:01 +0000</pubDate>
+      <dc:creator>Two Minute Papers</dc:creator>
+      <description><![CDATA[
+<p><strong>Solved: The Bug That Haunted AI Video For Years</strong> — Two Minute Papers</p>
+<hr/>
+<h2>Il movimento generato dall'IA si rompe perché apprende da dati contaminati, non perché manca potenza di calcolo</h2>
+<p>Aumentare il calcolo computazionale di 32 volte migliora la qualità del movimento nei video generati dall'IA, ma questo non risolve il vero problema. I ricercatori hanno scoperto che i modelli di IA imparano la fisica corretta e quella scorretta simultaneamente dallo stesso dataset di addestramento. I cartoni animati, ad esempio, insegnano fisica contraddittoria: i personaggi si fermano a mezz'aria prima di cadere, i corpi rimbalzano come gomma. Questo crea conflitti nel modo in cui il modello rappresenta internamente il movimento. Il vero insegnamento arriva dalla qualità dei dati, non dalla quantità. Riducendo il dataset di addestramento per eliminare le fonti di apprendimento "cattive" e mantenendo solo gli esempi corretti, il tasso di vittoria del nuovo metodo sale al 74,1% rispetto all'approccio precedente su 850 test separati. La lezione è controintuitiva: meno dati di qualità superiore battono una montagna di dati di scarsa qualità.</p>
+<h2>Tracciare le influenze interne dell'IA attraverso il flusso ottico compresso rivela quale conoscenza genera quale movimento</h2>
+<p>I ricercatori hanno sviluppato un metodo per identificare dove il modello apprende specifici movimenti applicando maschere di movimento ai segnali di apprendimento interno dell'IA, non al video stesso. Questo avviene tramite il flusso ottico, una tecnica classica che traccia i percorsi dei punti nei video. Tuttavia, i moderni sistemi di IA contengono oltre un miliardo di parametri, rendendo impossibile immagazzinare e confrontare tutti i segnali di apprendimento. La soluzione utilizza la proiezione Johnson–Lindenstrauss, la stessa tecnica usata da Google in TurboQuant: comprime i dati ad alta dimensionalità (oltre un miliardo di numeri) in uno spazio minuscolo (512 numeri) preservando le distanze relative tra i valori. Come l'ombra di una sedia su un pavimento mantiene le proporzioni pur vivendo in due dimensioni invece di tre, questa compressione conserva le proprietà essenziali dei dati mentre elimina il rumore. Questo consente ai ricercatori di identificare quali video hanno influenzato le decisioni del modello, isolando poi la conoscenza accurata da quella errata e ottenendo risultati quasi identici con risorse computazionali drasticamente ridotte.</p>
+      ]]></description>
+    </item>
+    <item>
+      <title>Il 25 aprile sta diventando sempre meno unitario</title>
+      <link>https://www.youtube.com/shorts/-1VWlsLkRLc</link>
+      <guid isPermaLink="true">https://www.youtube.com/shorts/-1VWlsLkRLc</guid>
+      <pubDate>Tue, 28 Apr 2026 11:00:00 +0000</pubDate>
+      <dc:creator>Breaking Italy</dc:creator>
+      <description><![CDATA[
+<p><strong>Il 25 aprile sta diventando sempre meno unitario</strong> — Breaking Italy</p>
+<hr/>
+<h2>Il monopolio ideologico del 25 aprile tradisce il principio di unità antifascista</h2>
+<p>La festa della Liberazione è nata dall'alleanza tra forze politiche opposte: comunisti con liberali, democratici con monarchici. Oggi invece, il corteo viene organizzato e controllato da gruppi con una precisa matrice politica (in questo caso filorussa e antiucraina) che decidono arbitrariamente chi può partecipare e chi no. Non si tratta di scegliere l'ordine della manifestazione, ma di escludere cittadini sulla base di simboli—come la bandiera ucraina—definiti "provocazioni" da chi si è autoinvestito di autorità organizzativa. Questo tradisce direttamente il senso storico del 25 aprile: una festa di popolo dove la pluralità non era tollerata, ma era il fondamento stesso. Quando un'unica componente politica si intestardisce il diritto di decidere chi entra e chi non entra, usa le stesse metodologie delle squadracce fasciste che combattevano. La differenza ideologica non giustifica la prevaricazione: aggressioni, violenza verbale contro anziani, uso di spray contro chi non la pensa allo stesso modo sono esattamente le tattiche che si accusano alla destra.</p>
+<h2>L'identità personale costruita sulla prepotenza svuota il significato della resistenza</h2>
+<p>Chi organizza questi cortei spesso crede genuinamente di fare resistenza, ma il meccanismo psicologico è diverso: stanno creando un'identità personale e una percezione di sé attraverso l'appartenenza al gruppo. Il pericolo è che l'ideologia diventa secondaria rispetto al bisogno di sentirsi parte di una comunità, anche se le azioni concrete (escludere, aggredire, intimidire) ripetono le dinamiche che dicono di combattere. Paradossalmente, chi agisce così finisce per fare "il gioco delle destre": crea divisioni, allontana chi potrebbe essere alleato, trasforma una festa di unità in una manifestazione di potere di una fazione. Per progressisti, antifascisti e democratici sinceri, il risultato è una piazza che inizia a non appartener loro più, dove portare tuo figlio diventa pericoloso perché non sei "abbastanza" della giusta idea. Questo è il tradimento vero del 25 aprile.</p>
+      ]]></description>
+    </item>
     <item>
       <title>L’ennesimo attentato a Trump è stato un po’ romanzato?</title>
       <link>https://www.youtube.com/watch?v=evFlvo_MnhM</link>
@@ -957,77 +1006,6 @@
 <p>Fare una grande impressione non significa essere impressionanti, bensì interessati agli altri. Le persone che lasciano il segno ascoltano più di quanto parlino e notano i dettagli piccoli per approfondire la conversazione. Invece di concentrarti su come suoni o se piaci, spostati al presente e focusati su loro. Fai domande sul loro mondo, su cosa amano, su cosa stanno costruendo. Quando qualcuno si sente veramente visto, la conversazione cambia da networking a vera connessione. Mentre tutti cercano attenzione, tu sei invece quello che la dà.</p>
 <h2>Il follow-up specifico entro 24 ore</h2>
 <p>La qualità di una prima impressione dipende da cosa fai nelle 24 ore successive. Invia un messaggio specifico, non una richiesta LinkedIn generica. Fai riferimento a dettagli della vostra conversazione, come interessi comuni discussi. Offri aiuto senza chiedere nulla in cambio. Se durante l'evento hai scoperto che la persona vuole migliorare la sua forma fisica, puoi raccomandarle qualcuno che ti ha aiutato. Questo crea la legge della reciprocità: quando aiuti qualcuno senza aspettare nulla, il suo cervello naturalmente desidera ricambiare. Non è manipolazione, è come funziona il cervello umano.</p>
-      ]]></description>
-    </item>
-    <item>
-      <title>Helping 4 Strangers Build a $1M Business</title>
-      <link>https://www.youtube.com/watch?v=BYpTRiRqS1Y</link>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=BYpTRiRqS1Y</guid>
-      <pubDate>Fri, 03 Apr 2026 12:00:00 +0000</pubDate>
-      <dc:creator>Alex Hormozi</dc:creator>
-      <description><![CDATA[
-<p><strong>Helping 4 Strangers Build a $1M Business</strong> — Alex Hormozi</p>
-<hr/>
-<h2>Costruire un Ecosistema Integrato Verticalmente</h2>
-<p>L'imprenditore ha iniziato capovolgendo case, ma ha raggiunto un plateau di profittabilità quando il mercato locale è diventato troppo saturo. Ha trasformato il problema in opportunità convertendo la concorrenza in collaborazione. Invece di continuare a comprare proprietà, è diventato il fornitore creando un'azienda di contracting verticalmente integrata che include servizi HVAC, coperture e noleggio container. Parallelamente ha lanciato un programma di coaching per insegnare ad altri come replicare il modello, generando così più flussi di ricavi diversificati da una base operativa comune.</p>
-<h2>Dominare il Mercato Locale Prima di Pensare Globale</h2>
-<p>Nonostante l'ambizione di espandersi a livello nazionale, il consulente ha avvertito che l'imprenditore stava cercando di conquistare il mondo senza aver prima conquistato una città. Con una base di clienti di soli 10 al mese, c'era un enorme potenziale di crescita nel mercato locale senza espandere l'infrastruttura. La strategia corretta consiste nel massimizzare prima la redditività regionale, potenzialmente raggiungendo cento milioni di dollari annui, piuttosto che sparpagliarsi troppo presto. Le armate che si espandono eccessivamente collassano, quindi è essenziale fortificare prima le fondamenta.</p>
-<h2>Content Creation Come Leva di Impatto su Scala Massiccia</h2>
-<p>Il vero percorso verso l'impatto su milioni di vite non consiste nel convertire ogni americano a fare flipping immobiliare, ma nel creare contenuti autentici sul viaggio imprenditoriale e sulla mentalità. Poiché l'imprenditore ha un'attività legittima e collaudata, può raccontare la sua storia e aiutare gli altri distribuendo contenuto gratuitamente con effetto leva. Questo approccio crea impatto massiccia senza i vincoli geografici del suo business locale e consente di perseguire l'obiettivo personale di influenzare milioni di vite mantenendo al contempo una base operativa profittevole.</p>
-<h2>Il Costo Devastante di Competere al Ribasso</h2>
-<p>Uno degli errori commerciali più costosi documentati ha coinvolto un concorrente che ha sottoquotato il prezzo e acquisito alcuni clienti di punta. In risposta, l'imprenditore ha fatto un grande relaunch riducendo i prezzi e aggiungendo più valore, tagliando i ricavi di seimila dollari al mese. Il danno reale: il churn è rimasto identico perché il cliente aveva raggiunto una soglia psicologica di costo elevato. Questa decisione ha ridotto il profitto di sei-sette milioni di dollari annui e, moltiplicato quando l'azienda è stata venduta, ha costato circa cinquanta milioni. La lezione è non seguire i concorrenti al ribasso; lasciar loro scoprire che l'underpricing non è profittevole.</p>
-<h2>Stratificazione dei Prezzi e Audience Expansion</h2>
-<p>Anziché aumentare il volume dei clienti a basso costo, è strategicamente superiore offrire opzioni di prezzo diversificate. L'imprenditore potrebbe posizionare un'offerta completa a centomila dollari mentre mantiene un livello intermedio, servendo sia clienti con budget limitato che high-end. Molti mercati contengono ricchezza non sfruttata: il nove percento degli americani ha un patrimonio netto di un milione di dollari. Il problema non è che il mercato non possa permettersi prezzi alti, ma che quei clienti non li hanno trovati attraverso i canali attuali. Ampliare la reach con pubblicitā paid raggiunge audience più large e acquisitivi.</p>
-<h2>Ottimizzazione dei Modelli Operativi: Meno Eventi Frequenti, Più Redditizi</h2>
-<p>Nel settore dell'addestramento motocross, l'azienda ha scoperto che fare settanta eventi single-day nel 2023 era operativamente logorante con margini minimi. Testando tre camp di cinque giorni nel 2024, ciascuno ha generato oltre centomila dollari di profitto netto. La soluzione: scalare i camp redditizi da tre a venticinque annuali mentre riducono drasticamente gli eventi single-day. Questo concentra sforzi su offerte ad alto margine e riduce il carico operativo complessivo. La paura che un concorrente copi il modello è infondata, poiché replicare l'eccellenza operativa in esperienze complesse rimane insuperabile per chi insegue il profitto a breve termine.</p>
-<h2>Fondamenti di Ogni Business: Attrazione, Conversione, Consegna</h2>
-<p>Ogni azienda si basa su tre funzioni core che creano valore al cliente: attrazione di audience, conversione di prospect in clienti e consegna del servizio. Tutto il resto—IT, finanze, recruiting—è ancillare e può essere outsourced o delegato. Le funzioni core devono rimanere interne e sotto controllo diretto. Per un'agenzia di coaching, la gestione del brand è critica poiché rappresenta l'attrazione stessa e non deve essere outsourced. Il brand manager dovrebbe essere reclutato internamente individuando talenti che hanno già costruito brand di successo per altre aziende, tipicamente trovabili su LinkedIn o attraverso ricerca di personaggi pubblici associati ai marchi ammirati.</p>
-<h2>Dalla Generazione di Lead al Coaching di Vendita: Gestire il Churn</h2>
-<p>Molte agenzie affrontano il problema del churn quando passano da servizi transazionali a continuity coaching. La soluzione consiste nel separare i deliverable una tantum (acquisizione di alte competenze) dai servizi ricorrenti (mantenimento e supporto continuo). I deliverable una tantum hanno valore significativamente più alto, mentre i ricorrenti dovrebbero avere prezzo molto inferiore e fungere da no-brainer per rimanere nella rete. L'attivazione è cruciale: se i clienti si impegnano realmente nel programma, rimangono. I problemi di churn sono quindi risolvibili attraverso segmentazione avatar migliore, selezione di clienti con profilo demografico e quantificabile superiore, e ottimizzazione operativa del processo di onboarding.</p>
-<h2>Crescita Attraverso Organico Parallelo e Paid Advertising</h2>
-<p>La crescita sostenibile richiede due leve parallele: costruire costantemente audience organica attraverso contenuto di qualità elevata con volume e coerenza, mentre il paid advertising accelera la monetizzazione a breve termine. L'advertising puro può offrire un guadagno una tantum di tre-cinque volte da una baseline organica, ma crea un effetto ceiling. Invece, investire nella crescita organica espande continuamente la base di audience totale, permettendo ai paid ads di operare su una piramide progressivamente più grande. Questa strategia produce risultati duraturi: organico pianta semi per il lungo termine mentre paid advertising raccoglie i frutti dal top.</p>
-      ]]></description>
-    </item>
-    <item>
-      <title>"The Government Is Shutting My Business Down"</title>
-      <link>https://www.youtube.com/shorts/rPbdav1Oz0k</link>
-      <guid isPermaLink="true">https://www.youtube.com/shorts/rPbdav1Oz0k</guid>
-      <pubDate>Thu, 02 Apr 2026 23:00:00 +0000</pubDate>
-      <dc:creator>Alex Hormozi</dc:creator>
-      <description><![CDATA[
-<p><strong>"The Government Is Shutting My Business Down"</strong> — Alex Hormozi</p>
-<hr/>
-<h2>Strategia di Liquidazione Prima della Scadenza Legale</h2>
-<p>L'imprenditore affronta una situazione critica: il governo vieterà la spedizione di semi entro novembre e necessita di 2,5 milioni di dollari in otto mesi. Attualmente dispone di 500.000 dollari in contanti e genera 200.000 dollari mensili di guadagno con un margine del 70%. La soluzione consiste in una massiccia vendita di liquidazione sfruttando il motivo più potente possibile: il divieto governativo imminente. Questo crea un senso di urgenza autentico nei clienti, poiché sapranno che i semi non potranno più essere spediti dopo la data limite.</p>
-<h2>Tattiche Promozionali Aggressive per Massimizzare le Vendite</h2>
-<p>Durante gli otto mesi rimanenti, la strategia deve includere promozioni mensili diverse e aggressive tratte dal modello di risposta diretta. Offrire sconti BOGO (Buy One Get One) con varianti creative come "compra due ricevi quattro" o "compra tre ricevi sei" può aumentare significativamente il volume delle vendite. Un timer di conto alla rovescia ben visibile sul sito web ricorda costantemente ai clienti della scadenza imminente, amplificando l'effetto di urgenza e spingendo alla conversione immediata.</p>
-<h2>Ottimizzazione Fiscale Attraverso lo Status di Professionista Immobiliare</h2>
-<p>Per raggiungere l'obiettivo netto di 2,5 milioni di dollari, è essenziale considerare strategie fiscali intelligenti. La fidanzata dovrebbe ottenere lo status di professionista immobiliare, che richiede 750 ore annuali di attività immobiliare. Questo permette di utilizzare l'ammortamento di una proprietà contro il reddito attivo, creando significativi vantaggi fiscali. Matrimoniarsi prima di implementare questa strategia potrebbe generare risparmi del 37% su 2 milioni di dollari, equivalenti a circa 740.000 dollari, traducendosi in 40.000 dollari di valore netto aggiuntivo annuo perpetuo.</p>
-      ]]></description>
-    </item>
-    <item>
-      <title>C'è un nuovo imbarazzo per il governo Meloni, si chiama Piantedosi</title>
-      <link>https://www.youtube.com/watch?v=u1BCiRBoZ1M</link>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=u1BCiRBoZ1M</guid>
-      <pubDate>Thu, 02 Apr 2026 17:18:09 +0000</pubDate>
-      <dc:creator>Breaking Italy</dc:creator>
-      <description><![CDATA[
-<p><strong>C'è un nuovo imbarazzo per il governo Meloni, si chiama Piantedosi</strong> — Breaking Italy</p>
-<hr/>
-<h2>Lo scandalo di Piantedosi e la strategia politica della maggioranza</h2>
-<p>Un ministro dell'interno vicino a Giorgia Meloni si ritrova al centro di una rivelazione sulla sua relazione con una giornalista, confermata pubblicamente in un podcast. Il parallelo con il caso San Giuliano è immediato, ma ciò che emerge dall'analisi è più complesso: la modalità della rivelazione, affidata a una figura vicina a Fratelli d'Italia, suggerirebbe una strategia comunicativa controllata. In un momento di fragilità governativa, con il governo attraversato da turbolenze interne e possibili rimpasti, è possibile che la gestione dello scandalo miri a controllare la narrazione prima che rivelazioni più devastanti emergano da fonti critiche.</p>
-<h2>Il sospetto di una manovra preventiva contro il rimpasto</h2>
-<p>L'analisi politica suggerisce un possibile tentativo di prevenzione. Se il governo fosse costretto ad un rimpasto, Matteo Salvini avrebbe concrete possibilità di ottenere il Ministero dell'Interno, ministero cruciale già conteso nelle precedenti trattative di governo. La comunicazione controllata dello scandalo potrebbe servire a Meloni per mantenere il controllo della crisi, evitando che notizie peggiori emergano da fonti ostili e rendere obbligatorio un rimpasto vero e proprio che comporterebbe pressioni dagli alleati.</p>
-<h2>Violenza sessuale online: l'ecosistema del traffico di abusi</h2>
-<p>Un'inchiesta della CNN ha rivelato un ecosistema criminale strutturato attorno a un sito pornografico: uomini drogherebbero le proprie compagne senza consenso, registrerebbero gli abusi e li condividerebbero online. Il sito in questione genera decine di milioni di visite mensili, non è un luogo di nicchia. Gruppi di utenti scambiavano consigli su come sedare le vittime, vendevano sostanze per farlo e monetizzavano gli abusi tramite streaming a pagamento. La struttura ricorda il caso Pelicot in Francia: violenze perpetrate a insaputa della vittima, poi diffuse in rete.</p>
-<h2>La difficoltà nel perseguire i crimini online</h2>
-<p>Le norme statunitensi proteggono i proprietari di piattaforme dalla responsabilità diretta per i contenuti caricati dagli utenti, creando un paradosso: crimini commessi quasi alla luce del sole rimangono impuniti. Inoltre, le sostanze usate per sedare le vittime lasciano poche tracce biologiche, rendendo difficile l'accertamento nei tribunali. Manca formazione adeguata nelle forze dell'ordine e negli ospedali per gestire simili contesti. Chiudere le chat non risolve il problema: gli autori si sposteranno semplicemente altrove, continuando le stesse condotte.</p>
-<h2>L'educazione sessuale come prevenzione strutturale</h2>
-<p>In assenza di una corretta educazione all'affettività e alla sessualità, molti giovani si affacciano alla pornografia sempre più violenta e normalizzante della violenza contro le donne. Contemporaneamente, ambienti online come la "menosphere" diffondono narrativi tossici. Il risultato è una crescente difficoltà nel sviluppare approcci sani alla sessualità. La complessità del fenomeno richiede interventi trasversali: regolamentazione delle piattaforme, educazione sessuale affettiva nelle scuole e formazione delle istituzioni nel riconoscimento di questi crimini.</p>
-<h2>La missione Artemis 2: il ritorno sulla Luna</h2>
-<p>La NASA ha lanciato la missione Artemis 2 con quattro astronauti a bordo, segnando il primo sorvolo lunare con equipaggio dopo oltre cinquant'anni dalle missioni Apollo. La capsula Orion percorrerà più di due milioni di chilometri in dieci giorni, sorvolando anche il lato nascosto della Luna. Tuttavia, non è previsto un allunaggio per questa missione: l'atterraggio è rimandato al 2028, rappresentando una fase preparatoria verso il ritorno umano permanente sul satellite.</p>
-<h2>Normalizzazione dei rapporti Usa-Venezuela sotto Trump</h2>
-<p>L'amministrazione Trump ha riaperto l'ambasciata a Caracas dopo sette anni di chiusura e revocato le sanzioni contro la presidente ad interim Delsy Rodriguez. Questi passi verso la normalizzazione seguono la cattura di Nicolas Maduro. L'osservatore critico potrebbe notare che le elite venezuelane come Rodriguez potrebbero aver negoziato la propria salvezza politica in cambio di collaborazione con gli Stati Uniti, rappresentando una transizione geopolitica orchestrata piuttosto che una risolutzione spontanea della crisi venezuelana.</p>
       ]]></description>
     </item>
   </channel>
