@@ -20,13 +20,22 @@
     <div class="list_div bottom_space_big" id="OutreachIntel">
         <h3 class="inline">LLM-powered CRM,</h3>
         <h4 class="inline"><i>local webapp</i></h4>
-        <h5 class="left not_so_bold bottom_space"><a href="../img/vanue.png">Pipeline view</a>, <a href="../img/Mappa.png">Map view</a></h5>
+        <h5 class="left not_so_bold bottom_space"><a href="../img/vanue.png">Pipeline view</a>, <a
+                href="../img/Mappa.png">Map view</a></h5>
         <p class="bottom_space justify">
-            With a writing coach friend, we've worked out a way to apply storytelling to marketing, first inside his own business and then for a few acquaintances' businesses. Encouraged by the results, we decided to turn it into a service, and we started pitching ourselves as speakers at workshops run by innovation hubs to make ourselves known. Response so far has been encouraging, so I built a desktop tool to scale the most boring part: finding compatible venues, locating the right mail address, and producing a first draft.
+            With a writing coach friend, we've worked out a way to apply storytelling to marketing, first inside his own
+            business and then for a few acquaintances' businesses. Encouraged by the results, we decided to turn it into
+            a service, and we started pitching ourselves as speakers at workshops run by innovation hubs to make
+            ourselves known. Response so far has been encouraging, so I built a desktop tool to scale the most boring
+            part: finding compatible venues, locating the right mail address, and producing a first draft.
             <br>
-            The app (Python + Streamlit + SQLite, single file DB) keeps every venue, contact, and interaction. Before drafting, it assembles a dossier for the LLM: the project profile, our bios, the history with that venue, and an email-guidelines file (~600 lines of anti-AI-slop rules).
+            The app (Python + Streamlit + SQLite, single file DB) keeps every venue, contact, and interaction. Before
+            drafting, it assembles a dossier for the LLM: the project profile, our bios, the history with that venue,
+            and an email-guidelines file (~600 lines of anti-AI-slop rules).
             <br>
-            <b>Nothing is sent automatically</b>: the friction is deliberate, both to avoid spam and to catch the small mistakes that slip into a draft. The tool tracks every send and reply, suggests when a follow-up is due, and proposes what to write based on the conversation so far.
+            <b>Nothing is sent automatically</b>: the friction is deliberate, both to avoid spam and to catch the small
+            mistakes that slip into a draft. The tool tracks every send and reply, suggests when a follow-up is due, and
+            proposes what to write based on the conversation so far.
             <br>
         </p>
     </div>
@@ -34,17 +43,30 @@
     <div class="list_div bottom_space_big" id="AIContentCuration">
         <h3 class="inline">AI Content Curation,</h3>
         <h4 class="inline"><i>AI-curated RSS feeds</i></h4>
-        <h5 class="left not_so_bold bottom_space"><a href="../img/HN_daily_digest_example.jpg">HN Daily Digest example</a></h5>
+        <h5 class="left not_so_bold bottom_space"><a href="../img/HN_daily_digest_example.jpg">HN Daily Digest
+                example</a></h5>
         <p class="bottom_space justify">
-            Following many (business, politics, communication...) YouTube channels, several podcasts, and Hacker News requires too many hours a day. As much as I love spending hours on HN, it wasn't sustainable, so I built three services that run on my <a href="#HomeServer">home server</a> and filter and summarize the content for me.
+            Following many (business, politics, communication...) YouTube channels, several podcasts, and Hacker News
+            requires too many hours a day. As much as I love spending hours on HN, it wasn't sustainable, so I built
+            three services that run on my <a href="#HomeServer">home server</a> and filter and summarize the content for
+            me.
             <br>
-            <b>YT Highlights</b> pulls the latest videos from my subscribed channels, fetches the transcript (<a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp</a>), and asks Claude to extract the key points.
+            <b>YT Highlights</b> pulls the latest videos from my subscribed channels, fetches the transcript (<a
+                href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp</a>), and asks Claude to extract the key
+            points.
             <br>
-            <b>Podcast Highlights</b> does the same for podcasts, both YouTube-hosted (with available transcript) and native RSS (MP3 is downloaded and transcribed locally with <a href="https://github.com/SYSTRAN/faster-whisper" target="_blank">faster-whisper</a>). Surprisingly lightweight as a service, and it spares me the usual share of conversation that doesn't add value.
+            <b>Podcast Highlights</b> does the same for podcasts, both YouTube-hosted (with available transcript) and
+            native RSS (MP3 is downloaded and transcribed locally with <a
+                href="https://github.com/SYSTRAN/faster-whisper" target="_blank">faster-whisper</a>). Surprisingly
+            lightweight as a service, and it spares me the usual share of conversation that doesn't add value.
             <br>
-            <b>HN Daily Digest</b> fetches the top 200 Hacker News articles, ranks them against my declared interests and picks the 30 most relevant, then pulls the comments and generates a summary of both the article and the discussion. By letting Claude help me define my interests through questions and letting it write the prompt, the filtered posts are remarkably precise: I ran a manual test on 200 articles and it worked perfectly!
+            <b>HN Daily Digest</b> fetches the top 200 Hacker News articles, ranks them against my declared interests
+            and picks the 30 most relevant, then pulls the comments and generates a summary of both the article and the
+            discussion. By letting Claude help me define my interests through questions and letting it write the prompt,
+            the filtered posts are remarkably precise: I ran a manual test on 200 articles and it worked perfectly!
             <br>
-            The highlights become 3 RSS feeds that I read on <a href="https://newsblur.com/" target="_blank">Newsblur</a> (not self-hosted).
+            The highlights become 3 RSS feeds that I read on <a href="https://newsblur.com/"
+                target="_blank">Newsblur</a> (not self-hosted).
         </p>
     </div>
 
@@ -52,19 +74,51 @@
         <h3 class="inline">MyGymApp,</h3>
         <h4 class="inline"><i>Android app</i></h4>
         <h5 class="left not_so_bold bottom_space"><a href="https://github.com/St-Costa/MyGymApp"
-                target="_blank">Github</a>, <a href="https://github.com/St-Costa/MyGymApp/blob/master/docs/screenshots/main_menu.jpg"
+                target="_blank">Github</a>, <a
+                href="https://github.com/St-Costa/MyGymApp/blob/master/docs/screenshots/main_menu.jpg"
                 target="_blank">gitgraph dashboard</a></h5>
         <p class="bottom_space justify">
             Existing gym apps never fit what I need, so I built my own with Claude Code, following the same
-            <a href="https://stephango.com/file-over-app" target="_blank">file over app</a> philosophy as my other tools.
+            <a href="https://stephango.com/file-over-app" target="_blank">file over app</a> philosophy as my other
+            tools.
             <br>
-            The core feature is a gitgraph dashboard: a 4×7 grid that shows whether I trained on each day and whether tonnage improved over the previous session. On top of that, a few things I never found elsewhere: custom exercises with execution notes, inline images (rendered from a link) to remind me of the correct form, and a stretch timer that vibrates on every set so I don't have to stare at the screen while stretching.
+            The core feature is a gitgraph dashboard: a 4×7 grid that shows whether I trained on each day and whether
+            tonnage improved over the previous session. On top of that, a few things I never found elsewhere: custom
+            exercises with execution notes, inline images (rendered from a link) to remind me of the correct form, and a
+            stretch timer that vibrates on every set so I don't have to stare at the screen while stretching.
             <br>
-            I also integrated the <a href="https://www.polar.com/en/sensors/h10-heart-rate-sensor" target="_blank">Polar H10</a> chest strap (one of the few that exposes more than just BPM) to track the cardiac side: live ECG, pre-workout <a href="https://en.wikipedia.org/wiki/Heart_rate_variability" target="_blank">HRV readiness</a> (on a 14-day rolling baseline), a <a href="https://en.wikipedia.org/wiki/VO2_max" target="_blank">VO2max</a> estimate (<a href="https://en.wikipedia.org/wiki/VO2_max#The_heart_rate_ratio_method" target="_blank">Uth-Sørensen-Overgaard formula</a>, with <a href="https://pubmed.ncbi.nlm.nih.gov/11153730/" target="_blank">Tanaka formula</a> for HRmax), a calorie estimate (<a href="https://support.selfloops.com/?epkb_post_type_1=how-is-calorie-consumption-calculated-in-the-selfloops-apps" target="_blank">Keytel equation</a>), and training load via <a href="https://fellrnr.com/wiki/TRIMP#TRIMPexp_Exponential_Heart_Rate_Scaling" target="_blank">Banister TRIMPexp</a>.
+            I also integrated the <a href="https://www.polar.com/en/sensors/h10-heart-rate-sensor" target="_blank">Polar
+                H10</a> chest strap (one of the few that exposes more than just BPM) to track the cardiac side: live
+            ECG, pre-workout <a href="https://en.wikipedia.org/wiki/Heart_rate_variability" target="_blank">HRV
+                readiness</a> (on a 14-day rolling baseline), a <a href="https://en.wikipedia.org/wiki/VO2_max"
+                target="_blank">VO2max</a> estimate (<a
+                href="https://en.wikipedia.org/wiki/VO2_max#The_heart_rate_ratio_method"
+                target="_blank">Uth-Sørensen-Overgaard formula</a>, with <a
+                href="https://pubmed.ncbi.nlm.nih.gov/11153730/" target="_blank">Tanaka formula</a> for HRmax), a
+            calorie estimate (<a
+                href="https://support.selfloops.com/?epkb_post_type_1=how-is-calorie-consumption-calculated-in-the-selfloops-apps"
+                target="_blank">Keytel equation</a>), and training load via <a
+                href="https://fellrnr.com/wiki/TRIMP#TRIMPexp_Exponential_Heart_Rate_Scaling" target="_blank">Banister
+                TRIMPexp</a>.
             <br>
-            The raw ECG is analyzed post-workout with <a href="https://en.wikipedia.org/wiki/Pan%E2%80%93Tompkins_algorithm" target="_blank">Pan-Tompkins</a> <a href="https://en.wikipedia.org/wiki/QRS_complex" target="_blank">QRS</a> detection plus screening for <a href="https://en.wikipedia.org/wiki/Premature_atrial_contraction" target="_blank">PACs</a>, pauses, irregular beats, and <a href="https://en.wikipedia.org/wiki/Atrial_fibrillation" target="_blank">AFib</a> episodes. A 4-week self-diagnosis card summarizes 7 cardiac metrics (<a href="https://en.wikipedia.org/wiki/Heart_rate#Resting_heart_rate" target="_blank">resting HR</a>, <a href="https://en.wikipedia.org/wiki/Heart_rate_recovery" target="_blank">HRR</a>, VO2max, <a href="https://en.wikipedia.org/wiki/Heart_rate_variability#Time-domain_methods" target="_blank">RMSSD</a>, <a href="https://en.wikipedia.org/wiki/Heart_rate_variability#Time-domain_methods" target="_blank">SDNN</a>, <a href="https://en.wikipedia.org/wiki/Cardiovascular_drift" target="_blank">cardiac drift</a>, <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_plot#Applications_in_electrocardiography" target="_blank">SD2/SD1</a>) with conditional alerts when something is trending in the wrong direction.
+            The raw ECG is analyzed post-workout with <a
+                href="https://en.wikipedia.org/wiki/Pan%E2%80%93Tompkins_algorithm" target="_blank">Pan-Tompkins</a> <a
+                href="https://en.wikipedia.org/wiki/QRS_complex" target="_blank">QRS</a> detection plus screening for <a
+                href="https://en.wikipedia.org/wiki/Premature_atrial_contraction" target="_blank">PACs</a>, pauses,
+            irregular beats, and <a href="https://en.wikipedia.org/wiki/Atrial_fibrillation" target="_blank">AFib</a>
+            episodes. A 4-week self-diagnosis card summarizes 7 cardiac metrics (<a
+                href="https://en.wikipedia.org/wiki/Heart_rate#Resting_heart_rate" target="_blank">resting HR</a>, <a
+                href="https://en.wikipedia.org/wiki/Heart_rate_recovery" target="_blank">HRR</a>, VO2max, <a
+                href="https://en.wikipedia.org/wiki/Heart_rate_variability#Time-domain_methods"
+                target="_blank">RMSSD</a>, <a
+                href="https://en.wikipedia.org/wiki/Heart_rate_variability#Time-domain_methods"
+                target="_blank">SDNN</a>, <a href="https://en.wikipedia.org/wiki/Cardiovascular_drift"
+                target="_blank">cardiac drift</a>, <a
+                href="https://en.wikipedia.org/wiki/Poincar%C3%A9_plot#Applications_in_electrocardiography"
+                target="_blank">SD2/SD1</a>) with conditional alerts when something is trending in the wrong direction.
             <br>
-            It's obviously not clinical-grade, but still diagnostically useful as a long-term self-monitoring tool: I finally gave some meaning to my <a href="../subpages/Thesis.html#master_degree">master's degree</a>.
+            It's obviously not clinical-grade, but still diagnostically useful as a long-term self-monitoring tool: I
+            finally gave some meaning to my <a href="../subpages/Thesis.html#master_degree">master's degree</a>.
         </p>
     </div>
 
@@ -73,16 +127,45 @@
         <h4 class="inline"><i>self-hosted on a repurposed laptop</i></h4>
         <h5 class="left not_so_bold bottom_space"></h5>
         <p class="bottom_space justify">
-            I wanted to stop depending on cloud services for my personal data: photos, documents, music, books, finances. Instead of buying dedicated hardware, I repurposed an old Lenovo laptop (i7-8550U, 12GB RAM, 1TB NVMe + 2TB HDD) as a Debian server.
+            I wanted to stop depending on cloud services for my personal data: photos, documents, music, books,
+            finances. Instead of buying dedicated hardware, I repurposed an old Lenovo laptop (i7-8550U, 12GB RAM, 1TB
+            NVMe + 2TB HDD) as a Debian server.
             <br>
-            The server runs ~20 Docker services covering media (<a href="https://immich.app/" target="_blank">Immich</a>, <a href="https://www.navidrome.org/" target="_blank">Navidrome</a>, <a href="https://www.kavitareader.com/" target="_blank">Kavita</a>), productivity (<a href="https://docs.paperless-ngx.com/" target="_blank">Paperless-ngx</a>, <a href="https://paisa.fyi/" target="_blank">Paisa</a>, <a href="#DietPlanner2">DietPlanner</a>), and media tracking (<a href="https://github.com/FuzzyGrim/Yamtrack" target="_blank">Yamtrack</a>).
-            Some services I built myself to fill gaps (locally-built images triggered by cron): Paisa Input is a mobile-first Flask micro-app that lets me log expenses from my phone into Paisa's ledger file; YT Highlights is a Python script that pulls YouTube RSS feeds, extracts transcripts, sends them to Claude for highlights, and publishes the result as an RSS feed.
+            The server runs ~20 Docker services covering media (<a href="https://immich.app/"
+                target="_blank">Immich</a>, <a href="https://www.navidrome.org/" target="_blank">Navidrome</a>, <a
+                href="https://www.kavitareader.com/" target="_blank">Kavita</a>), productivity (<a
+                href="https://docs.paperless-ngx.com/" target="_blank">Paperless-ngx</a>, <a href="https://paisa.fyi/"
+                target="_blank">Paisa</a>, <a href="#DietPlanner2">DietPlanner</a>), and media tracking (<a
+                href="https://github.com/FuzzyGrim/Yamtrack" target="_blank">Yamtrack</a>).
+            Some services I built myself to fill gaps (locally-built images triggered by cron): Paisa Input is a
+            mobile-first Flask micro-app that lets me log expenses from my phone into Paisa's ledger file; YT Highlights
+            is a Python script that pulls YouTube RSS feeds, extracts transcripts, sends them to Claude for highlights,
+            and publishes the result as an RSS feed.
             <br>
-            The server has no public IP (ISP behind CGNAT), all access goes through <a href="https://tailscale.com/" target="_blank">Tailscale</a>. This is the foundation of an 8-layer security architecture: Tailscale with tag-based ACLs, <a href="https://wiki.ubuntu.com/UncomplicatedFirewall" target="_blank">UFW</a> firewall, <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">AdGuard Home</a> for DNS-level ad/tracker blocking across all devices, <a href="https://mullvad.net/" target="_blank">Mullvad</a> DoH, <a href="https://github.com/fail2ban/fail2ban" target="_blank">Fail2ban</a> on SSH, kernel-level audit logging via auditd, <a href="https://nuetzlich.net/gocryptfs/" target="_blank">gocryptfs</a> encryption for sensitive documents, and a real-time container whitelist that alerts me if an unauthorized Docker container starts.
+            The server has no public IP (ISP behind CGNAT), all access goes through <a href="https://tailscale.com/"
+                target="_blank">Tailscale</a>. This is the foundation of an 8-layer security architecture: Tailscale
+            with tag-based ACLs, <a href="https://wiki.ubuntu.com/UncomplicatedFirewall" target="_blank">UFW</a>
+            firewall, <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">AdGuard Home</a> for
+            DNS-level ad/tracker blocking across all devices, <a href="https://mullvad.net/" target="_blank">Mullvad</a>
+            DoH, <a href="https://github.com/fail2ban/fail2ban" target="_blank">Fail2ban</a> on SSH, kernel-level audit
+            logging via auditd, <a href="https://nuetzlich.net/gocryptfs/" target="_blank">gocryptfs</a> encryption for
+            sensitive documents, and a real-time container whitelist that alerts me if an unauthorized Docker container
+            starts.
             <br>
-            Every script and service reports to <a href="https://ntfy.sh/" target="_blank">ntfy</a>. About 15 monitoring scripts cover everything from disk space and CPU temperature to kernel errors and SSH logins, all running on cron or as systemd services. <a href="https://github.com/louislam/uptime-kuma" target="_blank">Uptime Kuma</a> checks every service endpoint every 60 seconds, <a href="https://github.com/AnalogJ/scrutiny" target="_blank">Scrutiny</a> tracks disk SMART attributes with historical trends, and <a href="https://www.netdata.cloud/" target="_blank">Netdata</a> handles real-time system metrics with auto-discovery of Postgres and Redis instances. I also can shut down or reboot the server with a tap from my phone through a custom ntfy listener.
+            Every script and service reports to <a href="https://ntfy.sh/" target="_blank">ntfy</a>. About 15 monitoring
+            scripts cover everything from disk space and CPU temperature to kernel errors and SSH logins, all running on
+            cron or as systemd services. <a href="https://github.com/louislam/uptime-kuma" target="_blank">Uptime
+                Kuma</a> checks every service endpoint every 60 seconds, <a href="https://github.com/AnalogJ/scrutiny"
+                target="_blank">Scrutiny</a> tracks disk SMART attributes with historical trends, and <a
+                href="https://www.netdata.cloud/" target="_blank">Netdata</a> handles real-time system metrics with
+            auto-discovery of Postgres and Redis instances. I also can shut down or reboot the server with a tap from my
+            phone through a custom ntfy listener.
             <br>
-            Backups follow the 3-2-1 rule: <a href="https://www.borgbackup.org/" target="_blank">Borg</a> (encrypted, deduplicated, compressed) to a local HDD repo, then <a href="https://rclone.org/" target="_blank">rclone</a> to <a href="https://www.backblaze.com/cloud-storage" target="_blank">Backblaze B2</a> offsite. The nightly job dumps the Immich Postgres database, archives everything, prunes old snapshots, and syncs to B2. A weekly integrity check verifies the Borg repository.
+            Backups follow the 3-2-1 rule: <a href="https://www.borgbackup.org/" target="_blank">Borg</a> (encrypted,
+            deduplicated, compressed) to a local HDD repo, then <a href="https://rclone.org/" target="_blank">rclone</a>
+            to <a href="https://www.backblaze.com/cloud-storage" target="_blank">Backblaze B2</a> offsite. The nightly
+            job dumps the Immich Postgres database, archives everything, prunes old snapshots, and syncs to B2. A weekly
+            integrity check verifies the Borg repository.
         </p>
     </div>
 
@@ -347,6 +430,8 @@
             security.</p>
     </div>
 
+
+
     <br>
     <h2>2020 - 2023</h2>
     <div class="list_div bottom_space_big">
@@ -358,6 +443,28 @@
             These included the simulation of cardiovascular pathologies, modeling the impact of treatments, and the
             analysis of the computational complexity of DNA sequencing algorithms.
             (You can find a detailed report for each project at the link.)
+        </p>
+    </div>
+
+    <div class="list_div bottom_space_big">
+        <h3 class="inline">La matematica fa per te?,</h3>
+        <h4 class="inline"><i>book (Italian)</i></h4>
+        <h5 class="left not_so_bold bottom_space"><a href="../document/La matematica fa per te.pdf">PDF</a></h5>
+        <p class="bottom_space justify">
+            Most "<i>should you study math?</i>" content sells the romance of the subject. I wanted to do the opposite:
+            hand high schoolers the <strong>actual</strong> first-semester material and let them decide based on whether
+            they enjoy it and can keep up.
+            <br>
+            I wrote this ~50-page book during my first university year, with the concept of a set as the connecting
+            thread and topics requiring zero prior knowledge. It walks through formal notation, set operations and
+            proofs, the set-theoretic construction of numbers, and ends by deriving the divisibility criterias.
+            <br>
+            The thesis is in the title: if you don't enjoy these pages or find them too hard, a math degree probably
+            isn't for you.
+            <br>
+            I tried to get the Province of Bolzano's university orientation office to distribute it to students and was
+            told they "don't do that kind of thing"; I later found out the Province allocates far more money to
+            orienting middle and high schoolers, purely because that's compulsory schooling.
         </p>
     </div>
 
