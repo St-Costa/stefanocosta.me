@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test post | Source of Truth</title>
     <script src="../javascript/commonHeader.js"></script>
     <script src="../javascript/gallery.js"></script>
     <script src="../javascript/toc.js"></script>
 
-    <link rel="stylesheet" href="../style/img.css">
+    <link rel="stylesheet" href="../style/components.css">
     <link rel="stylesheet" href="../style/blog.css">
-    <link rel="stylesheet" href="../style/list_div.css">
-    <link rel="stylesheet" href="../style/button.css">
-    <link rel="stylesheet" href="../style/gallery.css">
+            <link rel="stylesheet" href="../style/gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -116,7 +116,7 @@
         <a href="#quote_block">└─ Block quote</a>
     </h3>
     <section class="callout">
-        <div class="box-title"><img class="icon_inline" src="../img/icon/quotes.png">
+        <div class="box-title"><img loading="lazy" class="icon_inline" src="../img/icon/quotes.png">
             <h4>Quote title</h4>
         </div>
         <p class="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at risus condimentum,
@@ -129,7 +129,7 @@
     </section>
 
     <section class="callout">
-        <div class="box-title"><img class="icon_inline" src="../img/icon/warning.png">
+        <div class="box-title"><img loading="lazy" class="icon_inline" src="../img/icon/warning.png">
             <h4>Warning</h4>
         </div>
         <p class="justify">Testing</p>
@@ -165,7 +165,9 @@
         <div class="center center-padding">
             <i class="caption">Single image</i>
         </div>
-        <img src="../img/meme.gif">
+        <video autoplay loop muted playsinline style="display:block;margin:auto;border-radius:10px;">
+            <source src="../img/meme.webm" type="video/webm">
+        </video>
     </div>
 
     <h3 id="galleries">
@@ -194,14 +196,15 @@
 
         <!-- Full-width images and caption text -->
         <div class="mySlides">
-            <img src="../img/meme.gif"
-                alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at risus condimentum, hendrerit sapien eu, porttitor metus.">
+            <video autoplay loop muted playsinline style="display:block;margin:auto;border-radius:10px;">
+                <source src="../img/meme.webm" type="video/webm">
+            </video>
         </div>
         <div class="mySlides">
-            <img src="../img/QR_code.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. ">
+            <img loading="lazy" src="../img/QR_code.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. ">
         </div>
         <div class="mySlides">
-            <img src="../img/poster_coming_soon.jpg" alt="Lorem ipsum dolor sit amet">
+            <img loading="lazy" src="../img/poster_coming_soon.jpg" alt="Lorem ipsum dolor sit amet">
         </div>
     </div>
 

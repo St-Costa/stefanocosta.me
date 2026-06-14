@@ -1,0 +1,168 @@
+/* ── Images ─────────────────────────────────────────────────────────── */
+img {
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.animated_img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.icon.animated_img:hover {
+    filter: brightness(0) invert(1);
+}
+
+.index_img { width: 200px; }
+
+.poster_img {
+    border-radius: 0;
+    filter: drop-shadow(#ababab 5px 5px 7px);
+}
+.poster_img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+figure figcaption { text-align: center; }
+
+.icon {
+    width: 30px !important;
+    border-radius: 0;
+}
+
+.icon_inline {
+    vertical-align: middle;
+    margin-right: 1px;
+    display: inline;
+    border-radius: 5px;
+}
+
+.profile_img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fa_icon {
+    color: #6ed6f0;
+    font-size: 150%;
+}
+
+.QR {
+    width: 100%;
+    max-width: 300px;
+}
+
+.book {
+    height: 150px;
+}
+.book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.podcast { height: 100px; }
+.podcast:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/* ── Lists & spacing ────────────────────────────────────────────────── */
+.list_div > * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+}
+
+.bottom_space          { margin-bottom: var(--space-sm); }
+.bottom_space_big      { margin-bottom: var(--space-md); }
+.bottom_space_very_big { margin-bottom: var(--space-lg); }
+.top_space_big         { margin-top: var(--space-md); }
+
+.not_so_bold { font-weight: 550; }
+.list_span   { font-size: 25px; }
+
+.explanation_box {
+    border: 2px solid;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-top: 1.4em;
+}
+.explanation_box .box-title {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: yellow;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────── */
+button {
+    background-color: transparent;
+    color: var(--link-color);
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: var(--hover-color);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────── */
+td { vertical-align: top; }
+
+.verticalCenter { vertical-align: middle; }
+
+.divTable {
+    display: table;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.divTd {
+    display: table-cell;
+    width: 10%;
+}
+
+.image_divTd {
+    display: table-cell;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Color swatches (colophon.html) */
+.color-swatch-link   { background-color: var(--link-color);       color: #000; }
+.color-swatch-italic { background-color: var(--italic-color);     color: #000; }
+.color-swatch-bg     { background-color: var(--background-color); color: #fff; }
+.color-swatch-text   { background-color: var(--text-color);       color: #000; }
+.color-swatch-bold   { background-color: var(--bold_color);       color: #000; }
+
+/* ── Two-column layout ──────────────────────────────────────────────── */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.left_div  { float: left;  width: 58%; }
+.right_div { float: right; width: 40%; }

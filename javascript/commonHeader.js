@@ -2,8 +2,16 @@
     // Use insertBefore(el, script) so that the inserted elements appear BEFORE
     // the inline <link> tags in the HTML, guaranteeing correct CSS cascade order.
     const script = document.currentScript;
-    const path = window.location.pathname;
-    const folder = (path.endsWith("index.html") || path.endsWith("/")) ? "./style/" : "../style/";
+    const root = ((script && script.src) || '').replace(/javascript\/commonHeader\.js.*$/, '') || './';
+    const folder = root + 'style/';
+
+    function addLink(attrs) {
+        const link = document.createElement("link");
+        for (const key in attrs) {
+            link.setAttribute(key, attrs[key]);
+        }
+        insert(link);
+    }
 
     function insert(el) {
         if (script && script.parentNode) {
@@ -28,16 +36,14 @@
         insert(link);
     }
 
-    addMeta({ charset: "UTF-8" });
-    addMeta({ name: "viewport", content: "width=device-width, initial-scale=1.0" });
+    const imgFolder = root + 'img/';
+    addLink({ rel: "icon", type: "image/svg+xml", href: imgFolder + "icon/favicon.svg" });
+    addStylesheet(folder + "base.css");
 
-    addStylesheet(folder + "night_mode.css");
-    addStylesheet(folder + "styling.css");
-    addStylesheet(folder + "footer.css");
-    addStylesheet(folder + "phone.css");
-
-    addMeta({ property: "og:title", content: "Stefano Costa's Webpage" });
-    addMeta({ property: "og:description", content: "Stefano Costa's personal website, featuring his scientific research, publications, and projects" });
-    addMeta({ property: "og:image", content: "https://st-costa.github.io//img/preview_image.jpg" });
-    addMeta({ property: "og:url", content: "https://st-costa.github.io/" });
+    const d = script ? script.dataset : {};
+    addMeta({ property: "og:title",       content: d.ogTitle       || "Stefano Costa's Webpage" });
+    addMeta({ property: "og:description", content: d.ogDescription || "Stefano Costa's personal website, featuring his scientific research, publications, and projects" });
+    addMeta({ property: "og:image",       content: d.ogImage       || "https://st-costa.github.io/img/preview_image.jpg" });
+    addMeta({ property: "og:url",         content: d.ogUrl         || "https://st-costa.github.io/" });
+    addMeta({ property: "og:type",        content: d.ogType        || "website" });
 })();
