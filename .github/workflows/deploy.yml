@@ -18,6 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Convert new images to WebP
+        run: |
+          sudo apt-get install -y webp
+          find img/ -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | while read src; do
+            webp_path="${src%.*}.webp"
+            if [ ! -f "$webp_path" ]; then
+              cwebp -q 80 "$src" -o "$webp_path"
+              echo "Converted: $src → $webp_path"
+            fi
+          done
+
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:

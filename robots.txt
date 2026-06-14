@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /document/
+Disallow: /*.xml$
+Disallow: /blogPosts/_template.html
+Disallow: /blogPosts/Test post.html
+Disallow: /.claude/
+Disallow: /.github/
+
+Sitemap: https://st-costa.github.io/sitemap.xml
