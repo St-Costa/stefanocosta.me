@@ -1,13 +1,13 @@
 <rss version="2.0">
 <channel>
-  <title>Stefano Costa - Blog</title>
+  <title>Source of Truth</title>
   <link>https://st-costa.github.io/mainPages/Blog_pages.html</link>
-  <description>Stefano Costa is thinking</description>
+  <description>Source of Truth — Stefano Costa's blog</description>
   <language>en-us</language>
 
   <image>
     <url>https://st-costa.github.io/blogPosts/RSS_logo.jpg</url>
-    <title>Stefano Costa - Blog</title>
+    <title>Source of Truth</title>
     <link>https://st-costa.github.io/mainPages/Blog_pages.html</link>
   </image>
 
