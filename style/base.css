@@ -85,6 +85,19 @@ ul {
 
 li { margin: 10px 0; }
 
+.content_list {
+    list-style-type: disc;
+    text-align: left;
+    padding-left: 1.5em;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.content_list li {
+    margin: 0;
+}
+
 /* ── Links ──────────────────────────────────────────────────────────── */
 a {
     text-decoration: none;

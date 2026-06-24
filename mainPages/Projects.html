@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects by Stefano Costa: AI tools, CRM systems, automation workflows, games, and more.">
+    <meta name="description"
+        content="Projects by Stefano Costa: AI tools, CRM systems, automation workflows, games, and more.">
     <title>Projects | Stefano Costa</title>
-    <script src="../javascript/commonHeader.js"
-        data-og-title="Projects | Stefano Costa"
+    <script src="../javascript/commonHeader.js" data-og-title="Projects | Stefano Costa"
         data-og-description="Projects by Stefano Costa: AI tools, CRM systems, automation workflows, games, and more."
-        data-og-url="https://st-costa.github.io/mainPages/Projects.html"
-        data-og-type="website"></script></script>
+        data-og-url="https://st-costa.github.io/mainPages/Projects.html" data-og-type="website"></script>
+    </script>
 
-        <link rel="stylesheet" href="../style/components.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -21,6 +21,31 @@
     <h1 class="title">Projects</h1>
 
     <h2>2026</h2>
+
+    <div class="list_div bottom_space_big" id="GdrTeambuilding">
+        <h3 class="inline">Personal AI Content Curation,</h3>
+        <h4 class="inline"><i>RSS pipeline</i></h4>
+        <h5 class="left not_so_bold bottom_space"></h5>
+        <p class="bottom_space justify">
+            I am an HN junkie who could spend 2h/d on the top page, so I built a pipeline that filters posts on my interests into an RSS feed.
+            Then I did this with a lot of other content.
+        </p>
+        <p class="justify">The pipeline runs on Claude Code scheduler (no API costs, and I don't waste the 40% of weekly unused tokens) and splits into two phases:</p>
+        <ul class="content_list">
+            <li>a Python script handles fetch, dedup, and keyword filtering, then writes one prompt file per item</li>
+            <li>Claude reads those files and writes summaries</li>
+        </ul>
+        <p class="justify">The LLM part:</p>
+        <ul class="content_list">
+            <li>Scores the top-200 Hacker News stories against an interest profile (working unexpectedly well) and returns the 30 most relevant</li>
+            <li>Extracts key themes from YT video transcripts fetched from a list of channels</li>
+            <li>Extracts highlights from podcast transcripts (eventually using <a href="https://groq.com/blog/whisper-large-v3-turbo-now-available-on-groq-combining-speed-quality-for-speech-recognition" target="_blank">Groq Whisper</a> to generate them)</li>
+            <li>Filters the papers through a two-stage gate (keyword pre-filter, LLM relevance check), keeping only those with direct entrepreneurship applications</li>
+        </ul>
+        <p class="bottom_space justify">
+            Feeds are written and committed automatically at 11PM, and pulled at 6am by a home server behind <a href="https://nginx.org/en/" target="_blank">nginx</a> + <a href="https://tailscale.com/docs/features/tailscale-funnel" target="_blank">Tailscale Funnel</a>. And this is how you stop doomscrolling in the LLM age.
+        </p>
+    </div>
 
     <div class="list_div bottom_space_big" id="GdrTeambuilding">
         <h3 class="inline">Storytelling teambuilding tool,</h3>
@@ -300,7 +325,8 @@
     <div class="list_div bottom_space_big" id="Ashlight">
         <h3 class="inline">Automation: recap newsletter,</h3>
         <h4 class="inline"><i>n8n</i></h4>
-        <h5 class="left not_so_bold bottom_space"><a href="../img/recap_newsletter_automation.webp">Example mail</a></h5>
+        <h5 class="left not_so_bold bottom_space"><a href="../img/recap_newsletter_automation.webp">Example mail</a>
+        </h5>
         <p class="bottom_space justify">
             Reworked the client’s newsletter strategy by replacing 3 weekly “Have you seen this?” emails with a single
             automatic weekly recap, which over 4 weeks increased the average open rate by +3.7% and the average click
