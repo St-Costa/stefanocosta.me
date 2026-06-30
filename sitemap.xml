@@ -45,6 +45,11 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://st-costa.github.io/blogPosts/June%20Monthly%20Business%20Ahas.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://st-costa.github.io/blogPosts/May%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
