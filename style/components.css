@@ -40,6 +40,17 @@ figure figcaption { text-align: center; }
     border-radius: 5px;
 }
 
+/* Square logo indicating the tech/type of a project, shown next to its title */
+.project_type_logo {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
 .profile_img {
     width: 55px;
     height: 55px;
