@@ -102,8 +102,14 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
 ```
 Inserire **in cima** alla lista (post più recente prima).
 
-### Aggiungere il post a `mainPages/blogFeed.xml`
-Aggiungere una nuova `<item>` all'inizio del feed RSS.
+### Rigenerare il feed RSS `mainPages/blogFeed.xml`
+**Non** modificare il feed a mano. Dopo aver creato/modificato un post, rigenerarlo con:
+```bash
+python3 scripts/gen_feed.py
+```
+Lo script (stdlib only, nessuna dipendenza) ricostruisce l'intero feed leggendo i post in `blogPosts/`. Include solo i post con `datePublished` nel JSON-LD (esclude quindi `_template.html` e `Test post.html`), li ordina per data decrescente, e per ogni post genera una `<description>` con: titolo, sottotitolo, epistemic status, `data - lunghezza - tempo lettura`, ed elenco degli header di sezione.
+
+Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titolo), `<h2 class="subtitle">` (sottotitolo), `<h3 class="subtitle">` (epistemic), i due `<div>` dentro `.center` (data; poi `N words - M min read`), e gli header di sezione come `<h2 id="...">`.
 
 ### Aggiungere il post a `sitemap.xml`
 ```xml
