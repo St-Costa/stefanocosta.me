@@ -36,7 +36,8 @@
     display: inline-block;
     font-size: 25px;
 }
-.callout .source {
+.callout .source,
+.callout_empty .source {
     text-align: right;
     margin-top: 5px;
 }
