@@ -23,19 +23,21 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BLOG_DIR = os.path.join(ROOT, "blogPosts")
 FEED = os.path.join(ROOT, "mainPages", "blogFeed.xml")
-BASE_URL = "https://st-costa.github.io"
+# Dominio del sito. Sovrascrivibile con la variabile d'ambiente SITE_BASE_URL,
+# es. `SITE_BASE_URL="https://esempio.com" python3 scripts/gen_feed.py`.
+BASE_URL = os.environ.get("SITE_BASE_URL", "https://stefanocosta.me").rstrip("/")
 
-CHANNEL_HEADER = """<rss version="2.0">
+CHANNEL_HEADER = f"""<rss version="2.0">
 <channel>
   <title>Source of Truth</title>
-  <link>https://st-costa.github.io/mainPages/Blog_pages.html</link>
+  <link>{BASE_URL}/mainPages/Blog_pages.html</link>
   <description>Source of Truth — Stefano Costa's blog</description>
   <language>en-us</language>
 
   <image>
-    <url>https://st-costa.github.io/blogPosts/RSS_logo.png</url>
+    <url>{BASE_URL}/blogPosts/RSS_logo.png</url>
     <title>Source of Truth</title>
-    <link>https://st-costa.github.io/mainPages/Blog_pages.html</link>
+    <link>{BASE_URL}/mainPages/Blog_pages.html</link>
   </image>
 """
 
