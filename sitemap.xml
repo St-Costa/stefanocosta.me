@@ -95,16 +95,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/Things%20from%20Bologna.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://st-costa.github.io/blogPosts/Things%20from%20Graz.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://st-costa.github.io/blogPosts/I%20am%20not%20a%20mathematician.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
