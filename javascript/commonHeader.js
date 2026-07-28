@@ -38,12 +38,18 @@
 
     const imgFolder = root + 'img/';
     addLink({ rel: "icon", type: "image/svg+xml", href: imgFolder + "icon/favicon.svg" });
-    addStylesheet(folder + "base.css");
+
+    // Pages link base.css directly so the browser can fetch it while parsing the HTML,
+    // instead of waiting for this script. Only inject it as a fallback if that's missing,
+    // so a page is never left unstyled and the file is never requested twice.
+    if (!document.querySelector('link[rel="stylesheet"][href$="style/base.css"]')) {
+        addStylesheet(folder + "base.css");
+    }
 
     const d = script ? script.dataset : {};
     addMeta({ property: "og:title",       content: d.ogTitle       || "Stefano Costa's Webpage" });
     addMeta({ property: "og:description", content: d.ogDescription || "Stefano Costa's personal website, featuring his scientific research, publications, and projects" });
-    addMeta({ property: "og:image",       content: d.ogImage       || "https://st-costa.github.io/img/preview_image.jpg" });
-    addMeta({ property: "og:url",         content: d.ogUrl         || "https://st-costa.github.io/" });
+    addMeta({ property: "og:image",       content: d.ogImage       || "https://stefanocosta.me/img/preview_image.jpg" });
+    addMeta({ property: "og:url",         content: d.ogUrl         || "https://stefanocosta.me/" });
     addMeta({ property: "og:type",        content: d.ogType        || "website" });
 })();

@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Source of Truth — Stefano Costa's blog on business, learning, travel, and life as a builder.">
     <title>Source of Truth | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"
         data-og-title="Source of Truth | Stefano Costa"
         data-og-description="Source of Truth — Stefano Costa's blog on business, learning, travel, and life as a builder."
-        data-og-url="https://st-costa.github.io/mainPages/Blog_pages.html"
-        data-og-type="website"></script></script>
+        data-og-url="https://stefanocosta.me/mainPages/Blog_pages.html"
+        data-og-type="website"></script>
 
     <link rel="stylesheet" href="../style/components.css">
         
 </head>
 <body>
+    <main>
     <div class="content bottom_space_big">
         <h1>Source of Truth</h1>
 
         <div class="center">
-            <a href="./blogFeed.xml"><img loading="lazy" src="../img/icon/rss_cyan.png" alt="Rss" class="icon icon_inline animated_img"></a>
+            <a href="./blogFeed.xml"><img width="64" height="64" src="../img/icon/rss_cyan.png" alt="Rss" class="icon icon_inline animated_img"></a>
         </div>
 
         <ul>
@@ -36,7 +41,9 @@
             <li><h2><a href="../blogPosts/The corporate experience.html">The Corporate Experience [2025-08-26]</a></h2></li>
             <li><h2><a href="../blogPosts/I am not a mathematician.html">I am not a mathematician [2025-04-12]</a></h2></li>
         </ul>
+
     </div>
+    </main>
 
     <script src="../javascript/footer.js"></script>
 
