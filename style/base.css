@@ -281,8 +281,11 @@ figure figcaption { text-align: center; }
     max-width: 300px;
 }
 
+/* Sized by height, so width must follow the aspect ratio rather than the
+   width attribute in the HTML — otherwise the cover comes out squashed. */
 .book {
     height: 150px;
+    width: auto;
 }
 .book:hover {
     transform: scale(1.05);
@@ -290,7 +293,7 @@ figure figcaption { text-align: center; }
     cursor: pointer;
 }
 
-.podcast { height: 100px; }
+.podcast { height: 100px; width: auto; }
 .podcast:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
