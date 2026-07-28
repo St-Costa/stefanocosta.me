@@ -2,6 +2,27 @@
 
 Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun build system.
 
+> **Questo file è codice, non appunti.** Se una modifica cambia una regola descritta qui
+> (struttura del `<head>`, CSS disponibili, convenzioni su immagini o accessibilità),
+> aggiornare questo file **nello stesso commit**. Una pagina nuova viene scritta seguendo
+> queste istruzioni: se sono obsolete, reintroducono i bug appena corretti.
+>
+> Vale anche per `blogPosts/_template.html` e `.claude/skills/`: sono la stessa
+> documentazione in forma eseguibile. Cambiando l'una, verificare le altre.
+
+## Prima di committare
+
+```bash
+python3 scripts/check_site.py
+```
+
+Verifica le regole di questo file su tutte le pagine: `<main>`, OG tag statici, `defer`,
+preload dei font, `aria-label` sui bottoni-icona, riferimenti locali, `datePublished` nei
+post, CSS orfani. Exit code 1 se trova un errore.
+
+Le regole che lo script **non** può controllare (qualità della description, alt text
+sensati, scelta della `priority` in sitemap) restano responsabilità di chi scrive.
+
 ---
 
 ## Checklist per ogni nuova pagina HTML
@@ -141,9 +162,14 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
 
 ### TOC (generato automaticamente)
 ```html
-<script src="../javascript/toc.js"></script>  <!-- nel <head> -->
-<div class="toc"></div>                        <!-- nel <body>, dopo h1/h2 subtitle -->
+<script src="../javascript/toc.js"></script>   <!-- nel <head> -->
+
+<section class="toc">                          <!-- nel <body>, dopo il blocco h1/subtitle/data -->
+    <div class="box-title"><h4>TOC</h4></div>
+</section>
 ```
+`toc.js` riempie il `.toc` leggendo gli `<h2 id="...">` della pagina: non scrivere le voci
+a mano. Il `.box-title` è il titolo flottante sul bordo (vedi note tecniche in fondo).
 
 ### Gallery (se presente)
 ```html
@@ -180,13 +206,16 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
 ## Immagini — regole
 
 ### Formato
-- **Usare sempre WebP** per immagini nuove. Convertire con:
+- **Usare sempre WebP** per immagini nuove. Convertire con ImageMagick:
   ```bash
   convert originale.jpg -quality 80 originale.webp
-  # oppure per batch:
-  find img/ -name "*.jpg" -o -name "*.png" | while read f; do convert "$f" -quality 80 "${f%.*}.webp"; done
+  # batch su tutte le immagini non ancora convertite:
+  find img/ \( -name "*.jpg" -o -name "*.png" \) | while read f; do
+      [ -f "${f%.*}.webp" ] || convert "$f" -quality 80 "${f%.*}.webp"
+  done
   ```
 - Eccezione: `preview_image.jpg` resta JPG per compatibilità con crawler OG.
+- Gli SVG restano SVG (già vettoriali): non convertirli.
 
 ### Lazy loading e dimensioni
 - `loading="lazy"` va su tutte le `<img>` **sotto** la piega. **Mai** su quelle above the fold
@@ -251,7 +280,7 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 ├── subpages/         ← approfondimenti accademici
 ├── style/            ← CSS (base.css + CSS specifici)
 ├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js, about_me_cards.js
-├── scripts/          ← gen_feed.py (generatore RSS)
+├── scripts/          ← gen_feed.py (feed RSS), check_site.py (controlli)
 ├── img/              ← immagini (sempre WebP)
 └── document/         ← PDF accademici (non indicizzati)
 ```

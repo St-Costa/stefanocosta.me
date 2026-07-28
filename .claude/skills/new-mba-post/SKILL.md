@@ -43,6 +43,8 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
      `fill="#7FCEF0"` ma `style="fill:rgb(11,11,11)"` renderizza nero, non ciano. Allinea i due.
    - palette del sito: ciano `#7FCEF0` (6.1:1), grigi `#d3d3d3` / `#D7D7D7` (7.1–7.4:1).
 6. **Feed RSS**: `python3 scripts/gen_feed.py` — mai modificare `mainPages/blogFeed.xml` a mano.
+   Poi **`python3 scripts/check_site.py`**: verifica `<main>`, OG tag, preload, link rotti e
+   che il post abbia un `datePublished` (senza, resta fuori dal feed senza dirlo).
 7. **Link Obsidian → link interni**: il testo sorgente contiene link stile `[[Mese Monthly Aha's#Titolo sezione]]`.
    Convertili in `<a href="./<Mese> Monthly Business Ahas.html#hN.M">Mese MBA &gt; Titolo sezione</a>`.
    Gli `id` non sono derivabili dal titolo: sono progressivi (`h1.1`, `h1.2`, ...). Ricavali con

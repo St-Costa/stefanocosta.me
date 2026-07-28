@@ -243,7 +243,9 @@ with a blind `!important`:
 ├── style/                  base.css + 3 opt-in component sheets
 │   └── fonts/              Self-hosted JetBrains Mono (WOFF2)
 ├── javascript/             5 files, zero dependencies
-├── scripts/gen_feed.py     RSS generator (stdlib only)
+├── scripts/
+│   ├── gen_feed.py         RSS generator (stdlib only)
+│   └── check_site.py       Convention checks (stdlib only)
 └── img/                    WebP throughout
 ```
 
@@ -281,13 +283,34 @@ produces pages indistinguishable from hand-written ones.
 cp blogPosts/_template.html "blogPosts/New Post.html"
 ```
 
-1. Fill the `<head>`: description, title, `data-og-*` attributes, JSON-LD `datePublished`
+1. Fill the `<head>`: description, title, `og:` tags, JSON-LD `datePublished`
 2. Write the body with semantic `<h2 id="...">` headings — the TOC derives itself
 3. Add the entry at the **top** of `mainPages/Blog_pages.html`
 4. Add the URL to `sitemap.xml` with `priority` `0.7`
 5. Regenerate the feed: `python3 scripts/gen_feed.py`
+6. Check the result: `python3 scripts/check_site.py`
 
 Full checklist in [`CLAUDE.md`](CLAUDE.md).
+
+### Keeping the conventions honest
+
+A static site has no compiler to catch a missing `<main>`, an `og:` tag that never made it
+into the markup, or a link to a file that moved. [`scripts/check_site.py`](scripts/check_site.py)
+(stdlib only, like the feed generator) checks the rules this project has committed to:
+
+```
+$ python3 scripts/check_site.py
+29 pagine controllate — 0 errori, 0 avvisi
+```
+
+Every check exists because the corresponding mistake actually happened here: pages shipped
+with `<title>Test post</title>`, five images pointing at a deleted directory, a stray
+`app://obsidian.md/` link in a published post, nine stylesheets nobody loaded. The first run
+of this script found two of those in seconds.
+
+The point isn't the script — it's that **a convention nobody verifies is a convention that
+quietly stops being true.** `CLAUDE.md` documents the rules for humans and assistants; this
+enforces the subset a machine can judge.
 
 ---
 
@@ -302,8 +325,8 @@ There is no CI step, by choice: a build pipeline whose only job is to copy files
 part that can fail for no benefit. Images are converted to WebP locally before committing:
 
 ```bash
-find img/ -name "*.jpg" -o -name "*.png" | while read f; do
-  cwebp -q 80 "$f" -o "${f%.*}.webp"
+find img/ \( -name "*.jpg" -o -name "*.png" \) | while read f; do
+  [ -f "${f%.*}.webp" ] || convert "$f" -quality 80 "${f%.*}.webp"
 done
 ```
 
