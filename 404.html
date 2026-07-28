@@ -7,9 +7,18 @@
     <title>404 — Page Not Found | Stefano Costa</title>
     <!-- base.css is linked directly (not only injected by commonHeader.js) so the
          browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <!-- Headings inherit the browser's default bold, so Bold is on the critical
+         path for the first paint just as much as Regular. Preload both. -->
     <link rel="preload" href="./style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./style/base.css">
-    <script src="./javascript/commonHeader.js"></script>
+    <meta property="og:title" content="Stefano Costa's Webpage">
+    <meta property="og:description" content="Stefano Costa's personal website, featuring his scientific research, publications, and projects">
+    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
+    <meta property="og:url" content="https://stefanocosta.me/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="./img/icon/favicon.svg">
+    <script src="./javascript/commonHeader.js" defer></script>
 </head>
 <body>
     <main>

@@ -17,17 +17,33 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
     <meta name="description" content="Descrizione specifica di questa pagina (max 160 caratteri).">
     <title>Titolo pagina | Stefano Costa</title>
     <link rel="preload" href="[PATH]/style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="[PATH]/style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="[PATH]/style/base.css">
-    <script src="[PATH]/javascript/commonHeader.js"></script>
+    <meta property="og:title" content="Titolo pagina | Stefano Costa">
+    <meta property="og:description" content="Stessa stringa della meta description.">
+    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
+    <meta property="og:url" content="https://stefanocosta.me/PERCORSO.html">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="[PATH]/img/icon/favicon.svg">
+    <script src="[PATH]/javascript/commonHeader.js" defer></script>
 
     <!-- CSS aggiuntivi specifici per questa pagina -->
     <link rel="stylesheet" href="[PATH]/style/blog.css">  <!-- solo se blog post -->
 </head>
 ```
 
-`base.css` va linkato **direttamente** e prima dello script: così il browser lo scarica
-mentre parsa l'HTML, invece di aspettare che il JS venga eseguito. `commonHeader.js` lo
-inietta solo se il link manca, quindi non c'è doppia richiesta.
+Tre regole dietro a quest'ordine:
+
+1. **`base.css` linkato direttamente**, così il browser lo scarica mentre parsa l'HTML.
+2. **OG tag e favicon scritti in chiaro nell'HTML**, non iniettati da JS: i crawler social
+   (LinkedIn, WhatsApp, Slack) spesso non eseguono JavaScript, e un OG tag aggiunto a runtime
+   per loro non esiste.
+3. **`commonHeader.js` con `defer`**: non serve al primo paint, quindi non deve bloccarlo.
+   Resta come rete di sicurezza — aggiunge favicon, `base.css` e OG tag solo se mancano —
+   ma una pagina scritta bene non gli fa fare nulla.
+
+Si preloadano **due** font: gli heading ereditano il bold di default del browser, quindi
+il Bold è sul percorso critico quanto il Regular.
 
 Il `<body>` deve racchiudere il contenuto in `<main>` (landmark di accessibilità),
 chiuso **prima** del footer:
@@ -44,16 +60,20 @@ chiuso **prima** del footer:
 - Root (`/`): `./`
 - Sottocartelle (`/mainPages/`, `/blogPosts/`, `/subpages/`): `../`
 
-**Non** aggiungere reset, tipografia, footer o media query: sono già in `base.css`, iniettato da `commonHeader.js`.
+**Non** aggiungere reset, tipografia, footer o media query: sono già in `base.css`.
 
-### Cosa inietta `commonHeader.js` automaticamente
-- `base.css` (colori, tipografia, layout, responsive, footer)
-- Favicon SVG (`img/icon/favicon.svg`)
-- OG tags generici (title, description, image, url)
+### `commonHeader.js` è un fallback, non una dipendenza
+Aggiunge favicon, `base.css` e OG tag **solo se assenti** dall'HTML. Su una pagina scritta
+seguendo il template qui sopra non fa nulla: serve a non lasciare una pagina senza stile o
+senza anteprima se qualcuno dimentica un tag. Non spostarci dentro logica necessaria al
+rendering, e non togliergli il `defer`.
 
 Il font JetBrains Mono è **self-hosted** in `style/fonts/` e dichiarato con `@font-face`
 dentro `base.css`. Non aggiungere link a Google Fonts o ad altri CDN: il sito non deve
 fare **nessuna** richiesta a terze parti.
+
+Gli `url()` dentro `base.css` sono **assoluti dalla root** (`/style/fonts/…`, `/img/icon/…`),
+non relativi: restano validi da qualsiasi cartella. Mantenere questa forma.
 
 ### CSS disponibili (da aggiungere manualmente solo se servono)
 | File | Quando usarlo |
@@ -93,8 +113,15 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
     <meta name="description" content="...">
     <title>Titolo post | Source of Truth</title>
     <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style/base.css">
-    <script src="../javascript/commonHeader.js"></script>
+    <meta property="og:title" content="Titolo post | Stefano Costa">
+    <meta property="og:description" content="Stessa stringa della meta description.">
+    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
+    <meta property="og:url" content="https://stefanocosta.me/blogPosts/Nome%20File.html">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
+    <script src="../javascript/commonHeader.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

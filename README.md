@@ -49,40 +49,50 @@ The usual price of going frameworkless is duplication: every page re-declaring t
 
 ## Architecture
 
-### 1. A 49-line loader instead of a build step
+### 1. The shared `<head>`, and why it stopped being JavaScript
 
-Every page includes exactly one script in its `<head>`:
+Without a template engine, every page has to repeat its own `<head>`. The obvious fix is a
+script that injects the shared parts, and that is what this site did: one
+[`commonHeader.js`](javascript/commonHeader.js) tag added the favicon, the stylesheet link and
+the Open Graph metadata, deriving the site root from its own `src` so the same file worked from
+any directory.
+
+It was convenient and wrong, for two independent reasons:
+
+- **Crawlers don't run JavaScript.** LinkedIn, WhatsApp and Slack read the HTML they are
+  served. An `og:image` added at runtime does not exist as far as they are concerned, so link
+  previews were silently broken on every page.
+- **It sat on the critical path.** A synchronous script in the `<head>` blocks rendering, and
+  nothing it did was needed for the first paint.
+
+So the shared parts are now written into the HTML, where they belong. It is more bytes of
+markup and less cleverness, which is the right trade when the alternative costs both
+correctness and speed:
 
 ```html
-<script src="../javascript/commonHeader.js"></script>
+<link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2"    as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style/base.css">
+<meta property="og:title" content="…">
+<script src="../javascript/commonHeader.js" defer></script>
 ```
 
-[`commonHeader.js`](javascript/commonHeader.js) injects the favicon, the base stylesheet, and
-a full set of Open Graph tags. Two details make it work where a naive version wouldn't:
-
-**Path self-resolution.** The script derives the site root from its own `src`:
+The script survives as a **safety net rather than a dependency**: deferred, and structured so
+each thing it adds is conditional on that thing being absent.
 
 ```js
-const root = ((script && script.src) || '')
-    .replace(/javascript\/commonHeader\.js.*$/, '') || './';
+if (!has('link[rel="stylesheet"][href$="style/base.css"]')) {
+    add('link', { rel: 'stylesheet', href: root + 'style/base.css' });
+}
 ```
 
-The same file therefore works unmodified from `/`, `/blogPosts/`, `/mainPages/` and
-`/subpages/` — no per-directory configuration, no absolute paths that break local preview.
+On a correctly written page it does nothing at all. On a page where someone forgot a tag, it
+prevents an unstyled render or a missing preview image. That is a good use for JavaScript on a
+static site; generating metadata that a crawler needs is not.
 
-**Cascade correctness.** Injected `<link>` tags are inserted with
-`insertBefore(el, document.currentScript)` rather than appended to `<head>`. That guarantees
-`base.css` lands *before* any page-specific stylesheet written below the script tag,
-making CSS cascade order deterministic instead of load-order dependent.
-
-**Per-page metadata without templating.** OG tags default sensibly and are overridden with
-plain data attributes — used across 19 pages today:
-
-```html
-<script src="../javascript/commonHeader.js"
-        data-og-title="Books that have changed my life"
-        data-og-description="..."></script>
-```
+Two fonts are preloaded, not one: headings inherit the browser's default bold, so the Bold
+file is on the critical path exactly as much as Regular — something the Lighthouse dependency
+tree showed and intuition did not.
 
 ### 2. A table of contents that infers document structure
 
@@ -191,6 +201,17 @@ Order matters there: the breakpoints deliberately override `.index_img`, `.poste
 `.divTd`, `.list_span` and the two-column rules at narrow widths, so they have to stay last.
 The merge was verified by diffing the resolved cascade before and after — same 95 rules, zero
 computed differences. Half the pages now load a single stylesheet.
+
+**Getting the script off the critical path.** Even at 100/100, Lighthouse still listed
+`commonHeader.js` as render-blocking — 1.6 KB costing 450 ms on mobile, for work that only
+mattered after the page was already visible. Moving its output into static HTML (see
+[§1](#1-the-shared-head-and-why-it-stopped-being-javascript)) let it become `defer`, which
+removed it from the critical path and fixed the broken social previews at the same time.
+
+The remaining chain is the shortest one a styled page can have: HTML → CSS → fonts. Both
+critical fonts are preloaded so they start downloading alongside the stylesheet instead of
+after it, and `base.css` uses root-relative `url()` paths so it resolves identically from
+every directory.
 
 Where specificity fights are unavoidable, the losing side is documented rather than patched
 with a blind `!important`:

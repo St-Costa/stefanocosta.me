@@ -1,55 +1,46 @@
+// Safety net, not a dependency.
+//
+// Pages declare their own favicon, Open Graph tags and base.css link directly in
+// the HTML: crawlers do not reliably run JavaScript, and anything this file adds
+// would arrive too late for the first paint anyway. That is why it is loaded with
+// `defer` and never blocks rendering.
+//
+// It stays around so that a page which forgets one of those tags still gets it,
+// rather than shipping unstyled or without a preview image. Each check is a no-op
+// on a correctly written page.
 (function () {
-    // Use insertBefore(el, script) so that the inserted elements appear BEFORE
-    // the inline <link> tags in the HTML, guaranteeing correct CSS cascade order.
-    const script = document.currentScript;
+    // document.currentScript is null in a deferred script, so find our own tag.
+    const script = document.querySelector('script[src$="javascript/commonHeader.js"]');
     const root = ((script && script.src) || '').replace(/javascript\/commonHeader\.js.*$/, '') || './';
-    const folder = root + 'style/';
 
-    function addLink(attrs) {
-        const link = document.createElement("link");
-        for (const key in attrs) {
-            link.setAttribute(key, attrs[key]);
+    function has(selector) {
+        return document.head.querySelector(selector) !== null;
+    }
+
+    function add(tag, attrs) {
+        const el = document.createElement(tag);
+        for (const key in attrs) el.setAttribute(key, attrs[key]);
+        document.head.appendChild(el);
+    }
+
+    if (!has('link[rel="icon"]')) {
+        add('link', { rel: 'icon', type: 'image/svg+xml', href: root + 'img/icon/favicon.svg' });
+    }
+
+    if (!has('link[rel="stylesheet"][href$="style/base.css"]')) {
+        add('link', { rel: 'stylesheet', href: root + 'style/base.css' });
+    }
+
+    const og = {
+        'og:title': "Stefano Costa's Webpage",
+        'og:description': "Stefano Costa's personal website, featuring his scientific research, publications, and projects",
+        'og:image': 'https://stefanocosta.me/img/preview_image.jpg',
+        'og:url': 'https://stefanocosta.me/',
+        'og:type': 'website'
+    };
+    for (const property in og) {
+        if (!has('meta[property="' + property + '"]')) {
+            add('meta', { property: property, content: og[property] });
         }
-        insert(link);
     }
-
-    function insert(el) {
-        if (script && script.parentNode) {
-            script.parentNode.insertBefore(el, script);
-        } else {
-            document.head.appendChild(el);
-        }
-    }
-
-    function addMeta(attrs) {
-        const meta = document.createElement("meta");
-        for (const key in attrs) {
-            meta.setAttribute(key, attrs[key]);
-        }
-        insert(meta);
-    }
-
-    function addStylesheet(href) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = href;
-        insert(link);
-    }
-
-    const imgFolder = root + 'img/';
-    addLink({ rel: "icon", type: "image/svg+xml", href: imgFolder + "icon/favicon.svg" });
-
-    // Pages link base.css directly so the browser can fetch it while parsing the HTML,
-    // instead of waiting for this script. Only inject it as a fallback if that's missing,
-    // so a page is never left unstyled and the file is never requested twice.
-    if (!document.querySelector('link[rel="stylesheet"][href$="style/base.css"]')) {
-        addStylesheet(folder + "base.css");
-    }
-
-    const d = script ? script.dataset : {};
-    addMeta({ property: "og:title",       content: d.ogTitle       || "Stefano Costa's Webpage" });
-    addMeta({ property: "og:description", content: d.ogDescription || "Stefano Costa's personal website, featuring his scientific research, publications, and projects" });
-    addMeta({ property: "og:image",       content: d.ogImage       || "https://stefanocosta.me/img/preview_image.jpg" });
-    addMeta({ property: "og:url",         content: d.ogUrl         || "https://stefanocosta.me/" });
-    addMeta({ property: "og:type",        content: d.ogType        || "website" });
 })();

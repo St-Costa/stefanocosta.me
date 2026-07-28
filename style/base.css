@@ -4,21 +4,21 @@
 /* ── Fonts ──────────────────────────────────────────────────────────── */
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    src: url('/style/fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('./fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    src: url('/style/fonts/JetBrainsMono-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('./fonts/JetBrainsMono-Italic.woff2') format('woff2');
+    src: url('/style/fonts/JetBrainsMono-Italic.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -111,13 +111,13 @@ a:hover { color: var(--text-color); }
 
 a[target="_blank"] {
     padding-right: 14px;
-    background: transparent url(../img/icon/external-link_cyan.png) no-repeat right;
+    background: transparent url(/img/icon/external-link_cyan.png) no-repeat right;
     background-size: 10px 10px;
     font-style: italic;
 }
 
 a[target="_blank"]:hover {
-    background: transparent url(../img/icon/external-link_white.png) no-repeat right;
+    background: transparent url(/img/icon/external-link_white.png) no-repeat right;
     background-size: 10px 10px;
 }
 
