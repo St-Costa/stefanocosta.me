@@ -27,25 +27,29 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
 - Root (`/`): `./`
 - Sottocartelle (`/mainPages/`, `/blogPosts/`, `/subpages/`): `../`
 
-**Non** aggiungere `night_mode.css`, `styling.css`, `footer.css`, `phone.css` — sono già in `base.css`, caricato da `commonHeader.js`.
+**Non** aggiungere reset, tipografia, footer o media query: sono già in `base.css`, iniettato da `commonHeader.js`.
 
 ### Cosa inietta `commonHeader.js` automaticamente
 - `base.css` (colori, tipografia, layout, responsive, footer)
 - Favicon SVG (`img/icon/favicon.svg`)
-- Google Fonts JetBrains Mono
 - OG tags generici (title, description, image, url)
+
+Il font JetBrains Mono è **self-hosted** in `style/fonts/` e dichiarato con `@font-face`
+dentro `base.css`. Non aggiungere link a Google Fonts o ad altri CDN: il sito non deve
+fare **nessuna** richiesta a terze parti.
 
 ### CSS disponibili (da aggiungere manualmente solo se servono)
 | File | Quando usarlo |
 |------|---------------|
+| `style/components.css` | Immagini, icone, liste, bottoni, tabelle, layout a 2 colonne (quasi tutte le pagine) |
 | `style/blog.css` | Blog post con TOC fisso a sinistra |
-| `style/img.css` | Pagine con immagini/icone |
-| `style/list_div.css` | Pagine con liste di link (stile homepage) |
-| `style/button.css` | Pagine con `<button>` |
-| `style/table.css` | Pagine con tabelle o `.divTable` |
 | `style/gallery.css` | Pagine con slideshow gallery |
 | `style/about_me_cards.css` | Solo `aboutme.html` |
-| `style/left_right_containers.css` | Layout a due colonne |
+
+### Icone
+Le icone sono **SVG inline** (path di Font Awesome Free, CC BY 4.0) con classe `.fa_icon`,
+non un webfont. Per aggiungerne una, copiare un `<svg class="fa_icon">` esistente da
+`subpages/Thesis.html`. Il `fill="currentColor"` fa ereditare il colore da `.fa_icon`.
 
 ### `<body>` — footer
 
@@ -191,6 +195,30 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 ├── subpages/         ← approfondimenti accademici
 ├── style/            ← CSS (base.css + CSS specifici)
 ├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js, about_me_cards.js
+├── scripts/          ← gen_feed.py (generatore RSS)
 ├── img/              ← immagini (sempre WebP)
 └── document/         ← PDF accademici (non indicizzati)
 ```
+
+---
+
+## Note tecniche (decisioni già prese — non rifarle)
+
+### Perché `blog.css` usa `body h2` invece di `h2`
+Per vincere sulla cascade contro le regole a livello di elemento di `base.css` e
+`components.css` (specificità `0,0,1`) senza ricorrere a `!important`: il prefisso `body`
+porta la specificità a `0,0,2`, indipendentemente dall'ordine di caricamento.
+
+### `<fieldset>` decorativi → `<section>` + `.box-title`
+Tutti i `<fieldset>` usati a scopo decorativo (`.briefAboutMe`, `.toc`, `.tldr`, `.callout`,
+`.explanation_box`) sono stati sostituiti da `<section>`/`<div>`. L'effetto del `<legend>`
+flottante sul bordo è replicato con `.box-title { position: absolute; top: 0; left: 50%;
+transform: translate(-50%, -50%); }` su un contenitore `position: relative`. Il `.toc` usa un
+`.toc-scroll` interno per gestire `overflow-y: auto` senza tagliare il `.box-title`.
+
+### Link "Colophon" nel footer
+`footer.js` rileva la cartella corrente e usa `../mainPages/colophon.html` per `subpages/` e
+`blogPosts/`, `./colophon.html` per `mainPages/`. Non hardcodare il path.
+
+### Anno di copyright
+In `index.html` è aggiornato via JS (`#copyright-year`). Non scriverlo a mano.
