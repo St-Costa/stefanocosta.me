@@ -154,12 +154,18 @@ body ul {
    and its alt text carries the full wording of the tweet. */
 .tweet-shot {
     display: block;
-    max-width: 550px;
+    width: fit-content;
+    max-width: min(700px, 100%);
     margin: 1.5em auto;
 }
 
+/* `width: auto` + `max-width: 100%` lets each screenshot grow up to its own
+   native size and no further: scaling one past its real pixels only makes it
+   blurry. The tall screenshot is 416px wide natively and stays there; the wide
+   one fills the 700px the container allows. */
 .tweet-shot img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     border-radius: 12px;
     border: 1px solid var(--text-color);
