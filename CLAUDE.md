@@ -14,7 +14,7 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
 
 `scripts/check_site.py` verifica le regole di questo file su tutte le pagine: `<main>`,
 OG tag statici, `defer`, preload dei font, `aria-label` sui bottoni-icona, riferimenti
-locali, `datePublished` nei post, CSS orfani.
+locali, `datePublished` nei post, CSS orfani, richieste a terze parti.
 
 **Gira da solo a ogni `git commit`** (hook in `scripts/githooks/pre-commit`): se trova un
 errore, il commit viene annullato. Non serve eseguirlo a mano.
@@ -247,6 +247,19 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
 - Ogni `<img>` deve avere `width` e `height` con le dimensioni **reali** del file: danno al
   browser l'aspect ratio prima del download ed evitano il layout shift (CLS). Il CSS controlla
   la dimensione visibile, purché la regola includa `height: auto`.
+
+### Contenuti di terze parti — mai embed
+Il sito fa **zero richieste a terze parti** e va tenuto così. Quindi:
+- **Tweet**: screenshot locale in `img/blog/<Post>/`, dentro `<a class="tweet-shot">` che
+  linka al tweet originale. L'`alt` deve riportare **il testo del tweet**, non "screenshot di
+  un tweet": altrimenti il contenuto sparisce per chi usa uno screen reader.
+- **Copertine di libri/podcast/album**: scaricarle in `img/covers/` (WebP, ~2x la dimensione
+  di rendering), mai `src` che punta ad Amazon, Apple o Wikimedia.
+- Niente player YouTube, widget social, piattaforme di commenti, Google Fonts, CDN di icone.
+
+`scripts/check_site.py` lo verifica: qualsiasi `src`/`href` esterno dentro `<img>`,
+`<script>`, `<link>`, `<source>` o `<iframe>` fa fallire il commit. I normali `<a href>`
+verso l'esterno restano liberi — sono link, non richieste.
 
 ### Alt text
 - Immagini informative: testo descrittivo (`alt="Screenshot del progetto XYZ"`).

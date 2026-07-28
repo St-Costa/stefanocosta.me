@@ -46,11 +46,11 @@ Getting there meant refusing the conveniences that quietly leak visitors to othe
 - **No comment platform, no share buttons, no video players.** The usual vehicles for
   third-party cookies simply aren't here.
 
-The result: **28 of the 29 pages make zero third-party requests.** Book and podcast covers are
-hosted here rather than hotlinked from Amazon and Apple, and quoted tweets are reproduced as
-text or as a local screenshot that links back to the original — an embed is a third-party
-script that can set cookies, and it leaves a blank gap for anyone running a blocker. One old
-post still carries a Twitter embed, pending a screenshot.
+The result: **every page makes zero third-party requests.** Book and podcast covers are hosted
+here rather than hotlinked from Amazon and Apple, and quoted tweets are local screenshots that
+link back to the original — an embed is a third-party script that can set cookies, and it
+leaves a blank gap for anyone running a blocker. Each screenshot carries the tweet's full
+wording in its `alt` text, so the quote is still there for a screen reader.
 
 ### Performance as a consequence, not a project
 

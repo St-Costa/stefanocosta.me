@@ -100,8 +100,10 @@ def check_page(path, html):
         if desc and len(desc.group(1)) > 160 and not is_template:
             warn(rel, f"meta description di {len(desc.group(1))} caratteri (max 160)")
 
-    if "cdnjs" in html or "fonts.googleapis" in html:
-        err(rel, "richiesta a un CDN esterno: il sito non deve contattare terze parti")
+    # Il sito non deve contattare terze parti: niente CDN, embed o immagini hotlinked.
+    # I <a href> verso l'esterno vanno benissimo — sono link, non richieste.
+    for m in re.finditer(r'<(img|script|link|source|iframe)[^>]+(?:src|href)="(https?://[^"]+)"', html):
+        err(rel, f"richiesta a terze parti in <{m.group(1)}>: {m.group(2)[:70]}")
 
     for m in re.finditer(r"<button(?![^>]*aria-label)[^>]*>(.*?)</button>", html, re.S):
         if "<svg" in m.group(1) or not m.group(1).strip():
