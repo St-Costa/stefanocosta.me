@@ -5,14 +5,474 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stefano Costa — mathematician, developer, and entrepreneur. Portfolio, blog, academic research, and projects.">
     <title>Stefano Costa</title>
-    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
-         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <!-- The homepage inlines base.css instead of linking it: this is the first-visit
+         page, where the cache is empty and a second round-trip costs the most. The
+         other pages keep the <link>, so they share one cacheable stylesheet.
+         Regenerate with: python3 scripts/inline_home_css.py -->
     <!-- Headings inherit the browser's default bold, so Bold is on the critical path
          for the first paint just as much as Regular. Italic is not, so it is left to
          load on demand. All three are subset to the glyphs this site actually uses. -->
     <link rel="preload" href="./style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="./style/base.css">
+    <!-- INLINE-CSS:begin — generato da scripts/inline_home_css.py, non modificare a mano -->
+    <style>
+/* ── Global reset ───────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+/* ── Fonts ──────────────────────────────────────────────────────────── */
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/style/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/style/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/style/fonts/JetBrainsMono-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ── Variables & colour scheme ─────────────────────────────────────── */
+:root {
+    --link-color: #7FCEF0;
+    --italic-color: #FBFFAD;
+    --background-color: #3E3E3E;
+    --text-color: #D7D7D7;
+    --hover-color: #000ecc;
+    --bold_color: #FFA500;
+
+    --space-sm: 0.3cm;
+    --space-md: 0.8cm;
+    --space-lg: 1.2cm;
+
+    --body-margin-h: 15%;
+    --body-margin-v: 70px;
+    --font-size-base: 20px;
+    --font-size-h1: 55px;
+    --footer-width: 60%;
+    --footer-index-width: 25%;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 400;
+    margin-left: var(--body-margin-h);
+    margin-right: var(--body-margin-h);
+    margin-top: var(--body-margin-v);
+    margin-bottom: var(--body-margin-v);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-size-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+h1 { font-size: var(--font-size-h1); }
+
+hr {
+    border: 0;
+    border-top: 2px solid var(--text-color);
+    margin: 20px 0;
+}
+
+i, .yellow { color: var(--italic-color); }
+
+b {
+    color: var(--text-color);
+    font-weight: 900;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin-left: 5px;
+}
+
+li { margin: 10px 0; }
+
+.content_list {
+    list-style-type: disc;
+    text-align: left;
+    padding-left: 1.5em;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.content_list li {
+    margin: 0;
+}
+
+/* ── Links ──────────────────────────────────────────────────────────── */
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover { color: var(--text-color); }
+
+a[target="_blank"] {
+    padding-right: 14px;
+    background: transparent url(/img/icon/external-link_cyan.png) no-repeat right;
+    background-size: 10px 10px;
+    font-style: italic;
+}
+
+a[target="_blank"]:hover {
+    background: transparent url(/img/icon/external-link_white.png) no-repeat right;
+    background-size: 10px 10px;
+}
+
+/* !important needed: overrides a[target="_blank"] background with same specificity */
+a.noTarget { background: none !important; }
+
+/* ── Utility classes ────────────────────────────────────────────────── */
+.justify { text-align: justify; }
+.left    { text-align: left; }
+/* !important needed: utility class must win over contextual alignment rules */
+.center  { text-align: center !important; margin: auto; flex: 1; }
+.inline  { display: inline; }
+
+.briefAboutMe {
+    width: fit-content;
+    border-top: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    position: relative;
+    padding: 0.8em 1.5em 0.5em;
+    margin: 1em auto;
+}
+
+.box-title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.3em;
+    background-color: var(--background-color);
+    white-space: nowrap;
+}
+
+.box-title h1, .box-title h2, .box-title h3,
+.box-title h4, .box-title h5, .box-title h6 { margin: 0; }
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.section-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--text-color);
+    margin: 0;
+}
+
+.section-divider span {
+    padding: 0 12px;
+    font-weight: bold;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+footer {
+    border-bottom: 1px solid #F5F5F7;
+    border-top: 1px solid #F5F5F7;
+    padding: 10px;
+    margin: auto;
+    margin-top: 1.5cm;
+    width: var(--footer-width);
+    font-size: smaller;
+    line-height: 1;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+/* Class selector wins over element selector — no !important needed */
+.footer_index { width: var(--footer-index-width); }
+
+/* ── Components ─────────────────────────────────────────────────────── */
+/* Merged in from the former components.css: one stylesheet means one
+   render-blocking request instead of two chained ones. These rules sit
+   BEFORE the media queries below, which override several of them
+   (.index_img, .poster_img, .divTd, .list_span, .left_div/.right_div)
+   at narrow widths — keep that order. */
+
+/* ── Images ─────────────────────────────────────────────────────────── */
+img {
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.animated_img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.icon.animated_img:hover {
+    filter: brightness(0) invert(1);
+}
+
+.index_img { width: 200px; }
+
+.poster_img {
+    border-radius: 0;
+    filter: drop-shadow(#ababab 5px 5px 7px);
+}
+.poster_img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+figure figcaption { text-align: center; }
+
+/* The width/height attributes in the HTML give the browser the intrinsic aspect
+   ratio (so it reserves space before the image loads, avoiding layout shift);
+   `height: auto` lets this rule set the displayed size without distorting it. */
+.icon {
+    width: 30px !important;
+    height: auto;
+    border-radius: 0;
+}
+
+.icon_inline {
+    vertical-align: middle;
+    margin-right: 1px;
+    display: inline;
+    border-radius: 5px;
+}
+
+/* Square logo indicating the tech/type of a project, shown next to its title */
+.project_type_logo {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.profile_img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Inline SVG icons (Font Awesome Free paths, CC BY 4.0) — self-hosted, no CDN.
+   `currentColor` on the path means the SVG inherits this rule's colour. */
+.fa_icon {
+    color: #6ed6f0;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+}
+
+.QR {
+    width: 100%;
+    max-width: 300px;
+}
+
+.book {
+    height: 150px;
+}
+.book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.podcast { height: 100px; }
+.podcast:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/* ── Lists & spacing ────────────────────────────────────────────────── */
+.list_div > * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+}
+
+.bottom_space          { margin-bottom: var(--space-sm); }
+.bottom_space_big      { margin-bottom: var(--space-md); }
+.bottom_space_very_big { margin-bottom: var(--space-lg); }
+.top_space_big         { margin-top: var(--space-md); }
+
+.not_so_bold { font-weight: 550; }
+.list_span   { font-size: 25px; }
+
+.explanation_box {
+    border: 2px solid;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-top: 1.4em;
+}
+.explanation_box .box-title {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: yellow;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────── */
+button {
+    background-color: transparent;
+    color: var(--link-color);
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: var(--hover-color);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────── */
+td { vertical-align: top; }
+
+.verticalCenter { vertical-align: middle; }
+
+.divTable {
+    display: table;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.divTd {
+    display: table-cell;
+    width: 10%;
+}
+
+.image_divTd {
+    display: table-cell;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Color swatches (colophon.html) */
+.color-swatch-link   { background-color: var(--link-color);       color: #000; }
+.color-swatch-italic { background-color: var(--italic-color);     color: #000; }
+.color-swatch-bg     { background-color: var(--background-color); color: #fff; }
+.color-swatch-text   { background-color: var(--text-color);       color: #000; }
+.color-swatch-bold   { background-color: var(--bold_color);       color: #000; }
+
+/* ── Two-column layout ──────────────────────────────────────────────── */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.left_div  { float: left;  width: 58%; }
+.right_div { float: right; width: 40%; }
+
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+/* These must stay last: several rules above (.index_img, .poster_img,
+   .divTd, .list_span, .left_div/.right_div) are deliberately overridden
+   here at narrow widths. The !important flags date from when these rules
+   lived in a separate file that loaded afterwards; they are harmless now
+   but left in place rather than removed without cross-browser testing. */
+
+@media only screen and (max-width: 950px) {
+    body {
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 17px;
+    }
+
+    h1 { font-size: 40px; }
+
+    .left_div, .right_div {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .right_div { margin-top: 10px; }
+
+    .list_div { margin-left: 10px; }
+
+    .index_img { width: 130px !important; }
+
+    .poster_img {
+        width: 50%;
+        height: auto;
+    }
+
+    .poster_table { display: block; }
+    .poster_table tr { display: block; }
+    .poster_table td { display: block; width: 100% !important; }
+    .poster_table td + td { margin-top: 20px; padding-left: 0; }
+
+    .footer_index { width: 90%; }
+    footer { width: 90%; }
+
+    .list_span { font-size: 22px !important; }
+
+    .divTd, .image_divTd {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .justify { text-align: left; }
+}
+
+@media only screen and (max-width: 768px) {
+    body { font-size: 16px; }
+    h1 { font-size: 34px; }
+    .index_img { width: 100px !important; }
+    .poster_img { width: 70%; }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: 15px;
+    }
+    h1 { font-size: 28px; }
+    .index_img { width: 80px !important; }
+    .poster_img { width: 90%; }
+    .list_span { font-size: 19px !important; }
+}
+    </style>
+    <!-- INLINE-CSS:end -->
     <meta property="og:title" content="Stefano Costa's Webpage">
     <meta property="og:description" content="Stefano Costa's personal website, featuring his scientific research, publications, and projects">
     <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">

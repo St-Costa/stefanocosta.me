@@ -27,7 +27,9 @@
         add('link', { rel: 'icon', type: 'image/svg+xml', href: root + 'img/icon/favicon.svg' });
     }
 
-    if (!has('link[rel="stylesheet"][href$="style/base.css"]')) {
+    // The homepage inlines base.css in a <style> instead of linking it, so check for
+    // both forms — otherwise this would fetch a stylesheet the page already has.
+    if (!has('link[rel="stylesheet"][href$="style/base.css"]') && !has('style')) {
         add('link', { rel: 'stylesheet', href: root + 'style/base.css' });
     }
 

@@ -217,6 +217,16 @@ Order matters there: the breakpoints deliberately override `.index_img`, `.poste
 The merge was verified by diffing the resolved cascade before and after — same 95 rules, zero
 computed differences. Half the pages now load a single stylesheet.
 
+**Inlining the stylesheet, but only where it pays.** The last blocking request was
+`base.css` itself. Inlining it everywhere would have removed it from every critical path and
+cost ~3 KB of duplicated, uncacheable CSS on all 29 pages. Inlining it on the **homepage
+only** takes the win where it matters — first visit, empty cache, and the smallest page on
+the site at 1.6 KB gzip — while the other 28 keep sharing one cached stylesheet.
+
+The homepage now loads in a single round-trip. `scripts/inline_home_css.py` regenerates the
+inlined copy from `style/base.css`, and the pre-commit check fails if the two drift apart, so
+there is no second source of truth to keep in sync by hand.
+
 **Getting the script off the critical path.** Even at 100/100, Lighthouse still listed
 `commonHeader.js` as render-blocking — 1.6 KB costing 450 ms on mobile, for work that only
 mattered after the page was already visible. Moving its output into static HTML (see

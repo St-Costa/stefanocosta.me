@@ -65,6 +65,9 @@ sensati, scelta della `priority` in sitemap) restano responsabilità di chi scri
 Tre regole dietro a quest'ordine:
 
 1. **`base.css` linkato direttamente**, così il browser lo scarica mentre parsa l'HTML.
+   Unica eccezione: `index.html`, che lo **inlina** in un `<style>` (prima visita = cache
+   vuota, dove il round-trip in più pesa di più). Non modificare quel blocco a mano:
+   rigenerarlo con `python3 scripts/inline_home_css.py`.
 2. **OG tag e favicon scritti in chiaro nell'HTML**, non iniettati da JS: i crawler social
    (LinkedIn, WhatsApp, Slack) spesso non eseguono JavaScript, e un OG tag aggiunto a runtime
    per loro non esiste.

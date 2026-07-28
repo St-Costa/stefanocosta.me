@@ -75,8 +75,10 @@ def check_page(path, html):
     if html.count("<main>") != 1 or html.count("</main>") != 1:
         err(rel, "manca il landmark <main> (accessibilità)")
 
-    if "style/base.css" not in html:
-        err(rel, "base.css non linkato direttamente (render-blocking)")
+    # La homepage inlina base.css invece di linkarlo (vedi inline_home_css.py);
+    # ogni altra pagina deve linkarlo, altrimenti resta senza stile.
+    if "INLINE-CSS:begin" not in html and "style/base.css" not in html:
+        err(rel, "base.css né linkato né inlinato: la pagina resterebbe senza stile")
 
     if html.count('rel="preload"') != 2:
         err(rel, "servono 2 <link rel=preload> per i font (Regular + Bold)")
@@ -135,6 +137,25 @@ def check_posts():
                 err(rel, f"<title> e <h1> divergono: {title.group(1)!r} vs {h1_text!r}")
 
 
+def check_inline_css():
+    """Il CSS inlinato nella homepage deve combaciare con style/base.css."""
+    index = os.path.join(ROOT, "index.html")
+    if not os.path.exists(index):
+        return
+    html = open(index, encoding="utf-8").read()
+    if "INLINE-CSS:begin" not in html:
+        return
+    block = re.search(r"INLINE-CSS:begin.*?<style>\n(.*?)\n\s*</style>", html, re.S)
+    if not block:
+        err("index.html", "blocco INLINE-CSS malformato")
+        return
+    css = open(os.path.join(ROOT, "style", "base.css"), encoding="utf-8").read()
+    if block.group(1).strip() != css.strip():
+        err("index.html",
+            "il CSS inline diverge da style/base.css — "
+            "rigenera con: python3 scripts/inline_home_css.py")
+
+
 def check_orphan_css():
     """Un CSS che nessuno carica è peso morto — ne avevamo nove."""
     pages = " ".join(open(p, encoding="utf-8").read()
@@ -153,6 +174,7 @@ def main():
     for path in pages:
         check_page(os.path.join(ROOT, path), open(path, encoding="utf-8").read())
     check_posts()
+    check_inline_css()
     check_orphan_css()
 
     for w in warnings:
