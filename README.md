@@ -52,6 +52,9 @@ link back to the original — an embed is a third-party script that can set cook
 leaves a blank gap for anyone running a blocker. Each screenshot carries the tweet's full
 wording in its `alt` text, so the quote is still there for a screen reader.
 
+Following the blog works the same way: the [RSS feed](https://stefanocosta.me/mainPages/blogFeed.xml)
+is generated from the posts themselves, so reading it doesn't require an account anywhere.
+
 ### Performance as a consequence, not a project
 
 Because there is so little to load, the site scores 100 across the board on
@@ -70,47 +73,3 @@ Every image declares its real dimensions so the layout never jumps while they lo
 critical fonts are preloaded, the stylesheet is inlined on the homepage where a first-time
 visitor has an empty cache, and the one script the site uses is deferred so it cannot delay
 the first paint.
-
-### Accessible, and readable by machines
-
-Every page carries a `<main>` landmark, descriptive `alt` text, and `aria-label`s on
-icon-only controls. Open Graph tags and Schema.org metadata are written into the HTML rather
-than injected by JavaScript — crawlers don't run scripts, so a link preview generated at
-runtime doesn't exist as far as they are concerned.
-
-The blog's [RSS feed](https://stefanocosta.me/mainPages/blogFeed.xml) is generated from the
-posts themselves by a dependency-free Python script, so following the blog doesn't require an
-account anywhere.
-
----
-
-## Working on it
-
-```bash
-git clone https://github.com/St-Costa/personal-site.git
-cd personal-site
-python3 -m http.server 8000
-```
-
-That is the whole development environment. A static file server is needed rather than opening
-the HTML directly, because paths resolve relative to the site root.
-
-Two scripts keep the conventions from drifting:
-
-```bash
-python3 scripts/gen_feed.py     # rebuilds the RSS feed from the posts
-python3 scripts/check_site.py   # checks the rules in CLAUDE.md across every page
-```
-
-`check_site.py` runs automatically on every commit through a versioned pre-commit hook, so a
-change that breaks accessibility, metadata or an internal link is refused rather than
-published. Enable it once per clone with `git config core.hooksPath scripts/githooks`.
-
-Conventions for adding a page or a post are in [`CLAUDE.md`](CLAUDE.md).
-
----
-
-## License
-
-Code is free to learn from and adapt. Written content, images and academic documents are
-© Stefano Costa — please ask before reusing.

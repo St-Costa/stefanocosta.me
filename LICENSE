@@ -1,0 +1,20 @@
+Copyright (c) 2024-2026 Stefano Costa
+
+CODE
+----
+The code in this repository — HTML structure, CSS, JavaScript and the Python
+scripts under scripts/ — is free to read, learn from and adapt.
+
+CONTENT
+-------
+Written content (blog posts and pages), images, and the academic documents
+under document/ are © Stefano Costa and are not covered by the above.
+Please ask before reusing them.
+
+THIRD-PARTY MATERIAL
+--------------------
+- JetBrains Mono (style/fonts/) is licensed under the SIL Open Font License 1.1.
+- The inline SVG icons use Font Awesome Free paths, licensed CC BY 4.0.
+- Screenshots of tweets and the book, podcast and album covers under img/covers/
+  remain the property of their respective owners and are reproduced here as
+  quotation; they are not licensed for reuse.
