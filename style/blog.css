@@ -146,3 +146,44 @@ body ul {
         word-break: break-all;
     }
 }
+
+/* ── Quoted tweets ──────────────────────────────────────────────────── */
+/* Screenshots hosted here rather than embedded from platform.twitter.com:
+   an embed is a third-party script that can set cookies, and it leaves a
+   blank gap when the script is blocked. The image links to the original. */
+.tweet-shot {
+    display: block;
+    max-width: 550px;
+    margin: 1.5em auto;
+}
+
+.tweet-shot img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--text-color);
+}
+
+.tweet-shot:hover img {
+    border-color: var(--link-color);
+}
+
+/* Fallback when no screenshot is available: plain quoted text. */
+.tweet-quote {
+    max-width: 550px;
+    margin: 1.5em auto;
+    padding: 1em 1.2em;
+    border: 1px solid var(--text-color);
+    border-radius: 12px;
+}
+
+.tweet-quote p { padding: 0; }
+
+.tweet-quote footer {
+    border: 0;
+    width: auto;
+    margin: 0.6em 0 0;
+    padding: 0;
+    text-align: right;
+    font-size: smaller;
+}

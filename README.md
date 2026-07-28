@@ -46,11 +46,11 @@ Getting there meant refusing the conveniences that quietly leak visitors to othe
 - **No comment platform, no share buttons, no video players.** The usual vehicles for
   third-party cookies simply aren't here.
 
-The result: **26 of the 29 pages make zero third-party requests** — the homepage and every
-page you are likely to land on among them. The exceptions are deliberate and visible: two old
-posts embed a tweet, and the "about me" page hotlinks book and podcast covers to the shops
-they come from. Block them and the pages still read fine; nothing here needs a third party to
-work.
+The result: **28 of the 29 pages make zero third-party requests.** Book and podcast covers are
+hosted here rather than hotlinked from Amazon and Apple, and quoted tweets are reproduced as
+text or as a local screenshot that links back to the original — an embed is a third-party
+script that can set cookies, and it leaves a blank gap for anyone running a blocker. One old
+post still carries a Twitter embed, pending a screenshot.
 
 ### Performance as a consequence, not a project
 
