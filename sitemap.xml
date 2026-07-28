@@ -3,136 +3,136 @@
 
   <!-- Main pages -->
   <url>
-    <loc>https://st-costa.github.io/</loc>
+    <loc>https://stefanocosta.me/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/aboutme.html</loc>
+    <loc>https://stefanocosta.me/mainPages/aboutme.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/Blog_pages.html</loc>
+    <loc>https://stefanocosta.me/mainPages/Blog_pages.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/Projects.html</loc>
+    <loc>https://stefanocosta.me/mainPages/Projects.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/Work_with_me.html</loc>
+    <loc>https://stefanocosta.me/mainPages/Work_with_me.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/now.html</loc>
+    <loc>https://stefanocosta.me/mainPages/now.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/Academic_past.html</loc>
+    <loc>https://stefanocosta.me/mainPages/Academic_past.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/mainPages/colophon.html</loc>
+    <loc>https://stefanocosta.me/mainPages/colophon.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Blog posts -->
   <url>
-    <loc>https://st-costa.github.io/blogPosts/July%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/July%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/Books%20that%20have%20changed%20my%20life.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/Books%20that%20have%20changed%20my%20life.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/June%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/June%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/May%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/May%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/April%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/April%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/March%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/March%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/February%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/February%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/January%20Monthly%20Business%20Ahas.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/January%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/Flows%20of%20my%20information.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/Flows%20of%20my%20information.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/Lifechanging%20blog%20posts.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/Lifechanging%20blog%20posts.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/The%20corporate%20experience.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/The%20corporate%20experience.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/blogPosts/I%20am%20not%20a%20mathematician.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/I%20am%20not%20a%20mathematician.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Academic subpages -->
   <url>
-    <loc>https://st-costa.github.io/subpages/Thesis.html</loc>
+    <loc>https://stefanocosta.me/subpages/Thesis.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/subpages/Academic_projects.html</loc>
+    <loc>https://stefanocosta.me/subpages/Academic_projects.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/subpages/Posters.html</loc>
+    <loc>https://stefanocosta.me/subpages/Posters.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/subpages/Conferences.html</loc>
+    <loc>https://stefanocosta.me/subpages/Conferences.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/subpages/fAI_Challenge.html</loc>
+    <loc>https://stefanocosta.me/subpages/fAI_Challenge.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://st-costa.github.io/subpages/A%200D-1D%20global%2C%20closed-loop%20model%20of%20the%20cardiovascular%20system.html</loc>
+    <loc>https://stefanocosta.me/subpages/A%200D-1D%20global%2C%20closed-loop%20model%20of%20the%20cardiovascular%20system.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

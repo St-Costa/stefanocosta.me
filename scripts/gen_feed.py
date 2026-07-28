@@ -10,7 +10,7 @@ Struttura di ogni <description> (HTML in entità, come vuole RSS):
   <strong>Headers of the post:</strong> <ul><li>...</li></ul>
 
 I post inclusi sono solo quelli con "datePublished" nel JSON-LD
-(esclude automaticamente _template.html e Test post.html).
+(esclude automaticamente _template.html e ogni bozza priva di data).
 Ordinamento: data decrescente (più recente in cima).
 
 Uso:  python3 scripts/gen_feed.py        (dalla root del repo)
