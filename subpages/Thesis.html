@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stefano Costa's theses: master's in computational haemodynamics and bachelor's in mathematics.">
     <title>Theses | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"
         data-og-title="Theses | Stefano Costa"
         data-og-description="Stefano Costa's theses: master's in computational haemodynamics and bachelor's in mathematics."
-        data-og-url="https://st-costa.github.io/subpages/Thesis.html"
-        data-og-type="website"></script></script>
+        data-og-url="https://stefanocosta.me/subpages/Thesis.html"
+        data-og-type="website"></script>
 
     <link rel="stylesheet" href="../style/components.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <main>
     <h1 class="title">Theses</h1>
   
     <div class="list_div bottom_space_big">
@@ -23,20 +27,22 @@
         <p><u>Abstract</u>:</p>
         <p class="justify"> Understanding the complex interactions between the heart and the arterial and venous networks in physiological and pathological scenarios remains a significant challenge in cardiovascular research. Computational cardiovascular models show promise as an effective tool for exploring these complexities, but to tackle such interactions methodological challenges must be addressed.</p> 
         <p class="justify bottom_space">We present a <b>cardiovascular closed-loop model</b> that couples a <b>1D global vascular model</b> [<a target="_blank" href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1162391/full">1</a>] with a <b>0D cardiac model</b> (namely, the CircAdapt model [<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2758607/">2</a>]). This coupling enables detailed analysis of the interaction between the heart and the circulatory system, with emphasis on <b>venous return</b>, while maintaining a low computational cost. In particular, the use of a 1D model of blood flow enables to efficiently analyse <b>wave propagation</b> phenomena. Suitable coupling conditions are considered to ensure the integration of the two models while preserving their coherence and consistency. </p>
-        <button data-href="../document/Stefano Costa - Thesis summary.pdf" aria-label="Download thesis summary PDF"><i class="fa_icon fas fa-list-alt"></i></button>
-        <button data-location="Posters.html#master_degree_poster" aria-label="View thesis poster"><i class="fa_icon fa-solid fa-image"></i></button>
-        <button data-href="../document/Stefano_Costa_Master_thesis.pdf" aria-label="Download full thesis PDF"><i class="fa_icon fas fa-file-pdf"></i></button>
-        <button data-href="https://www.canva.com/design/DAGTQY2sj4Y/UUd4snC0mb52sWhDHMHS3w/edit?utm_content=DAGTQY2sj4Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" aria-label="View thesis presentation"><i class="fa_icon fas fa-chalkboard-teacher"></i></button>
+        <button data-href="../document/Stefano Costa - Thesis summary.pdf" aria-label="Download thesis summary PDF"><svg class="fa_icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm88 64a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 8c0-8.8 7.2-16 16-16H400c8.8 0 16 7.2 16 16s-7.2 16-16 16H192c-8.8 0-16-7.2-16-16zm0 96c0-8.8 7.2-16 16-16H400c8.8 0 16 7.2 16 16s-7.2 16-16 16H192c-8.8 0-16-7.2-16-16zm0 96c0-8.8 7.2-16 16-16H400c8.8 0 16 7.2 16 16s-7.2 16-16 16H192c-8.8 0-16-7.2-16-16zM88 256a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm24 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></button>
+        <button data-location="Posters.html#master_degree_poster" aria-label="View thesis poster"><svg class="fa_icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg></button>
+        <button data-href="../document/Stefano_Costa_Master_thesis.pdf" aria-label="Download full thesis PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
+        <button data-href="https://www.canva.com/design/DAGTQY2sj4Y/UUd4snC0mb52sWhDHMHS3w/edit?utm_content=DAGTQY2sj4Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" aria-label="View thesis presentation"><svg class="fa_icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M96 32C60.7 32 32 60.7 32 96V320h96V192c0-35.3 28.7-64 64-64H448V96c0-35.3-28.7-64-64-64H96zM384 160H192c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H576c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H384zM96 352H32v32c0 35.3 28.7 64 64 64h32V352H96zm192 48a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm-32 160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v0H256v0z"/></svg></button>
     </div>
 
     <div class="list_div bottom_space_big">
         <h2 class="left">Gaussian processes and supervised learning: application to the Windkessel model</h2>
         <h3 class="left bottom_space not_so_bold"><i>Bachelor's thesis</i>, <i><a target="_blank" href="https://www.unitn.it/">University of Trento</a></i>, <em>6 CFU</em>, <em>AY 2021-2022</em></h3>
         <p class="bottom_space justify"><u>Summary</u>: The thesis explores the application of <b>Gaussian processes</b> to the <b>Windkessel model</b>, a simplified representation of the cardiovascular system. By employing Gaussian processes, the study achieves accurate predictions without solving differential equations, significantly <b>reducing computational time and costs</b>.</p>
-        <button data-href="../document/Stefano_Costa-Bachelor_thesis.pdf" aria-label="Download bachelor thesis PDF"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa-Bachelor_thesis.pdf" aria-label="Download bachelor thesis PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
         <p>*: Pay attention to translation problems as indicated in [<a target="_blank" href="https://github.com/St-Costa/Bachelor-thesis-translated---Gaussian-processes-and-Windkessel-model">GitHub Repository</a>]</p>
-    </div>
+ 
+   </div>
 
+    </main>
 
     <script src="../javascript/footer.js"></script>
 

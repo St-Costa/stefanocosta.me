@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Academic projects by Stefano Costa in mathematical biology, numerical methods, and biophysics.">
     <title>Academic projects | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"
         data-og-title="Academic projects | Stefano Costa"
         data-og-description="Academic projects by Stefano Costa in mathematical biology, numerical methods, and biophysics."
-        data-og-url="https://st-costa.github.io/subpages/Academic_projects.html"
-        data-og-type="website"></script></script>
+        data-og-url="https://stefanocosta.me/subpages/Academic_projects.html"
+        data-og-type="website"></script>
 
     <link rel="stylesheet" href="../style/components.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <main>
     <h1 class="title">Academic projects</h1>
 
     <section class="explanation_box">
@@ -28,7 +32,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Computational Haemodynamics, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0027674/Didattica">Prof. Lucas Omar Muller</a></h4>
         <p class="bottom_space justify"> Using a <b>1D cardiovascular model</b>, the results of <a target="_blank" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cnm.2598">10.1002/cnm.2598</a> are reproduced. The same blood vessel network is replicated, an <b>endograft</b> and <b>endoleak</b> are modeled.  Results are discussed and compared with the scientific literature in a 20-page report that meets the <b>formatting requirements for paper submission</b>. </p>
-        <button data-href="../document/Stefano_Costa_-_Computational_Haemodynamics_Report.pdf" aria-label="Download project report PDF"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa_-_Computational_Haemodynamics_Report.pdf" aria-label="Download project report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
 
     <div class="list_div bottom_space_big">
@@ -36,7 +40,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Biomedical Applications of Mathematics, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0027674/Didattica">Prof. Lucas Omar Muller</a></h4>
         <p class="bottom_space justify"> An <b>aortic valve stenosis</b> is simulated using a <b>closed-loop model</b>, also taking into account the influence of <b>baroreflex</b>. In a 20-minute presentation, the main pressure indexes, as well as flow and pressure curves, are discussed, comparing what was obtained with the literature.</p>
-        <button data-href="https://docs.google.com/presentation/d/1VFNVORzVRedqH1a0HXu23Z0alfjsEkBY/edit#slide=id.p1" aria-label="View project presentation"><i class="fa_icon fas fa-chalkboard-teacher"></i></button>
+        <button data-href="https://docs.google.com/presentation/d/1VFNVORzVRedqH1a0HXu23Z0alfjsEkBY/edit#slide=id.p1" aria-label="View project presentation"><svg class="fa_icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M96 32C60.7 32 32 60.7 32 96V320h96V192c0-35.3 28.7-64 64-64H448V96c0-35.3-28.7-64-64-64H96zM384 160H192c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H576c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H384zM96 352H32v32c0 35.3 28.7 64 64 64h32V352H96zm192 48a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm-32 160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v0H256v0z"/></svg></button>
     </div>
 
     <!--
@@ -45,8 +49,8 @@
         <h3 class="inline"><i>Seminar 2hrs</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Molecular and Cellular Biophysics, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0004383/Didattica">Prof. Marina Scarpa</a></h4>
         <p class="bottom_space justify"> The seminar provides an overview of <b>mathematical modeling in cardiovascular physiology</b>, introducing principles of physics, <b>fluid dynamics</b>, and fundamental mathematics. The <b>Windkessel model</b> is highlighted as a case study, and the cardiovascular implications of <b>Marfan syndrome</b> are analyzed.</p>
-        <button data-href="../document/Stefano_Costa-Biophysics_seminar.pdf"><i class="fa_icon fas fa-chalkboard-teacher"></i></button>
-        <button data-href="../document/Stefano_Costa-Biophysics_seminar_references.pdf"><i class="fa_icon fas fa-quote-right"></i></button>
+        <button data-href="../document/Stefano_Costa-Biophysics_seminar.pdf" aria-label="View biophysics seminar slides"><svg class="fa_icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M96 32C60.7 32 32 60.7 32 96V320h96V192c0-35.3 28.7-64 64-64H448V96c0-35.3-28.7-64-64-64H96zM384 160H192c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H576c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H384zM96 352H32v32c0 35.3 28.7 64 64 64h32V352H96zm192 48a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm-32 160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v0H256v0z"/></svg></button>
+        <button data-href="../document/Stefano_Costa-Biophysics_seminar_references.pdf" aria-label="Download biophysics seminar references PDF"><svg class="fa_icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z"/></svg></button>
     </div>
     -->
 
@@ -55,8 +59,8 @@
         <h3 class="inline"><i>Group project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Mathemal Biology, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0251606/Didattica">Prof. Simone Pezzuto</a></h4>
         <p class="bottom_space justify">Two models of <b>tumor dynamics</b>, <b>immunotherapy</b> and <b>chemotherapy response</b>, are studied. The results are reproduced and their accuracy and realism are discussed by comparing them with the scientific literature. The conclusions of the study are outlined in a 34-page report and a 48-slide presentation.</p>
-        <button data-href="../document/Stefano_Costa_et_al_-_Mathematical_biology_-_Report.pdf" aria-label="Download project report PDF"><i class="fa_icon fas fa-file-pdf"></i></button>
-        <button data-href="../document/Stefano_Costa_-_Mathematical_biology_-_Slides.pdf" aria-label="View project presentation"><i class="fa_icon fas fa-chalkboard-teacher"></i></button>
+        <button data-href="../document/Stefano_Costa_et_al_-_Mathematical_biology_-_Report.pdf" aria-label="Download project report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
+        <button data-href="../document/Stefano_Costa_-_Mathematical_biology_-_Slides.pdf" aria-label="View project presentation"><svg class="fa_icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M96 32C60.7 32 32 60.7 32 96V320h96V192c0-35.3 28.7-64 64-64H448V96c0-35.3-28.7-64-64-64H96zM384 160H192c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H576c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32H384zM96 352H32v32c0 35.3 28.7 64 64 64h32V352H96zm192 48a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm-32 160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v0H256v0z"/></svg></button>
     </div>
 
     <!--
@@ -65,7 +69,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Physiological flow and transport in porous tissues, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0002950/Didattica">Prof. Alberto Bellin</a></h4>
         <p class="bottom_space justify">Using the chemical characteristics of nicotine, a <b>medical patch</b> is designed to function for 24 hours; a <b>2D diffusive motion</b> is simulated using the <b>Brownian motion</b>; using a <b>two-compartment model</b>, the inulin concentration following an injection is replicated and the results are compared with medical measurements.</p>
-        <button data-href="../document/Stefano_Costa_-_Flow_in_porous_tissues_report.pdf"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa_-_Flow_in_porous_tissues_report.pdf" aria-label="Download flow in porous tissues report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
     -->
 
@@ -75,7 +79,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Scientific computing, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0225748/Didattica">Prof. Robert Nürnberg</a></h4>
         <p class="bottom_space justify"><b>Computational complexity</b> of <b>multigrid methods</b> for solving 1D and 2D problems is studied by developing and analyzing Python functions. These functions implement <b>weighted Jacobi methods</b> and various multigrid schemes, including <b>two-grid correction</b> and <b>W-cycle schemes</b>. Theoretical complexity analysis and practical benchmarking are conducted to evaluate the performance and efficiency of these methods.</p>
-        <button data-href="../document/Stefano_Costa-Project_3.pdf"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa-Project_3.pdf" aria-label="Download project report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
     -->
 
@@ -84,7 +88,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Scientific computing, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0225748/Didattica">Prof. Robert Nürnberg</a></h4>
         <p class="bottom_space justify"><b>Computational complexity</b> of DNA sequence processing algorithms is studied by developing and analyzing Python functions. These functions identify <b>frequent k-mers</b> and their <b>point mutations</b> and locate specific <b>SPET positions in DNA sequences</b>. Theoretical complexity analysis and practical benchmarking are conducted to evaluate the performance of these algorithms.</p>
-        <button data-href="../document/Stefano_Costa-Project_2.pdf" aria-label="Download project report PDF"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa-Project_2.pdf" aria-label="Download project report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
 
     <!--
@@ -93,7 +97,7 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Numerical methods for PDEs, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0225748/Didattica">Prof. Robert Nürnberg</a></h4>
         <p class="bottom_space justify">Using <a target="_blank" href="https://freefem.org/">FreeFem</a>, an <b>elliptic problem</b> is addressed within a defined domain by applying two boundary conditions. The exact solutions are determined, and the domain is discretized into <b>meshes</b> of different sizes to obtain approximate solutions. The accuracy of these solutions is evaluated, with error norms provided to quantify their precision and <b>convergence rates</b>.</p>
-        <button data-href="../document/Stefano_Costa-Numerical_methods_for_PDE.pdf"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa-Numerical_methods_for_PDE.pdf" aria-label="Download numerical methods for PDE report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
     -->
 
@@ -103,9 +107,10 @@
         <h3 class="inline"><i>Individual project</i></h3>
         <h4 class="left not_so_bold bottom_space"><u>Course</u>: Scientific computing, <u>Lecturer</u>: <a target="_blank" href="https://webapps.unitn.it/du/en/Persona/PER0225748/Didattica">Prof. Robert Nürnberg</a></h4>
         <p class="bottom_space justify">Various algorithms are implemented in Python to analyze their <b>computational complexity</b>, which is first studied theoretically. The algorithms involve changing number bases and studying patterns in strings.</p>
-        <button data-href="../document/Stefano_Costa-Project_1.pdf"><i class="fa_icon fas fa-file-pdf"></i></button>
+        <button data-href="../document/Stefano_Costa-Project_1.pdf" aria-label="Download project report PDF"><svg class="fa_icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM88 288h40c26.5 0 48 21.5 48 48s-21.5 48-48 48H112v16c0 8.8-7.2 16-16 16s-16-7.2-16-16V368 304c0-8.8 7.2-16 16-16zm40 64c8.8 0 16-7.2 16-16s-7.2-16-16-16H112v32h16zm72-64h32c26.5 0 48 21.5 48 48v32c0 26.5-21.5 48-48 48H200c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm32 96c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216v64h16zm72-96h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H320v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V352 304c0-8.8 7.2-16 16-16z"/></svg></button>
     </div>
     -->
+    </main>
 
     <script src="../javascript/footer.js"></script>
 

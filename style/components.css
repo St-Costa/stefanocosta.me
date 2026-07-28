@@ -28,8 +28,12 @@ img {
 
 figure figcaption { text-align: center; }
 
+/* The width/height attributes in the HTML give the browser the intrinsic aspect
+   ratio (so it reserves space before the image loads, avoiding layout shift);
+   `height: auto` lets this rule set the displayed size without distorting it. */
 .icon {
     width: 30px !important;
+    height: auto;
     border-radius: 0;
 }
 
@@ -61,9 +65,13 @@ figure figcaption { text-align: center; }
     vertical-align: middle;
 }
 
+/* Inline SVG icons (Font Awesome Free paths, CC BY 4.0) — self-hosted, no CDN.
+   `currentColor` on the path means the SVG inherits this rule's colour. */
 .fa_icon {
     color: #6ed6f0;
-    font-size: 150%;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
 }
 
 .QR {
