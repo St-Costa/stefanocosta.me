@@ -196,11 +196,16 @@ footer {
    at narrow widths — keep that order. */
 
 /* ── Images ─────────────────────────────────────────────────────────── */
+/* Images carry their real pixel size in width/height attributes so the browser
+   can reserve space before they load (no layout shift). `height: auto` lets the
+   rules below set the displayed width without stretching them out of shape. */
 img {
     border-radius: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .animated_img:hover {
