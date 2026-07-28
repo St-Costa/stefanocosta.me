@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page not found — Stefano Costa's website.">
     <title>404 — Page Not Found | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="./style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./style/base.css">
     <script src="./javascript/commonHeader.js"></script>
     <link rel="stylesheet" href="./style/components.css">
 </head>
 <body>
-    <div class="content">
-        <h1>404</h1>
-        <p class="center">This page does not exist.</p>
-        <p class="center"><a href="./index.html">Home</a></p>
-    </div>
+    <main>
+        <div class="content">
+            <h1>404</h1>
+            <p class="center">This page does not exist.</p>
+            <p class="center"><a href="./index.html">Home</a></p>
+        </div>
+    </main>
+
 </body>
 </html>

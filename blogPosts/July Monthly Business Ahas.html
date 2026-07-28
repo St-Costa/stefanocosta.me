@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="July 2026 business insights and lessons learned by Stefano Costa.">
     <title>July MBA | Source of Truth</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"
         data-og-title="July MBA | Stefano Costa"
         data-og-description="July 2026 business insights and lessons learned by Stefano Costa."
-        data-og-url="https://st-costa.github.io/blogPosts/July%20Monthly%20Business%20Ahas.html"
+        data-og-url="https://stefanocosta.me/blogPosts/July%20Monthly%20Business%20Ahas.html"
         data-og-type="article"></script>
     <script type="application/ld+json">
     {
@@ -17,8 +21,8 @@
       "@type": "BlogPosting",
       "headline": "July MBA",
       "datePublished": "2026-08-01",
-      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://st-costa.github.io/"},
-      "url": "https://st-costa.github.io/blogPosts/July%20Monthly%20Business%20Ahas.html",
+      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
+      "url": "https://stefanocosta.me/blogPosts/July%20Monthly%20Business%20Ahas.html",
       "description": "July 2026 business insights and lessons learned by Stefano Costa."
     }
     </script>
@@ -28,10 +32,10 @@
     <link rel="stylesheet" href="../style/components.css">
     <link rel="stylesheet" href="../style/blog.css">
     <link rel="stylesheet" href="../style/gallery.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <main>
 
 
     <div class="bottom_space_big">
@@ -232,8 +236,10 @@
         <hr>
 
 
-    </div>
+ 
+   </div>
 
+    </main>
 
     <script src="../javascript/footer.js"></script>
 </body>

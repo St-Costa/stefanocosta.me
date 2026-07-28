@@ -7,16 +7,19 @@
     <meta name="description"
         content="Projects by Stefano Costa: AI tools, CRM systems, automation workflows, games, and more.">
     <title>Projects | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js" data-og-title="Projects | Stefano Costa"
         data-og-description="Projects by Stefano Costa: AI tools, CRM systems, automation workflows, games, and more."
-        data-og-url="https://st-costa.github.io/mainPages/Projects.html" data-og-type="website"></script>
-    </script>
+        data-og-url="https://stefanocosta.me/mainPages/Projects.html" data-og-type="website"></script>
 
     <link rel="stylesheet" href="../style/components.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <main>
 
     <h1 class="title">Projects</h1>
 
@@ -480,7 +483,7 @@
         <img class="project_type_logo" src="../img/icon/favicon.svg" alt="st-costa.github.io" loading="lazy">
         <h3 class="inline">st-costa.github.io,</h3>
         <h4 class="inline"><i>Website</i></h4>
-        <h5 class="left not_so_bold bottom_space"><a href="https://st-costa.github.io/" target="_blank">Webiste</a>, <a
+        <h5 class="left not_so_bold bottom_space"><a href="https://stefanocosta.me/" target="_blank">Webiste</a>, <a
                 href="https://github.com/St-Costa/St-Costa.github.io" target="_blank">Github</a></h5>
         <p class="bottom_space justify">
             After reading a lot of posts on HN, I realized it’s common to have a personal website to share projects,
@@ -722,7 +725,9 @@
             ((as <a href="../blogPosts/I am not a mathematician.html">with mathematics</a>) hauling gear at
             2am after a gig lost its charm fast).
         </p>
+
     </div>
+    </main>
 
     <script src="../javascript/footer.js"></script>
 </body>

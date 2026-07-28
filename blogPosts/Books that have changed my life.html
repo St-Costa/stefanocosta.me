@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Books that have changed Stefano Costa's thinking and worldview.">
     <title>Books that have changed my life | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js" data-og-title="Books that have changed my life | Stefano Costa"
         data-og-description="Books that have changed Stefano Costa's thinking and worldview."
-        data-og-url="https://st-costa.github.io/blogPosts/Books%20that%20have%20changed%20my%20life.html"
+        data-og-url="https://stefanocosta.me/blogPosts/Books%20that%20have%20changed%20my%20life.html"
         data-og-type="article"></script>
     <script type="application/ld+json">
     {
@@ -16,8 +20,8 @@
       "@type": "BlogPosting",
       "headline": "Books that have changed my life",
       "datePublished": "2026-07-04",
-      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://st-costa.github.io/"},
-      "url": "https://st-costa.github.io/blogPosts/Books%20that%20have%20changed%20my%20life.html",
+      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
+      "url": "https://stefanocosta.me/blogPosts/Books%20that%20have%20changed%20my%20life.html",
       "description": "Books that have changed Stefano Costa's thinking and worldview."
     }
     </script>
@@ -28,10 +32,10 @@
     <!-- Add gallery.css + gallery.js only if the post contains image galleries -->
     <!-- <link rel="stylesheet" href="../style/gallery.css"> -->
     <!-- <script src="../javascript/gallery.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <main>
 
     <div class="bottom_space_big">
         <h1>Books that have changed my life</h1>
@@ -843,7 +847,9 @@
             Next time, don't ask me at 2am.
         </p>
 
+
     </div>
+    </main>
 
     <script src="../javascript/footer.js"></script>
 </body>

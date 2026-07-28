@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefano Costa</title>
+    <meta name="description" content="QR code linking to Stefano Costa's personal website.">
+    <title>QR code | Stefano Costa</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"></script>
     <link rel="stylesheet" href="../style/components.css">
 
 </head>
 <body>
+    <main>
     <h1>QR code</h1>
-    
+
     <p class="center">
     This is the QR code of this website.
     </p>
@@ -18,6 +24,7 @@
     <br>
 
     <img loading="lazy" src="../img/QR_code.png" class="QR" alt="QR code to Stefano Costa's website" >
+    </main>
 
     <script src="../javascript/footer.js"></script>
 </body>
