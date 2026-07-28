@@ -277,10 +277,8 @@ so what you clone is byte-for-byte what ships. The [`CNAME`](CNAME) file points 
 custom domain; DNS is handled by Cloudflare, and every canonical URL in the sitemap, feed and
 JSON-LD uses `stefanocosta.me` so search engines never see two hostnames for one page.
 
-A GitHub Actions workflow that auto-converts new PNG/JPEG assets to WebP before deploying
-lives at [`.github/workflows/deploy.yml.deactivated`](.github/workflows/deploy.yml.deactivated).
-It is currently **disabled** in favour of the native Pages deployment; images are converted
-locally instead:
+There is no CI step, by choice: a build pipeline whose only job is to copy files is a moving
+part that can fail for no benefit. Images are converted to WebP locally before committing:
 
 ```bash
 find img/ -name "*.jpg" -o -name "*.png" | while read f; do

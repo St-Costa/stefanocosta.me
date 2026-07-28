@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="POST DESCRIPTION (max 160 characters).">
     <title>POST TITLE | Source of Truth</title>
     <!-- base.css is linked directly (not only injected by commonHeader.js) so the
          browser starts fetching it during HTML parsing, not after the JS runs. -->
     <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style/base.css">
-    <script src="../javascript/commonHeader.js"></script>
+    <script src="../javascript/commonHeader.js"
+        data-og-title="POST TITLE | Stefano Costa"
+        data-og-description="POST DESCRIPTION (max 160 characters)."
+        data-og-url="https://stefanocosta.me/blogPosts/FILE%20NAME.html"
+        data-og-type="article"></script>
+    <!-- datePublished is what gen_feed.py keys on: without it the post stays out
+         of the RSS feed. Fill it in when the post actually goes live. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "POST TITLE",
+      "datePublished": "YYYY-MM-DD",
+      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
+      "url": "https://stefanocosta.me/blogPosts/FILE%20NAME.html",
+      "description": "POST DESCRIPTION (max 160 characters)."
+    }
+    </script>
     <script src="../javascript/toc.js"></script>
 
     <link rel="stylesheet" href="../style/blog.css">

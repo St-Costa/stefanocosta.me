@@ -2,6 +2,5 @@ User-agent: *
 Disallow: /document/
 Disallow: /blogPosts/_template.html
 Disallow: /.claude/
-Disallow: /.github/
 
 Sitemap: https://stefanocosta.me/sitemap.xml

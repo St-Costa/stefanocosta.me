@@ -1,4 +1,4 @@
-# St-Costa.github.io — istruzioni per Claude
+# stefanocosta.me — istruzioni per Claude
 
 Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun build system.
 
@@ -16,11 +16,28 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descrizione specifica di questa pagina (max 160 caratteri).">
     <title>Titolo pagina | Stefano Costa</title>
+    <link rel="preload" href="[PATH]/style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="[PATH]/style/base.css">
     <script src="[PATH]/javascript/commonHeader.js"></script>
 
     <!-- CSS aggiuntivi specifici per questa pagina -->
     <link rel="stylesheet" href="[PATH]/style/blog.css">  <!-- solo se blog post -->
 </head>
+```
+
+`base.css` va linkato **direttamente** e prima dello script: così il browser lo scarica
+mentre parsa l'HTML, invece di aspettare che il JS venga eseguito. `commonHeader.js` lo
+inietta solo se il link manca, quindi non c'è doppia richiesta.
+
+Il `<body>` deve racchiudere il contenuto in `<main>` (landmark di accessibilità),
+chiuso **prima** del footer:
+```html
+<body>
+    <main>
+        ...contenuto...
+    </main>
+    <script src="[PATH]/javascript/footer.js"></script>
+</body>
 ```
 
 `[PATH]` dipende dalla posizione della pagina:
@@ -74,7 +91,9 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="...">
-    <title>Titolo post | Stefano Costa</title>
+    <title>Titolo post | Source of Truth</title>
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
     <script src="../javascript/commonHeader.js"></script>
     <script type="application/ld+json">
     {
@@ -82,8 +101,8 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
       "@type": "BlogPosting",
       "headline": "Titolo post",
       "datePublished": "YYYY-MM-DD",
-      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://st-costa.github.io/"},
-      "url": "https://st-costa.github.io/blogPosts/Nome%20File.html",
+      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
+      "url": "https://stefanocosta.me/blogPosts/Nome%20File.html",
       "description": "Stessa stringa della meta description."
     }
     </script>
@@ -116,14 +135,14 @@ Inserire **in cima** alla lista (post più recente prima).
 ```bash
 python3 scripts/gen_feed.py
 ```
-Lo script (stdlib only, nessuna dipendenza) ricostruisce l'intero feed leggendo i post in `blogPosts/`. Include solo i post con `datePublished` nel JSON-LD (esclude quindi `_template.html` e `Test post.html`), li ordina per data decrescente, e per ogni post genera una `<description>` con: titolo, sottotitolo, epistemic status, `data - lunghezza - tempo lettura`, ed elenco degli header di sezione.
+Lo script (stdlib only, nessuna dipendenza) ricostruisce l'intero feed leggendo i post in `blogPosts/`. Include solo i post con `datePublished` nel JSON-LD (esclude quindi `_template.html` e le bozze senza data), li ordina per data decrescente, e per ogni post genera una `<description>` con: titolo, sottotitolo, epistemic status, `data - lunghezza - tempo lettura`, ed elenco degli header di sezione.
 
 Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titolo), `<h2 class="subtitle">` (sottotitolo), `<h3 class="subtitle">` (epistemic), i due `<div>` dentro `.center` (data; poi `N words - M min read`), e gli header di sezione come `<h2 id="...">`.
 
 ### Aggiungere il post a `sitemap.xml`
 ```xml
 <url>
-    <loc>https://st-costa.github.io/blogPosts/Nome%20File.html</loc>
+    <loc>https://stefanocosta.me/blogPosts/Nome%20File.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
 </url>
@@ -142,8 +161,12 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
   ```
 - Eccezione: `preview_image.jpg` resta JPG per compatibilità con crawler OG.
 
-### Lazy loading
-- Aggiungere `loading="lazy"` a **tutte** le `<img>`, tranne le icone social sulla homepage (above the fold, ma trascurabile).
+### Lazy loading e dimensioni
+- `loading="lazy"` va su tutte le `<img>` **sotto** la piega. **Mai** su quelle above the fold
+  (es. icone social in `index.html`): ritarderebbe proprio le immagini già in vista.
+- Ogni `<img>` deve avere `width` e `height` con le dimensioni **reali** del file: danno al
+  browser l'aspect ratio prima del download ed evitano il layout shift (CLS). Il CSS controlla
+  la dimensione visibile, purché la regola includa `height: auto`.
 
 ### Alt text
 - Immagini informative: testo descrittivo (`alt="Screenshot del progetto XYZ"`).
@@ -156,7 +179,6 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
 | Screenshot progetti | `img/` |
 | Foto per blog post | `img/blog/Nome Post/` |
 | Icone UI | `img/icon/` |
-| Immagini profilo | `img/profili/` |
 | Anteprime poster | `img/poster preview/` |
 
 ---
@@ -177,12 +199,14 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
 - `<button>` senza testo visibile → aggiungere `aria-label="..."`.
 - Link con sola immagine → l'`<img>` deve avere `alt` descrittivo, oppure il `<a>` deve avere `aria-label`.
 - Link social con sola icona → già gestiti in `index.html` con `aria-label` sull'`<a>`.
+- Ogni pagina deve avere un `<main>` che racchiude il contenuto.
+- Gli `<svg>` decorativi dentro un bottone vanno `aria-hidden="true"`: l'etichetta la dà l'`aria-label` del `<button>`.
 
 ---
 
 ## `robots.txt` — cosa è escluso
 
-`/document/`, feed XML, `_template.html`, `Test post.html`, `.claude/`, `.github/`.
+`/document/`, `_template.html`, `.claude/`.
 Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 
 ---
