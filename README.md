@@ -245,7 +245,8 @@ with a blind `!important`:
 ├── javascript/             5 files, zero dependencies
 ├── scripts/
 │   ├── gen_feed.py         RSS generator (stdlib only)
-│   └── check_site.py       Convention checks (stdlib only)
+│   ├── check_site.py       Convention checks (stdlib only)
+│   └── githooks/           pre-commit hook running the checks
 └── img/                    WebP throughout
 ```
 
@@ -302,6 +303,10 @@ into the markup, or a link to a file that moved. [`scripts/check_site.py`](scrip
 $ python3 scripts/check_site.py
 29 pagine controllate — 0 errori, 0 avvisi
 ```
+
+It runs on every commit through a versioned hook (`scripts/githooks/pre-commit`, enabled with
+`git config core.hooksPath scripts/githooks`), so the checks happen whether or not anyone
+remembers them — which is the only kind of check that survives contact with a side project.
 
 Every check exists because the corresponding mistake actually happened here: pages shipped
 with `<title>Test post</title>`, five images pointing at a deleted directory, a stray

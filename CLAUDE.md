@@ -10,15 +10,24 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
 > Vale anche per `blogPosts/_template.html` e `.claude/skills/`: sono la stessa
 > documentazione in forma eseguibile. Cambiando l'una, verificare le altre.
 
-## Prima di committare
+## Controlli automatici
+
+`scripts/check_site.py` verifica le regole di questo file su tutte le pagine: `<main>`,
+OG tag statici, `defer`, preload dei font, `aria-label` sui bottoni-icona, riferimenti
+locali, `datePublished` nei post, CSS orfani.
+
+**Gira da solo a ogni `git commit`** (hook in `scripts/githooks/pre-commit`): se trova un
+errore, il commit viene annullato. Non serve eseguirlo a mano.
 
 ```bash
-python3 scripts/check_site.py
+python3 scripts/check_site.py     # solo se lo vuoi lanciare prima di committare
+git commit --no-verify            # scavalca l'hook, per casi eccezionali
 ```
 
-Verifica le regole di questo file su tutte le pagine: `<main>`, OG tag statici, `defer`,
-preload dei font, `aria-label` sui bottoni-icona, riferimenti locali, `datePublished` nei
-post, CSS orfani. Exit code 1 se trova un errore.
+Su un clone nuovo l'hook va attivato una volta (Git non clona gli hook):
+```bash
+git config core.hooksPath scripts/githooks
+```
 
 Le regole che lo script **non** può controllare (qualità della description, alt text
 sensati, scelta della `priority` in sitemap) restano responsabilità di chi scrive.

@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Blocca il commit se il sito viola le convenzioni di CLAUDE.md.
+#
+# Installazione (una volta sola, per ogni clone del repo):
+#     git config core.hooksPath scripts/githooks
+#
+# Gli hook non vengono clonati con il repo: questo file sta in scripts/ proprio
+# per essere versionato, e core.hooksPath lo attiva.
+#
+# Per saltarlo in un caso eccezionale:  git commit --no-verify
+
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "pre-commit: python3 non trovato, controlli saltati." >&2
+    exit 0
+fi
+
+ROOT="$(git rev-parse --show-toplevel)"
+[ -f "$ROOT/scripts/check_site.py" ] || exit 0
+
+if ! python3 "$ROOT/scripts/check_site.py"; then
+    echo
+    echo "Commit annullato: il sito viola le regole di CLAUDE.md (vedi sopra)."
+    echo "Correggi, oppure usa 'git commit --no-verify' se sai cosa stai facendo."
+    exit 1
+fi
