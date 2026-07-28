@@ -23,9 +23,7 @@ The site sets **no cookies** and runs **no analytics and no trackers**:
 - **No Google Fonts**: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) is self-hosted,
   subset down to the ~120 characters the site actually uses.
 - **No icon CDN**: the handful of icons are inline SVG.
-- **No hotlinked images**: book covers, podcast artwork and screenshots of tweets are stored
-  in this repository instead of loaded from Amazon, Apple or X. They still link back to
-  wherever they came from.
+- **No hotlinked images**: they are stored in the repo, still linking back to the source.
 
 Every page loads from one origin: mine. Nobody else gets to see who visits.
 
