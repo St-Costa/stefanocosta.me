@@ -55,7 +55,7 @@
 
 
 /* Use "body X" prefix (specificity 0,0,2) to reliably beat the element rules
-   in base.css and components.css (specificity 0,0,1), regardless of load order. */
+   in base.css (specificity 0,0,1), regardless of load order. */
 
 body p {
     padding-left: 3ch;

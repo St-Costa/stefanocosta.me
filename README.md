@@ -16,9 +16,13 @@ Hand-written HTML, CSS and vanilla JavaScript, served straight off GitHub Pages.
 
 ### Lighthouse
 
-![Lighthouse: Performance 96, Accessibility 98, Best Practices 100, SEO 100](img/readme/lighthouse-mobile.webp)
+![Mobile: Performance 100, Accessibility 100, Best Practices 100, SEO 100](img/readme/lighthouse-mobile.webp)
+![Desktop: Performance 100, Accessibility 100, Best Practices 100, SEO 100](img/readme/lighthouse-desktop.webp)
 
-Mobile, measured on the live site. These numbers are the point of the whole design — see below.
+100 across the board on both mobile and desktop, measured on the live site — with a
+Cumulative Layout Shift of 0.021 and 0 ms of total blocking time. These numbers are the point
+of the whole design, and [what it took to get them](#6-what-the-lighthouse-numbers-actually-came-from)
+is documented below rather than left to look effortless.
 
 ---
 
@@ -114,18 +118,19 @@ by hand.**
 ### 4. Styles composed, not bundled
 
 [`base.css`](style/base.css) is the single always-on sheet: reset, self-hosted `@font-face`
-declarations, design tokens as custom properties (colour, spacing, type scale), layout, and
-the responsive breakpoints. Everything else is opted into per page:
+declarations, design tokens as custom properties (colour, spacing, type scale), layout,
+components, and the responsive breakpoints — in that order, because the breakpoints
+deliberately override several component rules at narrow widths. Everything else is opted into
+per page:
 
 | Stylesheet | Loaded when |
 |---|---|
-| `components.css` | Images, icons, lists, buttons, tables, two-column layouts |
 | `blog.css` | Post layout with fixed sidebar TOC |
 | `gallery.css` | The page contains a slideshow |
 | `about_me_cards.css` | `aboutme.html` only |
 
-No page loads more than two extra stylesheets. It's tree-shaking, performed by reading the page
-you just wrote.
+**Half the pages load exactly one stylesheet**, and none loads more than three. It's
+tree-shaking, performed by reading the page you just wrote.
 
 ### 5. Zero third-party requests, verified
 
@@ -142,9 +147,10 @@ inherits hover and theme changes for free. Combined with self-hosted WOFF2 fonts
 is a site where **no page makes a request to any host but its own** — which is a privacy
 guarantee, not just a performance one.
 
-### 6. Two fixes the Lighthouse numbers actually came from
+### 6. What the Lighthouse numbers actually came from
 
-Good scores on a static site aren't automatic — these were the two that mattered.
+Being static buys a good score, not a perfect one. Desktop Performance started at **81**.
+Three fixes took it to 100:
 
 **Layout shift.** The social icons had no intrinsic size, so the browser could not reserve
 space for them and the page visibly jumped as they arrived (CLS 0.397 — the "good" threshold
@@ -174,6 +180,17 @@ if (!document.querySelector('link[rel="stylesheet"][href$="style/base.css"]')) {
 
 The stylesheet is now fetched during HTML parsing, the critical font is preloaded, and the
 script's convenience is kept as a fallback rather than a dependency.
+
+**One request instead of a chain.** That fix had a side effect worth naming: with the CSS now
+in real `<link>` tags, `base.css` and `components.css` became *two* render-blocking requests
+in series, which Lighthouse duly flagged. Since both were loaded by all 29 pages, they were
+never really two things — the components rules were merged into `base.css`, between the base
+rules and the media queries, and `components.css` was deleted.
+
+Order matters there: the breakpoints deliberately override `.index_img`, `.poster_img`,
+`.divTd`, `.list_span` and the two-column rules at narrow widths, so they have to stay last.
+The merge was verified by diffing the resolved cascade before and after — same 95 rules, zero
+computed differences. Half the pages now load a single stylesheet.
 
 Where specificity fights are unavoidable, the losing side is documented rather than patched
 with a blind `!important`:

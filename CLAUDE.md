@@ -41,10 +41,15 @@ fare **nessuna** richiesta a terze parti.
 ### CSS disponibili (da aggiungere manualmente solo se servono)
 | File | Quando usarlo |
 |------|---------------|
-| `style/components.css` | Immagini, icone, liste, bottoni, tabelle, layout a 2 colonne (quasi tutte le pagine) |
 | `style/blog.css` | Blog post con TOC fisso a sinistra |
 | `style/gallery.css` | Pagine con slideshow gallery |
 | `style/about_me_cards.css` | Solo `aboutme.html` |
+
+`base.css` contiene già reset, font, token, **componenti** (immagini, icone, liste, bottoni,
+tabelle, layout a 2 colonne) e media query, in quest'ordine. Molte pagine caricano solo lui.
+
+⚠️ Aggiungendo regole a `base.css`, inserirle **prima** della sezione `── Responsive ──`:
+i breakpoint sovrascrivono di proposito diverse regole dei componenti.
 
 ### Icone
 Le icone sono **SVG inline** (path di Font Awesome Free, CC BY 4.0) con classe `.fa_icon`,
@@ -205,9 +210,13 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 ## Note tecniche (decisioni già prese — non rifarle)
 
 ### Perché `blog.css` usa `body h2` invece di `h2`
-Per vincere sulla cascade contro le regole a livello di elemento di `base.css` e
-`components.css` (specificità `0,0,1`) senza ricorrere a `!important`: il prefisso `body`
+Per vincere sulla cascade contro le regole a livello di elemento di `base.css`
+(specificità `0,0,1`) senza ricorrere a `!important`: il prefisso `body`
 porta la specificità a `0,0,2`, indipendentemente dall'ordine di caricamento.
+
+### `components.css` è stato fuso dentro `base.css`
+Erano due richieste render-blocking in serie su tutte e 29 le pagine. Le regole dei componenti
+stanno ora in `base.css` fra le regole base e le media query. Non ricrearlo come file separato.
 
 ### `<fieldset>` decorativi → `<section>` + `.box-title`
 Tutti i `<fieldset>` usati a scopo decorativo (`.briefAboutMe`, `.toc`, `.tldr`, `.callout`,
