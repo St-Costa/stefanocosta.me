@@ -12,7 +12,7 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
 - **Nome file**: `blogPosts/<Month> Monthly Business Ahas.html` (mese in inglese, senza apostrofo)
 - **Titolo visibile / headline / og-title**: `<Month> MBA`
 - **`<title>`**: `<Month> MBA | Source of Truth`
-- **URL canonico**: `https://st-costa.github.io/blogPosts/<Month>%20Monthly%20Business%20Ahas.html`
+- **URL canonico**: `https://stefanocosta.me/blogPosts/<Month>%20Monthly%20Business%20Ahas.html`
 - **meta description / og-description / JSON-LD description**: `<Month> <YYYY> business insights and lessons learned by Stefano Costa.`
 - **Epistemic status**: sempre `field notes from one month of experience`
 
