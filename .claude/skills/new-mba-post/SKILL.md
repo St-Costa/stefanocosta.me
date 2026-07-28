@@ -42,11 +42,15 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
    - attenzione: un `style="fill:..."` inline **vince** sull'attributo `fill="..."`, quindi un elemento con
      `fill="#7FCEF0"` ma `style="fill:rgb(11,11,11)"` renderizza nero, non ciano. Allinea i due.
    - palette del sito: ciano `#7FCEF0` (6.1:1), grigi `#d3d3d3` / `#D7D7D7` (7.1–7.4:1).
-6. **Feed RSS**: `python3 scripts/gen_feed.py` — mai modificare `mainPages/blogFeed.xml` a mano.
+6. **Mai embed di terze parti** nel post: niente `<script>` di X/Twitter, niente `<iframe>`
+   YouTube, niente `<img src="https://...">`. Un tweet va inserito come screenshot locale in
+   `img/blog/Monthly MBA/`, dentro `<a class="tweet-shot" href="<url>">`, con l'`alt` che
+   riporta il testo del tweet. Il commit fallisce se resta una richiesta esterna.
+7. **Feed RSS**: `python3 scripts/gen_feed.py` — mai modificare `mainPages/blogFeed.xml` a mano.
    I controlli su `<main>`, OG tag, preload, link rotti e `datePublished` girano da soli
    al commit (hook pre-commit). Per anticiparli: `python3 scripts/check_site.py`.
-7. **Link Obsidian → link interni**: il testo sorgente contiene link stile `[[Mese Monthly Aha's#Titolo sezione]]`.
+8. **Link Obsidian → link interni**: il testo sorgente contiene link stile `[[Mese Monthly Aha's#Titolo sezione]]`.
    Convertili in `<a href="./<Mese> Monthly Business Ahas.html#hN.M">Mese MBA &gt; Titolo sezione</a>`.
    Gli `id` non sono derivabili dal titolo: sono progressivi (`h1.1`, `h1.2`, ...). Ricavali con
    `grep -n -A2 '<h2 id=' "blogPosts/<Mese> Monthly Business Ahas.html"` e abbina per titolo.
-8. Non committare se non richiesto.
+9. Non committare se non richiesto.

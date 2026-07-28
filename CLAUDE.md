@@ -10,6 +10,43 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
 > Vale anche per `blogPosts/_template.html` e `.claude/skills/`: sono la stessa
 > documentazione in forma eseguibile. Cambiando l'una, verificare le altre.
 
+---
+
+## Regola numero uno: nessun tracker, nessuna richiesta a terze parti
+
+Il sito non deve fare **nessuna** richiesta a server che non siano il suo. Niente cookie,
+niente analytics, niente tracker: chi visita una pagina parla solo con `stefanocosta.me`.
+
+Questa regola non ha eccezioni ed è il motivo per cui esistono metà delle scelte tecniche
+qui sotto. **Nessuna comodità vale il costo di esporre gli IP dei visitatori a terzi.**
+
+### Mai
+- `<script>` di terze parti — embed di X/Twitter, widget social, piattaforme di commenti
+- `<iframe>` verso l'esterno — player YouTube/Vimeo, mappe, form
+- `<img src="https://...">` — copertine, avatar, immagini prese da altri siti
+- `<link>` a font o CSS esterni — Google Fonts, cdnjs, Font Awesome
+- Analytics di qualsiasi tipo, anche "privacy-friendly"
+
+### Al loro posto
+| Vuoi inserire… | Fai così |
+|---|---|
+| **Un tweet** | Screenshot in `img/blog/<Nome Post>/`, dentro `<a class="tweet-shot" href="<url del tweet>">`. L'`alt` riporta **il testo del tweet**, non "screenshot di un tweet" (vedi sotto). |
+| **Una copertina** (libro, podcast, album) | Scaricala in `img/covers/`, WebP a ~2x la dimensione di rendering. Il `<a>` continua a linkare la fonte. |
+| **Un'immagine da un altro sito** | Scaricala in `img/`. Se la licenza non lo permette, non usarla: linkala e basta. |
+| **Un video** | Link testuale, non embed. |
+
+⚠️ **L'`alt` di uno screenshot deve contenere il testo che l'immagine mostra.** È il punto
+debole di questa scelta: trasformando una citazione in immagine, il testo sparisce per gli
+screen reader e dalla ricerca nella pagina. Trascriverlo nell'`alt` lo rimette a posto.
+
+I normali `<a href="https://...">` verso altri siti sono **liberi**: sono link, il browser
+non contatta nessuno finché non ci clicchi.
+
+`scripts/check_site.py` fa fallire il commit se trova un `src`/`href` esterno dentro `<img>`,
+`<script>`, `<link>`, `<source>` o `<iframe>`.
+
+---
+
 ## Controlli automatici
 
 `scripts/check_site.py` verifica le regole di questo file su tutte le pagine: `<main>`,
@@ -248,31 +285,22 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
   browser l'aspect ratio prima del download ed evitano il layout shift (CLS). Il CSS controlla
   la dimensione visibile, purché la regola includa `height: auto`.
 
-### Contenuti di terze parti — mai embed
-Il sito fa **zero richieste a terze parti** e va tenuto così. Quindi:
-- **Tweet**: screenshot locale in `img/blog/<Post>/`, dentro `<a class="tweet-shot">` che
-  linka al tweet originale. L'`alt` deve riportare **il testo del tweet**, non "screenshot di
-  un tweet": altrimenti il contenuto sparisce per chi usa uno screen reader.
-- **Copertine di libri/podcast/album**: scaricarle in `img/covers/` (WebP, ~2x la dimensione
-  di rendering), mai `src` che punta ad Amazon, Apple o Wikimedia.
-- Niente player YouTube, widget social, piattaforme di commenti, Google Fonts, CDN di icone.
-
-`scripts/check_site.py` lo verifica: qualsiasi `src`/`href` esterno dentro `<img>`,
-`<script>`, `<link>`, `<source>` o `<iframe>` fa fallire il commit. I normali `<a href>`
-verso l'esterno restano liberi — sono link, non richieste.
-
 ### Alt text
 - Immagini informative: testo descrittivo (`alt="Screenshot del progetto XYZ"`).
 - Icone decorative con testo adiacente: `alt=""`.
 - Copertine di libri/podcast: `alt="Titolo del libro/podcast"`.
+- **Screenshot di testo** (tweet, citazioni): trascrivere il testo mostrato, non descrivere
+  l'immagine. Vedi [Regola numero uno](#regola-numero-uno-nessun-tracker-nessuna-richiesta-a-terze-parti).
 
 ### Posizione file
 | Tipo | Cartella |
 |------|----------|
 | Screenshot progetti | `img/` |
-| Foto per blog post | `img/blog/Nome Post/` |
+| Foto e screenshot per blog post | `img/blog/Nome Post/` |
+| Copertine (libri, podcast, album) | `img/covers/` |
 | Icone UI | `img/icon/` |
 | Anteprime poster | `img/poster preview/` |
+| Immagini del README | `img/readme/` |
 
 ---
 
