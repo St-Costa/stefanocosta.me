@@ -15,7 +15,7 @@
 I don't like websites that are complicated to read or to maintain.
 
 So this one has no framework, no bundler and no build step: just HTML, CSS and a little
-JavaScript — about a thousand lines of the two combined.
+JavaScript.
 
 ### No tracker
 
@@ -25,11 +25,9 @@ The site sets **no cookies** and runs **no analytics and no trackers**:
 - **No icon CDN**: the handful of icons are inline SVG.
 - **No hotlinked images**: they are stored in the repo, still linking back to the source.
 
-Every page loads from one origin: mine. Nobody else gets to see who visits.
-
 ### Performance
 
-Because there is so little to load, the site scores 100 across the board on
+The site scores 100 across the board on
 [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-stefanocosta-me/wvalfrpn59?form_factor=desktop).
 
 <p align="center">
