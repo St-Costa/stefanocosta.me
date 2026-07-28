@@ -102,6 +102,18 @@ Il font JetBrains Mono è **self-hosted** in `style/fonts/` e dichiarato con `@f
 dentro `base.css`. Non aggiungere link a Google Fonts o ad altri CDN: il sito non deve
 fare **nessuna** richiesta a terze parti.
 
+⚠️ I tre `.woff2` sono **subset**: 90 KB → 37 KB l'uno (il font completo ha 1363 glifi, il
+sito ne usa 122). Se si riscarica il font originale da upstream, rifare il subset, altrimenti
+si riportano 155 KB sul percorso critico:
+```bash
+UNI="U+0020-007E,U+00A0-00FF,U+0100-017F,U+2010-2015,U+2018-201F,U+2022,U+2026,U+2030,U+2039-203A,U+20AC,U+2122,U+2190-21FF,U+2500-257F,U+2580-259F,U+25A0-25FF,U+2600-26FF,U+2700-27BF,U+29EB,U+FE0F"
+pyftsubset JetBrainsMono-Bold.woff2 --unicodes="$UNI" \
+    --layout-features='kern,liga,calt' --flavor=woff2 \
+    --output-file=JetBrainsMono-Bold.woff2
+```
+Emoji e simboli come `✅ ◻ ⧫ 🇰🇷` non sono nel font (né prima né dopo): li rende il font di
+sistema. Aggiungendo caratteri esotici al sito, verificare che siano coperti.
+
 Gli `url()` dentro `base.css` sono **assoluti dalla root** (`/style/fonts/…`, `/img/icon/…`),
 non relativi: restano validi da qualsiasi cartella. Mantenere questa forma.
 

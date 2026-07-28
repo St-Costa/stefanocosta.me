@@ -8,8 +8,9 @@
     <title>Lifechanging blog posts | Source of Truth</title>
     <!-- base.css is linked directly (not only injected by commonHeader.js) so the
          browser starts fetching it during HTML parsing, not after the JS runs. -->
-    <!-- Headings inherit the browser's default bold, so Bold is on the critical
-         path for the first paint just as much as Regular. Preload both. -->
+    <!-- Headings inherit the browser's default bold, so Bold is on the critical path
+         for the first paint just as much as Regular. Italic is not, so it is left to
+         load on demand. All three are subset to the glyphs this site actually uses. -->
     <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style/base.css">

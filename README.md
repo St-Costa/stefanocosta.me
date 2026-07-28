@@ -92,7 +92,22 @@ static site; generating metadata that a crawler needs is not.
 
 Two fonts are preloaded, not one: headings inherit the browser's default bold, so the Bold
 file is on the critical path exactly as much as Regular — something the Lighthouse dependency
-tree showed and intuition did not.
+tree showed and intuition did not. Italic is left to load on demand.
+
+The font files themselves are **subset to the glyphs this site uses**. JetBrains Mono ships
+1,363 glyphs covering Cyrillic, Greek and mathematical symbols; counting every distinct
+character across all 29 pages gives 122. Subsetting takes each weight from 90 KB to 37 KB —
+155 KB removed from the critical path for characters that would never render:
+
+```bash
+pyftsubset JetBrainsMono-Bold.woff2 --unicodes="U+0020-007E,U+00A0-00FF,…" \
+    --layout-features='kern,liga,calt' --flavor=woff2 --output-file=JetBrainsMono-Bold.woff2
+```
+
+Verified by diffing the subset's character map against the original's, restricted to
+characters the site actually contains: zero regressions. The check matters because the naive
+comparison is misleading — `✅ ◻ ⧫ 🇰🇷` appear on the site and are absent from the subset, but
+they were absent from the original too. The system font renders them, before and after.
 
 ### 2. A table of contents that infers document structure
 
