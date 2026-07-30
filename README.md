@@ -1,6 +1,33 @@
-# stefanocosta.me
+<p align="center">
+  <img src="img/icon/favicon.svg" alt="" width="120">
+</p>
 
-**Live:** [stefanocosta.me](https://stefanocosta.me) · **Blog:** [Source of Truth](https://stefanocosta.me/mainPages/Blog_pages.html) · [RSS](https://stefanocosta.me/mainPages/blogFeed.xml)
+<h1 align="center">stefanocosta.me</h1>
+
+<p align="center">
+  <em>A personal site and blog</em>
+</p>
+
+<p align="center">
+  <img alt="HTML" src="https://img.shields.io/badge/HTML-hand--written-E34F26?logo=html5&logoColor=white">
+  <img alt="CSS" src="https://img.shields.io/badge/CSS-no%20framework-1572B6?logo=css3&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black">
+  <img alt="Build step" src="https://img.shields.io/badge/build%20step-none-2ea44f">
+  <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-0-2ea44f">
+  <img alt="Trackers" src="https://img.shields.io/badge/trackers-0-2ea44f">
+  <a href="https://pagespeed.web.dev/analysis/https-stefanocosta-me/wvalfrpn59?form_factor=desktop"><img alt="Lighthouse" src="https://img.shields.io/badge/Lighthouse-100%20%C2%B7%20100%20%C2%B7%20100%20%C2%B7%20100-2ea44f"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-code%20free%20%C2%B7%20words%20mine-blue"></a>
+</p>
+
+<p align="center">
+  <sub>…yes, those badges are the only third-party images in this repository. The <em>site</em> keeps its promise; the README gets one indulgence.</sub>
+</p>
+
+<p align="center">
+  <strong>Live:</strong> <a href="https://stefanocosta.me">stefanocosta.me</a> ·
+  <strong>Blog:</strong> <a href="https://stefanocosta.me/mainPages/Blog_pages.html">Source of Truth</a> ·
+  <a href="https://stefanocosta.me/mainPages/blogFeed.xml">RSS</a>
+</p>
 
 <p align="center">
   <img src="img/readme/homepage.webp" alt="The site's homepage: a centred monospace index on a dark background" width="60%">
