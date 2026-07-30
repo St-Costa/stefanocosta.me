@@ -1,20 +1,33 @@
 Copyright (c) 2024-2026 Stefano Costa
 
-CODE
-----
-The code in this repository — HTML structure, CSS, JavaScript and the Python
-scripts under scripts/ — is free to read, learn from and adapt.
+In short: the code is yours to use, the writing is not.
 
-CONTENT
--------
-Written content (blog posts and pages), images, and the academic documents
-under document/ are © Stefano Costa and are not covered by the above.
-Please ask before reusing them.
 
-THIRD-PARTY MATERIAL
---------------------
-- JetBrains Mono (style/fonts/) is licensed under the SIL Open Font License 1.1.
-- The inline SVG icons use Font Awesome Free paths, licensed CC BY 4.0.
-- Screenshots of tweets and the book, podcast and album covers under img/covers/
-  remain the property of their respective owners and are reproduced here as
-  quotation; they are not licensed for reuse.
+THE CODE — free to use
+----------------------
+The HTML structure, the CSS, the JavaScript and the Python scripts under
+scripts/ are free to read, learn from, copy and adapt, for any purpose and
+without asking. Attribution is welcome but not required.
+
+
+THE CONTENT — please ask
+------------------------
+The blog posts, the text of the pages, the photographs, and the academic
+documents under document/ are © Stefano Costa. They are published here to be
+read, not to be republished. If you would like to reuse a piece of writing or
+an image, get in touch — the answer is usually yes.
+
+
+MATERIAL THAT ISN'T MINE
+------------------------
+Some files in this repository belong to other people and carry their own terms:
+
+  style/fonts/    JetBrains Mono, SIL Open Font License 1.1
+  .fa_icon SVGs   Font Awesome Free icon paths, CC BY 4.0
+  img/covers/     Book, podcast and album covers — copyright of their
+                  publishers, reproduced here as illustration
+  tweet screenshots
+                  Copyright of their authors, reproduced as quotation
+
+None of these are licensed for reuse by me, and copying this repository does
+not give you any right to them.

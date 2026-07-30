@@ -15,12 +15,10 @@
   <img alt="Build step" src="https://img.shields.io/badge/build%20step-none-2ea44f">
   <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-0-2ea44f">
   <img alt="Trackers" src="https://img.shields.io/badge/trackers-0-2ea44f">
-  <a href="https://pagespeed.web.dev/analysis/https-stefanocosta-me/wvalfrpn59?form_factor=desktop"><img alt="Lighthouse" src="https://img.shields.io/badge/Lighthouse-100%20%C2%B7%20100%20%C2%B7%20100%20%C2%B7%20100-2ea44f"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-code%20free%20%C2%B7%20words%20mine-blue"></a>
 </p>
 
 <p align="center">
-  <sub>…yes, those badges are the only third-party images in this repository. The <em>site</em> keeps its promise; the README gets one indulgence.</sub>
+  <sub>…yes, those badges are the only third-party images in this repository.</sub>
 </p>
 
 <p align="center">
