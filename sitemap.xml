@@ -28,16 +28,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://stefanocosta.me/mainPages/Work_with_me.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://stefanocosta.me/mainPages/now.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://stefanocosta.me/mainPages/Academic_past.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

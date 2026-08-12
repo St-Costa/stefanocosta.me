@@ -39,10 +39,10 @@
 
     --body-margin-h: 15%;
     --body-margin-v: 70px;
-    --font-size-base: 20px;
-    --font-size-h1: 55px;
+    --font-size-base: 29px;
+    --font-size-h1: 60px;
     --footer-width: 60%;
-    --footer-index-width: 25%;
+    --footer-index-width: 35%;
 }
 
 /* ── Base ───────────────────────────────────────────────────────────── */
@@ -160,6 +160,31 @@ a.noTarget { background: none !important; }
 .box-title h1, .box-title h2, .box-title h3,
 .box-title h4, .box-title h5, .box-title h6 { margin: 0; }
 
+/* Larger box-title for the homepage "Now" box */
+.box-title-big { font-size: 1.6em; font-weight: bold; }
+
+/* Nearly closes the gap between the two Motto lines. */
+.motto_box p { margin: 0.05em 0; }
+
+/* Adds the two side borders .briefAboutMe doesn't have by default, closing
+   the box on all four sides. Scoped so Motto/quote boxes elsewhere keep
+   their top+bottom-only style. */
+.box_full {
+    border-left: 2px solid var(--text-color);
+    border-right: 2px solid var(--text-color);
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.box_full p { margin: 0.4em 0; }
+
+/* Small, understated last-updated note at the bottom of the Now box. */
+.now_updated {
+    font-size: 0.55em;
+    opacity: 0.6;
+    margin-top: 0.8em;
+}
+
 .section-divider {
     display: flex;
     align-items: center;
@@ -178,6 +203,10 @@ a.noTarget { background: none !important; }
     font-weight: bold;
 }
 
+/* Extra breathing room between the milestone paragraphs on About me. */
+.basics_about_me p { margin-bottom: 1em; }
+.basics_about_me h2 { display: block; margin-bottom: 0.6em; }
+
 /* ── Footer ─────────────────────────────────────────────────────────── */
 footer {
     border-bottom: 1px solid #F5F5F7;
@@ -193,7 +222,11 @@ footer {
 }
 
 /* Class selector wins over element selector — no !important needed */
-.footer_index { width: var(--footer-index-width); }
+.footer_index {
+    width: var(--footer-index-width);
+    border-top: none;
+    border-bottom: none;
+}
 
 /* ── Components ─────────────────────────────────────────────────────── */
 /* Merged in from the former components.css: one stylesheet means one
@@ -246,6 +279,10 @@ figure figcaption { text-align: center; }
     border-radius: 0;
 }
 
+/* Homepage social icons (LinkedIn, X, GitHub): scoped so other pages using
+   .icon (colophon, Blog_pages) keep their size. */
+.social_icon { width: 35px !important; }
+
 .icon_inline {
     vertical-align: middle;
     margin-right: 1px;
@@ -283,15 +320,10 @@ figure figcaption { text-align: center; }
     vertical-align: middle;
 }
 
-.QR {
-    width: 100%;
-    max-width: 300px;
-}
-
 /* Sized by height, so width must follow the aspect ratio rather than the
    width attribute in the HTML — otherwise the cover comes out squashed. */
 .book {
-    height: 150px;
+    height: 238px;
     width: auto;
 }
 .book:hover {
@@ -300,7 +332,7 @@ figure figcaption { text-align: center; }
     cursor: pointer;
 }
 
-.podcast { height: 100px; width: auto; }
+.podcast { height: 158px; width: auto; }
 .podcast:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -318,6 +350,7 @@ figure figcaption { text-align: center; }
 .bottom_space_big      { margin-bottom: var(--space-md); }
 .bottom_space_very_big { margin-bottom: var(--space-lg); }
 .top_space_big         { margin-top: var(--space-md); }
+.top_space_very_big    { margin-top: var(--space-lg); }
 
 .not_so_bold { font-weight: 550; }
 .list_span   { font-size: 25px; }
@@ -409,10 +442,10 @@ td { vertical-align: top; }
     body {
         margin-left: 5%;
         margin-right: 5%;
-        font-size: 17px;
+        font-size: 24px;
     }
 
-    h1 { font-size: 40px; }
+    h1 { font-size: 44px; }
 
     .left_div, .right_div {
         width: 100%;
@@ -450,8 +483,8 @@ td { vertical-align: top; }
 }
 
 @media only screen and (max-width: 768px) {
-    body { font-size: 16px; }
-    h1 { font-size: 34px; }
+    body { font-size: 23px; }
+    h1 { font-size: 37px; }
     .index_img { width: 100px !important; }
     .poster_img { width: 70%; }
 }
@@ -460,9 +493,9 @@ td { vertical-align: top; }
     body {
         margin-left: 3%;
         margin-right: 3%;
-        font-size: 15px;
+        font-size: 22px;
     }
-    h1 { font-size: 28px; }
+    h1 { font-size: 31px; }
     .index_img { width: 80px !important; }
     .poster_img { width: 90%; }
     .list_span { font-size: 19px !important; }

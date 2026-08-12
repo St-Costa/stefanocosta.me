@@ -162,7 +162,6 @@ non relativi: restano validi da qualsiasi cartella. Mantenere questa forma.
 |------|---------------|
 | `style/blog.css` | Blog post con TOC fisso a sinistra |
 | `style/gallery.css` | Pagine con slideshow gallery |
-| `style/about_me_cards.css` | Solo `aboutme.html` |
 
 `base.css` contiene già reset, font, token, **componenti** (immagini, icone, liste, bottoni,
 tabelle, layout a 2 colonne) e media query, in quest'ordine. Molte pagine caricano solo lui.
@@ -344,7 +343,7 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 ├── blogPosts/        ← post del blog
 ├── subpages/         ← approfondimenti accademici
 ├── style/            ← CSS (base.css + CSS specifici)
-├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js, about_me_cards.js
+├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js
 ├── scripts/          ← gen_feed.py (feed RSS), check_site.py (controlli)
 ├── img/              ← immagini (sempre WebP)
 └── document/         ← PDF accademici (non indicizzati)
