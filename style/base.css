@@ -88,6 +88,11 @@ ul {
 
 li { margin: 10px 0; }
 
+/* Tighter spacing for the homepage nav links. The h2's own default
+   top/bottom margin was dominating over li's, so it must be zeroed too. */
+#main-nav li { margin: 18px 0; }
+#main-nav h2 { margin: 0; }
+
 .content_list {
     list-style-type: disc;
     text-align: left;
@@ -280,8 +285,11 @@ figure figcaption { text-align: center; }
 }
 
 /* Homepage social icons (LinkedIn, X, GitHub): scoped so other pages using
-   .icon (colophon, Blog_pages) keep their size. */
+   .icon (colophon) keep their size. */
 .social_icon { width: 35px !important; }
+
+/* RSS icon on the blog index page. */
+.rss_icon_big { width: 48px !important; }
 
 .icon_inline {
     vertical-align: middle;
