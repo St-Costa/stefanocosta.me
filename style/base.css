@@ -140,6 +140,13 @@ a.noTarget { background: none !important; }
     margin: 1em auto;
 }
 
+/* Tighter padding than .briefAboutMe, and extra vertical margin to clear
+   the heading above and the section below. */
+.quote_box {
+    padding: 0.3em 1.5em;
+    margin: 1.5em auto 2.5em;
+}
+
 .box-title {
     position: absolute;
     top: 0;
@@ -390,7 +397,6 @@ td { vertical-align: top; }
 
 .left_div  { float: left;  width: 58%; }
 .right_div { float: right; width: 40%; }
-
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
 /* These must stay last: several rules above (.index_img, .poster_img,
