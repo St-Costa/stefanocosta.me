@@ -268,6 +268,12 @@ Alcuni post — tipicamente quelli linkati da voci del [failure resume](mainPage
 diretto che li referenzia (es. dentro `Failure_resume.html`), non dalla lista
 del blog né dal feed.
 
+Se il post nasce da una nota Obsidian (`>[!callout]`, `[[wikilink]]`, `^[footnote]`), usare la
+skill `.claude/skills/obsidian-to-post/` — vale per qualsiasi post tradotto da Obsidian, non
+solo quelli unlisted; converte in modo consistente il markdown in HTML (fusione paragrafi,
+callout, footnote inline, risoluzione wikilink) seguendo le convenzioni già in uso sul sito, e
+copre anche i passaggi extra specifici per un post unlisted.
+
 Per marcarli, nel `<head>`, al posto del blocco JSON-LD con `datePublished`:
 ```html
 <!-- unlisted-post: not in Blog_pages.html, no datePublished (keeps it out of
