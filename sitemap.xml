@@ -40,6 +40,11 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://stefanocosta.me/blogPosts/Writing%20coach%20post-mortem.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://stefanocosta.me/blogPosts/July%20Monthly%20Business%20Ahas.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

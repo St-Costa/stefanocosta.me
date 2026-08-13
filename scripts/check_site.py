@@ -122,14 +122,17 @@ def check_page(path, html):
 
 
 def check_posts():
-    """Un post senza datePublished resta fuori dal feed RSS, in silenzio."""
+    """Un post senza datePublished resta fuori dal feed RSS, in silenzio.
+
+    Eccezione: un post con il marcatore <!-- unlisted-post --> è volutamente
+    senza datePublished (vedi CLAUDE.md "Post nascosti (unlisted)")."""
     for path in glob.glob(os.path.join(ROOT, "blogPosts", "*.html")):
         name = os.path.basename(path)
         if name.startswith("_"):
             continue
         html = open(path, encoding="utf-8").read()
         rel = os.path.join("blogPosts", name)
-        if '"datePublished"' not in html:
+        if '"datePublished"' not in html and "unlisted-post" not in html:
             err(rel, "post senza datePublished nel JSON-LD: non entrerà nel feed RSS")
         title = re.search(r"<title>(.*?)</title>", html, re.S)
         h1 = re.search(r"<h1>(.*?)</h1>", html, re.S)

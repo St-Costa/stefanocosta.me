@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Post-mortem of a writing-coach business: what we built, why it failed, and what I'm taking home.">
+    <title>Writing coach post-mortem | Source of Truth</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <!-- Headings inherit the browser's default bold, so Bold is on the critical path
+         for the first paint just as much as Regular. Italic is not, so it is left to
+         load on demand. All three are subset to the glyphs this site actually uses. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
+    <meta property="og:title" content="Writing coach post-mortem | Stefano Costa">
+    <meta property="og:description" content="Post-mortem of a writing-coach business: what we built, why it failed, and what I'm taking home.">
+    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
+    <meta property="og:url" content="https://stefanocosta.me/blogPosts/Writing%20coach%20post-mortem.html">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
+    <script src="../javascript/commonHeader.js" defer></script>
+    <!-- unlisted-post: not in Blog_pages.html, no datePublished (keeps it out of
+         gen_feed.py's RSS feed), only reachable via a direct link (Failure resume).
+         See CLAUDE.md "Post nascosti (unlisted)". -->
+    <script src="../javascript/toc.js"></script>
+
+    <link rel="stylesheet" href="../style/blog.css">
+</head>
+
+<body>
+    <main>
+
+    <div class="bottom_space_big">
+        <h1>Writing coach post-mortem</h1>
+        <h2 class="subtitle">I quit corporate to revolutionize Italian publishing... and it didn't work</h2>
+        <h3 class="subtitle"><a
+                href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts"
+                target="_blank">Epistemic status</a>: <i>personal account, reconstructed largely from anecdotes and insider conversations rather than public data</i></h3>
+
+        <div class="center">
+            <div><em>August 2026</em></div>
+            <div><em>4500 words</em> - <em>18 min read</em></div>
+            <div><em><a href="../mainPages/Failure_resume.html">Failure resume</a></em></div>
+        </div>
+
+        <section class="toc">
+            <div class="box-title">
+                <h4>TOC</h4>
+            </div>
+        </section>
+
+        <section class="tldr">
+            <div class="box-title">
+                <h3>TL;DR</h3>
+            </div>
+            <p>I helped a friend's writing-coach business by automating several of its processes. Despite the high quality of the product, it didn't match what the market actually wanted: identity and connections.</p>
+        </section>
+
+        <h2 id="why-i-did-it">
+            <a href="#why-i-did-it">■ Why I did it</a>
+        </h2>
+
+        <p class="justify">
+            When I quit my job at corporate hell, I realized two things:
+        </p>
+        <ul>
+            <li><a href="I am not a mathematician.html">I'm not made for academia</a></li>
+            <li><a href="The corporate experience.html">I'm not made for corporate life</a></li>
+        </ul>
+        <p class="justify">
+            If I wanted to get paid to do something I enjoyed, something I was good at, and something that created value, it was clear that working for someone else wasn't an option: <i>I had to create that opportunity for myself</i>.
+            <br>So I called my entrepreneur friend and told him, “<i>I quit my job, now I'm going back to Bolzano to work for you for free</i>.”
+            <br><br>
+            At that moment, I needed some perspective, to try new things, and to do so alongside someone I respect and admire.
+            <br>I was reading <a href="https://www.goodreads.com/book/show/6081261-what-i-wish-i-knew-when-i-was-20" target="_blank">What I Wish I Knew When I Was 20</a>, and this excerpt really stuck with me:
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.png" alt="">
+                <h4>Quote</h4>
+            </div>
+            <p class="justify">(...) I arrived at class early and found one of my students listening to her new iPod nano.
+                <br>I hadn't seen one before and asked to take a look.
+                <br>She handed it to me and turned it over.
+                <br>The back was engraved with the words, “<b>Never miss an opportunity to be fabulous!</b>”
+                <br>(...)
+                <br>I've been remarkably surprised by the stickiness of this message.
+                <br>It's as though students are just waiting to get this instruction.
+                <br>They're hungry for permission to do their very best, to hit the ball out of the park and to shine their brightest.
+                <br>Unfortunately, in most situations this doesn't happen.
+                <br><b>We're encouraged to “satisfice.”</b></p>
+            <p class="source">Tina Seelig, <i>What I Wish I Knew When I Was 20</i></p>
+        </section>
+
+        <p class="justify">
+            <br>
+            From that, I came up with a heuristic for choosing a job: “<b>Does it give me the opportunity to be fabulous? To do fabulous things?</b>”
+            <br>Neither academia nor corporate life passes this test (even though they're good at convincing you otherwise...).
+            <br>But this was a <b>once-in-a-lifetime</b> opportunity.
+            <br><br>
+            The mission was clear: <i>revolutionize the Italian publishing industry</i>.
+            <br>To put the quality of storytelling back at the center of a market dominated by the turbo-capitalist rhythms of the publishing distribution oligarchy<sup>[Read <a href="https://www.minimumfaxlab.com/libri-e-debiti-emanuele-giammarco/" target="_blank">this</a>, <a href="https://lucysullacultura.com/piu-libri-meno-lettori-come-muore-leditoria-italiana/" target="_blank">this</a>, and <a href="https://www.wittgenstein.it/2025/03/26/dieci-appunti-sul-mercato-dei-libri/" target="_blank">this</a>]</sup>.
+            <br>The potential was to spark a cultural revival that would spread with the support of readers and writers: a true and honorable revolution!
+            <br><br>
+            An ambitious, challenging mission that we'd both always believed in: even back when I was 14, we'd talk about it, analyzing what worked and what didn't in the stories of the latest movies and books.
+            <br>And now I wanted to help him do what he hadn't been able to do on his own.
+        </p>
+
+        <hr>
+
+        <h2 id="what-we-built">
+            <a href="#what-we-built">■ What we built</a>
+        </h2>
+
+        <h3 id="the-early-years">
+            <a href="#the-early-years">└─ The early years</a>
+        </h3>
+        <p class="justify">
+            Luca is a <i>true</i> writing enthusiast, not one of those people who say “<i>I've been writing a book for years</i>.”
+            <br>He's always written books and screenplays, he's always studied, and he's always wanted to work with stories.
+        </p>
+        <p class="justify">
+            <br>
+            Over the years, he has tried out a few things:
+        </p>
+        <ul>
+            <li>Taken online courses on writing</li>
+            <li>Founded a small local publishing house</li>
+            <li>Written LOTS of books</li>
+        </ul>
+        <p class="justify">
+            He treated every attempt as an opportunity to learn and improve, and after years of studying manuals and stories, he developed <i>his own</i> narrative model, creating a methodical, step-by-step process for structuring an excellent story.
+            <br>This method has become his unique selling point and core product: no competitor has ever taught anything like it with the same level of detail and expertise.
+            <br><br>
+            When I joined, the active projects were:
+        </p>
+        <ul>
+            <li>Courses</li>
+            <li>YouTube channel</li>
+            <li>Asynchronous online community with exercises, interactions, gamification...</li>
+        </ul>
+        <p class="justify">
+            And then there's the latest program we've been working on: a 14-month group workshop to write a novel from scratch, featuring one-on-one sessions, group revisions, personalized feedback, and live classes.
+        </p>
+
+        <h3 id="my-role">
+            <a href="#my-role">└─ My role</a>
+        </h3>
+
+        <p class="justify">
+            I arrived after the workshop's second launch, which hadn't yielded encouraging results.
+            <br><br>
+            We were certain that the problem wasn't the product: customer feedback has always been excellent regarding both the quality of Luca's expertise and the products (courses, videos, results achieved...).
+            <br>In fact, given his aversion to marketing, I figured that was more likely the problem...
+            <br><br>
+            My first analysis focused on the competitors: few in number but large.
+            <br>I thought it was mainly a matter of “firepower”: Luca had always worked alone, and several processes could be significantly optimized (the kind of processes that competitors delegated thanks to their higher revenue).
+            <br>So I optimized processes and automated whatever I could, always with the goal of collecting data:
+        </p>
+        <ul>
+            <li><a href="../mainPages/Projects.html#newsletter-to-drive">Newsletter-to-Drive automation</a> to replace a 1000$/y service: to avoid a significant cost, it worked from a technical standpoint, but in terms of engagement and conversions, it didn't perform any better.</li>
+            <li><a href="../mainPages/Projects.html#Leaderbot">Leaderbot</a> to increase the laboratory Discord community engagement: to boost engagement even without Luca being there in person, it worked well, sparking friendly competitions among customers.</li>
+            <li><a href="../mainPages/Projects.html#YT-shorts-automation">YouTube Shorts publication from lives</a> (made ~50K/m views): both to boost the channel for YouTube's algorithm and to test whether Shorts are a good top-of-funnel strategy.</li>
+            <li><a href="../mainPages/Projects.html#recap-newsletter">Automatic recap newsletter</a>: created with the aim of automating a tedious process (newsletters...) and increasing interaction with emails; the first goal was achieved, freeing up a lot of time and mental bandwidth, while the second was achieved to a lesser extent.</li>
+            <li><a href="../mainPages/Projects.html#synthetic-target">Synthetic target to simulate purchase and click intent</a>: to help us create the best Meta Ads. We tested it and found that our target audience is too narrow to provide useful suggestions: it works better for broader audiences (it's definitely a tool I'll use in the future).</li>
+        </ul>
+        <p class="justify">
+            Automating these processes has allowed us to focus on the most important issues:
+        </p>
+        <ul>
+            <li><a href="January Monthly Business Ahas.html#h1.2">Tweak the funnel</a>: it started out as a “<i>spaghetti funnel</i>,” but with the help of an entrepreneur friend we restructured and tweaked it.</li>
+            <li><a href="January Monthly Business Ahas.html#h1.5">Identified a better ICP</a>: through a survey of the lab's clients, we identified an ICP that is more promising and better suited to the product.</li>
+            <li><a href="March Monthly Business Ahas.html#h1.2">Identifying the problem in marketing</a>: by reflecting on awareness of the problem and the solutions, I created a framework that helped us understand the market situation for writing coaches, thereby figuring out how to position ourselves from a marketing perspective.</li>
+        </ul>
+
+        <h3 id="what-worked">
+            <a href="#what-worked">└─ What worked</a>
+        </h3>
+
+        <p class="justify">
+            Automation and a focus on process improvement have allowed us to concentrate on the most urgent and important aspects of the business.
+            <br><br>
+            <b>The approach to content production</b>
+            <br>Competitors' content and materials have always been vague, long-winded, unclear, and unstructured.
+            <br>Going against the trend: short, fast-paced, dense, and to-the-point content has worked very well, both in terms of views and audience feedback.
+            <br>This was a key differentiator: the structured method taught enabled the creation of clear, well-organized, and consistent content that was easy for the target audience to understand.
+            <br>The difference between rambling, improvised lessons and the genuine quality of the material taught by Luca was clearly recognized.
+            <br><br>
+            <b>The format of the latest product</b>
+            <br>A small-group workshop with an annual subscription (14 months), featuring frequent group and one-on-one interactions.
+            <br>Customers really appreciate the live group interaction, learning from (consensual) feedback on others' work, the relaxed and mutually supportive (non-competitive) atmosphere, and the structured method divided into phases with clear objectives.
+            <br><br>
+            We know these approaches have been successful not only from customer feedback but also because competitors have started copying the content format and the workshop structure.
+            <br>Their results, however, aren't nearly as good, since they lack a solid, structured, theoretical, and validated method, and end up producing only half-hearted imitations.
+        </p>
+
+        <hr>
+
+        <h2 id="why-did-it-fail">
+            <a href="#why-did-it-fail">■ Why did it fail?</a>
+        </h2>
+
+        <p class="justify">
+            It wasn't the right product for a market that doesn't reward the quality of stories.
+            <br>Or, to put it another way: <b>we didn't respond to market incentives</b>.
+        </p>
+
+        <h3 id="the-market">
+            <a href="#the-market">└─ The market</a>
+        </h3>
+
+        <p class="justify">
+            Luca followed a passion, a calling, something he's good at.
+            <br>He never researched the market to find the right product to sell.
+            <br>He came to understand the market as he went along, and he refused to compromise so as not to betray his mission and his editorial ethics.
+            <br><br>
+            The real outcome of this entrepreneurial venture was not financial, but rather <i>informational</i>: insider knowledge of the world of writing, publishing houses, and cinema...
+            <br>Discovering that in Italy:
+        </p>
+        <ul>
+            <li>Publishing is driven by <i>cronyism</i><sup>[Read <a href="https://www.ilpost.it/wp-content/uploads/2024/09/18/1726671665-fulvio-abbate-l-amichettismo.pdf" target="_blank">this</a>, <i>with caution</i>]</sup>.</li>
+            <li>Contests are (allegedly 😉) rigged<sup>[See <a href="https://www.editorialedomani.it/politica/italia/il-ministro-sangiuliano-allo-strega-vota-ma-non-ha-letto-i-libri-cmfhw1od" target="_blank">this</a> and <a href="https://www.secoloditalia.it/2026/04/premio-strega-lamichettismo-colpisce-anche-la-poesia-elisa-donzelli-si-dimette-per-le-regole-poco-chiare/" target="_blank">this</a>]</sup>.</li>
+            <li>VIPs get preferential treatment (poor ghostwriters...)<sup>[See <a href="https://www.corriere.it/cultura/09_agosto_22/faletti_scrivo_libri_carioti_640e28f4-8ee8-11de-b751-00144f02aabc.shtml" target="_blank">this</a>]</sup>.</li>
+        </ul>
+        <p class="justify">
+            The market is clearly unsuited to a product that emphasizes quality:
+        </p>
+        <ul>
+            <li>In Italy, starting in elementary school, children are taught that “<i>Writing comes from within</i>,” reinforcing the idea that “<i>writing cannot be learned</i>.” It is an internalized belief that is extremely difficult to uproot from the Italian mindset.</li>
+            <li>Italy is the land of “<i>You don't know who I am!</i>,” a concept internalized through countless real-life and fictional situations. Aspiring writers want to pad their résumés with the title of “writer,” which they believe can only be earned by being published by a publishing house, regardless of its size or prominence. In essence, for the aspiring writer, feeding their ego is more important than producing a good book.</li>
+            <li>There is no universally accepted definition of a “good book” (nor a good story, nor a good movie...). For every objective error (grammatical, in sentence structure, etc.), there are 10 fans ready to defend the author. Since “<i>writing cannot be learned</i>,” even following objective storytelling rules is not considered a defensible standard.</li>
+            <li>The corollary to “<i>You don't know who I am!</i>” is “<i>I don't know who the f*** you are!</i>”: the principle of authority is the norm among aspiring writers, with entrepreneurial conjugation. If you've been published by a major publishing house, then your opinion counts; if you're a famous writer, it counts; if you're a successful writing coach, it counts. No matter what you say, even if you spout the biggest load of bullshit, it still counts. Conversely, the response is “<i>But how many books have you published to be giving an opinion like that?</i>”, a message we've received during <b>all</b> our product launches...</li>
+        </ul>
+        <p class="justify">
+            Competitors exploit these beliefs of questionable intellectual value in ways that are of questionable professional ethics (again, allegedly!).
+            <br>The typical pitch from competitors is “<i>I'll teach you how to get published by major publishers</i>,” but never in an explicit or legally binding way.
+            <br>They simply say in their videos, “<i>See? You're not doing what I teach, and in fact, you've never been published by a major publisher! Not like my student</i>” (one out of all the students...).
+            <br>ALL OF THIS ALLEGEDLY, AS ALWAYS.
+            <br><br>
+            When there is no established method (i.e., one that is not recognized), when there is no quality (i.e., no standards), when the ego is more important than anything else... <b>all that's left is to sell one's identity</b>.
+            <br>Customers in this market can't wait to brag about their writing skills because “<i>I published a short story</i>” (on the teacher's website...) or, worse, “<i>I've taken several creative writing courses</i>” 
+            <br><strong>NOTE</strong>: “creative writing” doesn't exist, it means nothing, it's just a buzzword.
+            <br><strong>NOTE</strong>: These are all things that happen repeatedly in real life because in Italy EVERYONE wants to write.
+            <br>To an audience like this, all that's left is to sell the identity of a professional writer with the illusion of learning, nothing else is needed: this is what (some of) the competitors do (ALLEGEDLY).
+            <br><br>
+            Identity crises also affect readers who, caught in the crossfire of low-quality publications, don't so much want to “<i>read a good book</i>” as they do to “<i>feel like real readers</i>.”
+            <br>The average Italian reader wants to spend an hour doing something that makes them feel like a reader, typically by reading a pseudo-intellectual and pretentious book that requires deep interpretation due to its semantic ambiguity.
+            <br>Those types of books that make post-rationalization their strong suit: when you read them, you don't understand shit, but by coming up with lofty and poetic interpretations, their depth suddenly emerges.
+            <br>Different for everyone, of course, since everyone finds whatever the hell they want to find in it.
+            <br>This is also evident in reviews, which NEVER agree on the meaning of books or their quality.
+            <br>For readers, too, incentives have changed, and no one prioritizes the quality of stories, thus fueling the drive for quantity over quality.
+            <br><br>
+            One thing to note about publishing houses is that (with a bit of plausible deniability regarding their own guilt...) we can view them as victims of this situation.
+            <br>Everyone in Italy wants to write, but no one wants to learn, publishers receive thousands of manuscripts (and that's no exaggeration) from incompetent people: it's impossible to read them all to find the 0.1% that's actually good.
+            <br>As mentioned above: publishing is a business of quantity, not quality.
+            <br>So writers don't see quality being rewarded even from the publishers' side, and in fact, no one challenges their mistaken beliefs... so they have no choice but to keep believing them.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.png" alt="">
+                <h4>Remark</h4>
+            </div>
+            <p class="justify">Defending this perspective requires considerable intellectual effort: the publishing industry is a whole different story, and it's not all roses and sunshine.
+                <br>The only point I'll make is about the typical “work” of aspiring writers: editing an anthology series <i>for free</i> for editors at major publishing houses and adding to their résumé, “<i>I EDITED A SERIES THAT SOLD A LOT OF COPIES!</i>”.
+                <br>The catch is that a collection of 666 horror stories has... at least 666 copies sold, that is, the authors themselves!</p>
+        </section>
+
+        <p class="justify">
+            <br>
+            Regardless of who is to blame (authors vs. publishers), what we should have done better was read the market signals.
+            <br>If it's true that <a href="https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does" target="_blank">the purpose of a system is what it does</a>, we should have interpreted the low quality of Italian publishing as a sign of how the book system works.
+            <br><br>
+            The thing is: nobody gives a damn about the quality of the stories.
+            <br>And the product relied solely on that.
+            <br><a href="June Monthly Business Ahas.html#h1.1">So it didn't work</a>.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.png" alt="">
+                <h4>Economical remark</h4>
+            </div>
+            <p class="justify">This is a classic case of <a href="https://en.wikipedia.org/wiki/The_Market_for_Lemons" target="_blank">Market for Lemons</a> (which is starting to be a too common situation in my life): low-quality writing coaches sell publication promises (<i>cheap currency</i>), high-quality coaches selling actual skill (<i>expensive currency</i>) get driven out.
+                <br>And also a good final touch of <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law" target="_blank">Goodhart's Law</a>: publishing is now the target, hence is not a good measure.
+                <br>ALLEGEDLY: I AM TALKING THEORETICALLY, NOT SPECIFICALLY ABOUT ANY WRITING COACH, THIS IS A THEORETICAL SCENARIO.</p>
+        </section>
+
+        <h3 id="metrics">
+            <a href="#metrics">└─ Metrics</a>
+        </h3>
+
+        <p class="justify">I won't share specific figures (revenue...) since it is not my project.</p>
+        <ul>
+            <li>~5 years of activity</li>
+            <li>YouTube: 6,000 subscribers</li>
+            <li>Live streams: ~300 views per video, 10-30 concurrent viewers</li>
+            <li>CPL: €5 (first launch) → €10 (second launch)</li>
+            <li>CAC (second launch): ~1.3x the product price</li>
+        </ul>
+
+        <h4 id="kill-signals">
+            <a href="#kill-signals">├─ Kill signals</a>
+        </h4>
+        <ul>
+            <li><b>KEY SIGNAL</b>: two unsuccessful product launches, the second of which was carried out by a friend who makes a living from similar launches (Meta ads, webinars, product launch formulas...).</li>
+            <li>Estimates of costs and the amount of work required for marketing in the next step (turning the product into an evergreen product).</li>
+            <li>A client who had obtained great results from the laboratory withheld public acknowledgment of Luca's role, even where it was due.</li>
+            <li>Another client mentioned that they had purchased a competitor's product even though it's included (and inferior) in the laboratory they were ALREADY participating in. This showed us that even aspiring writers don't know what they need, and they compulsively buy courses.</li>
+        </ul>
+
+        <h4 id="invested-resources">
+            <a href="#invested-resources">├─ My invested resources</a>
+        </h4>
+        <ul>
+            <li>6 months</li>
+            <li>Up to 200€ in API and automation costs</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="what-id-do-differently">
+            <a href="#what-id-do-differently">■ What I'd do differently</a>
+        </h2>
+
+        <p class="justify">
+            The most important lesson is: <b>study the market before developing a product</b>.
+            <br>Understand the incentives at play and how the customers in that market behave; understand the outcome of the system that keeps the market afloat in order to determine product-market fit.
+            <br>It's a complex system that operates on many levels and must be tested repeatedly over time.
+            <br>We didn't take this first step, and that's the most important thing.
+            <br><br>
+            Another key point: <b>finding a good way to validate the market</b> (it's not enough to just <i>know you have to do it</i>).
+            <br>In hindsight, the approach we used to do this was to rationalize <i>after</i> the fact that it was NOT a good product, based on sales data, competitors (sales, their business models...), and the publishing industry.
+            <br>It's not a useless analysis, but it wouldn't easily allow us to make predictions about an idea, a product, or an offer.
+            <br><br>
+            To respond to market incentives, we considered collaborating with a few publishing houses in a way that aligned as closely as possible with our mission: Luca would guarantee the high quality of the novels (written by the best students), and in exchange, the publishing houses would prioritize the submitted novels for publication.
+            <br>A win-win.
+            <br>Pushing forward with this could have:
+        </p>
+        <ul>
+            <li>Generated proofs</li>
+            <li>Engaged customers by meeting their desire to publish</li>
+            <li>Helped partner publishers publish good books</li>
+        </ul>
+        <p class="justify">
+            We quickly realized that finding a publishing house that shared our vision and professional ethics was really difficult.
+            <br>Even small publishing houses are forced to focus on quantity just to stay afloat, and they, too, don't care about quality: the typical approach is to publish whoever comes along first.
+            <br><strong>NOTE</strong>: there are many stories of writers who get published by small publishers simply because they were the first to submit their manuscript... and who are notorious in writing forums for being utterly incompetent.
+            <br>Only devoting the necessary time and energy to finding the right partner would have confirmed (or ruled out) the feasibility of this idea.
+            <br><br>
+            Another idea was to create an entry-level community as a lead magnet.
+            <br>The $1,000/year product that I replaced with an automation did something similar, but <i>modestly</i>, as did the Telegram channel we created a few years earlier.
+            <br>Something involving live events, even if it were just a live premiere of videos watched together with Luca with chat interactions, would likely have helped people understand the true value of the community (and thus of the laboratory) beyond the method being taught.
+            <br>At the same time, it would have been a considerable amount of extra work, so it would have needed to be organized well.
+            <br><br>
+            The most promising pivot would have been to rework the offering into something more expensive, targeting established writers who have already sold well and want to build a solid second (or third or fourth...) book (the second book is always the hardest!).
+            <br>The problem is finding them and, above all, convincing them: this kind of writer would need to acknowledge that their previous success doesn't guarantee the next one, and that they need help to keep up the quality.
+            <br>It's the same identity break aspiring writers refuse to make, just at a higher level of the ladder.
+            <br>As Luca puts it: “<i>quality is a matter of ideals, because it has no market.</i>”
+        </p>
+
+        <hr>
+
+        <h2 id="what-im-taking-home">
+            <a href="#what-im-taking-home">■ What I'm taking home</a>
+        </h2>
+
+        <p class="justify">
+            The most important thing I've learned is to understand what it means to <i>work well as a team</i>.
+            <br>In this case, there were just the two of us, but I've never before experienced this level of mutual trust in each other's skills, combined with brutal honesty during heated and difficult discussions (which were always resolved).
+            <br>I expect nothing less from my future collaborations with anyone.
+            <br><br>
+            Jeff is right: “<i>When the data and the anecdotes disagree, the anecdotes are usually right.</i>”
+            <br>Much of the information I've reported doesn't have a source because there isn't one.
+            <br>We've pieced together the situation from anecdotes, literary agent friends, founders of small publishing houses, competitors' clients, and so on.
+            <br>The credibility of that information stems <i>precisely</i> from the fact that it isn't public because there's no risk in saying things that might be considered inappropriate in this vindictive and cliquey market.
+            <br><br>
+            Customers are more victims than advocates.
+            <br>They don't know what they need, they don't know how the market works, they don't know shit about anything.
+            <br><a href="June Monthly Business Ahas.html#h1.1">But that doesn't mean they're wrong!</a>
+            <br><br>
+            The importance of the sociocultural aspect.
+            <br><a href="https://youtu.be/iR5JgWuHc_E?t=712" target="_blank">Says the Italian comedian</a>: “<i>A corrupt population generates corrupt governments</i>”; the corollary is “<i>A corrupt population generates corrupt markets</i>.”
+            <br>If a writing coach realizes that Italians are willing to buy into promises of publication, they have no qualms about making that their main selling point.
+            <br>(ALWAYS: ALLEGEDLY)
+            <br><br>
+            I'm not the best marketer in the world, but after studying product launches and sales pages, I've learned to spot the tacky little marketing tricks (including products with ridiculously catchy names, fake countdowns that DON'T actually block the purchase, and fake rebrands...).
+            <br>Let's just say I know very well how <b>not</b> to do marketing.
+        </p>
+
+        <hr>
+
+        <h2 id="would-i-do-it-again">
+            <a href="#would-i-do-it-again">■ Would I do it again?</a>
+        </h2>
+
+        <p class="justify">
+            Without a doubt.
+            <br>At that time, I needed an entrepreneurial adventure, and over the course of those months, I learned so much at a pace I could never have achieved otherwise.
+            <br>If I could go back to that moment with the knowledge I've gained now, I would have realized it wouldn't have worked.
+            <br>But it's precisely thanks to this project that I now know what I know, and this experience is worth more than a thousand business books.
+        </p>
+        <br>
+        <p class="justify">
+            <b>Coming next</b>: this market punishes quality when it <i>flows through gatekeepers</i>. 
+            <br>We're working on removing the gatekeepers 😈.
+        </p>
+
+        <h2 id="remarks">
+            <a href="#remarks">■ Remarks</a>
+        </h2>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.png" alt="">
+                <h4>Remark 1</h4>
+            </div>
+            <p class="justify">The product did attract some customers, proving that <i>some</i> people are interested in the quality of the stories.
+                <br>But not enough to make the business profitable, given our economic conditions and our lack of expertise (marketing, pricing, etc.).
+                <br>Clearly, it's impossible to prove that it would NEVER have worked, or that it wasn't possible to make it work.
+                <br>It's not out of the question that, with more investment, more expertise, and a few adjustments, it might have worked.</p>
+        </section>
+
+        <br>
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.png" alt="">
+                <h4>Remark 2</h4>
+            </div>
+            <p class="justify">The post has a tone of moral superiority that may come across as arrogant and pretentious.
+                <br>But to quote a friend: “<i>Money, yes, but on my terms</i>”
+                <br>While it's possible that modifying the product to meet market demands might have worked, it's also true that our mission wasn't really compatible with pleasing the market in THAT way (which is why we thought it wiser to shut down and pursue something else).
+                <br>The purpose of this product was in line with our high standards of professional ethics: to <i>improve</i> the world of books in Italy, and it is our opinion that this is not a vision shared by (all 🤐) our competitors.</p>
+        </section>
+
+        <br>
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.png" alt="">
+                <h4>Remark 3</h4>
+            </div>
+            <p class="justify">Italians are the fastest gunslingers in the West when it comes to shooting lawsuits.
+                <br>Italians with money hope to file a complaint to demonstrate not only their economic superiority but also their judicial moral superiority.
+                <br>This explains my frequent use of “allegedly.”</p>
+        </section>
+
+    </div>
+    </main>
+
+    <script src="../javascript/footer.js"></script>
+</body>
+
+</html>

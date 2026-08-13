@@ -261,6 +261,31 @@ Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titol
 </url>
 ```
 
+### Post nascosti (unlisted)
+
+Alcuni post — tipicamente quelli linkati da voci del [failure resume](mainPages/Failure_resume.html)
+— non vanno annunciati come post normali: restano raggiungibili solo dal link
+diretto che li referenzia (es. dentro `Failure_resume.html`), non dalla lista
+del blog né dal feed.
+
+Per marcarli, nel `<head>`, al posto del blocco JSON-LD con `datePublished`:
+```html
+<!-- unlisted-post: not in Blog_pages.html, no datePublished (keeps it out of
+     gen_feed.py's RSS feed), only reachable via a direct link. -->
+```
+
+Effetti di questo marcatore:
+- **Non** aggiungerlo a `mainPages/Blog_pages.html`.
+- **Non** dargli `datePublished` nel JSON-LD (senza quella data, `gen_feed.py`
+  lo esclude automaticamente dal feed RSS — non serve nessuna modifica allo
+  script).
+- `scripts/check_site.py` normalmente segnala un post senza `datePublished`
+  come probabile svista; il commento `unlisted-post` gli dice che è
+  intenzionale e silenzia l'avviso.
+- **Va comunque aggiunto a `sitemap.xml`** (i motori di ricerca possono
+  comunque indicizzarlo): non è privato, è solo fuori dalle liste pubbliche
+  del sito.
+
 ---
 
 ## Immagini — regole
