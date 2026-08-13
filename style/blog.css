@@ -11,7 +11,7 @@
 .toc-scroll {
     overflow-y: auto;
     max-height: 90vh;
-    line-height: 25px;
+    line-height: 1.4;
     word-break: break-all;
 }
 
@@ -142,7 +142,7 @@ body ul {
         padding-top: 1.4em;
     }
     .toc-scroll {
-        line-height: 25px;
+        line-height: 1.4;
         word-break: break-all;
     }
 }
