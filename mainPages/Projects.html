@@ -32,6 +32,36 @@
 
     <h2>2026</h2>
 
+    <div class="list_div bottom_space_big" id="MyGymAppServer">
+        <img width="256" height="256" class="project_type_logo" src="../img/icon/mygymapp.webp" alt="MyGymApp Sync Server" loading="lazy">
+        <h3 class="inline">MyGymApp Sync Server,</h3>
+        <h4 class="inline"><i>The backend for <a href="#MyGymApp">MyGymApp</a></i></h4>
+        <h5 class="left not_so_bold bottom_space"><a href="https://github.com/St-Costa/MyGymApp_server"
+                target="_blank">Github</a></h5>
+        <p class="bottom_space justify">
+            The phone pushes data over
+            <a href="https://tailscale.com/" target="_blank">Tailscale</a>: workout sessions, smart-scale weigh-ins (reverse engineered from the smart scale), and readings from a
+            <a href="https://www.polar.com/en/sensors/h10-heart-rate-sensor" target="_blank">Polar H10</a> chest
+            strap.
+            <br>
+            The server's job is to turn those raw readings into clinically usable graphs. Starting from
+            heartbeat detection (<a href="https://en.wikipedia.org/wiki/QRS_complex" target="_blank">R-peaks</a>)
+            it computes:
+            <a href="https://en.wikipedia.org/wiki/Heart_rate_variability#Time-domain_methods"
+                target="_blank">RMSSD and SDNN</a> (proxy for recovery and stress),
+            <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_plot" target="_blank">Poincaré SD1/SD2</a>
+            (short-term and long-term components of that variability),
+            <a href="https://en.wikipedia.org/wiki/Heart_rate#Heart_rate_recovery" target="_blank">heart rate
+                recovery</a> at 1 and 2 minutes,
+            <a href="https://en.wikipedia.org/wiki/Heart_rate#Heart_rate_reserve" target="_blank">Karvonen</a>
+            training-zone minutes, TRIMP and calories,
+            <a href="https://en.wikipedia.org/wiki/VO2_max" target="_blank">VO2 max</a>, plus counts of
+            irregular beats and suspected
+            <a href="https://en.wikipedia.org/wiki/Atrial_fibrillation" target="_blank">atrial fibrillation</a>
+            episodes.
+        </p>
+    </div>
+
     <div class="list_div bottom_space_big" id="GdrTeambuilding">
         <img width="256" height="256" class="project_type_logo" src="../img/icon/rss-pipeline.webp" alt="Personal AI Content Curation" loading="lazy">
         <h3 class="inline">Personal AI Content Curation,</h3>
