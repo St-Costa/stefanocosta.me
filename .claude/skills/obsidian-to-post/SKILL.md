@@ -155,7 +155,11 @@ Casistica osservata finora, in ordine di frequenza:
 
 ### Enfasi e virgolette
 
-- `_corsivo_` / `*corsivo*` → `<i>`. `**bold**` → `<b>`.
+- `**bold**` → `<b>`.
+- `_corsivo_` / `*corsivo*` → **`<i>` solo se è enfasi vera** (termine coniato, tesi,
+  concetto): sul sito `<i>` è **giallo** (`i, .yellow { color: #FBFFAD }`). Se il corsivo è
+  "di tono" — battuta riportata tra `"…"`, titolo di libro/opera, scare-quote — usa `<em>`
+  (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. Vedi CLAUDE.md §"Corsivi".
 - Le virgolette doppie del markdown (`"..."`) vanno **sempre convertite in virgolette curve**
   (`“…”`), mai lasciate dritte — controlla tutto il post alla fine con
   `grep -n '"' file.html` per scovare quelle rimaste dritte per distrazione.

@@ -237,6 +237,48 @@ a mano. Il `.box-title` è il titolo flottante sul bordo (vedi note tecniche in 
 <script src="../javascript/gallery.js"></script>       <!-- in fondo a <body> -->
 ```
 
+### Corsivi: `<i>` è giallo, `<em>` no
+
+`base.css` ha `i, .yellow { color: var(--italic-color) }` (`#FBFFAD`). Quindi:
+
+| Vuoi… | Tag | Reso |
+|---|---|---|
+| **Evidenziare** un termine, una tesi, un concetto coniato | `<i>` | corsivo **giallo** |
+| Corsivo "di tono" — battute riportate tra virgolette, titoli di libri/opere, scare-quote | `<em>` | corsivo colore testo, nessun colore |
+
+Regola pratica: se la frase è già tra `"…"` (discorso riportato, domanda citata), usa
+`<em>`; il giallo su una citazione è rumore visivo. Il giallo si riserva all'enfasi vera.
+Dentro un `.callout` (tutto il box è già `font-style: italic`) un `<i>`/`<em>` annidato
+rende **dritto**: usalo come contrasto sull'italico ambientale, non aspettarti il corsivo.
+
+### Footnote inline (`^[testo]` in Obsidian)
+
+Niente sezione "Notes" a fine pagina. La nota va **dentro un `<sup>`** nel punto esatto in
+cui compare, prima del punto/segno finale, col contenuto tra `[...]`:
+```html
+…<i>arbitrariness of parental authority</i><sup><a href="URL" target="_blank">[nota, con eventuale link]</a></sup>.
+```
+Se la nota commenta un link già presente, il `<sup>` può ri-linkare la stessa URL.
+
+### Callout citazione vs callout con titolo
+
+- **Citazione verbatim** → `.box-title` con l'icona `quotes.png` (da sola, oppure seguita da
+  un `<h4>` con l'autore), testo in `<p class="justify">`, fonte/opera in `<p class="source">`
+  (allineata a destra da `blog.css`):
+  ```html
+  <section class="callout">
+      <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.png" alt="">
+          <h4>Autore</h4>
+      </div>
+      <p class="justify">Testo citato.</p>
+      <p class="source">&mdash; <a href="...">Opera (anno)</a></p>
+  </section>
+  ```
+  Avvertimento: stesso schema con `img/icon/warning.png`.
+- **Nota/aside dell'autore** (es. "NOTE", "Example") → `.box-title` con `<h4>Titolo</h4>`
+  testuale, come già fanno i post MBA. Non inventare icone `fa_icon` SVG per i callout:
+  la convenzione del sito è `quotes.png` / `warning.png`.
+
 ### Aggiungere il post a `mainPages/Blog_pages.html`
 ```html
 <li><h2><a href="../blogPosts/Nome File.html">Titolo [YYYY-MM-DD]</a></h2></li>

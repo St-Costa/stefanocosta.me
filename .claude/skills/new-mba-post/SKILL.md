@@ -23,6 +23,9 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
    - Ogni sezione: `<h2 id="hN.M"><a href="#hN.M">■ Titolo</a></h2>` seguita da `<p class="justify">`, chiusa da `<hr>`.
    - Il TOC si genera da solo (`toc.js`), non scriverlo a mano.
    - Se il testo dell'utente non è ancora arrivato, crea lo scheletro con placeholder (`SUBTITLE`, `TLDR`, `SECTION 1`, `CONTENT`) e riempilo dopo.
+   - **Corsivi**: `<i>` sul sito è **giallo** (`i, .yellow { color: #FBFFAD }`) → solo enfasi vera (termine coniato, tesi). Battute riportate tra `"…"`, titoli di libri/opere, scare-quote → `<em>` (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. Vedi CLAUDE.md §"Corsivi".
+   - **Footnote** `^[testo]` → inline dentro un `<sup>[...]</sup>` nel punto esatto, prima del segno finale (mai una sezione "Notes" a fondo pagina).
+   - **Callout citazione verbatim** → `.box-title` con icona `img/icon/quotes.png` (+ eventuale `<h4>` con l'autore), testo in `<p class="justify">`, fonte in `<p class="source">`. Callout "nota dell'autore" (NOTE, Example) → `.box-title` con solo `<h4>` testuale.
 2. **Conta le parole** del corpo del post e aggiorna `div.center`: `<em>N words</em> - <em>M min read</em>` (M ≈ N/200, arrotondato).
 3. **`mainPages/Blog_pages.html`**: aggiungi `<li><h2><a href="../blogPosts/<Month> Monthly Business Ahas.html"><Month> MBA [YYYY-MM-DD]</a></h2></li>` nella lista, **ordinata per data decrescente** (attenzione: non sempre in cima — verifica le date dei post vicini).
 4. **`sitemap.xml`**: aggiungi in cima al blocco `<!-- Blog posts -->` un `<url>` con `changefreq yearly` e `priority 0.7`, URL percent-encoded.
