@@ -34,7 +34,7 @@
 }
 .callout h4 {
     display: inline-block;
-    font-size: 30px;
+    font-size: 27px;
 }
 .callout .source,
 .callout_empty .source {
@@ -130,13 +130,44 @@ body ul {
 /* Mobile styles */
 @media only screen and (max-width: 950px) {
     html body {
-        margin-left: 2%;
-        margin-right: 2%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    /* On desktop the 3ch/5ch left indents visually balance the fixed TOC in
+       the left gutter. On mobile there is no gutter, so they are just wasted
+       space on the left edge: flatten them. */
+    body p {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    /* base.css turns .justify back to left-align on mobile (site-wide default).
+       In blog posts we want the body text justified on the phone too, edge to
+       edge. hyphens: auto is needed here: without it, justifying a monospace
+       font on a narrow line opens big gaps between words. body-prefixed to
+       beat base.css's `.justify` in the same 950px breakpoint. */
+    body p.justify {
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+    body ul {
+        padding-left: 1.6ch;
+    }
+    body h4 {
+        margin-left: 0;
+    }
+    /* 10% smaller again, in step with the body/h1 mobile ramp in base.css. */
+    .callout h4 {
+        font-size: 24.3px;
+    }
+    .callout,
+    .callout_empty {
+        margin-left: 0;
     }
     .toc {
         position: relative;
         margin: 1.5em auto 0;
-        width: 96%;
+        width: 98%;
         border: 1px solid var(--text-color);
         padding: 10px;
         padding-top: 1.4em;
@@ -144,6 +175,17 @@ body ul {
     .toc-scroll {
         line-height: 1.4;
         word-break: break-all;
+    }
+    /* On a phone, content images fill the screen width instead of showing at
+       their (often much smaller) native size. `max-height` keeps a tall image
+       from taking over the whole viewport; `object-fit: contain` scales it
+       down within that box without cropping. Tweet screenshots keep their own
+       rule (capped at native px to stay sharp) and inline icons are untouched. */
+    figure img,
+    .center-padding img {
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
     }
 }
 

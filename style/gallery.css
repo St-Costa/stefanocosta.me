@@ -61,3 +61,20 @@ img {
 .active {
   background-color: var(--link-color);
 }
+
+/* On a phone, single images and slideshows use the full content width instead
+   of the desktop 80% box, and images fill that width even when their native
+   size is smaller. max-height keeps a tall image from swallowing the viewport;
+   object-fit: contain scales it down within that box without cropping. */
+@media only screen and (max-width: 950px) {
+  .single-image-container,
+  .slideshow-container {
+    width: 100%;
+  }
+  .single-image-container img,
+  .slideshow-container img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+}

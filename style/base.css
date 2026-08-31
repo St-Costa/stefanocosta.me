@@ -39,8 +39,8 @@
 
     --body-margin-h: 15%;
     --body-margin-v: 70px;
-    --font-size-base: 29px;
-    --font-size-h1: 60px;
+    --font-size-base: 26.1px;
+    --font-size-h1: 54px;
     --footer-width: 60%;
     --footer-index-width: 35%;
 }
@@ -361,7 +361,7 @@ figure figcaption { text-align: center; }
 .top_space_very_big    { margin-top: var(--space-lg); }
 
 .not_so_bold { font-weight: 550; }
-.list_span   { font-size: 25px; }
+.list_span   { font-size: 22.5px; }
 
 .explanation_box {
     border: 2px solid;
@@ -450,10 +450,10 @@ td { vertical-align: top; }
     body {
         margin-left: 5%;
         margin-right: 5%;
-        font-size: 24px;
+        font-size: 21.6px;
     }
 
-    h1 { font-size: 44px; }
+    h1 { font-size: 39.6px; }
 
     .left_div, .right_div {
         width: 100%;
@@ -479,7 +479,7 @@ td { vertical-align: top; }
     .footer_index { width: 90%; }
     footer { width: 90%; }
 
-    .list_span { font-size: 22px !important; }
+    .list_span { font-size: 19.8px !important; }
 
     .divTd, .image_divTd {
         display: block !important;
@@ -491,8 +491,8 @@ td { vertical-align: top; }
 }
 
 @media only screen and (max-width: 768px) {
-    body { font-size: 23px; }
-    h1 { font-size: 37px; }
+    body { font-size: 20.7px; }
+    h1 { font-size: 33.3px; }
     .index_img { width: 100px !important; }
     .poster_img { width: 70%; }
 }
@@ -501,10 +501,10 @@ td { vertical-align: top; }
     body {
         margin-left: 3%;
         margin-right: 3%;
-        font-size: 22px;
+        font-size: 19.8px;
     }
-    h1 { font-size: 31px; }
+    h1 { font-size: 27.9px; }
     .index_img { width: 80px !important; }
     .poster_img { width: 90%; }
-    .list_span { font-size: 19px !important; }
+    .list_span { font-size: 17.1px !important; }
 }
