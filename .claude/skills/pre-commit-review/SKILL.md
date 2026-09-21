@@ -25,7 +25,21 @@ segna N/A ed è finita lì.
    debito noto e non bloccano — ma un file **nuovo o modificato** non deve
    aggiungerne: sulle righe cambiate, gli avvisi valgono come errori.
 3. **Qualitativo**: per ogni pagina cambiata, applica la §Checklist con giudizio.
-4. **Chiudi**: solo se tutto passa, committa (e solo se l'utente l'ha chiesto
+4. **Fix discrezionali: proponi, non applicare.** I fix meccanici bloccanti
+   (errori di `check_site.py`: alt mancanti, dimensioni, tag obbligatori) si
+   correggono direttamente. Tutto il resto — link esterni da sostituire,
+   frasi da riscrivere, immagini da comprimere/cancellare, codice morto da
+   rimuovere — va presentato all'utente in una lista così fatta, **un punto
+   per fix**, e applicato solo dopo il suo ok:
+   - `file:linea` — cosa c'è adesso (con evidenza: HTTP code, output comandi)
+   - fix proposto e perché
+   - alternative considerate (es. testo semplice senza link, tenere il file)
+   - se il fix tocca il testo visibile, riporta prima/dopo della frase
+   Non raggruppare fix diversi nello stesso punto: l'utente deve poter dire
+   sì a uno e no a un altro. In caso di dubbio (sito che blocca i bot,
+   pagina che potrebbe tornare online), default = non toccare, segnala come
+   "non verificabile".
+5. **Chiudi**: solo se tutto passa, committa (e solo se l'utente l'ha chiesto
    esplicitamente). Se hai cambiato regole (struttura `<head>`, CSS, convenzioni
    su immagini/accessibilità), aggiorna `CLAUDE.md`, `blogPosts/_template.html`
    e questa skill **nello stesso commit** — sono la stessa documentazione.

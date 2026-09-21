@@ -116,13 +116,13 @@ a:hover { color: var(--text-color); }
 
 a[target="_blank"] {
     padding-right: 14px;
-    background: transparent url(/img/icon/external-link_cyan.png) no-repeat right;
+    background: transparent url(/img/icon/external-link_cyan.webp) no-repeat right;
     background-size: 10px 10px;
     font-style: italic;
 }
 
 a[target="_blank"]:hover {
-    background: transparent url(/img/icon/external-link_white.png) no-repeat right;
+    background: transparent url(/img/icon/external-link_white.webp) no-repeat right;
     background-size: 10px 10px;
 }
 
