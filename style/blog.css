@@ -91,7 +91,7 @@ body h2, body h3 {
 
 body h2 a, body h3 a, body h4 a {
     padding-right: 20px;
-    background: transparent url(../img/icon/link.png) no-repeat right;
+    background: transparent url(../img/icon/link.webp) no-repeat right;
     background-size: 15px 15px;
     color: var(--text-color);
 }

@@ -272,22 +272,22 @@ Se la nota commenta un link già presente, il `<sup>` può ri-linkare la stessa 
 
 ### Callout citazione vs callout con titolo
 
-- **Citazione verbatim** → `.box-title` con l'icona `quotes.png` (da sola, oppure seguita da
+- **Citazione verbatim** → `.box-title` con l'icona `quotes.webp` (da sola, oppure seguita da
   un `<h4>` con l'autore), testo in `<p class="justify">`, fonte/opera in `<p class="source">`
   (allineata a destra da `blog.css`):
   ```html
   <section class="callout">
-      <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.png" alt="">
+      <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
           <h4>Autore</h4>
       </div>
       <p class="justify">Testo citato.</p>
       <p class="source">&mdash; <a href="...">Opera (anno)</a></p>
   </section>
   ```
-  Avvertimento: stesso schema con `img/icon/warning.png`.
+  Avvertimento: stesso schema con `img/icon/warning.webp`.
 - **Nota/aside dell'autore** (es. "NOTE", "Example") → `.box-title` con `<h4>Titolo</h4>`
   testuale, come già fanno i post MBA. Non inventare icone `fa_icon` SVG per i callout:
-  la convenzione del sito è `quotes.png` / `warning.png`.
+  la convenzione del sito è `quotes.webp` / `warning.webp`.
 
 ### Aggiungere il post a `mainPages/Blog_pages.html`
 ```html

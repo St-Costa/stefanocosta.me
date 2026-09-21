@@ -101,8 +101,8 @@ blocchi `>` compatti), quindi tutte le righe interne prendono `<br>` singolo, ap
 (niente `<br><br>` dentro un callout salvo che il `.md` lo richieda esplicitamente).
 
 Icone dei box-title, **solo se già previste**:
-- `>[!quote]` → `<div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.png" alt=""><h4>Quote</h4></div>`
-- Warning/avvertimento → `img/icon/warning.png`, stesso schema.
+- `>[!quote]` → `<div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt=""><h4>Quote</h4></div>`
+- Warning/avvertimento → `img/icon/warning.webp`, stesso schema.
 - **Tipi non standard** (es. Obsidian `>[!remark]`, che il sito non conosce): mantieni il
   titolo esatto che l'autore ha scritto (es. "Remark", "Economical remark") — non tradurlo
   in "Warning". Chiedi se vuole comunque l'icona warning per dare peso visivo, ma il titolo
