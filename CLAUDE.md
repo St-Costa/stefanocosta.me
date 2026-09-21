@@ -50,8 +50,13 @@ non contatta nessuno finché non ci clicchi.
 ## Controlli automatici
 
 `scripts/check_site.py` verifica le regole di questo file su tutte le pagine: `<main>`,
-OG tag statici, `defer`, preload dei font, `aria-label` sui bottoni-icona, riferimenti
-locali, `datePublished` nei post, CSS orfani, richieste a terze parti.
+`<title>`/`viewport`/favicon espliciti, OG tag statici (+ `og:image` su file locale
+esistente), `defer`, preload dei font, `aria-label` sui bottoni-icona, `<img>` con
+`alt` e (se raster) `width`/`height`, niente `http://` in chiaro, niente secret nel
+repo, niente cookie senza banner, `<form>` con label/validazione/anti-spam (se presenti),
+riferimenti locali, copertura `sitemap.xml` (+ `robots.txt` valido), `datePublished`
+nei post, CSS orfani, richieste a terze parti. Peso immagini >2MB/pagina, JPG/PNG
+legacy e file >1MB sono avvisi (debito noto), non errori.
 
 **Gira da solo a ogni `git commit`** (hook in `scripts/githooks/pre-commit`): se trova un
 errore, il commit viene annullato. Non serve eseguirlo a mano.
@@ -68,6 +73,11 @@ git config core.hooksPath scripts/githooks
 
 Le regole che lo script **non** può controllare (qualità della description, alt text
 sensati, scelta della `priority` in sitemap) restano responsabilità di chi scrive.
+Quando le modifiche passano da un harness LLM (Claude Code, opencode, …), quella
+responsabilità è della skill `.claude/skills/pre-commit-review/`: l'agente la esegue
+ogni volta che l'utente chiede di committare, con esito bloccante, sulle pagine
+cambiate (contrasto WCAG, mobile, peso/compressione immagini nuove, link esterni,
+form/cookie solo se introdotti).
 
 ---
 
