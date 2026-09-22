@@ -10,24 +10,32 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
 ## Convenzioni fisse
 
 - **Nome file**: `blogPosts/<Month> Monthly Business Ahas.html` (mese in inglese, senza apostrofo)
-- **Titolo visibile / headline / og-title**: `<Month> MBA`
-- **`<title>`**: `<Month> MBA | Source of Truth`
+- **Titolo visibile / headline / og-title / `<title>`**: `<Month> MBA: <Subtitle>` — un solo
+  `<h1>` con sottotitolo dopo `": "`; `<title>` è `<Month> MBA: <Subtitle> | Source of Truth`
+  (deve contenere l'intero `h1`, `check_site.py` lo confronta).
 - **URL canonico**: `https://stefanocosta.me/blogPosts/<Month>%20Monthly%20Business%20Ahas.html`
 - **meta description / og-description / JSON-LD description**: `<Month> <YYYY> business insights and lessons learned by Stefano Costa.`
-- **Epistemic status**: sempre `field notes from one month of experience`
+- **Epistemic status**: etichetta **`ES`** in `<em>` (corsivo, non giallo — il giallo è `<i>`),
+  mai "Epistemic status"; testo sempre `field notes from one month of experience`
 
 ## Procedura
 
-1. **Copia il post MBA più recente** come template (es. `blogPosts/June Monthly Business Ahas.html`) e aggiorna mese, date, URL, subtitle, TL;DR, sezioni.
-   - Struttura del `<body>`: `h1` → `h2.subtitle` → `h3.subtitle` (epistemic) → `div.center` (data / `N words - M min read` / link "Other posts") → `section.toc` → `section.tldr` → sezioni.
-   - Ogni sezione: `<h2 id="hN.M"><a href="#hN.M">■ Titolo</a></h2>` seguita da `<p class="justify">`, chiusa da `<hr>`.
-   - Il TOC si genera da solo (`toc.js`), non scriverlo a mano.
+1. **Copia il post MBA più recente** come template (es. `blogPosts/August Monthly Business Ahas.html`)
+   oppure `blogPosts/_template.html`, e aggiorna mese, data, subtitle, TL;DR, sezioni.
+   - Struttura del `<body>` (nuovo formato — vedi CLAUDE.md §Struttura del `<body>`):
+     `h1` (Titolo: Sottotitolo) → `div.center` (`D Mon YYYY - N min read` + `div.epistemic` con
+     etichetta `ES`) → `section.tldr` → TOC **commentato** (`<details class="toc-details">`) →
+     sezioni → `footer.js` **commentato**.
+   - **Niente** `h2.subtitle`, **niente** conteggio parole, **niente** link "Other posts".
+   - Ogni sezione: `<h2 id="hN.M"><a href="#hN.M">Titolo</a></h2>` (**senza** `■`) seguita da `<p class="justify">`, chiusa da `<hr>`.
+      I sottoheader `h3` usano la notazione albero: `├─`, con `└─` solo sull'ultimo di ogni blocco.
+   - Se riattivi il TOC: `toc.js` nel `<head>` + uncomment del `<details class="toc-details">` — non scrivere le voci a mano.
    - Se il testo dell'utente non è ancora arrivato, crea lo scheletro con placeholder (`SUBTITLE`, `TLDR`, `SECTION 1`, `CONTENT`) e riempilo dopo.
    - **Corsivi**: `<i>` sul sito è **giallo** (`i, .yellow { color: #FBFFAD }`) → solo enfasi vera (termine coniato, tesi). Battute riportate tra `"…"`, titoli di libri/opere, scare-quote → `<em>` (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. Vedi CLAUDE.md §"Corsivi".
    - **Footnote** `^[testo]` → inline dentro un `<sup>[...]</sup>` nel punto esatto, prima del segno finale (mai una sezione "Notes" a fondo pagina).
    - **Callout citazione verbatim** → `.box-title` con icona `img/icon/quotes.webp` (+ eventuale `<h4>` con l'autore), testo in `<p class="justify">`, fonte in `<p class="source">`. Callout "nota dell'autore" (NOTE, Example) → `.box-title` con solo `<h4>` testuale.
-2. **Conta le parole** del corpo del post e aggiorna `div.center`: `<em>N words</em> - <em>M min read</em>` (M ≈ N/200, arrotondato).
-3. **`mainPages/Blog_pages.html`**: aggiungi `<li><h2><a href="../blogPosts/<Month> Monthly Business Ahas.html"><Month> MBA [YYYY-MM-DD]</a></h2></li>` nella lista, **ordinata per data decrescente** (attenzione: non sempre in cima — verifica le date dei post vicini).
+2. **Tempo di lettura**: una riga sola in `div.center`: `<em>D Mon YYYY - N min read</em>` (N ≈ parole/200, arrotondato). Mese abbreviato, niente conteggio parole.
+3. **`mainPages/Blog_pages.html`**: aggiungi `<li><h2><a href="../blogPosts/<Month> Monthly Business Ahas.html"><Month> MBA: <Subtitle> [YYYY-MM-DD]</a></h2></li>` — il testo del link deve combaciare con l'`<h1>` del post. Lista **ordinata per data decrescente** (attenzione: non sempre in cima — verifica le date dei post vicini).
 4. **`sitemap.xml`**: aggiungi in cima al blocco `<!-- Blog posts -->` un `<url>` con `changefreq yearly` e `priority 0.7`, URL percent-encoded.
 5. **Immagini**: SVG in `img/blog/Monthly MBA/`, inserite con:
    ```html
