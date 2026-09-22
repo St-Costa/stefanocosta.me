@@ -20,13 +20,17 @@ meccaniche dove possono esserlo, e segnalano esplicitamente dove serve giudizio.
 ## Procedura
 
 1. **Crea il file** `blogPosts/<Titolo post>.html` usando `blogPosts/_template.html` come base
-   per l'head (preload font, OG tag, favicon, `toc.js`, `blog.css`).
-2. **Header del post**: `<h1>` = titolo, `<h2 class="subtitle">` = sottotitolo (chiedi
-   all'utente la formulazione esatta, non inventarla), `<h3 class="subtitle">` = epistemic status
-   con link a `https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts`.
-   Nel `div.center`: data (mese esteso in inglese + anno, es. "August 2026" — mai solo l'anno),
-   conteggio parole/tempo di lettura, e il link "Other posts" (verso `Blog_pages.html`, salvo
-   il caso unlisted — vedi sotto).
+   (head con preload font, OG tag, favicon, `toc.js`, `blog.css`; body nel **nuovo formato** —
+   vedi CLAUDE.md §Struttura del `<body>`).
+2. **Header del post**: un solo `<h1>` = `Titolo: Sottotitolo` (chiedi all'utente la formulazione
+   esatta del sottotitolo, non inventarla). `<title>`, `og:title` e JSON-LD `headline` devono
+   contenere l'intero `h1`. Nel `div.center`: una riga sola `<em>D Mon YYYY - N min read</em>`
+   (mese abbreviato inglese, niente conteggio parole) e `div.epistemic` con etichetta **`ES`**
+   (mai "Epistemic status") linkata a
+   `https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts`.
+   **Niente** `h2.subtitle`, **niente** link "Other posts". TOC e `footer.js` restano commentati
+   come nel template. L'etichetta epistemic è **`ES` in `<em>`** (corsivo non giallo).
+   Titoli `h2` **senza** `■`; sottoheader `h3` in notazione albero: `├─` per tutti, `└─` solo per l'ultimo del blocco.
 3. **TL;DR**: scrivilo tu, breve (2–3 frasi), zero AI-slop (niente triplette a effetto tipo
    "X, Y, and Z", niente frase-sentenza chiusa a effetto). Diretto, concreto, con l'esito e
    il perché in due mosse.
@@ -182,8 +186,8 @@ RSS — tipicamente un post-mortem che sarà linkato da una voce del failure res
    Non aggiungerlo a `Blog_pages.html`, non serve `gen_feed.py`. Aggiungilo comunque a
    `sitemap.xml` (non è privato, solo fuori dalle liste pubbliche — `changefreq yearly`,
    `priority 0.7`).
-2. Nel `div.center` dell'header, il link finale punta **a `../mainPages/Failure_resume.html`**
-   invece del solito "Other posts" verso `Blog_pages.html`.
+2. Nel `div.center` dell'header non c'è il link "Other posts" (rimosso nel nuovo formato):
+   il post unlisted è raggiungibile solo dal link diretto del failure resume.
 3. **Aggiungi la entry nel failure resume** (`mainPages/Failure_resume.html`), stesso pattern
    delle altre voci (`<h3 class="inline">Titolo,</h3><h4 class="inline"><i>Tipo</i></h4>`),
    con `<h5>` che linka al post completo, e un `<img class="project_type_logo">` se esiste un

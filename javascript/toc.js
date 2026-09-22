@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const tocContainer = document.querySelector(".toc");
+    // All posts use <details class="toc-details"> (expandable, collapsed) —
+    // currently commented out in the pages; no-op when the element is absent.
+    const tocContainer = document.querySelector(".toc, .toc-details");
     if (!tocContainer) return; // No TOC element on this page
 
     const headers = document.querySelectorAll("h2, h3, h4");
@@ -7,8 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let tocHTML = "";
 
     headers.forEach((header, index) => {
-        // Skip the first 2 headers (H1 title + subtitle rendered as H2/H3)
-        if (index < 2) return;
+        // Box titles (TOC/TL;DR floating headers) are not content sections.
+        if (header.closest(".box-title")) return;
+        if (header.classList.contains("subtitle")) return; // legacy
         if (header.textContent == "TL;DR") return // Skip TL;DR
         if (header.textContent == "TOC") return // Skip TOC
         // Skip h4 inside callouts (e.g. callout titles)

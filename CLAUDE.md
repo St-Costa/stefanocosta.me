@@ -191,6 +191,8 @@ Ogni pagina deve chiudersi con uno di questi:
 <script src="[PATH]/javascript/footer.js"></script>   <!-- pagine normali -->
 ```
 Oppure footer manuale se il layout lo richiede (vedi `index.html`).
+Eccezione: i post nel nuovo formato tengono `footer.js` **commentato** di default
+(vedi §Struttura del `<body>`); riattivarlo solo se richiesto.
 
 ---
 
@@ -202,11 +204,12 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="...">
-    <title>Titolo post | Source of Truth</title>
+    <!-- <title> must contain the full <h1> text (check_site.py compares them) -->
+    <title>Titolo: Sottotitolo | Source of Truth</title>
     <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style/base.css">
-    <meta property="og:title" content="Titolo post | Stefano Costa">
+    <meta property="og:title" content="Titolo: Sottotitolo | Stefano Costa">
     <meta property="og:description" content="Stessa stringa della meta description.">
     <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
     <meta property="og:url" content="https://stefanocosta.me/blogPosts/Nome%20File.html">
@@ -217,7 +220,7 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Titolo post",
+      "headline": "Titolo: Sottotitolo",
       "datePublished": "YYYY-MM-DD",
       "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
       "url": "https://stefanocosta.me/blogPosts/Nome%20File.html",
@@ -230,16 +233,58 @@ Oppure footer manuale se il layout lo richiede (vedi `index.html`).
 </head>
 ```
 
-### TOC (generato automaticamente)
-```html
-<script src="../javascript/toc.js"></script>   <!-- nel <head> -->
+### Struttura del `<body>` (post "nuovo formato")
+Ordine obbligatorio (vedi `blogPosts/_template.html`):
 
-<section class="toc">                          <!-- nel <body>, dopo il blocco h1/subtitle/data -->
-    <div class="box-title"><h4>TOC</h4></div>
+```html
+<h1>Titolo: Sottotitolo</h1>
+
+<div class="center">
+    <div><em>D Mon YYYY - N min read</em></div>
+            <div class="epistemic"><a href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts" target="_blank"><em>ES</em></a>: <i>...</i></div>
+</div>
+
+<section class="tldr">
+    <div class="box-title"><h3>TL;DR</h3></div>
+    <p>Riassunto.</p>
 </section>
+
+<!-- TOC disabilitato (commentato): uncomment per riattivare -->
+<!--
+<details class="toc-details">
+    <summary>TOC</summary>
+</details>
+-->
+
+<!-- sezioni... h2 SENZA simbolo ■, h3 con ├─ (└─ solo sull'ultimo del blocco) ... -->
+
+<!-- Footer disabilitato (commentato) -->
+<!--
+<script src="../javascript/footer.js"></script>
+-->
 ```
-`toc.js` riempie il `.toc` leggendo gli `<h2 id="...">` della pagina: non scrivere le voci
-a mano. Il `.box-title` è il titolo flottante sul bordo (vedi note tecniche in fondo).
+
+Regole:
+- **Titolo**: un solo `<h1>` con sottotitolo dopo `": "` — niente `h2.subtitle`. `<title>`, `og:title` e `headline` devono contenere l'intero `h1` (`check_site.py` li confronta).
+- **Riga data**: una riga sola, mese abbreviato, **senza** conteggio parole: `1 Sep 2026 - 9 min read`.
+- **Epistemic status**: etichetta sempre abbreviata **`ES`** (mai "Epistemic status"), in `div.epistemic` sotto la data, corpo `0.85em` ma **opacità piena** (non trasparente). L'etichetta va in **`<em>`** (corsivo, non giallo — il giallo è `<i>`).
+- **Titoli di sezione (`h2`)**: **senza** il simbolo `■` a sinistra (`<a href="#id">Titolo</a>`).
+- **Sottoheader (`h3`)**: notazione ASCII albero (come `ls`/tree nei terminali): solo l'**ultimo** sottoheader di un blocco usa `└─`; tutti gli altri usano `├─`. Il margine alto è gestito da CSS (`body h3 { margin-top: 2.16em }`).
+- **Niente link "Other posts"** nell'header.
+- **TOC**: `<details class="toc-details">` commentato di default nel template; se riattivato, `toc.js` lo riempie da solo.
+- **Footer**: `footer.js` commentato di default nel template.
+
+### Cambiare il titolo di un post
+Se cambia il titolo visibile (`<h1>`, e di conseguenza `<title>`/og/headline), aggiornare **anche** il testo del link in `mainPages/Blog_pages.html`:
+```html
+<li><h2><a href="../blogPosts/Nome File.html">Nuovo titolo completo [YYYY-MM-DD]</a></h2></li>
+```
+
+### TOC — tutti i post usano il nuovo formato
+Tutti i post hanno `<details class="toc-details">` commentato (dopo il TL;DR) e
+`footer.js` commentato in fondo a `<body>`. Non reintrodurre `section.class="toc"`
+(a sidebar fissa): quel layout è abbandonato.
+`toc.js` riempie `.toc`/`.toc-details` leggendo gli `<h2 id="...">`: non scrivere le voci a mano.
 
 ### Gallery (se presente)
 ```html
@@ -270,6 +315,13 @@ cui compare, prima del punto/segno finale, col contenuto tra `[...]`:
 ```
 Se la nota commenta un link già presente, il `<sup>` può ri-linkare la stessa URL.
 
+### Box con bordo (`.tldr`, `.callout`, `.callout_empty`)
+Devono avere **padding interno generoso** (`1.4em 1.5em 1.2em` in `blog.css`): il testo
+non deve mai toccare il bordo. Il `padding-top` extra serve al `.box-title` flottante.
+Non ridurlo a mano nei singoli post: è una regola CSS globale.
+Il titolo del callout (`h4` in `.box-title`, es. "Example", "NOTE") è **grande quanto il
+TL;DR**: `font-size: 1.17em` (come l'`h3` del `.tldr`), non un corpo ridotto.
+
 ### Callout citazione vs callout con titolo
 
 - **Citazione verbatim** → `.box-title` con l'icona `quotes.webp` (da sola, oppure seguita da
@@ -291,18 +343,22 @@ Se la nota commenta un link già presente, il `<sup>` può ri-linkare la stessa 
 
 ### Aggiungere il post a `mainPages/Blog_pages.html`
 ```html
-<li><h2><a href="../blogPosts/Nome File.html">Titolo [YYYY-MM-DD]</a></h2></li>
+<li><h2><a href="../blogPosts/Nome File.html">Titolo completo del post [YYYY-MM-DD]</a></h2></li>
 ```
-Inserire **in cima** alla lista (post più recente prima).
+Il testo del link deve combaciare con il titolo visibile (`<h1>`) del post — se il titolo
+cambia, aggiornare anche qui. Inserire **in cima** alla lista (post più recente prima),
+ordinata per data decrescente.
 
 ### Rigenerare il feed RSS `mainPages/blogFeed.xml`
 **Non** modificare il feed a mano. Dopo aver creato/modificato un post, rigenerarlo con:
 ```bash
 python3 scripts/gen_feed.py
 ```
-Lo script (stdlib only, nessuna dipendenza) ricostruisce l'intero feed leggendo i post in `blogPosts/`. Include solo i post con `datePublished` nel JSON-LD (esclude quindi `_template.html` e le bozze senza data), li ordina per data decrescente, e per ogni post genera una `<description>` con: titolo, sottotitolo, epistemic status, `data - lunghezza - tempo lettura`, ed elenco degli header di sezione.
+Lo script (stdlib only, nessuna dipendenza) ricostruisce l'intero feed leggendo i post in `blogPosts/`. Include solo i post con `datePublished` nel JSON-LD (esclude quindi `_template.html` e le bozze senza data), li ordina per data decrescente, e per ogni post genera una `<description>` con: titolo, sottotitolo (se presente), epistemic (se presente), riga meta, ed elenco degli header di sezione.
 
-Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titolo), `<h2 class="subtitle">` (sottotitolo), `<h3 class="subtitle">` (epistemic), i due `<div>` dentro `.center` (data; poi `N words - M min read`), e gli header di sezione come `<h2 id="...">`.
+Perché funzioni, il post deve avere: JSON-LD con `datePublished`, `<h1>` (titolo), e gli header di sezione come `<h2 id="...">`.
+Sottotitolo (`h2.subtitle`), epistemic (`h3.subtitle` o `div.epistemic`) e la riga meta dentro `.center` sono opzionali: se presenti entrano nella description.
+I post nel **nuovo formato** (vedi §Struttura del `<body>`) non hanno `h2.subtitle` né due div data/words: `gen_feed.py` li gestisce lo stesso (subtitle opzionale, epistemic da `.epistemic`, meta dalla prima riga di `.center`). Rigenerare sempre il feed dopo aver modificato un post.
 
 ### Aggiungere il post a `sitemap.xml`
 ```xml

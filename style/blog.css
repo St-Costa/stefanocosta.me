@@ -21,8 +21,11 @@
     border: 3px outset var(--text-color);
     margin-left: 3ch;
     position: relative;
-    padding-top: 1.4em;
+    /* Generous inner padding: text must not touch the border (top keeps
+       clearance for the floating .box-title). */
+    padding: 1.4em 1.5em 1.2em;
     margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 .callout p {
     padding-left: 0;
@@ -34,7 +37,9 @@
 }
 .callout h4 {
     display: inline-block;
-    font-size: 27px;
+    /* Match the TL;DR box-title size (h3 ≈ 1.17em of body): callout titles
+       ("Example", "NOTE", …) must be as large as TL;DR, not smaller. */
+    font-size: 1.17em;
 }
 .callout .source,
 .callout_empty .source {
@@ -47,6 +52,8 @@
     border: 3px outset var(--text-color);
     margin-left: 3ch;
     margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1.4em 1.5em 1.2em;
 }
 .callout_empty p {
     padding-left: 0;
@@ -71,18 +78,54 @@ body b {
     border-style: double;
     border-width: 5px;
     position: relative;
-    padding-top: 1.4em;
+    /* Generous inner padding: text must not touch the border (top keeps
+       clearance for the floating .box-title). */
+    padding: 1.4em 1.5em 1.2em;
     margin-top: 1.5em;
     margin-bottom: 1em;
+}
+.tldr p {
+    padding-left: 0;
 }
 
 html body {
     margin-left: 30%;
     margin-right: 5%;
 }
+/* Posts have no fixed sidebar TOC: reclaim the 30% left gutter. Keyed on
+   :not(:has(.toc)) so it still applies when the expandable TOC is commented
+   out of the template. Scoped to above the mobile breakpoint — under 950px
+   the mobile block flattens margins. */
+@media only screen and (min-width: 951px) {
+    html body:not(:has(.toc)) {
+        margin-left: 9.6%;
+        margin-right: 9.6%;
+    }
+    /* The 3ch/5ch body indents balance the fixed TOC on old posts; without
+       the gutter they are just random offsets — flatten them. */
+    html body:not(:has(.toc)) p {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    html body:not(:has(.toc)) ul {
+        padding-left: 1.6ch;
+    }
+    html body:not(:has(.toc)) h4 {
+        margin-left: 0;
+    }
+}
 
 body h2, body h3 {
     text-align: left;
+}
+/* Section headers need clear air above them (UA h2 top margin is tiny). */
+body h2 {
+    margin-top: 2.4em;
+}
+/* Subheaders (└─ …) keep their tree symbol but need more breathing room
+   from the paragraph above: 1.8em × 1.2. */
+body h3 {
+    margin-top: 2.16em;
 }
 .subtitle {
     text-align: center;
@@ -105,26 +148,95 @@ body h4 {
 }
 
 
+/* Section rule: equal air on both sides. The following h2 must not add its
+   usual large top margin — that would push the rule up toward the text above. */
 body hr {
     border-width: 1px 1px 0;
     border-style: double;
     width: 30%;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 2em;
+    margin-bottom: 2em;
     margin-left: auto;
     margin-right: auto;
+}
+body hr + h2 {
+    margin-top: 0;
 }
 
 body ul {
     padding-left: 5ch;
     text-align: left;
     list-style-type: disc;
+    /* No extra air before the list (the preceding <p> margin is enough);
+       0.7em only after it. UA default was margin: 1em 0. */
+    margin-top: 0;
+    margin-bottom: 0.7em;
 }
 
 
 /* Gallery / image caption container */
 .center-padding {
     padding: 13px;
+}
+
+/* ── Post header: epistemic line under the date ── */
+/* Secondary epistemic line under the date: abbreviated label ("ES"), slightly
+   smaller but full opacity — readable, not a ghost. */
+.epistemic {
+    font-size: 0.85em;
+    margin-top: 0.3em;
+    color: var(--text-color);
+}
+/* ES label: link colour, plain italic — never the site-wide <i> yellow.
+   The description after "ES:" also uses <i>; pin it to text colour so the
+   whole line stays free of #FBFFAD. */
+.epistemic em {
+    color: var(--link-color);
+    font-style: italic;
+}
+.epistemic i {
+    color: var(--text-color);
+    font-style: italic;
+}
+
+/* ── Expandable TOC (disabled while the <details> is commented) ── */
+/* In-flow <details>, collapsed by default, after the TL;DR box. */
+.toc-details {
+    position: relative;
+    border: 1px solid var(--text-color);
+    margin-top: 2em;
+    /* Room for the floating summary on the top edge when collapsed. */
+    min-height: 2.8em;
+}
+.toc-details > summary {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.3em;
+    background-color: var(--background-color);
+    white-space: nowrap;
+    list-style: none;
+}
+.toc-details > summary::-webkit-details-marker {
+    display: none;
+}
+.toc-details > summary::after {
+    content: " ▾";
+}
+.toc-details[open] {
+    padding: 1.4em 10px 10px;
+}
+.toc-details[open] > summary::after {
+    content: " ▴";
+}
+/* No fixed-height scroll area: the expandable TOC flows with its content. */
+.toc-details .toc-scroll {
+    max-height: none;
+    overflow: visible;
+    line-height: 1.4;
+    word-break: break-all;
 }
 
 /* Mobile styles */
@@ -156,9 +268,9 @@ body ul {
     body h4 {
         margin-left: 0;
     }
-    /* 10% smaller again, in step with the body/h1 mobile ramp in base.css. */
+    /* Scaled with em (same as desktop): tracks the body font ramp in base.css. */
     .callout h4 {
-        font-size: 24.3px;
+        font-size: 1.17em;
     }
     .callout,
     .callout_empty {
@@ -175,6 +287,11 @@ body ul {
     .toc-scroll {
         line-height: 1.4;
         word-break: break-all;
+    }
+    .toc-details {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
     }
     /* On a phone, content images fill the screen width instead of showing at
        their (often much smaller) native size. `max-height` keeps a tall image

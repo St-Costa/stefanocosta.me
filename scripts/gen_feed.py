@@ -4,9 +4,9 @@ Rigenera interamente mainPages/blogFeed.xml a partire dai post in blogPosts/.
 
 Struttura di ogni <description> (HTML in entità, come vuole RSS):
   <strong>Titolo</strong>
-  <em>Sottotitolo</em>
-  Epistemic status: ...
-  <data> - <lunghezza> - <tempo lettura>
+  <em>Sottotitolo</em>          (solo se presente: h2.subtitle, legacy)
+  Epistemic...                  (div.epistemic, etichetta "ES")
+  <data> - <lunghezza> - <tempo lettura>   (legacy) oppure una riga sola (formato corrente)
   <strong>Headers of the post:</strong> <ul><li>...</li></ul>
 
 I post inclusi sono solo quelli con "datePublished" nel JSON-LD
@@ -70,6 +70,9 @@ class Extractor(HTMLParser):
             self.capture = "subtitle"; self.buf = []
         elif tag == "h3" and "subtitle" in cls and self.epistemic is None:
             self.capture = "epistemic"; self.buf = []
+        elif tag == "div" and "epistemic" in cls and self.epistemic is None:
+            # New-format posts: secondary line under the date.
+            self.capture = "epistemic"; self.buf = []
         elif tag == "div" and "center" in cls:
             self._in_center += 1
         elif tag == "div" and self._in_center and self._center_div_depth is None:
@@ -85,7 +88,7 @@ class Extractor(HTMLParser):
             self.h1 = self._flush(); self.capture = None
         elif self.capture == "subtitle" and tag == "h2":
             self.subtitle = self._flush(); self.capture = None
-        elif self.capture == "epistemic" and tag == "h3":
+        elif self.capture == "epistemic" and tag in ("h3", "div"):
             self.epistemic = self._flush(); self.capture = None
         elif self.capture == "centerdiv" and self._center_div_depth == depth:
             self.center_divs.append(self._flush()); self.capture = None
@@ -127,14 +130,23 @@ def parse_post(path):
     date_iso = m.group(1)
     p = Extractor()
     p.feed(content)
+    # Old format: center has [date, "N words - M min read"] (epistemic is h3.subtitle).
+    # New format: center has [date-line, epistemic-div] — epistemic is captured
+    # separately via div.epistemic, so only the first center div is meta.
+    center = p.center_divs
+    if p.subtitle is None and len(center) > 1:
+        # New format: no h2.subtitle → second center div is the epistemic line, not meta.
+        meta_divs = center[:1]
+    else:
+        meta_divs = center[:2]
     return {
         "date_iso": date_iso,
         "filename": os.path.basename(path),
         "title": p.h1 or "",
         "subtitle": p.subtitle or "",
         "epistemic": p.epistemic or "",
-        "date_human": p.center_divs[0] if len(p.center_divs) > 0 else "",
-        "length_read": p.center_divs[1] if len(p.center_divs) > 1 else "",
+        "date_human": meta_divs[0] if len(meta_divs) > 0 else "",
+        "length_read": meta_divs[1] if len(meta_divs) > 1 else "",
         "headers": [clean_header(h) for h in p.headers if clean_header(h)],
     }
 

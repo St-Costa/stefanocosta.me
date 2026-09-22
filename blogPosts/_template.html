@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="POST DESCRIPTION (max 160 characters).">
-    <title>POST TITLE | Source of Truth</title>
+    <!-- <title> must contain the full <h1> text (check_site.py compares them):
+         if the h1 is "Title: Subtitle", write "Title: Subtitle | Source of Truth". -->
+    <title>POST TITLE: Subtitle | Source of Truth</title>
     <!-- base.css is linked directly (not only injected by commonHeader.js) so the
          browser starts fetching it during HTML parsing, not after the JS runs. -->
     <!-- Headings inherit the browser's default bold, so Bold is on the critical path
@@ -14,7 +16,7 @@
     <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style/base.css">
-    <meta property="og:title" content="POST TITLE | Stefano Costa">
+    <meta property="og:title" content="POST TITLE: Subtitle | Stefano Costa">
     <meta property="og:description" content="POST DESCRIPTION (max 160 characters).">
     <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
     <meta property="og:url" content="https://stefanocosta.me/blogPosts/FILE%20NAME.html">
@@ -27,7 +29,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "POST TITLE",
+      "headline": "POST TITLE: Subtitle",
       "datePublished": "YYYY-MM-DD",
       "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
       "url": "https://stefanocosta.me/blogPosts/FILE%20NAME.html",
@@ -46,24 +48,20 @@
     <main>
 
     <div class="bottom_space_big">
-        <h1>POST TITLE</h1>
-        <h2 class="subtitle">Subtitle (optional)</h2>
-        <h3 class="subtitle"><a
-                href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts"
-                target="_blank">Epistemic status</a>: <i>...</i></h3>
+        <!-- Title + subtitle merged into one h1, separated by ": ".
+             <title>/<og:title>/headline above must contain this full string. -->
+        <h1>POST TITLE: Subtitle</h1>
 
         <div class="center">
-            <div><em>DD Month YYYY</em></div>
-            <div><em>XXX words</em> - <em>X min read</em></div>
-            <div><em><a href="../mainPages/Blog_pages.html">Other posts</a></em></div>
+            <!-- One line: abbreviated month, no word count (min read only). -->
+            <div><em>1 Sep 2026 - 9 min read</em></div>
+            <!-- Epistemic status as a secondary line under the date.
+                 Label is always the abbreviation "ES" (not "Epistemic status").
+                 <em> = italic, NOT yellow (that's <i> on this site). -->
+            <div class="epistemic"><a
+                    href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts"
+                    target="_blank"><em>ES</em></a>: <i>...</i></div>
         </div>
-
-        <section class="toc">
-            <div class="box-title">
-                <h4>TOC</h4>
-            </div>
-            <!-- toc.js populates this automatically from h2/h3 elements -->
-        </section>
 
         <section class="tldr">
             <div class="box-title">
@@ -72,31 +70,44 @@
             <p>One-paragraph summary of the post.</p>
         </section>
 
+        <!-- TOC disabled for now — uncomment to restore the expandable TOC.
+             toc.js is a no-op while this stays commented out. -->
+        <!--
+        <details class="toc-details">
+            <summary>TOC</summary>
+        </details>
+        -->
+
 
         <h2 id="section-1">
-            <a href="#section-1">■ Section 1</a>
+            <a href="#section-1">Section 1</a>
         </h2>
 
         <!-- Italics: <i> renders YELLOW (i, .yellow { color: #FBFFAD }) — use it for real
              emphasis (coined term, thesis). For "tone" italics — quoted speech inside "…",
              book/work titles, scare-quotes — use <em> (plain italic, no colour). Rule of
-             thumb: already inside quotes → <em>. See CLAUDE.md §"Corsivi". -->
+             thumb: already inside quotes → <em>. See CLAUDE.md §"Corsivi".
+             h3 tree symbol: ├─ for every subheader except the last in a block, └─ for that last one. -->
         <p class="justify">
             Body text here.
         </p>
 
         <h3 id="subsection-1-1">
-            <a href="#subsection-1-1">└─ Subsection 1.1</a>
+            <a href="#subsection-1-1">├─ Subsection 1.1</a>
         </h3>
 
         <p class="justify">
             Body text here.
         </p>
 
+        <h3 id="subsection-1-2">
+            <a href="#subsection-1-2">└─ Subsection 1.2 (last of block)</a>
+        </h3>
+
         <hr>
 
         <h2 id="section-2">
-            <a href="#section-2">■ Section 2</a>
+            <a href="#section-2">Section 2</a>
         </h2>
 
         <p class="justify">
@@ -127,7 +138,10 @@
     -->
     </main>
 
+    <!-- Footer disabled for now — uncomment to restore. -->
+    <!--
     <script src="../javascript/footer.js"></script>
+    -->
 </body>
 
 </html>
