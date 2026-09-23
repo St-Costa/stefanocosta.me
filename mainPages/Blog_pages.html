@@ -21,41 +21,50 @@
     <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
     <script src="../javascript/commonHeader.js" defer></script>
 
-        
+    <style>
+        /* Blog index: testata centrata, lista allineata a sinistra per pulizia.
+           Le regole sulla lista vincono su base.css per ordine di caricamento. */
+        body { margin-left: 4%; }
+        .blog-head { text-align: center; }
+        ul.blog-list { text-align: left; }
+        ul.blog-list h2 { text-align: left; }
+        /* La data resta in secondo piano rispetto al titolo. */
+        .post-date { font-size: 0.6em; opacity: 0.75; }
+    </style>
 </head>
 <body>
     <main>
     <div class="content bottom_space_big">
         <h1>Source of Truth</h1>
 
-        <div class="center bottom_space_big">
+        <div class="blog-head bottom_space_big">
             <a class="tweet-shot noTarget" href="https://x.com/kepano/status/1698727059198210084" target="_blank"><img width="429" height="156" src="../img/blog/Source of truth/kepano tweet.webp" alt="kepano @kepano: write once, publish everywhere. your personal site should be the source of truth"></a>
         </div>
 
-        <div class="center">
+        <div class="blog-head bottom_space_big">
             <a href="./blogFeed.xml"><img width="64" height="64" src="../img/icon/rss_cyan.webp" alt="Rss" class="icon icon_inline animated_img rss_icon_big"></a>
         </div>
 
-        <ul>
-            <li><h2><a href="../blogPosts/August Monthly Business Ahas.html">August MBA: Why people buy bullshit [2026-09-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/July Monthly Business Ahas.html">July MBA: A sex education post [2026-08-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/Books that have changed my life.html">Books that have changed my life: The 2am answer [2026-07-04]</a></h2></li>
-            <li><h2><a href="../blogPosts/June Monthly Business Ahas.html">June MBA: Before selling the seashell, understand the sea shore [2026-07-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/May Monthly Business Ahas.html">May MBA: Cups, balls, and lemons [2026-06-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/April Monthly Business Ahas.html">April MBA: Do you feel it? [2026-05-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/March Monthly Business Ahas.html">March MBA: Rock bands and gym owners [2026-04-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/February Monthly Business Ahas.html">February MBA: Premium niche or mass market? [2026-03-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/January Monthly Business Ahas.html">January MBA: From spaghetti to funnel [2026-02-01]</a></h2></li>
-            <li><h2><a href="../blogPosts/Flows of my information.html">Flows of my information: A VFAQ (Very Frequently Asked Question) answered [2026-01-31]</a></h2></li>
-            <li><h2><a href="../blogPosts/Lifechanging blog posts.html">Lifechanging blog posts: ...and a video [2026-01-25]</a></h2></li>
-            <li><h2><a href="../blogPosts/The corporate experience.html">The corporate experience: A respectable internship where I documented corporate dysfunction [2025-08-26]</a></h2></li>
-            <li><h2><a href="../blogPosts/I am not a mathematician.html">I am not a mathematician: I am a math-worker [2025-04-12]</a></h2></li>
+        <ul class="blog-list">
+            <li><h2><a href="../blogPosts/August Monthly Business Ahas.html"><span class="post-date">[2026/09/01]</span> August MBA: Why people buy bullshit</a></h2></li>
+            <li><h2><a href="../blogPosts/July Monthly Business Ahas.html"><span class="post-date">[2026/08/01]</span> July MBA: A sex education post</a></h2></li>
+            <li><h2><a href="../blogPosts/Books that have changed my life.html"><span class="post-date">[2026/07/04]</span> Books that have changed my life</a></h2></li>
+            <li><h2><a href="../blogPosts/June Monthly Business Ahas.html"><span class="post-date">[2026/07/01]</span> June MBA: Before selling the seashell, understand the sea shore</a></h2></li>
+            <li><h2><a href="../blogPosts/May Monthly Business Ahas.html"><span class="post-date">[2026/06/01]</span> May MBA: Cups, balls, and lemons</a></h2></li>
+            <li><h2><a href="../blogPosts/April Monthly Business Ahas.html"><span class="post-date">[2026/05/01]</span> April MBA: Do you feel it?</a></h2></li>
+            <li><h2><a href="../blogPosts/March Monthly Business Ahas.html"><span class="post-date">[2026/04/01]</span> March MBA: Rock bands and gym owners</a></h2></li>
+            <li><h2><a href="../blogPosts/February Monthly Business Ahas.html"><span class="post-date">[2026/03/01]</span> February MBA: Premium niche or mass market?</a></h2></li>
+            <li><h2><a href="../blogPosts/January Monthly Business Ahas.html"><span class="post-date">[2026/02/01]</span> January MBA: From spaghetti to funnel</a></h2></li>
+            <li><h2><a href="../blogPosts/Flows of my information.html"><span class="post-date">[2026/01/31]</span> Flows of my information</a></h2></li>
+            <li><h2><a href="../blogPosts/Lifechanging blog posts.html"><span class="post-date">[2026/01/25]</span> Lifechanging blog posts</a></h2></li>
+            <li><h2><a href="../blogPosts/The corporate experience.html"><span class="post-date">[2025/08/26]</span> The corporate experience</a></h2></li>
+            <li><h2><a href="../blogPosts/I am not a mathematician.html"><span class="post-date">[2025/04/12]</span> I am not a mathematician (I am a math-worker)</a></h2></li>
         </ul>
 
     </div>
     </main>
 
-    <script src="../javascript/footer.js"></script>
+    <!-- Footer rimosso di proposito: l'indice del blog è senza footer per pulizia. -->
 
 </body>
 </html>

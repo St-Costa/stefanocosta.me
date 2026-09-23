@@ -193,6 +193,8 @@ Ogni pagina deve chiudersi con uno di questi:
 Oppure footer manuale se il layout lo richiede (vedi `index.html`).
 Eccezione: i post nel nuovo formato tengono `footer.js` **commentato** di default
 (vedi §Struttura del `<body>`); riattivarlo solo se richiesto.
+Eccezione: `mainPages/Blog_pages.html` è **senza footer** di proposito (testata
+centrata, lista allineata a sinistra).
 
 ---
 
@@ -277,7 +279,7 @@ Regole:
 ### Cambiare il titolo di un post
 Se cambia il titolo visibile (`<h1>`, e di conseguenza `<title>`/og/headline), aggiornare **anche** il testo del link in `mainPages/Blog_pages.html`:
 ```html
-<li><h2><a href="../blogPosts/Nome File.html">Nuovo titolo completo [YYYY-MM-DD]</a></h2></li>
+<li><h2><a href="../blogPosts/Nome File.html"><span class="post-date">[YYYY/MM/DD]</span> Nuovo titolo completo</a></h2></li>
 ```
 
 ### TOC — tutti i post usano il nuovo formato
@@ -343,11 +345,14 @@ TL;DR**: `font-size: 1.17em` (come l'`h3` del `.tldr`), non un corpo ridotto.
 
 ### Aggiungere il post a `mainPages/Blog_pages.html`
 ```html
-<li><h2><a href="../blogPosts/Nome File.html">Titolo completo del post [YYYY-MM-DD]</a></h2></li>
+<li><h2><a href="../blogPosts/Nome File.html"><span class="post-date">[YYYY/MM/DD]</span> Titolo completo del post</a></h2></li>
 ```
 Il testo del link deve combaciare con il titolo visibile (`<h1>`) del post — se il titolo
-cambia, aggiornare anche qui. Inserire **in cima** alla lista (post più recente prima),
-ordinata per data decrescente.
+cambia, aggiornare anche qui. La data va **prima** del titolo, in formato `[YYYY/MM/DD]`,
+dentro `<span class="post-date">` (font ridotto, secondo piano).
+Inserire **in cima** alla lista (post più recente prima),
+ordinata per data decrescente. La lista è allineata a sinistra
+(`ul.blog-list`, testata centrata in `.blog-head`); non reintrodurre `class="center"` né il footer.
 
 ### Rigenerare il feed RSS `mainPages/blogFeed.xml`
 **Non** modificare il feed a mano. Dopo aver creato/modificato un post, rigenerarlo con:
