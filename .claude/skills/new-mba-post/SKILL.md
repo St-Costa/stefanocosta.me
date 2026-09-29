@@ -31,7 +31,7 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
       I sottoheader `h3` usano la notazione albero: `├─`, con `└─` solo sull'ultimo di ogni blocco.
    - Se riattivi il TOC: `toc.js` nel `<head>` + uncomment del `<details class="toc-details">` — non scrivere le voci a mano.
    - Se il testo dell'utente non è ancora arrivato, crea lo scheletro con placeholder (`SUBTITLE`, `TLDR`, `SECTION 1`, `CONTENT`) e riempilo dopo.
-   - **Corsivi**: `<i>` sul sito è **giallo** (`i, .yellow { color: #FBFFAD }`) → solo enfasi vera (termine coniato, tesi). Battute riportate tra `"…"`, titoli di libri/opere, scare-quote → `<em>` (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. Vedi CLAUDE.md §"Corsivi".
+   - **Corsivi**: `<i>` sul sito è **giallo** (`i, .yellow { color: #FBFFAD }`) → solo enfasi vera (termine coniato, tesi). Battute riportate tra `"…"`, titoli di libri/opere, scare-quote → `<em>` (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. **Mai `<i>`/`<em>` su un link** (`<a>` ha già colore e corsivo propri). Vedi CLAUDE.md §"Corsivi".
    - **Footnote** `^[testo]` → inline dentro un `<sup>[...]</sup>` nel punto esatto, prima del segno finale (mai una sezione "Notes" a fondo pagina).
    - **Callout citazione verbatim** → `.box-title` con icona `img/icon/quotes.webp` (+ eventuale `<h4>` con l'autore), testo in `<p class="justify">`, fonte in `<p class="source">`. Callout "nota dell'autore" (NOTE, Example) → `.box-title` con solo `<h4>` testuale.
 2. **Tempo di lettura**: una riga sola in `div.center`: `<em>D Mon YYYY - N min read</em>` (N ≈ parole/200, arrotondato). Mese abbreviato, niente conteggio parole.

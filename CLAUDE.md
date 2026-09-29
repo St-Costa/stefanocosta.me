@@ -308,6 +308,10 @@ Regola pratica: se la frase è già tra `"…"` (discorso riportato, domanda cit
 Dentro un `.callout` (tutto il box è già `font-style: italic`) un `<i>`/`<em>` annidato
 rende **dritto**: usalo come contrasto sull'italico ambientale, non aspettarti il corsivo.
 
+**Mai `<i>`/`<em>` su un link.** `a` ha già colore e corsivo propri in `base.css`: un
+`<a><i>testo</i></a>` diventa giallo e perde lo stile del link. `_[testo](url)_` in
+Obsidian → `<a href="url">testo</a>` nudo, anche nelle didascalie.
+
 ### Footnote inline (`^[testo]` in Obsidian)
 
 Niente sezione "Notes" a fine pagina. La nota va **dentro un `<sup>`** nel punto esatto in
