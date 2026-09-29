@@ -164,6 +164,10 @@ Casistica osservata finora, in ordine di frequenza:
   concetto): sul sito `<i>` è **giallo** (`i, .yellow { color: #FBFFAD }`). Se il corsivo è
   "di tono" — battuta riportata tra `"…"`, titolo di libro/opera, scare-quote — usa `<em>`
   (corsivo senza colore). Regola: se è già tra virgolette, `<em>`. Vedi CLAUDE.md §"Corsivi".
+- **Link: mai `<i>`/`<em>` dentro o attorno a un `<a>`.** I link hanno già colore e
+  corsivo propri in `base.css`: `_[testo](url)_` diventa `<a href="url">testo</a>` nudo,
+  **non** `<a><i>testo</i></a>` (renderebbe giallo il link). Vale anche per le didascalie:
+  un link in caption va fuori da `<i class="caption">`.
 - Le virgolette doppie del markdown (`"..."`) vanno **sempre convertite in virgolette curve**
   (`“…”`), mai lasciate dritte — controlla tutto il post alla fine con
   `grep -n '"' file.html` per scovare quelle rimaste dritte per distrazione.
