@@ -174,6 +174,13 @@ Casistica osservata finora, in ordine di frequenza:
 - `\-` a inizio riga (escape Obsidian) è un trattino letterale, non un bullet: non
   trasformarlo in `<li>`.
 
+### Frase finale
+
+Se il post termina con una conclusione testuale, avvolgi **solo l'ultima frase** in `<i>…</i>`:
+`<i>` è il corsivo giallo del sito. Se l'ultima parte del post è una lista, una galleria o
+un altro blocco non narrativo senza una frase conclusiva, non inventare una frase e non
+applicare la regola a un titolo o a una didascalia.
+
 ---
 
 ## Se il post è unlisted
