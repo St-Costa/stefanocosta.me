@@ -306,7 +306,14 @@ Tutti i post hanno `<details class="toc-details">` commentato (dopo il TL;DR) e
 Regola pratica: se la frase è già tra `"…"` (discorso riportato, domanda citata), usa
 `<em>`; il giallo su una citazione è rumore visivo. Il giallo si riserva all'enfasi vera.
 Dentro un `.callout` (tutto il box è già `font-style: italic`) un `<i>`/`<em>` annidato
-rende **dritto**: usalo come contrasto sull'italico ambientale, non aspettarti il corsivo.
+rende **dritto**: usalo come contrasto sull’italico ambientale, non aspettarti il corsivo.
+
+### Frase finale dei post
+
+Quando un post termina con una conclusione testuale, l’ultima frase va avvolta in `<i>…</i>`:
+`<i>` è il corsivo giallo del sito. Se il post termina con una lista, una galleria o un altro
+blocco non narrativo senza una frase conclusiva, non applicare la regola a un titolo o a una
+didascalia.
 
 **Mai `<i>`/`<em>` su un link.** `a` ha già colore e corsivo propri in `base.css`: un
 `<a><i>testo</i></a>` diventa giallo e perde lo stile del link. `_[testo](url)_` in
