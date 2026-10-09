@@ -17,3 +17,5 @@ audio/
 *.flac
 *.aac
 __pycache__/
+# Bozze e prove podcast locali: mai committate.
+audio-staging/
