@@ -287,6 +287,11 @@ SECRET_PATTERNS = [
     (r"xox[baprs]-[A-Za-z0-9-]{10,}", "possibile Slack token"),
     (r"-----BEGIN (?:RSA )?PRIVATE KEY-----", "chiave privata nel repo"),
     (r"sk-[A-Za-z0-9]{20,}", "possibile API key (sk-...)"),
+    # Le chiavi R2 sono esadecimali pure: nessun pattern generico le becca,
+    # quindi si intercettano i NOMI delle variabili con valore assegnato.
+    (r"(?i)(R2_ACCESS_KEY_ID|R2_SECRET_ACCESS_KEY|R2_ENDPOINT|"
+     r"CLOUDFLARE_API_TOKEN|OPENAI_API_KEY)\s*[:=]\s*['\"]?[^'\"\\s]{8,}",
+     "credenziale (R2/OpenAI/Cloudflare) in chiaro nel repo: solo env"),
     (r"(?i)(api[_-]?key|api[_-]?secret|secret[_-]?key|access[_-]?token|auth[_-]?token)"
      r"\s*[:=]\s*['\"][^'\"]{12,}['\"]", "possibile secret assegnato in chiaro"),
 ]
