@@ -136,7 +136,9 @@ def check_page(path, html):
 
     # Il sito non deve contattare terze parti: niente CDN, embed o immagini hotlinked.
     # I <a href> verso l'esterno vanno benissimo — sono link, non richieste.
-    for m in re.finditer(r'<(img|script|link|source|iframe)[^>]+(?:src|href)="(https?://[^"]+)"', html):
+    # Nota: /audio/* e /document/* sono serviti da R2 tramite Worker DALLO
+    # STESSO dominio (vedi workers/r2-proxy.js): sono first-party, non eccezioni.
+    for m in re.finditer(r'<(img|script|link|source|iframe|audio|video|track)[^>]+(?:src|href)="(https?://[^"]+)"', html):
         err(rel, f"richiesta a terze parti in <{m.group(1)}>: {m.group(2)[:70]}")
 
     for m in re.finditer(r"<button(?![^>]*aria-label)[^>]*>(.*?)</button>", html, re.S):
@@ -175,16 +177,55 @@ def check_page(path, html):
             if not re.search(r"honeypot|captcha|turnstile|akismet", html, re.I):
                 err(rel, "<form> che invia dati senza anti-spam (honeypot/captcha/Turnstile)")
 
-    # riferimenti locali rotti
+    # riferimenti locali rotti. /document/* e /audio/* vivono su R2 (non nel
+    # repo): si validano contro r2-manifest.json invece che sul disco.
+    # I bottoni con data-href/data-location (es. download PDF) si controllano
+    # allo stesso modo: footer.js li trasforma in navigazioni.
     base = os.path.dirname(path)
-    for m in re.finditer(r'(?:href|src)="((?!https?:|#|mailto:|data:)[^"]+)"', html):
-        target = m.group(1).split("#")[0].split("?")[0]
-        if not target:
-            continue
-        root_dir = ROOT if target.startswith("/") else base
-        full = os.path.normpath(os.path.join(root_dir, target.lstrip("/")))
-        if not os.path.exists(full):
-            err(rel, f"riferimento rotto: {m.group(1)}")
+    for m in re.finditer(r'(?:href|src|data-href|data-location)="((?!https?:|#|mailto:|data:)[^"]+)"', html):
+        check_local_ref(base, m.group(1), rel)
+
+
+R2_PREFIXES = {"document/": "documents", "audio/": "audio"}
+_manifest_cache = None
+
+
+def load_manifest():
+    """Legge r2-manifest.json (chiavi attese nei bucket R2)."""
+    global _manifest_cache
+    if _manifest_cache is None:
+        import json
+        try:
+            with open(os.path.join(ROOT, "r2-manifest.json"), encoding="utf-8") as f:
+                _manifest_cache = json.load(f)
+        except (OSError, ValueError):
+            _manifest_cache = {}
+    return _manifest_cache
+
+
+def check_local_ref(base, raw, rel):
+    target = raw.split("#")[0].split("?")[0]
+    if not target:
+        return
+    if target.startswith("/"):
+        site_rel = target.lstrip("/")
+    else:
+        site_rel = os.path.relpath(os.path.normpath(os.path.join(base, target)), ROOT)
+    site_rel = site_rel.replace(os.sep, "/")
+    for prefix, bucket in R2_PREFIXES.items():
+        if site_rel.startswith(prefix):
+            key = site_rel[len(prefix):]
+            manifest = load_manifest()
+            on_disk = os.path.exists(os.path.join(ROOT, site_rel))
+            if (key and key in manifest.get(bucket, [])) or on_disk:
+                return  # su R2 (manifest) o ancora in transito su disco
+            err(rel, f"riferimento R2 senza chiave nel manifest ({bucket}/{key}): "
+                     "carica con scripts/r2_upload.py")
+            return
+    root_dir = ROOT if target.startswith("/") else base
+    full = os.path.normpath(os.path.join(root_dir, target.lstrip("/")))
+    if not os.path.exists(full):
+        err(rel, f"riferimento rotto: {raw}")
 
 
 def check_posts():
@@ -366,12 +407,33 @@ def check_page_weight():
             warn(rel, f"pagina pesante: {total // 1024}KB di immagini locali (rallenta il load)")
 
 
+def check_r2_binaries():
+    """PDF e audio stanno nei bucket R2, mai nel repo.
+
+    Se un binario finisce committato (es. document/Nuovo.pdf), il commit
+    fallisce con l'istruzione per spostarlo: è il "ricordami se lo metto in
+    una posizione sbagliata" automatico (vedi CLAUDE.md "File pesanti e R2").
+    Le immagini restano nel repo (img/, WebP): questo controllo non le tocca.
+    """
+    R2_EXTS = {".pdf", ".mp3", ".wav", ".m4a", ".ogg", ".opus", ".flac", ".aac"}
+    for path in glob.glob(os.path.join(ROOT, "**", "*"), recursive=True):
+        if not os.path.isfile(path) or ".git/" in path:
+            continue
+        if os.path.splitext(path)[1].lower() not in R2_EXTS:
+            continue
+        rel = os.path.relpath(path, ROOT)
+        err(rel, "binario nel repo: PDF/audio vivono su R2 — "
+                 "carica con scripts/r2_upload.py e rimuovi con git rm "
+                 "(vedi CLAUDE.md 'File pesanti e R2')")
+
+
 def main():
     os.chdir(ROOT)
     pages = sorted(glob.glob("**/*.html", recursive=True))
     for path in pages:
         check_page(os.path.join(ROOT, path), open(path, encoding="utf-8").read())
     check_posts()
+    check_r2_binaries()
     check_inline_css()
     check_orphan_css()
     check_secrets()

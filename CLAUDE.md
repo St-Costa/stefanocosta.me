@@ -34,6 +34,8 @@ qui sotto. **Nessuna comodità vale il costo di esporre gli IP dei visitatori a 
 | **Una copertina** (libro, podcast, album) | Scaricala in `img/covers/`, WebP a ~2x la dimensione di rendering. Il `<a>` continua a linkare la fonte. |
 | **Un'immagine da un altro sito** | Scaricala in `img/`. Se la licenza non lo permette, non usarla: linkala e basta. |
 | **Un video** | Link testuale, non embed. |
+| **Un PDF** (tesi, report, poster, slide) | Caricalo nel bucket R2 `documents` con `python3 scripts/r2_upload.py documents <file>`, poi linkalo con il path di sempre (`../document/Nome.pdf`). **Mai** committare PDF nel repo. |
+| **Un audio** (episodi podcast) | Caricalo nel bucket R2 `audio` con `python3 scripts/r2_upload.py audio <file>`, poi referenzialo come `../audio/nome.mp3`. **Mai** committare audio nel repo. |
 
 ⚠️ **L'`alt` di uno screenshot deve contenere il testo che l'immagine mostra.** È il punto
 debole di questa scelta: trasformando una citazione in immagine, il testo sparisce per gli
@@ -43,7 +45,8 @@ I normali `<a href="https://...">` verso altri siti sono **liberi**: sono link, 
 non contatta nessuno finché non ci clicchi.
 
 `scripts/check_site.py` fa fallire il commit se trova un `src`/`href` esterno dentro `<img>`,
-`<script>`, `<link>`, `<source>` o `<iframe>`.
+`<script>`, `<link>`, `<source>`, `<iframe>`, `<audio>`, `<video>` o `<track>` —
+e se trova un PDF o un file audio committato nel repo (stanno su R2, vedi sotto).
 
 ---
 
@@ -55,8 +58,10 @@ esistente), `defer`, preload dei font, `aria-label` sui bottoni-icona, `<img>` c
 `alt` e (se raster) `width`/`height`, niente `http://` in chiaro, niente secret nel
 repo, niente cookie senza banner, `<form>` con label/validazione/anti-spam (se presenti),
 riferimenti locali, copertura `sitemap.xml` (+ `robots.txt` valido), `datePublished`
-nei post, CSS orfani, richieste a terze parti. Peso immagini >2MB/pagina, JPG/PNG
-legacy e file >1MB sono avvisi (debito noto), non errori.
+nei post, CSS orfani, richieste a terze parti, niente binari (PDF/audio) nel repo,
+riferimenti `/document/` e `/audio/` validati contro `r2-manifest.json`.
+Peso immagini >2MB/pagina, JPG/PNG legacy e file >1MB sono avvisi
+(debito noto), non errori.
 
 **Gira da solo a ogni `git commit`** (hook in `scripts/githooks/pre-commit`): se trova un
 errore, il commit viene annullato. Non serve eseguirlo a mano.
@@ -486,6 +491,50 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 
 ---
 
+## File pesanti e R2: niente binari nel repo
+
+PDF e audio **non vivono nel repo**: stanno in due bucket Cloudflare R2 e sono
+serviti **dallo stesso dominio** tramite il Worker `workers/r2-proxy.js`, quindi
+restano first-party e la regola n°1 è salva. Gli URL pubblici non cambiano mai.
+
+| Bucket R2 | Binding Worker | URL pubblico | Cosa ci va |
+|---|---|---|---|
+| `stefanocosta-documents` | `DOCUMENTS` | `stefanocosta.me/document/…` | PDF: tesi, report, poster, slide |
+| `stefanocosta-audio` | `AUDIO` | `stefanocosta.me/audio/…` | MP3 degli episodi podcast |
+
+I bucket sono **privati** (niente accesso pubblico diretto): l'unica via
+d'ingresso è il Worker, che serve solo chiavi esatte (niente listing), gestisce
+i Range request (seek audio, anteprime PDF) e manda `X-Robots-Tag: noindex` su
+`/document/*` oltre al Disallow di `robots.txt`.
+
+### Regole
+
+- **Mai committare PDF o audio nel repo.** `.gitignore` li esclude e
+  `check_site.py` fa fallire il commit se ne trova uno, con l'istruzione per
+  spostarlo. Le immagini restano in `img/` (WebP) come prima.
+- **Nuovo file → R2, poi linka il path di sempre.** Nelle pagine si continua a
+  scrivere `../document/Nome.pdf` e `../audio/nome.mp3`: il Worker risolve.
+  ```bash
+  python3 scripts/r2_upload.py documents ./Report.pdf      # chiave = basename
+  python3 scripts/r2_upload.py audio ./episodio.mp3 slug/episodio.mp3
+  ```
+  Serve `wrangler` autenticato (`npm i -g wrangler && wrangler login`).
+- **Le chiavi sono immutabili.** La cache edge è `immutable` a un anno: una
+  chiave esistente non si sovrascrive mai con contenuto diverso — nuova versione
+  = nuovo nome file. `r2_upload.py` rifiuta le chiavi già presenti nel manifest
+  (salvo `--force`, solo per migrazione/ricarichi identici).
+- **`r2-manifest.json` è la source of truth** delle chiavi attese: lo aggiorna
+  `r2_upload.py` a ogni upload, `check_site.py` ci valida ogni riferimento a
+  `/document/` e `/audio/` (anche nei `data-href` dei bottoni).
+- **Deploy del Worker** (solo quando cambia `workers/`):
+  ```bash
+  cd workers && wrangler deploy
+  ```
+  Le routes hanno precedenza su Pages solo per `/document/*` e `/audio/*`;
+  il resto del sito non è toccato.
+
+---
+
 ## Struttura cartelle
 
 ```
@@ -501,8 +550,12 @@ Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 ├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js
 ├── scripts/          ← gen_feed.py (feed RSS), check_site.py (controlli)
 ├── img/              ← immagini (sempre WebP)
-└── document/         ← PDF accademici (non indicizzati)
+├── workers/          ← Worker R2-proxy + wrangler.toml (serve /audio/* e /document/* dallo stesso dominio)
+├── r2-manifest.json  ← chiavi attese nei bucket R2 (PDF e audio NON stanno nel repo)
 ```
+
+> `document/` e `audio/` **non esistono nel repo**: sono path virtuali serviti
+> da R2 via Worker (vedi §File pesanti e R2). Non ricrearli come cartelle.
 
 ---
 

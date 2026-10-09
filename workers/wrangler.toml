@@ -1,0 +1,28 @@
+# workers/wrangler.toml — deploy del Worker che serve R2 dallo stesso dominio.
+#
+# Deploy (una tantum + a ogni modifica di r2-proxy.js):
+#   cd workers && wrangler login && wrangler deploy
+#
+# Le routes hanno precedenza su Cloudflare Pages per i path corrispondenti:
+# tutto il resto del sito continua a essere servito da Pages come prima.
+# I nomi dei bucket devono combaciare con quelli creati da dashboard R2.
+
+name = "stefanocosta-r2-proxy"
+main = "r2-proxy.js"
+compatibility_date = "2025-06-01"
+
+# ATTENZIONE TOML: `routes` deve stare PRIMA dei blocchi [[r2_buckets]],
+# altrimenti viene interpretato come campo del bucket e ignorato
+# (wrangler avvisa con "Unexpected fields found in r2_buckets").
+routes = [
+  { pattern = "stefanocosta.me/document/*", zone_name = "stefanocosta.me" },
+  { pattern = "stefanocosta.me/audio/*", zone_name = "stefanocosta.me" }
+]
+
+[[r2_buckets]]
+binding = "DOCUMENTS"
+bucket_name = "stefanocosta-documents"
+
+[[r2_buckets]]
+binding = "AUDIO"
+bucket_name = "stefanocosta-audio"

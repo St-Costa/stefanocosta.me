@@ -71,6 +71,10 @@ segna N/A ed è finita lì.
   `width`/`height` reali, `loading="lazy"` sotto la piega (mai above the fold),
   indicativo <500KB per file e pagina <2MB di immagini (verifica con `du -sh`).
   Nuovi JPG/PNG o file enormi = blocco.
+- **Binari/R2**: nessun `.pdf`/audio committato (lo script li blocca già:
+  vanno su R2 con `scripts/r2_upload.py`, vedi `CLAUDE.md` "File pesanti e R2").
+  Ogni nuovo link a `/document/` o `/audio/` deve avere la chiave in
+  `r2-manifest.json`; `git status` non deve mostrare binari.
 - **Load speed**: nessun JS/CSS render-blocking aggiunto (`defer` sugli script,
   `base.css` linkato, preload dei 2 font, niente librerie/terze parti).
 - **Contrasto**: nuovi colori → WCAG AA (testo normale ≥4.5:1, grande ≥3:1).
@@ -94,6 +98,7 @@ segna N/A ed è finita lì.
 - [ ] `python3 scripts/check_site.py`: 0 errori; nessun avviso nuovo da file cambiati.
 - [ ] Meta/alt delle pagine cambiate: specifici, non generici, alt dei testi-immagine trascritti.
 - [ ] Immagini nuove: WebP, dimensioni reali, lazy corretto, peso ok.
+- [ ] Nessun PDF/audio nel repo (stanno su R2); `r2-manifest.json` aggiornato.
 - [ ] Contrasto dei nuovi colori ≥4.5:1; layout verificato da stretto.
 - [ ] Link esterni nuovi/ cambiati: rispondono; ancore esistenti.
 - [ ] Form/cookie/consent: gestiti se introdotti, altrimenti N/A dichiarato.
