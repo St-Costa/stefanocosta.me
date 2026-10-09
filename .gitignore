@@ -16,3 +16,4 @@ audio/
 *.opus
 *.flac
 *.aac
+__pycache__/
