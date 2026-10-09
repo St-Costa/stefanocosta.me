@@ -71,9 +71,7 @@ export default {
       range = { offset: Number(m[1]), length: m[2] === "" ? undefined : Number(m[2]) - Number(m[1]) + 1 };
     }
 
-    const obj = range
-      ? await bucket.get(key, { range, onlyIf: request.headers })
-      : await bucket.get(key, { onlyIf: request.headers });
+    const obj = range ? await bucket.get(key, { range }) : await bucket.get(key);
     if (!obj) {
       return new Response("Not found", { status: 404 });
     }
@@ -82,6 +80,7 @@ export default {
     headers.set("Content-Type", obj.httpMetadata?.contentType || guessContentType(key));
     headers.set("Accept-Ranges", "bytes");
     headers.set("Cache-Control", "public, max-age=31536000, immutable");
+    headers.set("X-Content-Type-Options", "nosniff");
     headers.set("ETag", obj.httpMetadata?.etag || obj.etag);
 
     // 304 se il client ha già la copia corrente.
