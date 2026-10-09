@@ -519,6 +519,19 @@ i Range request (seek audio, anteprime PDF) e manda `X-Robots-Tag: noindex` su
   python3 scripts/r2_upload.py audio ./episodio.mp3 slug/episodio.mp3
   ```
   Serve `wrangler` autenticato (`npm i -g wrangler && wrangler login`).
+- **Flusso "ho un nuovo file".** Dimmi (a me o a un altro agente LLM) "carica
+  questo PDF/MP3" indicando il file locale: lo carico con `r2_upload.py`,
+  aggiorno il manifest e cancello la copia locale. Se invece lo committi nel
+  repo per sbaglio, `check_site.py` blocca il commit e ti dice dove metterlo.
+  Per gli upload automatici via S3 (boto3) servono le credenziali dell'R2 API
+  token (`R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_ENDPOINT` da env,
+  mai nel repo): `scripts/r2_check.py` verifica che funzionino.
+- **Credenziali: mai nel repo, solo env.** Le chiavi R2 e la futura chiave
+  OpenAI stanno in un file FUORI dal repo (es. `~/.config/site-credentials.env`,
+  permessi `600`), caricato con `source` prima di lanciare gli script. `.gitignore`
+  esclude anche un eventuale `.env` locale, e `check_site.py` fa fallire il commit
+  se trova questi nomi di variabile con un valore assegnato — così nemmeno un
+  copia-incolla distratto (umano o LLM) può leakkarle nel repo pubblico.
 - **Le chiavi sono immutabili.** La cache edge è `immutable` a un anno: una
   chiave esistente non si sovrascrive mai con contenuto diverso — nuova versione
   = nuovo nome file. `r2_upload.py` rifiuta le chiavi già presenti nel manifest

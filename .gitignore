@@ -1,5 +1,8 @@
 .wrangler/
 .claude/settings.local.json
+# Credenziali: mai nel repo, solo env (vedi CLAUDE.md "File pesanti e R2").
+.env
+.env.*
 # PDF e audio vivono nei bucket R2, mai nel repo
 # (vedi CLAUDE.md "File pesanti e R2"). Chi li commita per sbaglio
 # viene bloccato da scripts/check_site.py.
