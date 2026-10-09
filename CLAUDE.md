@@ -539,6 +539,35 @@ i Range request (seek audio, anteprime PDF) e manda `X-Robots-Tag: noindex` su
 - **`r2-manifest.json` è la source of truth** delle chiavi attese: lo aggiorna
   `r2_upload.py` a ogni upload, `check_site.py` ci valida ogni riferimento a
   `/document/` e `/audio/` (anche nei `data-href` dei bottoni).
+### Credenziali: dove stanno e come debuggarle
+
+| Variabile | Cosa contiene | Usata da |
+|---|---|---|
+| `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | Access Key + Secret dell'R2 API token `scripts-upload` (Object Read & Write, solo sui 2 bucket) | `scripts/r2_check.py`, futuri script S3 (boto3) |
+| `R2_ENDPOINT` | Endpoint S3 jurisdiction-specific EU (**solo host**, senza bucket in coda né testo extra) | idem |
+| `OPENAI_API_KEY` | Chiave OpenAI (fase podcast) | futuri script TTS |
+
+Stanno **solo** in `~/.config/site-credentials.env` (permessi `600`, fuori dal
+repo): una riga `export` ciascuna, caricato con `source` prima degli script.
+Mai nei log, mai negli help output, mai in chat oltre lo stretto necessario.
+
+Debugging quando `scripts/r2_check.py` fallisce:
+- `Invalid endpoint` con testo in più nel messaggio → la variabile contiene
+  spazi o code (tipico: un comando incollato dentro il valore). Vedi sotto come
+  validare senza stampare i valori.
+- `InvalidAccessKeyId` → key copiata male o token cancellato: rigenerare da
+  R2 → API Tokens e aggiornare il file.
+- `SignatureDoesNotMatch` → secret sbagliato o con spazi/virgolette in più.
+- `403` / `AccessDenied` → scope del token: devono esserci i 2 bucket con
+  Read & Write.
+- Validazione cieca (stampa solo `ok` / `DA CONTROLLARE`, mai i valori):
+  ```bash
+  awk -F'"' '/^export R2_/ {print NR": "(NF==3 && $2 !~ / / ? "ok" : "DA CONTROLLARE")}' ~/.config/site-credentials.env
+  ```
+- Igiene shell history: un comando con secret inline (`VAR=... script.py`)
+  resta in `~/.bash_history` in chiaro. Rimuoverlo con `history -d N` nella
+  sessione corrente + `sed -i '/R2_SECRET_ACCESS_KEY=[^ ]/d' ~/.bash_history`;
+  da ora in poi solo `source` + script, mai secret sulla riga di comando.
 - **Deploy del Worker** (solo quando cambia `workers/`):
   ```bash
   cd workers && wrangler deploy
