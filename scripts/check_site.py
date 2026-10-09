@@ -424,6 +424,10 @@ def check_r2_binaries():
     for path in glob.glob(os.path.join(ROOT, "**", "*"), recursive=True):
         if not os.path.isfile(path) or ".git/" in path:
             continue
+        # audio-staging/ è la cartella delle bozze locali (gitignored):
+        # gli MP3 di prova vivono lì apposta, non vanno su R2.
+        if "/audio-staging/" in path.replace(os.sep, "/"):
+            continue
         if os.path.splitext(path)[1].lower() not in R2_EXTS:
             continue
         rel = os.path.relpath(path, ROOT)
