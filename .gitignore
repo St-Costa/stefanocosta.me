@@ -1,2 +1,15 @@
 .wrangler/
 .claude/settings.local.json
+# PDF e audio vivono nei bucket R2, mai nel repo
+# (vedi CLAUDE.md "File pesanti e R2"). Chi li commita per sbaglio
+# viene bloccato da scripts/check_site.py.
+document/
+audio/
+*.pdf
+*.mp3
+*.wav
+*.m4a
+*.ogg
+*.opus
+*.flac
+*.aac
