@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Post-mortem of a BPI + AI consulting attempt: the method worked, but the market rewards job illusionism, not solved problems.">
+    <title>BPI + AI consulting post-mortem | Source of Truth</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <!-- Headings inherit the browser's default bold, so Bold is on the critical path
+         for the first paint just as much as Regular. Italic is not, so it is left to
+         load on demand. All three are subset to the glyphs this site actually uses. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
+    <meta property="og:title" content="BPI + AI consulting post-mortem | Stefano Costa">
+    <meta property="og:description" content="Post-mortem of a BPI + AI consulting attempt: the method worked, but the market rewards job illusionism, not solved problems.">
+    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
+    <meta property="og:url" content="https://stefanocosta.me/blogPosts/BPI%20+%20AI%20consulting%20post-mortem.html">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
+    <script src="../javascript/commonHeader.js" defer></script>
+    <!-- unlisted-post: not in Blog_pages.html, no datePublished (keeps it out of
+         gen_feed.py's RSS feed), only reachable via a direct link (Failure résumé).
+         See CLAUDE.md "Post nascosti (unlisted)". -->
+    <script src="../javascript/toc.js"></script>
+
+    <link rel="stylesheet" href="../style/blog.css">
+</head>
+
+<body>
+    <main>
+
+    <div class="bottom_space_big">
+        <h1>BPI + AI consulting post-mortem</h1>
+
+        <div class="center">
+        <div><em>Oct 2026 - 32 min read</em></div>
+        <div class="epistemic"><a
+                href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts"
+                target="_blank"><em>ES</em></a>: <i>personal post-mortem, anecdotal and intentionally non-neutral, based on ~1 year of consulting work rather than public data</i></div>
+        </div>
+
+        <section class="tldr">
+            <div class="box-title">
+                <h3>TL;DR</h3>
+            </div>
+            <p>A year as a consultant taught me that companies don't buy solved problems: they buy the illusion of solving them. Nobody measures time saved, so nobody can tell a good consultant from a bad one. Trust goes to who speaks German or has no shame. I had neither.</p>
+        </section>
+
+
+        <!-- TOC disabled for now — uncomment to restore the expandable TOC.
+             toc.js is a no-op while this stays commented out. -->
+        <!--
+        <details class="toc-details">
+            <summary>TOC</summary>
+        </details>
+        -->
+        <h2 id="why-i-did-it">
+            <a href="#why-i-did-it">Why I did it</a>
+        </h2>
+
+        <p class="justify">
+            While I was letting my research contract run out, I was looking for alternatives.
+            <br>Thinking about how to turn my skills into a job, I thought of <a href="https://en.wikipedia.org/wiki/Personal_knowledge_management" target="_blank">PKM</a>.
+            <br>Around that time I taught a researcher to use <a href="https://obsidian.md/" target="_blank">Obsidian</a> for work, and <a href="https://www.notion.com/" target="_blank">Notion</a> to the president of Pride Bolzano to organize the city's first pride (which, in his words, wouldn't have been possible without it).
+            <br>But it didn't look like a good direction: the PKM market is saturated, and above all, making YouTube videos to sell courses is not “<em>my calling</em>”...
+            <br><br>
+            Around then I read a book that influenced me a lot: <a href="https://comeupforair.com/" target="_blank">Come Up for Air</a>.
+            <br>It's about company organization, specifically communication and project management.
+            <br>It struck me because its approach to managing a company’s knowledge base and communication flows is the same one I use for my PKM and my <a href="Flows of my information.html">information flows</a>.
+            <br>I thought: maybe not Obsidian courses, but maybe something in consulting...
+            <br><br>
+            Right after, I read another book: <a href="https://www.goodreads.com/book/show/8044351-the-power-of-business-process-improvement" target="_blank">The Power of Business Process Improvement</a>.
+            <br>In the book, the author explains Business Process Improvement (BPI) by applying it to a problematic process.
+            <br>A step-by-step, analytical, pragmatic method that reminded me of the other book, but applied to business processes.
+            The first thing I did after finishing the book was test my understanding: I successfully applied it to my meal prepping, taking the process from ~3h30min down to ~1h.
+            <br>A great success both in BPI terms and because I hate cooking.
+            <br>I also tried applying it to the research project, discussing it with the other researchers... and that's how I discovered their allergy to anything organizational (except the one who uses Obsidian, xoxo to him).
+            <br><br>
+            From those books I understood two things:
+        </p>
+        <ul>
+            <li>My way of thinking is useful outside academia</li>
+            <li>I can make it a job</li>
+        </ul>
+        <p class="justify">
+            So I looked for jobs in processes and operations, and got hired as an intern at a multinational's large manufacturing plant to do <em>operational excellence</em>.
+            <br>A young, naive me believed I could solve problems in a corporation, oh-oh-oh!<sup>[Read <a href="The corporate experience.html">this</a>]</sup>.
+            <br>While I wanted to become the <i>Bottleneck Destroyer</i>, my supervisor wanted to turn me into a white collar who speaks corporate jargon.
+            <br>Nope, not gonna happen.
+            <br><br>
+            After a month I quit and went to help my friend with his business, where I finally had free rein to solve every problem the way I wanted.
+            <br>And it worked well!<sup>[Read <a href="Writing coach post-mortem.html">this</a>]</sup>.
+            <br>This approach <i>really</i> made things better, and it was proof that I could bring value to a company.
+            <br><br>
+            On top of that, in those months YouTube made Rory Sutherland popular, and he became one of the most influential people in my life.
+            <br>Besides being charmed by his British accent, I read <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy</a>, where he perfectly explains my philosophy of consulting:
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
+                <h4>Quote</h4>
+            </div>
+            <p class="justify">Although bees have an efficient way of communicating about the direction of reliable food sources, the <i>waggle dance</i>, a significant proportion of the hive seems to ignore it altogether and journeys off at random.
+                <br>In the short term, the hive would be better off if all bees followed the waggle dance, and for a time this random behaviour baffled scientists, who wondered why 20 million years of bee evolution had not enforced a greater level of behavioural compliance.
+                <br>However, without these rogue bees, the hive would get stuck in ‘<i>a local maximum</i>’.
+                <br>They would be so efficient at collecting food from known sources that, once these existing sources of food dried up, they wouldn’t know where to go next and the hive would starve to death.
+                <br>So the rogue bees are, in a sense, the hive’s research and development function, and their inefficiency pays off handsomely when they discover a fresh source of food.</p>
+            <p class="source">— Adapted from <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy (2019)</a></p>
+        </section>
+
+        <p class="justify">
+            EXACTLY what I wanted to do in that corporation, and EXACTLY what I did in my friend's business.
+            <br>Like the rogue bees, it's my unusual perspective (mathematician, PKM nerd, organizational optimization maniac...) that generates value in business problem solving.
+            <br>And the corporate experience proved it<sup>[Read <a href="September Monthly Business Ahas.html#h1.1.3">this</a>]</sup>: I was the only one proposing solutions that were neither “<em>manager-style</em>” (read: <em>corporate bullshit</em>) nor “<em>operator-style</em>”...
+            <br>But I was sent to translate slides (with two degrees in mathematics).
+        </p>
+
+        <a class="tweet-shot" href="https://x.com/carl_feynman/status/2016967613042303016" target="_blank"
+            aria-label="carl feynman on X">
+            <img src="../img/blog/BPI + AI consulting post-mortem/feynman-tweet.webp" width="1113" height="945"
+                loading="lazy"
+                alt="carl feynman (@carl_feynman) on X: “My dad (Richard Feynman) had a side hustle doing industrial consulting. He'd spend a few hours visiting a company, talking to the engineers, looking at stuff, and then maybe have a good suggestion. Sometimes he would bring his son along. I only recall one of his suggestions, but it made the company he was consulting for way better off, so I guess his exorbitant consulting fees were worth it. We could have been wealthier if he had done it systematically, but he didn't want to be organized about looking for jobs, so it just happened when someone asked.” quoting EtherDais (@EtherDais): “We need more mercenary polymaths”.">
+        </a>
+        <div class="center center-padding">
+            <i class="caption">(Not comparing myself to Feynman, eh... it just inspired me)</i>
+        </div>
+
+        <p class="justify">
+            I had validated the idea with my friend, so at that point the plan was simple: find companies with problems, explain how I could help them, solve them.
+            <br>Clear. Easy. Profit.
+            <br><br>
+            And that was just the first step!
+            <br>I wanted to build a team with mixed expertise, able to help companies with their strangest and most specific problems.
+            <br>Not theoretical academics, but generalists I'd hire with one test: take them into a random shop and ask “<em>Find me all the problems in this shop</em>”.
+            <br>A perfect business model to expose myself to ever-new problems and improve the service (and feed my deviant passions).
+            <br>In practice, a <i>technology translation</i> service for companies: turning problems into technological and organizational solutions, using whatever technology is needed (including AI when useful).
+            <br>Doing real <a href="https://en.wikipedia.org/wiki/Operations_research" target="_blank">Operations Research</a> with a clear <a href="https://www.thinkandthinkagain.org/post/christian-b-s-share-the-beginning-of-infinity" target="_blank">operating philosophy</a>, to prove that real consulting can be done<sup>[Not <a href="https://en.wikipedia.org/wiki/Seagull_management" target="_blank">seagull consulting</a>]</sup> and that not all consulting has to <a href="https://x.com/hamptonism/status/2104541906378408432" target="_blank">suck</a>.
+            <br><br>
+            This is what I had in mind:
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
+                <h4>Jeffrey Cooper, lead author of <em>Preventable Anesthesia Mishaps: A Study of Human Factors</em></h4>
+            </div>
+            <p class="justify">An unassuming, fastidious man, Cooper had been hired in 1972 by the Massachusetts General Hospital to work on developing machines for anesthesiology researchers.
+                <br>He spent hours in the operating room observing the anesthesiologists, and one of the first things he noticed was how poorly the machines were designed.
+                <br>For example, a clockwise turn of a dial decreased the concentration of potent anesthetics in about half the machines but increased the concentration in the other half.
+                <br>He decided to borrow a technique called “<b>critical incident analysis</b>” (which had been used to analyze mishaps in aviation) in an effort to learn how equipment might be contributing to errors in anesthesia.
+                <br><br>
+                The result was the first in-depth scientific look at errors in medicine.
+                <br>Contrary to the prevailing assumption that the start of anesthesia was the most dangerous part, anesthesiologists learned that <i>incidents tended to occur in the middle of anesthesia</i>, when vigilance waned.
+                <br><br>
+                It all worked.
+                <br>Manufacturers began redesigning their machines with fallible human beings in mind.
+                <br>Dials were standardized to turn in a uniform direction; locks were put in to prevent accidental administration of more than one anesthetic gas; controls were changed so that oxygen delivery could not be turned down to zero.</p>
+            <p class="source">— Adapted from <a href="https://www.goodreads.com/book/show/215622" target="_blank">Complications (2008)</a></p>
+        </section>
+
+        <p class="justify">
+            Like a true enthusiast, I went down every rabbit hole and wrote everything down in Obsidian.
+            <br>And then I realized it didn't work...
+        </p>
+
+        <hr>
+
+        <h2 id="what-i-built">
+            <a href="#what-i-built">What I built</a>
+        </h2>
+
+        <p class="justify">
+            I used the 6 months working with my friend to explore different technical approaches: <a href="https://www.make.com/" target="_blank">make.com</a>, <a href="https://n8n.io/" target="_blank">n8n</a>, <a href="https://developers.google.com/apps-script" target="_blank">Google Apps Script</a>, <a href="https://fly.io/" target="_blank">fly.io</a>, <a href="https://www.anthropic.com/claude-code" target="_blank">Claude Code</a>, <a href="https://openai.com/codex" target="_blank">Codex</a>...
+            <br>After one word-of-mouth client, I understood that the standard way to land clients is going to events, getting known in the scene, and then running workshops.
+            <br>So I did, and that's when I first smelled the rot.
+            <br><br>
+            By chance I met a consultant who was doing well and needed help, so we started collaborating.
+            <br>He's German-speaking, so he had no trouble getting clients (see <a href="#european-companies-dont-want-their-problems-solved">later</a>), so much so that he couldn't serve them all.
+            <br>I helped him for a few months, leaving marketing and acquisition to him (which is why I never built a website or did any marketing).
+            <br>I later found out he's one of those technically illiterate proto-consultants who talk shit behind your back.
+            <br><br>
+            But it was useful: thanks to him I discovered important behind-the-scenes stuff, understood how companies work, the secrets of the big local agencies...
+            <br>In a way, it's also thanks to him that I got out of this <i>sea of diarrhea</i>.
+            <br><br>
+            When I worked with my friend Luca, we made a list of all the problems and set priorities.
+            <br>These are the projects we did<sup>[From <a href="Writing coach post-mortem.html">Writing coach post-mortem</a>, with a different rationale]</sup>:
+        </p>
+        <ul>
+            <li><b>Newsletter-to-Drive automation to replace a €1000/y service</b>: that was a lot of money for a lead magnet at the time, so I replaced it with an automation.</li>
+            <li><b>Leaderbot to increase Discord community engagement</b>: a big problem with the product was the constant interaction with members, which ate the time he needed for other important things. To boost engagement without him, I made a simple bot that updates a leaderboard weekly, which started some friendly competition among customers.</li>
+            <li><b>YouTube shorts published from lives (~50K views/month)</b>: we were reorganizing the sales funnel and the lives were the first thing to boost. Making more videos in the hope of pleasing the algorithm god was out of the question (not enough firepower), so we tried shorts. They generated many views but didn't really help the funnel, so we shut it down after a couple of months.</li>
+            <li><b>Automatic recap newsletter</b>: writing the newsletter was the most tedious and least profitable task of the whole business, so I automated it. We couldn't remove it completely because customers (on average >40yo) used it as a YouTube reminder, so we switched to a recap with clickable YT thumbnails.</li>
+            <li><b>Synthetic target to simulate purchase and click intent</b>: we wanted to run a Meta campaign to acquire customers, and I tested this idea to help us create the best ads. We found our target audience is too narrow for it to give useful suggestions (it works better for broader audiences), but it still helped us make sense of the target.</li>
+        </ul>
+
+        <p class="justify">
+            Paid projects with other companies:
+        </p>
+        <ul>
+            <li><b>Accounting automation</b>: it cleared a three-month bookkeeping backlog and helps them stay on time with taxes. You might think there are accounting tools better suited than an Excel file edited in Google Sheets, and you would be right. That was also my suggestion, but they wanted a “<em>faster solution</em>”, as everyone does.</li>
+            <li><b>Made my collaborating consultant's tool GDPR-ready</b>: an AI agent that automates supplier price list updates for a mid-size retail chain. Nobody was worrying about GDPR: the client didn't know it applied, and the consultant thought he knew what “<em>GDPR-ready</em>” meant (he didn't). I had to do it, which means I spent hours inside the AWS console, the worst interface ever built by humans, making sure the data stays in Europe, that every access is logged, and that everything is saved properly. One could say that this is not the “<em>problem solving passion</em>” I was talking about. Agreed, but I was the only one who knew a thing about GDPR, so it was me or the GDPR-jail. BTW: no, I am NOT an expert. Just better than proto-consultants.</li>
+            <li><b>Documented the same tool under the EU AI Act</b>: risk classification, purpose and limits, human oversight, responsibilities, incident reporting, and the AI literacy training. My work on the tool also included correcting the bugs of the first version (not made by me), improving the original design (not made by me), and finding installation problems which only the IT manager could solve (not caused by me). They had the nerve to complain that the documentation wasn't important and that I hadn't really done anything. Unbelievable.</li>
+            <li><b>Design of a PIM with AI features</b>: a small office managing a catalog of tens of thousands of items in two languages, wanted a central product database with AI-generated descriptions and images, automated flyer production, marketing management and video generation. A standard enterprise PIM meant an estimate of €50-100K to implement, plus €8-15K a year of estimated maintenance, which makes no sense for a company that size. I compared three architectures, benchmarked five databases and the open source PIMs, then designed a solution that runs on ~€70 a month of software, plus a few months of our work (mainly mine, since the other consultant didn't know Docker) to build it at around €10k. With the production of 100 flyers going from 25-40h down to 30 minutes, the marketing department was thrilled. You might ask why “<em>design</em>” and not “<em>implementation</em>”: because right after the design, THE COMPANY'S IT MANAGER FUCKING QUIT, blocking the whole project. You can't make this up...</li>
+            <li><b>AI tool to help generate copywriting</b>: a tool to help a company write copy for its customer acquisition campaign. Which I didn't finish, because after two (2!) weeks of me not receiving the documents I’d asked for (their copywriting rules and whatnot) the client wanted the FULL finished product. Which, since AI is not a magic wand, wasn't finished. So he ended the collaboration<sup>[Partly my fault for not making the timeline clear.]</sup>.</li>
+        </ul>
+
+        <h2 id="what-worked">
+            <a href="#what-worked">What worked</a>
+        </h2>
+
+        <p class="justify">
+            <b>The BPI approach really worked</b>
+            <br>Both the analysis and the delivery (when they let me finish it...) really made things better.
+            <br>Identifying the bottlenecks, naming the causes, and setting the priorities helped companies understand their problems, figure out how to move, and discover operational details they didn't know about.
+            <br>The implementations (again: when I managed to finish them) made things noticeably better.
+            <br><br>
+            <b>Working with small teams or the self-employed</b>
+            <br>When the team had real incentives to get results out of me quickly, the collaboration got better.
+            <br>The companies that didn't give a damn (the ones that wanted to “<em>invest in digitalization</em>”) made the collaboration hell and the results worse.
+            <br>This got me thinking about who the target of this product could be (see <a href="#what-i-would-have-done-differently">later</a>)
+        </p>
+
+        <hr>
+
+        <h2 id="why-did-it-fail">
+            <a href="#why-did-it-fail">Why did it fail?</a>
+        </h2>
+
+        <p class="justify">
+            Now the fun part of the post.
+        </p>
+
+        <h3 id="european-companies-dont-want-their-problems-solved">
+            <a href="#european-companies-dont-want-their-problems-solved">├─ (European) companies don't want their problems solved</a>
+        </h3>
+
+        <p class="justify">
+            Like every self-employed person, I love shit-talking about corporate.
+            <br>But I noticed I love shit-talking about plenty of companies that don't look <i>corporate</i> at all.
+            <br>My shit-talking needed a more precise definition.
+            <br><br>
+            In <a href="The corporate experience.html">my corporate experience</a> I quoted a <a href="https://ribbonfarm.com/2009/10/07/the-gervais-principle-or-the-office-according-to-the-office/" target="_blank">Ribbonfarm post</a>: “<em>Organizations don't suffer pathologies, they are intrinsically pathological constructs</em>”.
+            <br>Working as a consultant, I found out that the <i>pathology</i> I experienced in corporate doesn't exist ONLY in huge companies: <i>headcount isn't the differentiator</i>.
+            <br>The cause is a <i>work philosophy</i> I named “<b>Job Illusionism</b>”: <i>pretending</i> to work.
+            <br><br>
+            <i>Pathological</i> means “in abnormal conditions”.
+            <br>Normally, a business should create value to generate revenue.
+            <br>But as Rory Sutherland says: in a company, the employees' main job is <i>ass covering</i>, revenue generation comes second<sup>[See <a href="https://link.springer.com/article/10.1007/s40685-018-0074-2" target="_blank">defensive decision making</a>]</sup>.
+        </p>
+
+        <p class="justify">
+            The natural consequence of the “<em>It's not my responsibility</em>” philosophy is the measurability fetish<sup>[see <a href="https://en.wikipedia.org/wiki/McNamara_fallacy" target="_blank">McNamara fallacy</a>]</sup>, which serves two purposes:
+        </p>
+        <ul>
+            <li>For employees: an illusionism-inspired method to deflect responsibility</li>
+            <li>For white collars: the illusion of having everything under control</li>
+        </ul>
+        <p class="justify">
+            Employees spend their energy creating the illusion that getting a number on the <i>measurability dashboard</i> takes exactly the 8 contractual hours (so they don't have to take on more responsibility).
+            <br>The white collars' job is to convince everyone that a dashboard full of made-up numbers is a reliable way to control the company, and to get angry when the numbers turn red.
+            <br><br>
+            Consulting that REALLY identifies and solves problems would destroy the balance of this ecosystem.
+            <br>On one side, removing a bottleneck forces employees to find new forms of <i>job illusionism</i>.
+            <br>On the other, for the white collar it's a responsibility, and one that challenges his authority as supreme controller of the dashboard.
+            <br>And we all know how the responsibility game works: if the consultant gets results, he takes the credit; if not, whoever hired him takes the blame.
+            <br><br>
+            The consultant that companies love is the one who touches neither the employees' work nor the dashboard.
+            <br>The classic 4h slide workshop, costing €500/1000/2000.
+            <br>Employees get 4 hours of paid vacation, white collars prove they're “<em>monitoring the digitalization of their staff</em>”.
+            <br>And then everything goes back to how it was.
+            <br>Perfect.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
+                <h4>Steve Jobs</h4>
+            </div>
+            <p class="justify">“<em>In enterprise the people that use the products don't decide for themselves and the people that make those decisions sometimes are confused</em>”</p>
+            <p class="source">— <a href="https://www.youtube.com/shorts/8XzigMYXJQM" target="_blank">Steve Jobs on the enterprise market</a></p>
+        </section>
+
+        <p class="justify">
+            Job Illusionism: pretending to work, to be in control, to earn your salary with commitment...
+            <br>(Which also explains corporate jargon as a stroke-inspired form of <i>speech illusionism</i>)
+            <br>A few months ago I wrote about the <a href="April Monthly Business Ahas.html#h1.4">lack of business proprioception</a> as an explanation for corporate incompetence, but it's only one piece of the puzzle: <b>PRETENDING to solve problems IS the job, and the first step to NOT solving problems is NOT knowing which problems exist</b>.
+            <br>A consultant who DOESN'T solve problems but gives the illusion of doing something worth €5K fits perfectly into the pathological company culture: the opposite is suspicious and unwelcome.
+            <br><br>
+            Which explains the state of the consulting market:
+        </p>
+        <ul>
+            <li>The consultant's technical skills don't matter. What matters is the ability to create the illusion that the work is worth the cost</li>
+            <li>Companies don’t skip good consultants <i>in spite</i> of their efficiency. They skip them <i>because</i> of it: solving a problem that frees up 5h a week creates... a 5h problem.</li>
+        </ul>
+        <p class="justify">
+            To get hired, everything unrelated to the actual consulting matters more.<sup>[See <a href="https://en.wikipedia.org/wiki/Elaboration_likelihood_model#Routes" target="_blank">Elaboration likelihood model</a>]</sup>.
+            <br>In Bolzano-Bozen, the secret is <i>speaking German</i>.
+            <br>75% of SMEs are German-speaking<sup>[<a href="https://www.regionaleconomy.eu/RePEc/pdf/6Q2/q6_2_2022_45-70.pdf" target="_blank">Regional Economy</a>]</sup> + South Tyrolean German speakers hate Italians<sup>[from my 26 years of experience]</sup> + German speakers prefer working with German speakers<sup>[<a href="https://www.phd-finance.uzh.ch/dam/jcr:f0a20da4-e89d-4b48-9ecd-791829cf5a35/seminar_ctbm_paper_garcia-appendini.pdf" target="_blank">Cultural Proximity and the Formation of Lending Relationships</a>]</sup> => if you speak German, you get hired even if you're a moron.
+            <br><br>
+            All in all, I bet it's a European problem (with N=1 province).
+            <br>Corporate Europe is different from corporate America: here, profits come after employees' comfort.
+            <br>Employees don't want a career, they want the comfort of a job rooted in the culture of the <i>posto fisso</i>, the <i>job for life</i>.
+            <br>Which would be fine if the balance didn't lean a bit too much toward workers and a bit too little toward the company (clashing with revenue generation).
+            <br>In practice, a consultant who solves problems is a threat to the foundations of European workplace tranquility.
+            <br><br>
+            Consulting only works in an ecosystem where:
+        </p>
+        <ul>
+            <li>The consultant arrives, acts, delivers results, leaves</li>
+            <li>The company is ready to receive, collaborate, move</li>
+        </ul>
+        <p class="justify">
+            Here, <i>culturally</i>, the <b>second</b> piece is missing.
+            <br>The problem isn't that companies <i>reject</i> the model.
+            <br>They're <i>structurally incompatible</i> with it.
+            <br>They're not in a hurry.
+            <br>They don't want to be in a hurry.
+            <br>Hurry is bad.
+            <br><br>
+            (Which explains why I waited almost 2 months for access to a company's database...)
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.webp" alt="">
+                <h4>Why hurry is suspicious</h4>
+            </div>
+            <p class="justify">Italy is a <a href="June Monthly Business Ahas.html#h1.1">low trust</a>, <a href="https://erinmeyer.com/books/the-culture-map/" target="_blank">relationship-first</a> society: a culture where trust isn't earned with proof or skills, but with time and relationships.
+                <br>That's why in Bolzano, speaking German opens doors before anything else.</p>
+        </section>
+
+        <h3 id="bpi-when-time-is-not-money">
+            <a href="#bpi-when-time-is-not-money">├─ BPI: when time is NOT money</a>
+        </h3>
+
+        <p class="justify">
+            There are 2 ways to increase profits:
+        </p>
+        <ul>
+            <li>Sell more</li>
+            <li>Spend less</li>
+        </ul>
+        <p class="justify">
+            And nobody thinks they can save €120K in a year by cutting 10h/month of work for 20 people paid €50/h gross.
+            <br><br>
+            In the BPI book I mentioned, the author explains how to calculate the cost savings of an improved process.
+            <br>And boy, is it non-trivial.
+            <br>Not difficult, but counterintuitive.
+            <br><br>
+            The real problem is accounting: there's no line item for <i>time gains</i>.
+            <br>Eliminating inefficiencies creates time, and time has no direct financial impact on a spreadsheet.
+            <br>That means that after a problem is solved, the <i>measurability dashboard</i> doesn't change and the white collar wonders if it was really worth it.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.webp" alt="">
+                <h4>On cost savings in the books</h4>
+            </div>
+            <p class="justify">Actually, <i>not all</i> cost savings show up in the books.
+                <br>Susan Page distinguishes two types:
+                <br>- Hard: headcount reduction
+                <br>- Soft: time saved by a process
+                <br><br>
+                The opening example of €120K saved with BPI?
+                <br>Soft savings: no one will ever see them.</p>
+        </section>
+
+        <p class="justify">
+            But it's worse than that.
+            <br>Solving problems creates time, which means that the real gain depends on how the company uses that new time.
+            <br>Which is impossible to put in the books, and, applying <a href="https://en.wikipedia.org/wiki/Parkinson%27s_Law" target="_blank">Parkinson's Law</a> to the office: <i>ALL tasks ALWAYS fill the 8 contractual working hours</i>.
+            <br><br>
+            For a pathological company, <b>process optimization is worth nothing</b>.
+            <br>In European comfort, nobody has the problem of “<em>too many things to do and too little time</em>”.
+            <br>The options are “<em>do it in 10h, plus 5h of slacking off</em>” or “<em>do it in 15h, with some swearing</em>”.
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>Truest of the stories</h4>
+            </div>
+            <p class="justify">My first automation sped up a company's bookkeeping.
+                <br>Despite clearing a 3-month backlog, we struggled to agree on a price... because the process is handled by one employee who does only that.
+                <br>From the owners' perspective the company didn't change, because being up to date with the books (despite being a legal requirement!) is just an operational detail: it doesn't increase revenue.</p>
+        </section>
+
+        <p class="justify">
+            Then there are the problems a company doesn't know it has<sup>[<a href="March Monthly Business Ahas.html#h1.2">U-U quadrant</a>]</sup>, or the <i>need</i> it doesn't know about.<sup>[<a href="September Monthly Business Ahas.html#h1.1">A company's wants are not always its needs</a>]</sup>
+            <br>“<em>How can a problem we didn't know we had improve my company? It's always worked!</em>” say the bosses of the worst-managed companies I've ever seen.
+            <br>On top of that: the worse a company is managed, the less aware it is of what good organization can do.
+            <br>And the more used it is to doing things badly, or “however they turn out”.
+            <br>And the less likely it is to measure its processes properly, to verify improvements or reallocate the saved time intelligently.
+            <br>And so on...
+            <br><br>
+            In short, this consulting approach selects companies that don't recognize the need for the service, can't measure its effectiveness, and don't know how to use the results.<sup>[<a href="https://en.wikipedia.org/wiki/Inverse_care_law" target="_blank">Inverse care law</a>]</sup>.
+            <br><br>
+            How did the ecosystem respond?
+            <br>With what I did in corporate: operational excellence, the <i>illusion of operational improvement</i>, <a href="https://x.com/Playerinthgame/status/2041573258382790810" target="_blank">operations corporate jargon</a>, the <a href="https://x.com/beaverd/status/2013366996180574446" target="_blank">McKinsey bullshit</a>.
+            <br>It has everything companies need:
+        </p>
+        <ul>
+            <li><i>Process control</i>: <a href="https://dynomight.net/slides/" target="_blank">presentations with hundreds of slides</a> that everyone understands (or pretends to). A simple, intuitive process: the white collar nods while the operators (pretend to) follow the presentation.</li>
+            <li><i>The appearance of measurability</i>: after 20 “<em>[Tutorial] How to be more efficient</em>” presentations, some little number out of 100 on the <i>measurability dashboard</i> will have turned green. Just take credit for it.<sup>[See <a href="https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc" target="_blank">Post hoc ergo propter hoc</a>]</sup>.</li>
+            <li><i>Tangible results</i>: <a href="https://www.improvesomething.today/responses-to-problems/" target="_blank">local optimization</a> is fine, even if a tangible result in one place makes things worse somewhere else. Nobody really measures these things anyway...</li>
+        </ul>
+
+        <p class="justify">
+            All tailored to <i>job illusionism</i>: perfectly understandable to whoever buys, apparently measurable to whoever measures, clearly controllable to whoever controls, easy to nod along to when reading the financial statements.
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>The emptiness of Operational Excellence</h4>
+            </div>
+            <p class="justify">Watch this: <a href="https://www.youtube.com/watch?v=aaQ1vjMWxrA" target="_blank">What are the five basic elements of operational excellence?</a></p>
+        </section>
+
+        <p class="justify">
+            If nobody can measure the gains, nobody can compete on results.
+            <br>No company goes around telling another “<em>the consultant who saved me 10h more than the other one!</em>”
+            <br>Which is why:
+        </p>
+
+        <h3 id="ai-is-the-worst-commodity">
+            <a href="#ai-is-the-worst-commodity">├─ AI is the worst commodity</a>
+        </h3>
+
+        <p class="justify">
+            Every company wants AI to “speed up”, “digitalize”, and other meaningless words.
+            <br>And as you can imagine, they know nothing about it.
+            <br>I even met a head of digitalization who had never touched an AI tool.
+            <br>But you know, I had to eat too.
+            <br>So to stay sellable without betraying my professional ethics, I positioned myself like this: <i>I offer to bring AI into the company, and if it's not needed, I solve the problem without it</i> (which is most of the time).
+            <br><br>
+            The second part didn't really affect the result: the magic word was “AI”.
+            <br>Managers even nodded when I presented plans for projects without it.
+            <br>I mean of course: these people don't know anything, they can barely tell a script from a Google Sheet.
+            <br>To them, one consultant is as good as another.
+            <br>That's why this kind of consulting is a commodity for all practical purposes.
+            <br><br>
+            So now the problem becomes: how do you sell this commodity?
+            <br>As Hormozi says: <a href="https://www.youtube.com/watch?v=zzleYxkf39k&t=615s" target="_blank">When you're selling a commodity, you're sowing seeds of doubt against the competition</a>.
+            <br>What he suggests is to play on:
+        </p>
+        <ul>
+            <li><b>Speed</b>: how fast you deliver the service</li>
+            <li><b>Risk</b>: how safe the customer feels with your service</li>
+            <li><b>Ease</b>: how easy it is for the customer to use your service</li>
+        </ul>
+
+        <p class="justify">
+            But a nasty mix of European-style work, AI ignorance, and Italian traditionalism makes ALL of it useless.
+            <br><br>
+            Talking to managers and consultants, I found out that companies are so used to waiting that it's no longer a problem.
+            <br>6 months is the same as 1 year when the work is done by an outsider.
+            <br>SMEs have no “<em>pressing quarterly results to hit</em>” anyway, and in 6-12-24 months they'll still be there, in their safe jobs.
+            <br>Hence speed is not a metric for comparison.
+            <br>Quite the opposite: tell them you're fast and they'll suspect they're about to get screwed.
+            <br><br>
+            On risk, it's hilarious.
+            <br>NOBODY knows what's going on in the AI world, most don't trust it and can't say why, and then 1-2 people in every office are completely AI-pilled.
+            <br>The main source of information for SMEs is Copilot updates, sometimes someone scrolling Instagram sees something about Palantir, and someone quotes numbers on AI-caused unemployment...
+            <br>And of course <i>nobody knows anything about legal matters</i>, GDPR or the EU AI Act, because as usual “<em>It's not my responsibility</em>”.
+            <br>So even mentioning GDPR is NOT an advantage: it sounds like an infomercial buzzword.
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>True story</h4>
+            </div>
+            <p class="justify">Once an employee stopped me during a break to tell me he was glad I was working for them because I'm a mathematician.
+                <br>When I asked what he meant, he said that as a mathematician I could explain to him what Palantir does.
+                <br>No fucking clue what he meant.</p>
+        </section>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>Another true story</h4>
+            </div>
+            <p class="justify">A marketing manager at a clothing brand spent €8,000 on a green screen to make 2 seconds of animation for an ad that didn't work.
+                <br>She explained: “<em>We didn't use AI because, I don't know, I don't like it much</em>”
+                <br>This is the situation: rather than use AI for a little 1-hour job and a handful of tokens, these people throw away €8,000 because “<em>I don't know, I don't trust AI</em>”</p>
+        </section>
+
+        <p class="justify">
+            On ease of use, there's a cooperation problem and a matter of work traditions.
+            <br>I've already discussed the cooperation problem: people in companies don't really work.
+            <br>Building a tool that solves problems and is simple to use requires the employees' collaboration: they have to explain the problem, I have to understand how technical they are (to build a tool that fits their skills), they have to explain the priorities of their tasks...
+            <br>A collaboration that's IMPOSSIBLE to get, and its lack ALWAYS caused delays and problems.
+            <br>On top of that, they're used to not having easy-to-use tools, because “<em>it's work, suffering is expected</em>”
+            <br>Hence the “<em>personalized easy-to-use tool</em>” feature gets the reply: “<em>Who cares. Everyone says that and then they suck, and we survived anyway</em>”
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>Again a true story!?</h4>
+            </div>
+            <p class="justify">I had to automate a task that edits .csv and .xls files: simple stuff.
+                <br>According to the boss it was the priority, because it cost the employee a lot of time.
+                <br>The employee never told me anything, never sent a screen recording, never sent a file, I literally saw nothing of his process...
+                <br>I don't even know if it's true and exists.
+                <br>For weeks I asked for updates while working on the company's other priorities.
+                <br>For <i>weeks</i>.</p>
+        </section>
+
+        <p class="justify">
+            European workplace tranquility, ignorant skepticism, and the philosophy of “🤷” make Bolzano's companies converge on the same non-solution: <i>unearned trust</i> (or the <i>illusion of reliability</i>).
+            <br>It comes in two flavors:
+        </p>
+        <ul>
+            <li>Being a big IT company > “<em>ImPosSIbLe NoT tO TrUsT ThEm!</em>”</li>
+            <li>Being a German speaker and selling to German-speaking companies > “<em>Mein Bruder, wir hassen Italiener</em>”</li>
+        </ul>
+
+        <p class="justify">
+            And, well, I'm neither of those.
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>Lots of true stories</h4>
+            </div>
+            <p class="justify">I talked to two fresh graduates from a big IT company.
+                <br>The company charges €50-60K to build <i>from scratch</i> AI tools that already exist, taking 6 months and fresh graduates paid peanuts.
+                <br>We're talking about projects that already exist as open source, with a license that allows this use, that would take, like, a couple of weeks to set up.</p>
+        </section>
+
+        <h3 id="the-italian-incentive-system">
+            <a href="#the-italian-incentive-system">├─ The Italian incentive system</a>
+        </h3>
+
+        <p class="justify">
+            In recent years, European and Italian funds have been allocated for the <i>digitalization</i> of companies.
+            <br>Where I live, such funds cover 40% to 100% of the cost of “AI adoption projects”<sup>[<a href="https://mycivis.civis.bz.it/it/Services/ServiceDetail/?id=3362" target="_blank">Promozione della digitalizzazione delle microimprese</a>, <a href="https://ntplusfisco.ilsole24ore.com/art/AERw24UD" target="_blank">Progetti di innovazione</a>]</sup>.
+            <br><br>
+            In Italy, when <i>funds</i> and <i>incentives</i> show up, the usual happens:
+        </p>
+        <ul>
+            <li>Many reinvent themselves as <i>consultants</i> and charge sky-high rates, because companies pay with incentives anyway</li>
+            <li>Consulting agencies take advantage of both companies and fresh graduates: a luxury price tag (typically €2K per 4h for AI workshops) for “<em>training workshops</em>” (or as the people running them say: <i>improvised</i>) delivered by fresh graduates paid €10-20/h.</li>
+            <li>Various bodies spend hundreds of thousands of euros in funds on conferences, meetups, meetings... all useless. Events with 5-10 people that become “<em>Great successes</em>” in the newsletter</li>
+        </ul>
+
+        <p class="justify">
+            For anyone fluent in economics it's obvious: game theory 101.
+            <br>But with 26 years of experience as an Italian plus some time abroad, I find that here these dynamics are... “<em>dirtier</em>”, worse than in other countries.
+            <br>Here the shortcut radar comes preinstalled in people's brains, especially for turning public money into cash.
+            <br>The same thing happened with the building bonuses<sup>[<a href="https://www.eutekne.info/Sezioni/Articolo.aspx?ID=1001350" target="_blank">Frodi per 15 miliardi</a>]</sup>, with training incentives<sup>[<a href="https://www.ilgazzettino.it/schede/finti_crediti_formazione_5_aziende_sequestro_660mila_euro_udine-8869846.html" target="_blank">Finti crediti per la formazione, sequestrati 660mila euro</a>]</sup>, and with the PNRR funds<sup>[<a href="https://www.thelocal.it/20240408/italy-has-most-recovery-fund-fraud-cases-in-eu-report-finds" target="_blank">Italy has most recovery fund fraud cases in EU</a>]</sup>...
+            <br><br>
+            <b>Italy is dirty</b>.
+            <br>Business has gotten so used to it that it no longer recognizes clean: playing clean is <i>hard mode</i> and sadly nobody dreams of a better business ecosystem.
+            <br>Everyone lives on guard, playing by the rule “<em>Screw or be screwed</em>”<sup>[The <a href="September Monthly Business Ahas.html#h1.1">Juicer Business</a> philosophy]</sup>.
+            <br>No surprise, then, that incentives spawn lots of consultants playing the traditional Italian entrepreneur: costs a lot, does little, zero impact.
+            <br>And no surprise that a fairly priced, fast, efficient consultant is rejected by the system...
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>True story</h4>
+            </div>
+            <p class="justify">Let's say that you have a €20K voucher, free money from the State
+                <br>How would you use it?
+                <br>Perhaps to improve your company?
+                <br>Well, in Italy a company paid a guy I know €20K on the spot for 100h of workshops, without knowing the topics, fully covered by incentives.
+                <br>Because that's how the system works: consultants have never “solved problems”, their workshops have become company traditions</p>
+        </section>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>I AM a whiny bitch</h4>
+            </div>
+            <p class="justify">“<em>Why don't you use traditions to make money then?</em>”
+                <br>You're picturing “100h of workshops for €20K” the wrong way.
+                <br>It's 100h of people doing sudoku in the back row because they don't give a fuck
+                <br>It's 100h of pain in the ass, explaining what an agent is to someone who doesn't care and will never use one.
+                <br>It's 100h of overpaid employee work.
+                <br>I don't want that kind of money, I wanted to, you know, <i>help companies</i>
+                <br>100h of <i>serious work</i> would be AMAZING, but that's not what these are</p>
+        </section>
+
+        <p class="justify">
+            Of course: the system works as intended.
+            <br>Companies are happy to throw money at useless workshops, and consultants are happy to make €200/h with an improvised presentation.
+            <br>My point is: I don't like this system, I don't want to work in this system.
+            <br>This system can take companies and consultants and shove them up its ass.
+        </p>
+
+        <h3 id="execution-vs-business-model">
+            <a href="#execution-vs-business-model">└─ Execution vs business model</a>
+        </h3>
+
+        <p class="justify">
+            <a href="https://youtu.be/pkgLiW9C8Os?t=252" target="_blank">Sharran Srivatsaa</a> makes a good point: one of the most common mistakes people make when they quit a venture too early is not figuring out whether the problem is the business model or the execution.
+            <br>If a comparable company is making the same model work, the problem is execution.
+            <br><br>
+            In this case... it's a matter of perspective...?
+            <br><br>
+            Are there “<em>AI automation problem solving</em>” consultancies that work?
+            <br>Sure!
+            <br>Ever since Claude Code came out, they've been popping up everywhere, copying from YouTube videos.
+            <br>But is it the same business model?
+            <br>Not really...
+            <br><br>
+            They're “consultants”, but they don't solve problems.
+            <br>Their business model runs on <b>information asymmetry</b>: the company doesn't know its €20K solution is junk vibecoded in 20 minutes.
+            <br>That's the <a href="September Monthly Business Ahas.html#h1.1">Juicer Business</a> model, not what I wanted to build.
+            <br><br>
+            My goal was to maximize value for the company by solving its problems.
+            <br>Not to squeeze it for as much money as I could.
+            <br>The two are different in practice and, above all, <i>ethically</i>.
+            <br>Every consultant in the “<em>true stories</em>” is someone I met, and none of them has any scruples.
+            <br>They're fine with (their words) “<em>improvising workshops, they don't understand anything anyway</em>” or “<em>knocking out a little script with Claude Code, that'll do for them</em>”.
+            <br>Their mission is to fill their pockets and run.
+            <br><br>
+            I have yet to come across a clean, working version of this business model: the one I wanted to build.
+            <br>Shamelessness is a competitive advantage my model didn’t have.
+            <br><br>
+            I know this approach to operational improvement works well in-house, because I talked to the head of an in-house AI implementation group at a large company.
+            <br>It works so well that over the last 2-3 years the team has grown to about ten people.
+            <br>No surprise there, since it fixes what's wrong with the consulting model:
+        </p>
+        <ul>
+            <li><i>It's measurable</i>: they close tickets opened by other employees and run ongoing training, so the manager can count tickets closed and sessions delivered.</li>
+            <li><i>It costs less than consulting</i>: obviously, since they're employees. Above all, it's a clear, predictable cash flow.</li>
+            <li><i>It compounds</i>: the solutions keep evolving and improving, whereas with consultants, companies avoid touching them because it would cost too much.</li>
+        </ul>
+
+        <p class="justify">
+            So the idea works as a department, not as a consulting model.
+            <br>Or at least not in this market.
+            <br><br>
+            That said, on the execution side, more leverage would have helped me compete against those who play the <i>squeeze game</i>:
+        </p>
+        <ul>
+            <li><b>Firepower</b>: a team of 3-5 people aligned on the mission (and <i>ethically</i>) would have made us look more reliable and professional, let us take on bigger, better-paid, higher-impact problems, and kept morale up.</li>
+            <li><b>Track record</b>: in a country that rewards hierarchy and seniority instead of innovation and risk, being “<em>a young mathematician giving it a shot</em>” isn't enough.</li>
+        </ul>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/warning.webp" alt="">
+                <h4>It's not just a headcount problem</h4>
+            </div>
+            <p class="justify">I've seen founders my age running companies with 5-10 employees.
+                <br>And there's no way around it: they run the same Italian-style <i>squeeze</i> model.
+                <br>My point is: it's not ONLY about firepower.
+                <br>With 4 or 5 of us we might have made more money, but building something this new in Italy still wouldn't have been easy without the squeezing part.</p>
+        </section>
+
+        <p class="justify">
+            In short, my ambitions turned out to be bigger than my ability to pull them off.
+            <br>This is a business model in a hostile environment (<i>job illusionism</i>) that's also hard to run (new problems with every client).
+            <br>Creating a new kind of consulting, and getting a market like this to see its value, is not easy.
+            <br>Let alone on my own.
+        </p>
+
+        <h2 id="why-i-quit">
+            <a href="#why-i-quit">Why I quit</a>
+        </h2>
+
+        <p class="justify">
+            Out of disgust.
+            <br><br>
+            I'm disgusted by <i>those</i> companies that hire <i>those</i> consultants (basically my “bosses”).
+            <br>I'm disgusted by the other consultants (basically my “colleagues”).
+            <br>I'm disgusted that European incentives end up like this.
+            <br>I'm disgusted by the Italian way of working.
+            <br>I'm disgusted by German-speaking favoritism.
+            <br>I'm disgusted by everything I touched, saw, heard.
+            <br><br>
+            Adapting to this meant becoming part of the disgust: unacceptable.
+            <br>I would have felt like I was robbing companies, making money by taking them for fools, wrecking my reputation.
+            <br>Like becoming Microsoft when I wanted to become Steam.
+            <br>Like making a deal with <a href="https://slatestarcodex.com/2014/07/30/meditations-on-moloch/" target="_blank">Moloch</a>, for fuck's sake.
+        </p>
+
+        <section class="callout">
+            <div class="box-title">
+                <h4>Even when it works, it disgusts me...</h4>
+            </div>
+            <p class="justify">The head of the in-house department I mentioned works for a BIG, well-known company.
+                <br>ALLEGEDLY, they also use AI for dynamic pricing, based on data about the client company's purchasing manager, the financial health of his company, past purchases...
+                <br>I pointed out: “<em>I'm sorry, but you can't (fucking) use that data that way</em>”<sup>[For my fellow Europeans: <a href="https://gdpr-info.eu/art-22-gdpr/" target="_blank">Art. 22 GDPR</a>, <a href="https://gdpr-info.eu/art-6-gdpr/" target="_blank">Art. 6 GDPR</a>]</sup>
+                <br>His prompt reply: “<em>But we don't AUTOMATE it: the seller can decide whether to use this strategy or not</em>”
+                <br>Which, under the <a href="https://www.aepd.es/en/press-and-communication/blog/evaluating-human-intervention-in-automated-decisions" target="_blank">WP251 Guidelines</a>, is considered a “<em>token gesture</em>” and doesn't count.
+                <br><br>
+                I do not like this shit. I do NOT like this.</p>
+        </section>
+
+        <p class="justify">
+            Some people <a href="https://ludic.mataroa.blog/blog/the-worlds-left-to-conquer/" target="_blank">draw strength from disgust</a><sup>[What a great FUCKING post]</sup>
+            <br>But my naive, ethics-driven ass didn't.
+            <br>I'll save the “<em>economic violence</em>”<sup>[<a href="https://ludic.mataroa.blog/blog/the-worlds-left-to-conquer/" target="_blank">READ THAT POST</a>]</sup> for better days.
+        </p>
+
+        <h2 id="by-the-numbers">
+            <a href="#by-the-numbers">By the numbers</a>
+        </h2>
+
+        <ul>
+            <li>~1 year of activity</li>
+            <li>~€10K revenue from 5 paid projects</li>
+            <li>~€200 in tools and API costs</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="what-i-would-have-done-differently">
+            <a href="#what-i-would-have-done-differently">What I would have done differently</a>
+        </h2>
+
+        <p class="justify">
+            What annoys me most is that it took me about a year to figure out it doesn't work.
+            <br>(Truth is, I took it easy: the plan was to start another project a few months later, on a pinkie promise from other people... see TH)
+            <br>Even with the long Italian bureaucratic waits, I feel like I could have squeezed all of this into 6 months.
+            <br><br>
+            Given how ambitious the project was, the change with the most impact would have been a team to share vision, professional ethics, and support with.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Remark</h4>
+            </div>
+            <p class="justify">A friend told me that, if I wanted, I could work at the electrical distribution company he works for, with the idea of building tools for that kind of company.
+                <br>It happened when I had already declared this project dead, so I didn't even consider it.
+                <br>But above all: I do NOT have a team to build an enterprise tool.
+                <br>And I don't know anyone to do this with: my university colleagues now have the worst jobs in banks and corporate, and I'm sure as hell not asking the other consultants for a hand.
+                <br>I LACKED FIREPOWER</p>
+        </section>
+
+        <p class="justify">
+            I should have defined a better target: more agile, less old, more open to the collaborative relationship my consulting needs.
+            <br>Maybe startups, maybe tiny companies, maybe single teams, maybe one specific sector...
+            <br>Since it works in-house, maybe get hired by a startup to manage fast growth.
+            <br>Clearly, the typical consulting acquisition journey (workshop at a training institution, specific workshop, implementation) doesn't select the right target.
+            <br><br>
+            I should have aimed for a <i>painkiller</i> product: generic “problem solving” is clearly a <i>multivitamin</i> (“<em>What problems? My company works great!</em>”).
+            <br>An interesting direction is the one I encountered in a workshop with ~10 C-levels of a company: their problems are specific (producing one particular type of report), expensive, urgent.
+            <br>(Operators' problems, alas, interest nobody...)
+            <br><br>
+            I should have made the service and its results easier to understand.
+            <br>If you got this far and still haven't figured out what I was doing... yeah, exactly.
+            <br>I saw versatility as an advantage, but it doesn't help anyone understand the product.
+            <br>When I helped my friend, being a generalist worked: there was trust, I had control over timing, costs and decision making, and I knew which solution would turn things around.
+            <br>But with companies, what works is “<em>I'll do X, you'll gain Y, it costs €Z</em>” (OBVIOUSLY)
+            <br>A good example to learn from is Nick Sonnenberg, author of <a href="https://comeupforair.com/" target="_blank">Come Up for Air</a>: he sells the solution (method + implementation) to a clear problem (messy company communication).
+            <br>Companies understand the problem, know they have it, want a solution, and buy.
+            <br><br>
+            The same goes for <i>comparability</i>: nobody has ever said “<em>Company X has fewer generic problems than company Y. That's thanks to the consulting of...</em>”.
+            <br>Nobody even brags about their company's operations: you'll never hear a C-level say “<em>You know we just fixed a bottleneck?</em>” (unless he's Elon Musk, of course).
+            <br>But I can easily picture two C-levels having a drink and saying “<em>My company now has a new communication system. Everything is well managed and AI helps us split up the tasks...</em>”, and the other replying “<em>Oh cool, how did you implement it?</em>”.
+            <br>Comparability looks like a good test for whether a product can be sold.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Remark</h4>
+            </div>
+            <p class="justify">Despite a couple of swears, I might come across as someone calm and analytical about this topic
+                <br>BUT I AM NOT
+                <br>The disgust and dysfunction of what I saw, along with my own naivety, drive me crazy and piss me off (at myself too)
+                <br>It took a big effort to sit down and analyze everything calmly, realizing that maybe some HR person will read this post, so it's better not to fill it with (too many) swear words</p>
+        </section>
+
+        <hr>
+
+        <h2 id="what-i-am-taking-away">
+            <a href="#what-i-am-taking-away">What I am taking away</a>
+        </h2>
+
+        <p class="justify">
+            It was an idealistic attempt to turn a passion (obsession) into a business.
+            <br>The work was solid, while the selling was naive: generic, unpackaged, no leverage behind it.
+            <br>Sold like that, it could at best have ended up as what the proto-consultants I met are doing.
+            <br>So for now, my obsession with organization and my analytical approach to business are co-founder traits, not a product.
+            <br>Productizing them is a different project.
+            <br><br>
+            On the “<em>business management</em>” side, one thing is crystal clear: <i>corporate rules give corporate results</i>.
+            <br>An outside consultant can't fix a pathological company's problems if the company isn't ready to change the rules it runs on.
+            <br><br>
+            The most important and powerful lesson from this experience: if random guys manage to sell something they have NO experience in and NO understanding of, and make money from it, then so can I.
+            <br>Maybe what makes it easy for them is having no scruples and no shame, but that can't become my excuse.
+            <br><b>If the incompetent can sell, so can I</b>.<sup>[See Brand Storyfication]</sup>.
+            <br><br>
+            One thing I like about this kind of project is that it's not really a failure the way getting fired from a job would be.
+            <br>I now have a much deeper and clearer understanding of this attempt, and that stays.
+            <br>If tomorrow I run into the right situation, the right people, the right moment...
+            <br>I can reopen this project and avoid every mistake I made.
+            <br>That's real compounding.
+        </p>
+
+        <hr>
+
+        <h2 id="would-i-do-it-again">
+            <a href="#would-i-do-it-again">Would I do it again?</a>
+        </h2>
+
+        <p class="justify">
+            Yes, but shorter.
+            <br><br>
+            This project mattered because it made me crash into how the world really works.
+            <br>It is not enough:
+        </p>
+        <ul>
+            <li>Being passionate/obsessed</li>
+            <li>Having clueless, ignorant competitors</li>
+            <li>Having a valuable service/product in your hands</li>
+        </ul>
+        <p class="justify">
+            The world is an <i>extremely</i> complex system where many other things have to happen to make a business work.
+            <br><br>
+            Yes, yes: “<em>Every motivational TikTok with slowed-down background music tells you that!</em>”
+            <br>Right
+            <br><i>But it's one of those things people (or at least I) have to experience firsthand.</i>
+        </p>
+
+    </div>
+    </main>
+
+    <!-- Footer disabled for now — uncomment to restore. -->
+    <!--
+    <script src="../javascript/footer.js"></script>
+    -->
+</body>
+
+</html>

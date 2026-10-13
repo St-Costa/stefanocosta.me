@@ -30,7 +30,7 @@ qui sotto. **Nessuna comodità vale il costo di esporre gli IP dei visitatori a 
 ### Al loro posto
 | Vuoi inserire… | Fai così |
 |---|---|
-| **Un tweet** | Screenshot in `img/blog/<Nome Post>/`, dentro `<a class="tweet-shot" href="<url del tweet>">`. L'`alt` riporta **il testo del tweet**, non "screenshot di un tweet" (vedi sotto). |
+| **Un tweet** | Screenshot in `img/blog/<Nome Post>/`, dentro `<a class="tweet-shot" href="<url del tweet>">`. L'`alt` riporta **il testo del tweet**, non "screenshot di un tweet" (vedi sotto). Per generarli si usa `https://convertico.com/tweet-to-image/` (incollare l'URL del tweet, verificare che il testo sia integrale e non troncato, poi ritagliare bordi/trasparenze e convertire in WebP a ~2x la dimensione di rendering). |
 | **Una copertina** (libro, podcast, album) | Scaricala in `img/covers/`, WebP a ~2x la dimensione di rendering. Il `<a>` continua a linkare la fonte. |
 | **Un'immagine da un altro sito** | Scaricala in `img/`. Se la licenza non lo permette, non usarla: linkala e basta. |
 | **Un video** | Link testuale, non embed. |
@@ -616,7 +616,9 @@ stanno ora in `base.css` fra le regole base e le media query. Non ricrearlo come
 Tutti i `<fieldset>` usati a scopo decorativo (`.briefAboutMe`, `.toc`, `.tldr`, `.callout`,
 `.explanation_box`) sono stati sostituiti da `<section>`/`<div>`. L'effetto del `<legend>`
 flottante sul bordo è replicato con `.box-title { position: absolute; top: 0; left: 50%;
-transform: translate(-50%, -50%); }` su un contenitore `position: relative`. Il `.toc` usa un
+transform: translate(-50%, -50%); }` su un contenitore `position: relative`. Il `.box-title` ha
+`max-width: calc(100% - 1.4em)` con testo centrato e **senza** `nowrap`: i titoli lunghi
+(es. attribuzioni nei callout) vanno a capo restando dentro il bordo invece di strabordare. Il `.toc` usa un
 `.toc-scroll` interno per gestire `overflow-y: auto` senza tagliare il `.box-title`.
 
 ### Link "Colophon" nel footer
