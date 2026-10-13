@@ -159,7 +159,18 @@ a.noTarget { background: none !important; }
     transform: translate(-50%, -50%);
     padding: 0 0.3em;
     background-color: var(--background-color);
-    white-space: nowrap;
+    /* Long titles (e.g. callout attributions) wrap centered instead of
+       overflowing the box: nowrap would push them past the border. */
+    max-width: calc(100% - 1.4em);
+    text-align: center;
+    /* Flex keeps a leading icon (quotes/warning) vertically centered next
+       to the text: without it the icon stays inline and ends up alone on
+       the first line when a long title wraps. Single-child titles are
+       unaffected (the child just fills the row). */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
 }
 
 .box-title h1, .box-title h2, .box-title h3,

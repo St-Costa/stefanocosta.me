@@ -334,3 +334,16 @@ body ul {
     border-color: var(--link-color);
 }
 
+/* Tweet screenshot with its caption directly underneath: the default
+   .tweet-shot bottom margin leaves the caption floating too far from the
+   image, while the caption itself sits almost glued to the next paragraph.
+   Pull the caption nearer the image, push the paragraph further down. */
+a.tweet-shot:has(+ .center-padding) {
+    margin-bottom: 18px;
+}
+
+.tweet-shot + .center-padding {
+    padding-top: 10px;
+    padding-bottom: 26px;
+}
+
