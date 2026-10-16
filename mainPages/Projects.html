@@ -25,12 +25,55 @@
 
 </head>
 
-<body>
+<body class="project_list">
     <main>
 
     <h1 class="title">Projects</h1>
 
     <h2>2026</h2>
+
+    <div class="list_div bottom_space_big" id="THDrafting">
+        <img width="512" height="512" class="project_type_logo" src="../img/icon/th-drafting.webp" alt="TH Drafting" loading="lazy">
+        <h3 class="inline">TH Drafting,</h3>
+        <h4 class="inline"><i>Multi-Agent Pipeline</i></h4>
+        <h5 class="left not_so_bold bottom_space"></h5>
+        <p class="bottom_space justify">
+            I tried to found a publishing house with a storytelling expert. Its editorial strategy rested on one
+            finding: according to <a
+                href="https://www.istat.it/comunicato-stampa/libri-e-biblioteche-abitudini-di-lettura-e-frequentazione-anni-2024-e-2025/"
+                target="_blank">ISTAT</a>, the most common reason Italians don't read is that they find it boring.
+            Using what we learned from the <a href="Failure_resume.html#WritingCoach">writing coach experience</a>, we
+            designed a detailed story structure and a specific prose style, so that our books would be page-turners
+            built to fix that problem.
+            <br>
+            While optimizing the writing process, we found the slowest part: turning structured scenes into a first
+            draft. I tested the existing routes first: GPT-4o via API, then <a href="https://www.novelcrafter.com/"
+                target="_blank">Novelcrafter</a>. Results improved as models got better, but two problems stayed:
+            context management and rulebook enforcement.
+            <br>
+            So I built this tool, which writes the first draft fully automatically. It runs with a supervisor-worker
+            topology: a lead agent orchestrates its specialists over a fixed graph of stages, with fan-outs to parallel
+            reviewers and capped rewrite loops.
+            <br>
+            The only model-made decision is the scene plan: which specialists, how many rewrite cycles, and what to
+            focus on. Everything else is deterministic code. Each specialist gets its own model, cheap for the light
+            steps and frontier where quality matters. Prompt caching keeps the bill low, with tokens and costs tracked
+            per scene.
+            <br>
+            I kept the story bible, the canon and the run artifacts as plain files to monitor every step, which let me
+            refine rules and agents, cut token consumption and let the pipeline improve itself.
+            <br>
+            The hardest part, which took months of trial and error, was turning the theory into a structured rulebook.
+            Part of it is checked by deterministic linters, and each agent role has its own eval suite built on real
+            material.
+            <br>
+            The result: a book went from 3-4 months to about two weeks, one week of structuring (outside this tool)
+            plus ~20 hours correcting the first draft.
+            <br>
+            <b>NOTE</b>: the point was NOT to generate slop. It was to get a solid first draft fast, so our limited
+            time could go into the corrections, where raising quality takes far less time than writing from scratch.
+        </p>
+    </div>
 
     <div class="list_div bottom_space_big" id="MyGymAppServer">
         <img width="256" height="256" class="project_type_logo" src="../img/icon/mygymapp.webp" alt="MyGymApp Sync Server" loading="lazy">
@@ -70,6 +113,7 @@
         <p class="bottom_space justify">
             I am an HN junkie who could spend 2h/d on the top page, so I built a pipeline that filters posts on my interests into an RSS feed.
             Then I did this with a lot of other content.
+            It's an evolution of the <a href="#AIContentCuration">AI Content Curation</a> project below.
         </p>
         <p class="justify">The pipeline runs on Claude Code scheduler (no API costs, and I don't waste the 40% of weekly unused tokens) and splits into two phases:</p>
         <ul class="content_list">

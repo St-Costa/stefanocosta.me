@@ -312,10 +312,18 @@ figure figcaption { text-align: center; }
 /* Square logo indicating the tech/type of a project, shown next to its title */
 .project_type_logo {
     display: inline-block;
-    width: 46px;
-    height: 46px;
+    width: 60.5px;
+    height: 60.5px;
     object-fit: contain;
     vertical-align: middle;
+    /* Optical centring on the h3 sharing its line. `middle` aims at the
+       x-height middle of the parent (0.55em / 2 = 0.275em). The optical
+       centre of a mixed-case heading sits at (x-height + cap-height)/4 =
+       0.32em of the h3, whose size is 1.287em (see the 10% bump in the
+       body.project_list block) → 0.32 × 1.287em. Offset required:
+       0.32 × 1.287 − 0.275 = 0.137em. */
+    position: relative;
+    top: -0.137em;
     margin-right: 10px;
     border-radius: 5px;
 }
@@ -364,6 +372,25 @@ figure figcaption { text-align: center; }
     margin-bottom: 5px;
     margin: auto;
 }
+
+/* Projects page and Failure résumé: the two pages whose entries pair a
+   .project_type_logo with a title. Same side gutters as current-format
+   blog posts (blog.css: 9.6% desktop, 1% under 950px) and entry headings
+   10% above the UA defaults. Keyed on a body class because the other
+   .list_div pages (academic subpages) keep the base sizes. */
+body.project_list {
+    margin-left: 9.6%;
+    margin-right: 9.6%;
+}
+@media only screen and (max-width: 950px) {
+    body.project_list {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    body.project_list .list_div { margin-left: 0; }
+}
+body.project_list .list_div h3.inline { font-size: 1.287em; }
+body.project_list .list_div h4.inline { font-size: 1.1em; }
 
 .bottom_space          { margin-bottom: var(--space-sm); }
 .bottom_space_big      { margin-bottom: var(--space-md); }
