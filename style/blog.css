@@ -30,16 +30,38 @@
 .callout p {
     padding-left: 0;
 }
+/* Callout title behaves like a real <legend>: it sits IN the flow (not
+   absolute), pulled up by a negative margin so its first line straddles the
+   top border. A title that wraps grows downward and pushes the quote down,
+   instead of covering the text above and inside the box.
+   Margins derive from the first line's half-height (--callout-title-half):
+   with a one-line title the layout is identical to the old absolute one. */
+.callout {
+    /* Match the TL;DR box-title size (h3 ≈ 1.17em of body): callout titles
+       ("Example", "NOTE", …) must be as large as TL;DR, not smaller. */
+    --callout-title-size: 1.17em;
+    --callout-title-lh: 1.3;
+}
 .callout .box-title {
+    --callout-title-half: calc(var(--callout-title-size) * var(--callout-title-lh) / 2);
+    position: static;
+    transform: none;
+    width: fit-content;
+    max-width: 100%;
+    margin: calc(-1.4em - var(--callout-title-half)) 0 calc(1.4em - var(--callout-title-half)) -0.8em;
     font-style: normal;
-    left: 0.7em;
-    transform: translateY(-50%);
+    text-align: left;
+    justify-content: flex-start;
+    /* Icon aligned with the first line, not centered on the whole block. */
+    align-items: flex-start;
+}
+.callout .box-title img {
+    margin-top: calc(var(--callout-title-half) - 16px);
 }
 .callout h4 {
     display: inline-block;
-    /* Match the TL;DR box-title size (h3 ≈ 1.17em of body): callout titles
-       ("Example", "NOTE", …) must be as large as TL;DR, not smaller. */
-    font-size: 1.17em;
+    font-size: var(--callout-title-size);
+    line-height: var(--callout-title-lh);
 }
 .callout .source,
 .callout_empty .source {
@@ -268,10 +290,6 @@ body ul {
     body h4 {
         margin-left: 0;
     }
-    /* Scaled with em (same as desktop): tracks the body font ramp in base.css. */
-    .callout h4 {
-        font-size: 1.17em;
-    }
     .callout,
     .callout_empty {
         margin-left: 0;
@@ -347,3 +365,9 @@ a.tweet-shot:has(+ .center-padding) {
     padding-bottom: 26px;
 }
 
+/* Phone: smaller callout titles, so long attributions wrap onto fewer lines. */
+@media only screen and (max-width: 768px) {
+    .callout {
+        --callout-title-size: 1em;
+    }
+}

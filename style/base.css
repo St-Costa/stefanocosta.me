@@ -126,6 +126,15 @@ a[target="_blank"]:hover {
     background-size: 10px 10px;
 }
 
+/* Image links (tweet shots, covers, social icons) never get the external-link
+   icon: the image already signals the link. :hover listed too, to beat the
+   higher-specificity hover rule above. */
+a[target="_blank"]:has(img),
+a[target="_blank"]:has(img):hover {
+    padding-right: 0;
+    background: none;
+}
+
 /* !important needed: overrides a[target="_blank"] background with same specificity */
 a.noTarget { background: none !important; }
 

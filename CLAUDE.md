@@ -41,6 +41,10 @@ qui sotto. **Nessuna comodità vale il costo di esporre gli IP dei visitatori a 
 debole di questa scelta: trasformando una citazione in immagine, il testo sparisce per gli
 screen reader e dalla ricerca nella pagina. Trascriverlo nell'`alt` lo rimette a posto.
 
+L'iconcina "link esterno" di `a[target="_blank"]` **non** compare sui link che contengono
+un'`<img>` (regola `:has(img)` in `base.css`): per tweet, copertine e icone non serve più
+aggiungere `class="noTarget"`.
+
 I normali `<a href="https://...">` verso altri siti sono **liberi**: sono link, il browser
 non contatta nessuno finché non ci clicchi.
 
@@ -618,7 +622,12 @@ Tutti i `<fieldset>` usati a scopo decorativo (`.briefAboutMe`, `.toc`, `.tldr`,
 flottante sul bordo è replicato con `.box-title { position: absolute; top: 0; left: 50%;
 transform: translate(-50%, -50%); }` su un contenitore `position: relative`. Il `.box-title` ha
 `max-width: calc(100% - 1.4em)` con testo centrato e **senza** `nowrap`: i titoli lunghi
-(es. attribuzioni nei callout) vanno a capo restando dentro il bordo invece di strabordare. Il `.toc` usa un
+(es. attribuzioni nei callout) vanno a capo restando dentro il bordo invece di strabordare.
+Eccezione: nel `.callout` (`blog.css`) il `.box-title` **non** è absolute ma sta nel flusso,
+come una `<legend>` vera: un margine negativo porta la prima riga a cavallo del bordo, e un
+titolo che va a capo cresce verso il basso spingendo giù la citazione invece di coprirla.
+I margini derivano da `--callout-title-size`/`--callout-title-lh` (su telefono, ≤768px, il
+titolo scende a `1em`): cambiando dimensione del titolo, cambiare quelle variabili. Il `.toc` usa un
 `.toc-scroll` interno per gestire `overflow-y: auto` senza tagliare il `.box-title`.
 
 ### Link "Colophon" nel footer
