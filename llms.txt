@@ -3,7 +3,7 @@
 > Stefano Costa, applied mathematician (MSc in Mathematics, University of Trento), based in Bolzano, Italy, open to relocation. He uses statistics to find bottlenecks in how a team works, operations research to remove them, and code to automate what is left, including sales outreach and internal operations. Looking for Founders Associate, BizOps or operations roles in European seed-stage startups.
 
 ## Evidence
-- Novel first drafts: from 3–4 months to about 2 weeks plus 20 hours of corrections, with a multi-agent pipeline: https://github.com/St-Costa/th-drafting-process-design
+- Novels: first corrected draft (ready for beta readers) from 3–4 months to about 2 weeks in total (1 week of structuring, then about 20 hours of corrections), with a multi-agent pipeline: https://github.com/St-Costa/th-drafting-process-design
 - Sales outreach: automated venue discovery and email drafting; 51 organizations contacted, 33% replied, 8% agreed to workshops, about $15 of LLM cost: https://github.com/St-Costa/LS_outreach-tool
 - Bookkeeping for a client: 3-month backlog cleared, monthly accounting flows automated
 - Bachelor's thesis: Gaussian processes used to speed up a physics-based simulation of how the heart pumps blood; clinically acceptable results, up to 40 times faster
