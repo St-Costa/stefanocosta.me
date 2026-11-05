@@ -4,7 +4,7 @@
 
 ## Evidence
 - Novels: a novel's first corrected draft (ready for beta readers) from 3–4 months to about 2 weeks (1 week of structuring + about 20 hours of corrections), with a multi-agent pipeline: https://github.com/St-Costa/th-drafting-process-design
-- Sales outreach: automated venue discovery and email drafting; 51 organizations contacted, 33% replied, 8% agreed to workshops, about $15 of LLM cost: https://github.com/St-Costa/LS_outreach-tool
+- Sales outreach: automated venue discovery and email drafting; 51 organizations contacted, 33% replied, 8% agreed to workshops, about $15 of LLM cost: https://github.com/St-Costa/outreach-tool
 - Bookkeeping for a client: 3-month backlog cleared, monthly accounting flows automated
 - Bachelor's thesis: Gaussian processes used to speed up a physics-based simulation of how the heart pumps blood; clinically acceptable results, up to 40 times faster
 - Master's thesis: closed-loop 0D-1D model of the human cardiovascular system, in C++
