@@ -1,4 +1,5 @@
 .wrangler/
+.cloudflare/
 .claude/settings.local.json
 # Credenziali: mai nel repo, solo env (vedi CLAUDE.md "File pesanti e R2").
 .env
