@@ -119,14 +119,14 @@ def check_page(path, html):
     ogimg = re.search(r'property="og:image" content="([^"]+)"', html)
     if ogimg:
         url = ogimg.group(1)
-        if url.startswith("https://stefanocosta.me/"):
-            local = urllib.parse.unquote(url.replace("https://stefanocosta.me/", ""))
+        if url.startswith("https://costeve.com/"):
+            local = urllib.parse.unquote(url.replace("https://costeve.com/", ""))
             if not os.path.exists(os.path.join(ROOT, local)):
                 err(rel, f"og:image punta a un file inesistente: {url}")
         else:
-            err(rel, f"og:image deve stare su stefanocosta.me (niente terze parti): {url}")
+            err(rel, f"og:image deve stare su costeve.com (niente terze parti): {url}")
 
-    # Niente http:// in chiaro: il sito è servito in HTTPS (GitHub Pages + CNAME).
+    # Niente http:// in chiaro: il sito è servito in HTTPS (Cloudflare Pages).
     # Gli xmlns dei namespace SVG (xmlns="http://...") non usano href/src e
     # restano fuori da questo controllo di proposito.
     for m in re.finditer(r'(?:href|src)\s*=\s*"http://[^"]+"', html):
@@ -342,7 +342,7 @@ def check_sitemap_robots():
     locs = re.findall(r"<loc>(.*?)</loc>", open(sm, encoding="utf-8").read())
 
     def loc_to_file(loc):
-        p = urllib.parse.unquote(loc.replace("https://stefanocosta.me/", ""))
+        p = urllib.parse.unquote(loc.replace("https://costeve.com/", ""))
         return "index.html" if p in ("", "/") else p
 
     for loc in locs:

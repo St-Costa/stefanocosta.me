@@ -100,7 +100,7 @@ def upload(kind, local_path, key, force=False):
     save_manifest(manifest)
     size = os.path.getsize(local_path)
     print(f"ok: {kind}/{key} ({size // 1024}KB) — manifest aggiornato.")
-    print("URL pubblico: https://stefanocosta.me/"
+    print("URL pubblico: https://costeve.com/"
           f"{'document' if kind == 'documents' else 'audio'}/{key}")
 
 

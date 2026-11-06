@@ -13,7 +13,7 @@ I post MBA sono la serie mensile "Monthly Business Aha's". Un post per mese, **p
 - **Titolo visibile / headline / og-title / `<title>`**: `<Month> MBA: <Subtitle>` — un solo
   `<h1>` con sottotitolo dopo `": "`; `<title>` è `<Month> MBA: <Subtitle> | Source of Truth`
   (deve contenere l'intero `h1`, `check_site.py` lo confronta).
-- **URL canonico**: `https://stefanocosta.me/blogPosts/<Month>%20Monthly%20Business%20Ahas.html`
+- **URL canonico**: `https://costeve.com/blogPosts/<Month>%20Monthly%20Business%20Ahas.html`
 - **meta description / og-description / JSON-LD description**: `<Month> <YYYY> business insights and lessons learned by Stefano Costa.`
 - **Epistemic status**: etichetta **`ES`** in `<em>` (corsivo, non giallo — il giallo è `<i>`),
   mai "Epistemic status"; testo sempre `field notes from one month of experience`

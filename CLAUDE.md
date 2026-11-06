@@ -1,6 +1,6 @@
-# stefanocosta.me — istruzioni per Claude
+# costeve.com — istruzioni per Claude
 
-Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun build system.
+Sito personale statico (HTML/CSS/JS puro), ospitato su Cloudflare Pages. Nessun build system.
 
 > **Questo file è codice, non appunti.** Se una modifica cambia una regola descritta qui
 > (struttura del `<head>`, CSS disponibili, convenzioni su immagini o accessibilità),
@@ -15,7 +15,7 @@ Sito personale statico (HTML/CSS/JS puro), ospitato su GitHub Pages. Nessun buil
 ## Regola numero uno: nessun tracker, nessuna richiesta a terze parti
 
 Il sito non deve fare **nessuna** richiesta a server che non siano il suo. Niente cookie,
-niente analytics, niente tracker: chi visita una pagina parla solo con `stefanocosta.me`.
+niente analytics, niente tracker: chi visita una pagina parla solo con `costeve.com`.
 
 Questa regola non ha eccezioni ed è il motivo per cui esistono metà delle scelte tecniche
 qui sotto. **Nessuna comodità vale il costo di esporre gli IP dei visitatori a terzi.**
@@ -107,8 +107,8 @@ form/cookie solo se introdotti).
     <link rel="stylesheet" href="[PATH]/style/base.css">
     <meta property="og:title" content="Titolo pagina | Stefano Costa">
     <meta property="og:description" content="Stessa stringa della meta description.">
-    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
-    <meta property="og:url" content="https://stefanocosta.me/PERCORSO.html">
+    <meta property="og:image" content="https://costeve.com/img/preview_image.jpg">
+    <meta property="og:url" content="https://costeve.com/PERCORSO.html">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="[PATH]/img/icon/favicon.svg">
     <script src="[PATH]/javascript/commonHeader.js" defer></script>
@@ -222,8 +222,8 @@ centrata, lista allineata a sinistra).
     <link rel="stylesheet" href="../style/base.css">
     <meta property="og:title" content="Titolo: Sottotitolo | Stefano Costa">
     <meta property="og:description" content="Stessa stringa della meta description.">
-    <meta property="og:image" content="https://stefanocosta.me/img/preview_image.jpg">
-    <meta property="og:url" content="https://stefanocosta.me/blogPosts/Nome%20File.html">
+    <meta property="og:image" content="https://costeve.com/img/preview_image.jpg">
+    <meta property="og:url" content="https://costeve.com/blogPosts/Nome%20File.html">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
     <script src="../javascript/commonHeader.js" defer></script>
@@ -233,8 +233,8 @@ centrata, lista allineata a sinistra).
       "@type": "BlogPosting",
       "headline": "Titolo: Sottotitolo",
       "datePublished": "YYYY-MM-DD",
-      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://stefanocosta.me/"},
-      "url": "https://stefanocosta.me/blogPosts/Nome%20File.html",
+      "author": {"@type": "Person", "name": "Stefano Costa", "url": "https://costeve.com/"},
+      "url": "https://costeve.com/blogPosts/Nome%20File.html",
       "description": "Stessa stringa della meta description."
     }
     </script>
@@ -388,7 +388,7 @@ I post nel **nuovo formato** (vedi §Struttura del `<body>`) non hanno `h2.subti
 ### Aggiungere il post a `sitemap.xml`
 ```xml
 <url>
-    <loc>https://stefanocosta.me/blogPosts/Nome%20File.html</loc>
+    <loc>https://costeve.com/blogPosts/Nome%20File.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
 </url>
@@ -503,8 +503,8 @@ restano first-party e la regola n°1 è salva. Gli URL pubblici non cambiano mai
 
 | Bucket R2 | Binding Worker | URL pubblico | Cosa ci va |
 |---|---|---|---|
-| `stefanocosta-documents` | `DOCUMENTS` | `stefanocosta.me/document/…` | PDF: tesi, report, poster, slide |
-| `stefanocosta-audio` | `AUDIO` | `stefanocosta.me/audio/…` | MP3 degli episodi podcast |
+| `stefanocosta-documents` | `DOCUMENTS` | `costeve.com/document/…` | PDF: tesi, report, poster, slide |
+| `stefanocosta-audio` | `AUDIO` | `costeve.com/audio/…` | MP3 degli episodi podcast |
 
 I bucket sono **privati** (niente accesso pubblico diretto): l'unica via
 d'ingresso è il Worker, che serve solo chiavi esatte (niente listing), gestisce
@@ -578,6 +578,14 @@ Debugging quando `scripts/r2_check.py` fallisce:
   ```
   Le routes hanno precedenza su Pages solo per `/document/*` e `/audio/*`;
   il resto del sito non è toccato.
+- **Redirect del vecchio dominio** (solo quando cambia `workers/redirect.js`):
+  ```bash
+  cd workers && wrangler deploy -c wrangler.redirect.toml
+  ```
+  `redirect.js` risponde 301 su `stefanocosta.me/*` e `www.stefanocosta.me/*`
+  verso `https://costeve.com`, mantenendo path e query. Le route R2 stanno
+  solo sul nuovo dominio: anche i vecchi URL `/document/*` e `/audio/*`
+  vengono rediretti.
 
 ---
 

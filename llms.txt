@@ -10,11 +10,11 @@
 - Master's thesis: closed-loop 0D-1D model of the human cardiovascular system, in C++
 
 ## Site
-- [About](https://stefanocosta.me/mainPages/aboutme.html): who he is and how he works
-- [Projects](https://stefanocosta.me/mainPages/Projects.html): projects and what they changed, in numbers
-- [Failure résumé](https://stefanocosta.me/mainPages/Failure_resume.html): ventures he closed, and why
-- [Blog](https://stefanocosta.me/mainPages/Blog_pages.html): posts on operations, business and knowledge management
-- [Academic past](https://stefanocosta.me/mainPages/Academic_past.html): theses, research, conferences
+- [About](https://costeve.com/mainPages/aboutme.html): who he is and how he works
+- [Projects](https://costeve.com/mainPages/Projects.html): projects and what they changed, in numbers
+- [Failure résumé](https://costeve.com/mainPages/Failure_resume.html): ventures he closed, and why
+- [Blog](https://costeve.com/mainPages/Blog_pages.html): posts on operations, business and knowledge management
+- [Academic past](https://costeve.com/mainPages/Academic_past.html): theses, research, conferences
 
 ## Code
 - [GitHub](https://github.com/St-Costa)

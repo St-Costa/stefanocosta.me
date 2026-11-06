@@ -1,0 +1,16 @@
+# workers/wrangler.redirect.toml — redirect 301 dal vecchio dominio a costeve.com.
+#
+# Deploy:
+#   cd workers && wrangler deploy -c wrangler.redirect.toml
+#
+# Le route stanno sul vecchio dominio; il Worker R2 usa wrangler.toml e le
+# route del nuovo dominio.
+
+name = "stefanocosta-redirect"
+main = "redirect.js"
+compatibility_date = "2025-06-01"
+
+routes = [
+  { pattern = "stefanocosta.me/*", zone_name = "stefanocosta.me" },
+  { pattern = "www.stefanocosta.me/*", zone_name = "stefanocosta.me" }
+]

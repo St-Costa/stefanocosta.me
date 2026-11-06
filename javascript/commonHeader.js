@@ -36,8 +36,8 @@
     const og = {
         'og:title': "Stefano Costa's Webpage",
         'og:description': "Stefano Costa's personal website, featuring his scientific research, publications, and projects",
-        'og:image': 'https://stefanocosta.me/img/preview_image.jpg',
-        'og:url': 'https://stefanocosta.me/',
+        'og:image': 'https://costeve.com/img/preview_image.jpg',
+        'og:url': 'https://costeve.com/',
         'og:type': 'website'
     };
     for (const property in og) {
