@@ -582,10 +582,37 @@ Debugging quando `scripts/r2_check.py` fallisce:
   ```bash
   cd workers && wrangler deploy -c wrangler.redirect.toml
   ```
-  `redirect.js` risponde 301 su `stefanocosta.me/*` e `www.stefanocosta.me/*`
-  verso `https://costeve.com`, mantenendo path e query. Le route R2 stanno
-  solo sul nuovo dominio: anche i vecchi URL `/document/*` e `/audio/*`
-  vengono rediretti.
+  `redirect.js` risponde 301 su `stefanocosta.me/*`, `www.stefanocosta.me/*`
+  e `www.costeve.com/*` verso `https://costeve.com`, mantenendo path e query.
+  Le route R2 stanno solo sul nuovo dominio: anche i vecchi URL `/document/*`
+  e `/audio/*` vengono rediretti.
+
+---
+
+## Infrastruttura Cloudflare
+
+- **Sito**: Pages project `st-costa`, collegato al repo GitHub, branch `main`,
+  deploy automatico a ogni push. Custom domains: `costeve.com` e
+  `www.costeve.com`.
+- **DNS**: CNAME proxied `costeve.com` e `www.costeve.com` →
+  `st-costa.pages.dev`.
+- **Vecchio dominio**: `stefanocosta.me` e `www.stefanocosta.me` hanno ancora
+  il custom domain Pages, ma le route del Worker `stefanocosta-redirect` hanno
+  precedenza e rispondono 301 verso `costeve.com` (path e query inclusi).
+- **`www.costeve.com`**: route del Worker `stefanocosta-redirect`, 301 verso
+  l'apex. Non è un custom domain "diretto": il Worker intercetta prima.
+- **Worker R2** `stefanocosta-r2-proxy`: route solo su `costeve.com/document/*`
+  e `costeve.com/audio/*`.
+- **Ruleset della zona `costeve.com`** (creati via API, non in dashboard):
+  - cache `r2-edge-cache`: `set_cache_settings` con edge TTL
+    `bypass_by_default` per `/document/` e `/audio/`.
+  - WAF `AI Crawl Control`: blocca per User-Agent i crawler AI; `bingbot` e
+    `Applebot` sono esclusi di proposito per non bloccare i motori di ricerca.
+    `/robots.txt` è sempre accessibile.
+- **Email**: resta su Zoho con `@stefanocosta.me` (MX/SPF/DKIM sul vecchio
+  dominio). Su `costeve.com` non ci sono record email.
+- Il redirect non usa Redirect Rules o Page Rules: è un Worker, così mantiene
+  path e query senza dipendere dai limiti delle regole di zona.
 
 ---
 
