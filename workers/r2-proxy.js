@@ -2,8 +2,8 @@
 //
 // Serve i due bucket R2 dallo STESSO dominio del sito, così gli URL pubblici
 // non cambiano e restano first-party (regola n°1 salva):
-//   stefanocosta.me/document/*  ->  bucket stefanocosta-documents
-//   stefanocosta.me/audio/*      ->  bucket stefanocosta-audio
+//   costeve.com/document/*  ->  bucket stefanocosta-documents
+//   costeve.com/audio/*      ->  bucket stefanocosta-audio
 //
 // I bucket restano PRIVATI (niente accesso pubblico R2): l'unica via
 // d'ingresso è questo Worker. Niente directory listing: solo chiavi esatte.

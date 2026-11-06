@@ -3,4 +3,4 @@ Disallow: /document/
 Disallow: /blogPosts/_template.html
 Disallow: /.claude/
 
-Sitemap: https://stefanocosta.me/sitemap.xml
+Sitemap: https://costeve.com/sitemap.xml

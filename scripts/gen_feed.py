@@ -25,7 +25,7 @@ BLOG_DIR = os.path.join(ROOT, "blogPosts")
 FEED = os.path.join(ROOT, "mainPages", "blogFeed.xml")
 # Dominio del sito. Sovrascrivibile con la variabile d'ambiente SITE_BASE_URL,
 # es. `SITE_BASE_URL="https://esempio.com" python3 scripts/gen_feed.py`.
-BASE_URL = os.environ.get("SITE_BASE_URL", "https://stefanocosta.me").rstrip("/")
+BASE_URL = os.environ.get("SITE_BASE_URL", "https://costeve.com").rstrip("/")
 
 CHANNEL_HEADER = f"""<rss version="2.0">
 <channel>

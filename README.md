@@ -2,7 +2,7 @@
   <img src="img/icon/favicon.svg" alt="" width="120">
 </p>
 
-<h1 align="center">stefanocosta.me</h1>
+<h1 align="center">costeve.com</h1>
 
 <p align="center">
   <em>A personal site and blog</em>
@@ -22,9 +22,9 @@
 </p>
 
 <p align="center">
-  <strong>Live:</strong> <a href="https://stefanocosta.me">stefanocosta.me</a> ·
-  <strong>Blog:</strong> <a href="https://stefanocosta.me/mainPages/Blog_pages.html">Source of Truth</a> ·
-  <a href="https://stefanocosta.me/mainPages/blogFeed.xml">RSS</a>
+  <strong>Live:</strong> <a href="https://costeve.com">costeve.com</a> ·
+  <strong>Blog:</strong> <a href="https://costeve.com/mainPages/Blog_pages.html">Source of Truth</a> ·
+  <a href="https://costeve.com/mainPages/blogFeed.xml">RSS</a>
 </p>
 
 <p align="center">

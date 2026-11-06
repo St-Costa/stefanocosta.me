@@ -15,8 +15,8 @@ compatibility_date = "2025-06-01"
 # altrimenti viene interpretato come campo del bucket e ignorato
 # (wrangler avvisa con "Unexpected fields found in r2_buckets").
 routes = [
-  { pattern = "stefanocosta.me/document/*", zone_name = "stefanocosta.me" },
-  { pattern = "stefanocosta.me/audio/*", zone_name = "stefanocosta.me" }
+  { pattern = "costeve.com/document/*", zone_name = "costeve.com" },
+  { pattern = "costeve.com/audio/*", zone_name = "costeve.com" }
 ]
 
 [[r2_buckets]]
