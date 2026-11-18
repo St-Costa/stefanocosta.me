@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Post-mortem of Brand Storyfication, a storytelling + AI marketing service: companies loved the method, but they hire marketing to stop thinking about it.">
+    <title>Brand Storyfication post-mortem | Source of Truth</title>
+    <!-- base.css is linked directly (not only injected by commonHeader.js) so the
+         browser starts fetching it during HTML parsing, not after the JS runs. -->
+    <!-- Headings inherit the browser's default bold, so Bold is on the critical path
+         for the first paint just as much as Regular. Italic is not, so it is left to
+         load on demand. All three are subset to the glyphs this site actually uses. -->
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../style/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style/base.css">
+    <meta property="og:title" content="Brand Storyfication post-mortem | Stefano Costa">
+    <meta property="og:description" content="Post-mortem of Brand Storyfication, a storytelling + AI marketing service: companies loved the method, but they hire marketing to stop thinking about it.">
+    <meta property="og:image" content="https://costeve.com/img/preview_image.jpg">
+    <meta property="og:url" content="https://costeve.com/blogPosts/Brand%20Storyfication%20post-mortem.html">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="../img/icon/favicon.svg">
+    <script src="../javascript/commonHeader.js" defer></script>
+    <!-- unlisted-post: not in Blog_pages.html, no datePublished (keeps it out of
+         gen_feed.py's RSS feed), only reachable via a direct link (Failure résumé).
+         See CLAUDE.md "Post nascosti (unlisted)". -->
+    <script src="../javascript/toc.js"></script>
+
+    <link rel="stylesheet" href="../style/blog.css">
+</head>
+
+<body>
+    <main>
+
+    <div class="bottom_space_big">
+        <h1>Brand Storyfication post-mortem</h1>
+
+        <div class="center">
+        <div><em>Nov 2026 - 27 min read</em></div>
+        <div class="epistemic"><a
+                href="https://forum.effectivealtruism.org/posts/bbtvDJtb6YwwWtJm7/epistemic-status-an-explainer-and-some-thoughts"
+                target="_blank"><em>ES</em></a>: <i>personal account; what I say about Italian SMEs and marketing agencies comes from our direct experience</i></div>
+        </div>
+
+        <section class="tldr">
+            <div class="box-title">
+                <h3>TL;DR</h3>
+            </div>
+            <p>Luca and I tried to bring real storytelling into marketing, with AI doing the heavy lifting. Workshop organizers and companies loved the method; nobody bought it. Italian SMEs don't hire marketing to sell more, they hire it to stop thinking about it: we were selling them homework.</p>
+        </section>
+
+
+        <!-- TOC disabled for now — uncomment to restore the expandable TOC.
+             toc.js is a no-op while this stays commented out. -->
+        <!--
+        <details class="toc-details">
+            <summary>TOC</summary>
+        </details>
+        -->
+
+        <h2 id="why-i-did-it">
+            <a href="#why-i-did-it">Why I did it</a>
+        </h2>
+
+        <p class="justify">
+            After we <a href="Writing coach post-mortem.html">failed with the writing coach business</a>, Luca and I sat down at a restaurant and thought about what to do next.
+            <br><br>
+            Burned by B2C, we wanted to sell to companies.
+            <br>We thought about what to build, keeping our situation in mind:
+        </p>
+        <ul>
+            <li><b>Local</b>: we were waiting for a <a href="../mainPages/Failure_resume.html#PublishingHouse">(later failed) project</a> that required us to be physically close</li>
+            <li><b>Italian only</b>: Luca doesn't speak English, so going international was hard</li>
+            <li><b>Our skills</b>: my expertise in BPI and AI, his in storytelling</li>
+        </ul>
+        <p class="justify">
+            Storytelling was our gravity: every idea we came up with fell back into it.
+            <br>Because Luca is a true master of it, because we had already worked on it together, because it was the only passion we had in common.
+            <br>So we settled on storytelling-driven marketing, since it looked perfect:
+        </p>
+        <ul>
+            <li>The market is full of money (even locally)</li>
+            <li>Storytelling and marketing go well together</li>
+            <li>The quality bar is low: we could do better</li>
+        </ul>
+        <p class="justify">
+            We left the restaurant with homework: study how storytelling is used in marketing, how to use AI for it, and how to reach clients.
+            <br><br>
+            As the storytelling expert, Luca read <a href="https://www.goodreads.com/book/show/35605429-storynomics" target="_blank">Storynomics: Story-Driven Marketing in the Post-Advertising World</a>, by Tom Gerace and Robert McKee, author of <em>Story</em>, one of the manuals Luca had studied.
+            <br>And it's... ok.
+            <br>Far from perfect.
+            <br>Not really useful, to be honest.
+            <br>It suffers from the classic business book disease: generic, impractical, full of buzzwords.
+            <br>It wouldn't become our guide, but it told us that storytelling could be used in marketing and brought into companies.
+            <br>And more importantly: we (well, Luca) could do it <i>much</i> better.
+            <br><br>
+            So we listed where storytelling could fit: newsletters, TV ads, some social formats (long posts, carousels), brand stories, pitches and presentations...
+            <br>For each of these, I could easily use AI to speed up or automate the process.
+            <br>The real problem, then, was finding clients.
+            <br><br>
+            From my <a href="BPI + AI consulting post-mortem.html">consulting experience</a>, I knew companies discover services like this through workshops.
+            <br>So we contacted about 70 workshop organizers: companies that sell workshops and training to other companies.
+            <br>The answers were great: very interested, and sure their clients would love it.
+            <br><br>
+            For once, we seemed to have nailed the right market, the right model, the right competitive advantage.
+            <br>After the writing coach failure, it was a relief!
+            <br><br>
+            And then not a single company bought the service...
+        </p>
+
+        <hr>
+
+        <h2 id="what-we-built">
+            <a href="#what-we-built">What we built</a>
+        </h2>
+
+        <h3 id="our-theory-on-the-use-of-storytelling-in-marketing">
+            <a href="#our-theory-on-the-use-of-storytelling-in-marketing">├─ Our theory on the use of Storytelling in Marketing</a>
+        </h3>
+        <p class="justify">
+            To explain why companies should buy our service, we made a 50-slide deck, which also helped us sharpen our method.
+            <br>Fun fact: to convince companies of our approach, we structured the slides with a narrative model, so that at the end we could say “<em>These slides were an example of it</em>”.
+            <br>I'll skip the “<em>why you should use AI</em>” part, assuming none of my readers is a boomer.
+            <br><br>
+            To bring storytelling into marketing, we started from Luca's work as a writing coach: <i>What is a story?</i>
+            <br>Try to put that on paper and you'll realize you don't know what a story is, let alone storytelling.
+            <br>A story is a simulation of human experience, using mimesis (<em>imitation of reality</em>) and allegory (<em>universal metaphor</em>) to show a simple chain: protagonist needs something → doesn't have it → can't get it → has to change to get it.
+            <br>In short: <b>a story is the narration of a change through conflict</b>.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Now is <em>that</em> part of the talk</h4>
+            </div>
+            <p class="justify">...where we'd say “<em>Think of a good story and you'll notice it follows the pattern</em>”.
+                <br>But then someone raises their hand and goes “<em>But Nolan's Oppenheimer doesn't follow it</em>”.
+                <br>And that's the part where you have to explain why that's not a good story, and fists start flying...
+                <br>So let's skip it: DON'T think about your favorite movie, or a “<em>good story</em>”.
+                <br>We don't have time for your thinking here.</p>
+        </section>
+
+        <p class="justify">
+            To craft a good story you use a narrative model: a way of structuring events to build a story that works.
+            <br>Basically, an operating manual of what has to happen, how and when.
+            <br>What Luca found in his years of study fits in this slide: <b>all narrative models say the same thing, so there is really only one narrative model</b>.
+        </p>
+
+        <figure>
+            <img width="1237" height="696" loading="lazy" src="../img/blog/Brand Storyfication post-mortem/slide-25-only-one-model.webp"
+                alt="Slide “Only one model”: several narrative-model diagrams drawn as overlapping colored curves with the same rise, peak and fall, next to the covers of Campbell's The Hero with a Thousand Faces, Vogler's The Writer's Journey and McKee's Story"
+                style="width: 100%; max-width: 700px; height: auto;">
+        </figure>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>For the details</h4>
+            </div>
+            <p class="justify">Watch the product of Luca's gargantuan, years-long effort: his <a href="https://www.youtube.com/watch?v=3x4r90GObec&amp;list=PL4Em42YOkSnTg_yzM1zVsnC64AqGMRKTD" target="_blank">narrative course</a> (28 lessons, 20 minutes each).</p>
+        </section>
+
+        <p class="justify">
+            For our service, having a single model matters because it gives us a recipe that's replicable, reliably high-quality, and fairly simple to apply<sup>[It's tough, but Luca is good and fast]</sup>.
+            <br>To check it, we tested the approach on a big local company that was also our end goal.
+            <br>We turned their ugly, useless ads into great pieces of marketing (in our opinion, at least).
+            <br>So, it worked.
+            <br><br>
+            Ok, ok, but why storytelling in marketing?
+            <br>As Seth Godin puts it: “<em>People don't buy goods and services, they buy relations, stories and magic</em>”.
+            <br><br>
+            A story has three fundamental pillars: empathy, causal chain, and message.
+            <br>And they're the same things an ad should have:
+        </p>
+        <ul>
+            <li><b>Empathy</b>: the customer doesn't care about the product, but about their problem</li>
+            <li><b>Causal chain</b>: the customer doesn't care about features, but about a path from problem to solution</li>
+            <li><b>Message</b>: “<em>buy from me</em>” doesn't work; you have to explain “<em>how my product improves your situation</em>”</li>
+        </ul>
+        <p class="justify">
+            Once you've found these, you apply the narrative model.
+            <br><br>
+            So, <i>operationally speaking</i>, storytelling works for marketing.
+            <br>The problem is that it needs room to breathe.
+            <br>There's a reason movies last 90 minutes and books run hundreds of pages: it's hard to make a story that lasts a few seconds.
+            <br>To solve this, Luca cut the model down to the part we wanted to highlight in each ad, building several “<em>mini-models</em>”.
+            <br>A story that makes you curious about the product focuses on different things than the founder's story, or the brand's story...
+            <br>This widened our options, but didn't fully solve the problem: it doesn't work for single posts, or for 3-second TikTok videos.
+        </p>
+
+        <figure>
+            <img width="1337" height="752" loading="lazy" src="../img/blog/Brand Storyfication post-mortem/slide-34-mini-models.webp"
+                alt="Slide “Brand Storyfication mini-models”: six story arcs, each with numbered steps (in Italian): transformative model (our story), punchline model (a story that makes you curious), tragic model (an experience that teaches), mentor model (how I learned what I teach you), flashback model (a personal touch), detective model (the story of a search)"
+                style="width: 100%; height: auto;">
+        </figure>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>The problem of “<em>cinematographic ads</em>”</h4>
+            </div>
+            <p class="justify">We (well, I 🤭) almost got into a fight at a workshop we attended.
+                <br>Run by “<em>top AI and storytelling experts</em>”, it proudly showed ads with no story at all, sold as great storytelling successes.
+                <br>One was a video of a prefab house standing in the desert, with the camera circling around it.
+                <br>Another was a super-fast montage of kids and everyday moments in a pastry shop. You couldn't understand shit...
+                <br>That is NOT storytelling.
+                <br>There's no story: it's <i>cinematographic</i>, literally “<em>relating to the way facts and images are represented in films</em>”.
+                <br>More examples:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=pNCHeC6p328" target="_blank">Mastri Birrai Umbri</a></li>
+                <li><a href="https://www.youtube.com/watch?v=k8ZGuNOpPrc" target="_blank">Nastro Azzurro</a></li>
+                <li><a href="https://www.youtube.com/watch?v=nUduORxxdiA" target="_blank">Peroni</a></li>
+            </ul>
+            <p class="justify">They're an offense to my time and my intelligence, and on top of that they all say the same thing, “<em>Our beer is better, drink our beer</em>”, without telling me why.
+                <br>Note also that beer lovers consider those low-quality beers, which adds irony to the ads.</p>
+        </section>
+
+        <p class="justify">
+            You're probably thinking: “<em>but not every good ad follows a story!</em>”
+            <br>Good catch, my little Ogilvy, and that's why we came up with this distinction: <b>The Ideation Axis</b>.
+            <br>Let's talk about the <a href="https://nielseniq.com/global/en/news-center/2026/the-more-than-1-1-trillion-us-consumer-goods-market-is-splitting-in-two-according-to-niq-and-world-data-lab-analysis/" target="_blank">barbell effect</a> (strategists call it being “<a href="https://en.wikipedia.org/wiki/Porter%27s_generic_strategies" target="_blank">stuck in the middle</a>”): <b>the longer a market exists, the more products in the middle get pushed out</b>.
+            <br><br>
+            You can go for the low end of the market, or for the high end.
+            <br>But if you go for the middle, over time you'll find yourself pushed toward one end or the other.
+            <br>Note that there's no single true cause: it's an observation, not a theorem.
+            <br><br>
+            I first heard of it from <a href="https://share.snipd.com/snip/de4eaf4a-aa83-407e-a31b-168d132403a6" target="_blank">CGP Grey applying it to YouTube</a>.
+            <br>But then my man Rory Sutherland gave a behavioral explanation of the phenomenon in <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy (2019)</a>:
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
+                <h4>Rory Sutherland on the barbell effect</h4>
+            </div>
+            <p class="justify">The two categories of retailer who have weathered the global economic instability best in recent years are those at the top end of the price spectrum and those at the bottom.
+                <br><br>Some of this is a result of widening wealth inequality, but a glance at the demography of shoppers shows that it is not quite that simple.
+                <br>(...)
+                <br><br>In fact, we derive pleasure from ‘<i>expensive treats</i>’ and also enjoy finding ‘<i>bargains</i>’.
+                <br>By contrast, the mid-range retailer offers far less of an emotional hit; you don’t get a dopamine rush from mid-market purchases.</p>
+            <p class="source">— <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy (2019)</a></p>
+        </section>
+
+        <p class="justify">
+            The same happens with advertising.
+            <br>You can go “<em>story-first</em>” and use storytelling, building causality through the causal chain of events.
+            <br>Or you can go fully “<em>concept-first</em>”: crazy, strange, funny.
+            <br>The ad doesn't need to make sense, it just needs to surprise.
+        </p>
+
+        <figure>
+            <img width="1337" height="752" loading="lazy" src="../img/blog/Brand Storyfication post-mortem/slide-21-ideation-axis.webp"
+                alt="Slide “Story v.s. Concept”: The Ideation Axis, a line from Story-first (Esselunga's La Pesca ad, “Non c'è una spesa che non sia importante”) to Concept-first (a Lavazza coffee machine worn as a head on a mannequin), with the “Dead Middle” marked in between"
+                style="width: 100%; max-width: 978px; height: auto;">
+        </figure>
+
+        <p class="justify">
+            The two examples from the slides explain it perfectly.
+            <br><br>
+            The story-first example: <a href="https://www.youtube.com/watch?v=sFE9VvAym3Q" target="_blank">LA PESCA. Una storia Esselunga.</a>
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Luca's analysis</h4>
+            </div>
+            <p class="justify">The ad is born from the message it has to deliver: <i>there's no such thing as unimportant shopping</i>.
+                <br>In other words: <i>to Esselunga, your shopping always matters</i>.
+                <br>Or: <i>everything you need matters, and you can find it at Esselunga</i>.
+                <br>The story is built to serve this message, through narrative devices.
+                <br><br>It opens with tension and conflict: a mother looking for her daughter in the supermarket.
+                <br>Then the point of view moves to Emma, the girl, and we learn what she wants, but not why: a peach, which is the object that carries the message.
+                <br>Two details set up the ending:</p>
+            <ul>
+                <li>Distracted while her mother tries to talk to her, Emma looks out the car window and watches a mom and dad taking care of a kid her age. It plants a suspicion that the ending will confirm. In screenwriting, this is called a “<em>plant</em>”.</li>
+                <li>When her father comes to pick her up, Emma fiddles with her backpack, but the camera doesn't show what she puts inside. It answers in advance the question the twist would raise: “<em>Where was she keeping the peach?</em>”</li>
+            </ul>
+            <p class="justify">Notice how the message appears only after Emma gives the peach to her father (“<em>It's from mom</em>”).
+                <br>The story has already done the work of conveying the message, so the caption doesn't need to explain it: it just confirms it.
+                <br><br><b>THE PUNCHLINE MODEL</b>
+                <br>The ad follows what we called the <b>punchline model</b>.
+                <br>First, a situation with a problem.
+                <br>Then someone does something hard to explain: strange, puzzling, absurd.
+                <br>It's like a piece is missing, so the viewer can't predict where it's going (the <i>dramatic prognosis</i>).
+                <br>Finally, an unexpected, positive outcome reveals what was going on all along, the viewer connects the dots, and everything makes sense.
+                <br><br>Here, the starting point is a sad girl thinking about something: that's the problem.
+                <br>She slips away from her mom to get a peach. That's the strange action we can't explain.
+                <br>At the end, we find out the peach was for her dad, and she was trying to bring her parents back together.
+                <br>So the viewer gets the message on an emotional level: something that looked trivial hides a deeply personal gesture.
+                <br>“<em>Your shopping matters</em>” is proven both emotionally and rationally: the viewer feels it's true.
+                <br><br><b>HOW TO IMPROVE IT</b>
+                <br>The starting problem isn't very clear to the viewer.
+                <br>But if we showed right away that she's sad because her parents don't talk, we'd guess where her gesture is going.
+                <br>So one improvement would be to play the twist better.
+                <br><br>For example, we could open with a girl who isn't wise and well-behaved like Emma, but bratty and stubborn.
+                <br>The viewer would wonder why she's acting like that, and we'd side with the mother, who struggles to keep her calm.
+                <br>Then we'd find out the peach wasn't for the girl but for her father, and that she meant well: the end justifies the means.
+                <br><br>Suddenly the viewer would feel they owe her something, and the empathy would hit even harder.
+                <br>It wouldn't just be a plot twist, but a flip in the viewer's moral judgment: we wouldn't just learn what she wanted, we'd have to take back the bad opinion we'd formed of her.
+                <br>That's the strength of the punchline model: the final twist, and how it flips the viewer's dramatic prognosis and catches them off guard.
+                <br>That's the moment the emotional punch lands, and it carries the commercial message deep into the viewer's mind.</p>
+        </section>
+
+        <p class="justify">
+            The concept-first example: <a href="https://www.nssmag.com/it/art-design/14554/milano-design-week-2018-il-temporary-bar-che-non-puoi-perderti" target="_blank">Lavazza at Milano Design Week 2018</a>
+            <br>On a <a href="https://youtu.be/HKwKM_bFlnQ?t=1558" target="_blank">podcast</a>, Lavazza's Marketing Communication Director talks about launching an entry-level coffee machine: one button, no water tank.
+            <br>Launching such a “<em>basic</em>” product is hard, with or without a story, and the agencies' boring briefs confirmed what she already feared.
+            <br>So they pitched it to the artists Maurizio Cattelan (the banana-with-tape guy) and Pierpaolo Ferrari, who came up with crazy, new, weird concepts that grab attention<sup>[<a href="https://www.feeldesain.com/lavazza-tiny-dreamed-by-toiletpaper-lipsticks-edition.html" target="_blank">Lavazza Tiny dreamed by Toiletpaper</a>]</sup>.
+            <br>In other words: you can’t sell something that simple with the three pillars of a story. You sell it by surprising people.
+            <br>And suddenly the buyer isn't buying a coffee machine anymore, but Italian retro-futurist design.
+            <br><br>
+            Now: what happens when you fall in the middle, between story-first and concept-first?
+            <br>Your ad sucks.
+            <br>For some reason, banks are great at making this mistake:
+        </p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=PxVM7kepBis" target="_blank">Sparkasse Card: paghi contactless, vivi impactless</a></li>
+            <li><a href="https://www.youtube.com/watch?v=RdXGuuZ6HfI" target="_blank">Il valore della presenza - Der Wert der Präsenz</a></li>
+        </ul>
+        <p class="justify">
+            These ads manage to show no customer problem, make no sense (no causal chain), and carry no real message.
+            <br>Whoever watches them doesn't give a shit about the wooden credit card, or about the bank opening lots of branches.
+            <br>BUT: they're not concept-first either, not fully conceptual.
+            <br>There's the shadow of a story about a family waking up, and with the captions the branch-opening one seems to be trying to say something.
+            <br>But it can't.
+            <br>It doesn't amaze, it doesn't surprise.
+            <br>It's just boring and badly made.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>On concept-first</h4>
+            </div>
+            <p class="justify">Rory Sutherland doesn't give it a name, but he explains the mechanism in <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy (2019)</a>: “<em>Effective communication will always require some degree of irrationality in its creation because if it's perfectly rational it becomes, like water, entirely lacking in flavour.</em>”
+                <br>And it's harder, because there's no real operating manual for making a concept-first ad.
+                <br>We were starting to build a method, a flowchart... but then we closed the project.</p>
+        </section>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>A real life example</h4>
+            </div>
+            <p class="justify">While we were working on this, GPT-4o was OpenAI's most used model.
+                <br>We guessed that AI-illiterate marketers were using it blindly to make their ads.
+                <br>Two ads caught our attention:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=RbBnf8U-q94" target="_blank">Come togliere la polvere in una passata</a></li>
+                <li><a href="https://www.youtube.com/watch?v=z_xpKT2lXXE" target="_blank">Se la polvere fa simpatia</a></li>
+            </ul>
+            <p class="justify">They're the fucking same: “<em>You have dust in your house? (anthropomorphized dust creature) Our product removes it!</em>”
+                <br>Yeah, duh, it's a fucking vacuum cleaner / duster.
+                <br>So we gave GPT-4o the most idiotic prompt, something like “<em>I need to make an ad for my vacuum cleaner, give me 10 ideas</em>”.
+                <br>Most of them were some anthropomorphized dust doing something stupid and getting vacuumed up.
+                <br>(You'll have to trust me on this, since I can't find the chat...)
+                <br>For us, it confirmed that AI was eating marketing, and at the same time that the marketing world was completely ignorant about AI, storytelling and brand building.
+                <br>And notice: PERFECTLY in the middle...</p>
+        </section>
+
+        <h3 id="outreach-tool">
+            <a href="#outreach-tool">└─ Outreach tool</a>
+        </h3>
+        <p class="justify">
+            To get our name out, we wanted to run workshops, so we had to find the people who organize them.
+            <br>I turned this intern job into a small <a href="../mainPages/Projects.html#OutreachIntel">CRM with an LLM inside</a> that remembers every organizer, every contact and every exchange.
+            <br>When it was time to write, the LLM had our bios, the project, the history with that organizer...
+            <br>We didn't want to flood inboxes with AI slop, so we reread everything and sent each email by hand.
+            <br>Result: about 70 organizers contacted, a 20-30% response rate, almost all positive.
+        </p>
+
+        <h2 id="what-worked">
+            <a href="#what-worked">What worked</a>
+        </h2>
+        <p class="justify">
+            <b>The outreach tool</b>
+            <br>It showed us that getting replies and meetings is easy (putting into practice what I learned in <a href="BPI + AI consulting post-mortem.html#what-i-am-taking-away">the consulting post-mortem</a>).
+            <br>Replies kept coming, and a good share of them were positive.
+            <br>That gave us an immediate morale boost: we didn't need decades of marketing experience to land workshops.
+            <br><br>
+            <b>Collecting feedback from companies and workshop organizers BEFORE selling</b>
+            <br>Those who replied positively were enthusiastic; those who said no only did so because their schedules were full, and they were still interested.
+            <br>The first in-person meeting went extraordinarily well, and it motivated us even more.
+            <br>We basically studied the market's interest (not the demand!) before anything else.
+        </p>
+
+        <hr>
+
+        <h2 id="why-did-it-fail">
+            <a href="#why-did-it-fail">Why did it fail?</a>
+        </h2>
+
+        <h3 id="a-value-problem">
+            <a href="#a-value-problem">├─ A value problem</a>
+        </h3>
+        <p class="justify">
+            In Italy, SMEs are run by 80-year-old founders who can't use social media, or any technology more advanced than a wireless mouse.
+            <br>It's the stubbornness of old age: their kids try to talk them out of things to avoid damage.
+            <br>But they insist anyway, even though they no longer know how their own company works.
+            <br>In manufacturing, it's usually “<em>the engineer who invented the technology in the '90s</em>” or “<em>the guy who quarried the first block of marble</em>”: too technical, too hands-on, not much of a CEO.
+            <br>They never, NEVER know anything about marketing.
+            <br><br>
+            At the same time, hiring an employee to do marketing is <i>heresy</i>.
+            <br>Hiring is already complex, slow, expensive...
+            <br>But it's also <i>dangerous</i>.
+            <br>In Italy, an employee costs a fortune in taxes<sup>[<a href="https://www.oecd.org/en/publications/taxing-wages-2025_b3a95829-en.html" target="_blank">Taxing Wages 2025 - OECD</a>]</sup>, doesn't guarantee results (slacking off once the probation period ends is common practice), and <a href="https://www.usemultiplier.com/italy/termination-laws" target="_blank">by law, you can't just fire someone</a>.
+            <br>Not to mention paid vacation (at least 4 weeks a year), maternity leave (5 months), paternity leave (10 days), various insurances, people management...
+            <br>Hiring can be the first step toward sinking the company for good.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Clarification</h4>
+            </div>
+            <p class="justify">Paid vacation, parental leave and labor laws are what make Italy more civilized than... let's pick one at random: the USA.
+                <br>But for the entrepreneur, they're still a risk.</p>
+        </section>
+
+        <p class="justify">
+            The only solution left is to hire someone <i>external</i>, so they can forget about marketing.
+            <br>This is the deal: <b>they turn a time and skill problem into a money problem</b>.
+            <br>And they literally forget about it.
+            <br>They don't want to know anything.
+            <br>They don't care at all.
+            <br><br>
+            Which makes marketing more of a commodity than fucking <a href="https://torontolife.com/food/can-you-really-tell-the-difference-between-fancy-salt-and-the-regular-kind-harold-mcgee-knows/" target="_blank">table salt</a>.
+            <br><br>
+            Because the average SME doesn't buy <i>good</i> marketing: it buys “<em>not caring about it</em>”.
+            <br>It doesn't know what good marketing is, doesn't know how to measure performance, let alone what a healthy ROAS looks like.
+            <br>So it hires marketing agencies... at random.
+            <br>The one that's been around the longest, the one with the “<em>most professional</em>” website, the one whose founder is nice because “<em>I met him at that event</em>”...
+            <br>The one that plays the <a href="July Monthly Business Ahas.html#h1.1">signaling game</a> best.
+            <br><br>
+            I've never heard a company say “<em>We work with this agency because they increased our sales</em>”.
+            <br>I've only heard “<em>We work with this agency because we've been happy with them for 10 years</em>”.
+            <br>Meaning: <b>we work with them because they don't bust our balls</b>.
+            <br>The company pays, radio silence for a few weeks, then marketing magically spawns.
+            <br>It doesn't matter if sales haven't grown in 10 years: companies are so badly organized they don't even have the data to tell (and if they do, they can't read it...).
+            <br>But hey, DO NOT TRUST ME: buy a ticket to Italy, go to a marketing workshop/meeting/event, and ask any company about their marketing, their results, their sales, their funnel, their campaign performance.
+            <br>Don't forget to bring popcorn.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Again: DO NOT TRUST THIS POST</h4>
+            </div>
+            <p class="justify">Search “marketing agency Bolzano”, open any website and go to the case studies.
+                <br>Look for the sales, the CAC, the ROAS of the example campaigns.
+                <br>You won't find them: none of them report performance, just buzzwords and random numbers.
+                <br>And the ads suck too.
+                <br><a href="May Monthly Business Ahas.html#h1.2">Here</a>'s an example I showed in a previous post.</p>
+        </section>
+
+        <p class="justify">
+            It's all about “<em>doing marketing</em>”: “<em>A real company does marketing</em>”.
+            <br>That's because it's an <a href="August Monthly Business Ahas.html#h1.2">identity-based purchase</a>.
+            <br>They don't know what marketing is and don't want to know, but a company that doesn't do marketing isn't a real company.
+            <br>So they do what pathological SMEs do best: they <i>pretend</i> to do marketing (the plague of <a href="BPI + AI consulting post-mortem.html#european-companies-dont-want-their-problems-solved">Job Illusionism</a>).
+            <br>They hire agencies without knowing what to ask for, except “<em>do the marketing for us</em>”.
+            <br>Agencies pull out the template they use with every company: some Meta ads, a few billboards around town, an ad in the local newspaper.
+            <br>Who cares if the target doesn't read that newspaper, or if the billboard font is too small to read.
+            <br>The company doesn't even know who its target is anyway...
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>True story</h4>
+            </div>
+            <p class="justify">A consultant I know was working with a company on AI implementations.
+                <br>During a coffee break, he found out that the marketing agency they'd worked with for years had delivered an “<em>ugly</em>” cinema ad.
+                <br>He made a video with AI “<em>in 1 hour</em>” (his words), and the manager liked it better than the agency's.
+                <br>That video now runs in cinemas across the province.
+                <br>Observations:</p>
+            <ul>
+                <li>An agency charging tens of thousands of euros per project did worse than 1 hour of AI</li>
+                <li>The company didn't notice how bad the ad was until delivery. Not from the proposal, not from the meetings, not from the drafts... at delivery.</li>
+                <li>An AI video made in mid-2025 (by someone who does NOT do marketing) is considered good enough for cinemas</li>
+            </ul>
+            <p class="justify">Something must be off, right?</p>
+        </section>
+
+        <p class="justify">
+            We answered the market's demand (= doing marketing for companies) by raising the quality of the service.
+            <br><b>But marketing quality isn't part of the solution, because it doesn't solve the company's problem</b>: it's <a href="May Monthly Business Ahas.html#h1.2">worth nothing</a>.
+            <br>Ours wasn't a sales, distribution or product problem.
+            <br>It was a <i>value</i> problem.
+            <br>We weren't solving the companies' real problem: <i>not</i> doing marketing.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Another proof</h4>
+            </div>
+            <figure>
+                <img width="1400" height="801" loading="lazy" src="../img/blog/Brand Storyfication post-mortem/stuffer-billboard.webp"
+                    alt="Stuffer drinkable yogurt billboard in Bolzano reading “ACENDI LA TUA ESTATE CON I GUSTI PIÙ FRESCHI.”, with the misspelled “ACENDI” (instead of “ACCENDI”) circled in red"
+                    style="width: 100%; height: auto;">
+                <figcaption>“Acendi” is an error, it should be “Accendi”</figcaption>
+            </figure>
+            <p class="justify">The grammar mistake on this billboard perfectly shows how useless quality is.
+                <br>(Not to mention the copy, the image choice, and basic marketing rules...)
+                <br>On top of that, the billboard's location made me think agencies save budget on placement.
+                <br>After all, “<em>We made 20 billboards</em>” sounds cooler than “<em>We made 5 billboards in strategic spots for the target</em>”: the average company doesn't even know what the second one means.</p>
+        </section>
+
+        <h3 id="like-the-opposite-of-chatgpt">
+            <a href="#like-the-opposite-of-chatgpt">├─ Like the opposite of ChatGPT</a>
+        </h3>
+        <p class="justify">
+            We had a <i>crazy</i> idea about marketing: that it was supposed to increase brand visibility, sales, credibility...
+            <br>What idiots!
+            <br><br>
+            It's the textbook example of the <a href="https://en.wikipedia.org/wiki/Principal%E2%80%93agent_problem" target="_blank">Principal-Agent problem</a>: whoever decides on marketing gains nothing if marketing works.
+            <br>In Italy, usually only salespeople get commissions on sales: nobody else (marketing included) gets a bonus tied to their own results.
+            <br>It's a <i>cultural</i> thing, tied to the <i>job for life</i> philosophy: the average employee would rather have a fixed salary than risk earning less next month.
+            <br>The head of marketing gets nothing out of doing good marketing: there's no incentive.
+            <br>So why do it <i>well</i> when you can <i>just do it</i>?
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Careful here</h4>
+            </div>
+            <p class="justify">“<em>Just doing it</em>” doesn't mean “<em>doing it badly</em>”.
+                <br>Doing it badly takes effort: you have to do it on purpose.
+                <br>Just doing it means doing it however it turns out: no effort, no learning to do it better.
+                <br>This is the Italian work philosophy, and it applies to marketing too.</p>
+        </section>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Productivity bonus</h4>
+            </div>
+            <p class="justify">Some companies have bonuses tied to company profits.
+                <br>But they’re small (<a href="https://lavoro.gov.it/taxonomy/term/283" target="_blank">~€1,800 a year</a> average), and above all they’re based on the company’s <i>overall</i> performance, not on each department’s.
+                <br>Because, of course, in an Italian SME you can't give a bonus to marketing and not to the factory workers: they'd go on strike.
+                <br>Either way, there's no task identity, no accountability, no will to improve...</p>
+        </section>
+
+        <p class="justify">
+            Marketing performance counts for nothing, so the focus shifts to pushing up some random number (the <i>illusion of performance</i>).
+            <br>Views, shares... you name it.
+            <br>Then at the meeting, when the boss asks “<em>How much did we sell with the campaign?</em>” (if anyone even asks...), just season it with:
+        </p>
+        <ul>
+            <li>“<em>We sold X, but look how well the views did!</em>”</li>
+            <li>“<em>Well, we knew views would work better with this campaign</em>”</li>
+            <li>“<em>The agency did warn us, after all</em>”.</li>
+        </ul>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/remark.webp" alt="">
+                <h4>Example</h4>
+            </div>
+            <p class="justify">YouTube gives us a perfect demonstration of the <a href="BPI + AI consulting post-mortem.html#european-companies-dont-want-their-problems-solved">measurability fetish</a>: since August 24, 2026, on every format, a single frame counts as a view<sup>[<a href="https://www.dexerto.com/entertainment/youtube-is-making-a-major-change-to-how-long-form-video-views-are-counted-3399287/" target="_blank">Dexerto</a>]</sup>.
+                <br>“<em>Surely nobody cares about engagement, intentions... companies want to see the numbers go up!</em>”
+                <br>And of course: <a href="https://www.youtube.com/watch?v=tWlHggImsZg" target="_blank">YOUTUBE IS A PERFECTLY BALANCED ALGORITHM 𝙒𝙞𝙩𝙝 𝙉𝙤 𝙀𝙭𝙥𝙡𝙤𝙞𝙩𝙨</a></p>
+        </section>
+
+        <p class="justify">
+            In SMEs, marketing isn't a matter of life and death.
+            <br>It's a task like any other: boring, tedious, mandatory.
+            <br>The head of marketing isn't responsible for the company's profitability.
+            <br>Just another employee who clocks in at 8am, sighs, then asks Copilot to write a report.
+            <br><br>
+            In the other corner of the ring: us, with a service that was THE EXACT FUCKING OPPOSITE: exhausting, slow, complex.
+        </p>
+        <ul>
+            <li>“<em>We'll run several meetings to identify the product's value, the angle to use, and align with your historical data</em>”</li>
+            <li>“<em>Let's figure out where the ICP lives, what they do for a living, how they think, where they eat...</em>”</li>
+            <li>“<em>We'll run several campaigns with different budgets. We'll start low to see which angle works best, then move the budget to the top performers... it's €X for the work, plus ad spend, which we'll review month by month. What's your maximum budget?</em>”</li>
+        </ul>
+        <p class="justify">
+            Like the opposite of ChatGPT: making things complicated for a client (the company) who wants to simplify them and forget about them.
+        </p>
+
+        <section class="callout">
+            <div class="box-title"><img width="32" height="32" loading="lazy" class="icon_inline" src="../img/icon/quotes.webp" alt="">
+                <h4>On complexity</h4>
+            </div>
+            <p class="justify">This explains why working with an advertising agency can be frustrating: it is difficult to produce good advertising, but good advertising is only good because it is difficult to produce.</p>
+            <p class="source">— <a href="https://www.penguin.co.uk/books/294009/alchemy-by-sutherland-rory/9780753556528" target="_blank">Alchemy (2019)</a></p>
+        </section>
+
+        <p class="justify">
+            Companies pay agencies precisely to skip that frustration.
+            <br>And they get exactly what they pay for.
+            <br><br>
+            In hindsight we look like complete idiots, but I <i>swear</i> companies <i>were on our side</i>.
+            <br>They were excited about a storytelling expert bringing this art into marketing, and impressed by what AI could do.
+            <br>The <i>first</i> meeting (with the first person who answered our emails!) was supposed to last 30 minutes.
+            <br>It lasted 3 hours.
+            <br>The head of the innovation hub told us: “<em>My son needs this for his CV, my company needs it, we (the innovation hub) definitely need it, companies in the region need it, and I know some people in Denmark who'd love it too</em>”.
+            <br>MY GOD: Son &gt; Company &gt; Innovation Hub &gt; Region &gt; Denmark.
+            <br>And then, of course, he immediately hired us for a €50K project.
+            <br>Nope, that's a lie: he ghosted 10 follow-up emails.
+            <br>You know what they say:
+        </p>
+
+        <a class="tweet-shot" href="https://x.com/rorysutherland/status/2060756258743894035" target="_blank"
+            aria-label="Rory Sutherland on X">
+            <img src="../img/blog/Brand Storyfication post-mortem/rory-sutherland-tweet.webp" width="1121" height="663"
+                loading="lazy"
+                alt="Rory Sutherland (@rorysutherland) on X: “Money is a truth drug.” quoting Count Mysterioso (@MysteriosoX): “@rorysutherland @markchristie &quot;Revealed preferences&quot; got the economics Nobel, I think. What people *say* they'll do when there are brownie points in it and what they *actually* do when money's at stake are two very different things”.">
+        </a>
+
+        <p class="justify">
+            There are a couple of lessons here:
+        </p>
+        <ul>
+            <li><a href="May Monthly Business Ahas.html#h1.2">Quality isn't measured on the product itself</a>, but on <i>how</i> the solution solves the customer's problem. A “<em>high-quality</em>” product solves the problem <i>well</i>, <i>easily</i> and at the right price, even if it has an ugly interface.</li>
+            <li>Companies <a href="April Monthly Business Ahas.html#h1.4">don't know what the fuck they want</a>. I think they were genuinely excited about our idea, but they didn't realize it didn't solve their real problem: convenience and delegation.</li>
+        </ul>
+
+        <h3 id="storytelling-is-a-rotten-word">
+            <a href="#storytelling-is-a-rotten-word">├─ Storytelling is a rotten word</a>
+        </h3>
+        <p class="justify">
+            Search “<em>storytelling in marketing</em>” on YouTube and watch 5 videos.
+            <br><br>
+            NOBODY KNOWS WHAT THE FUCK THEY'RE TALKING ABOUT.
+            <br><br>
+            Some quote McKee, others “<em>The Hero's Journey</em>”, others the ABT model.
+            <br>If they've read the manuals (and I doubt it), they didn't understand shit.
+            <br>It looks like there are a thousand different ways to tell a story, and therefore to apply storytelling to marketing.
+            <br>Wrong: THERE IS ONLY ONE (FUCKING) WAY TO TELL A <i>GOOD</i> STORY.
+            <br>And that is following <i>the</i> <a href="#our-theory-on-the-use-of-storytelling-in-marketing">narrative model</a>.
+            <br>Not “<em>one of the models</em>”: <i>the only one</i>.
+            <br><br>
+            The point is: to apply storytelling to marketing, you first have to understand the narrative model, then understand marketing, and finally put the two together.
+            <br>And in marketing, nobody has understood storytelling (and sometimes not even marketing...).
+            <br><br>
+            A brand strategy consultant who's worked with many companies told us the same thing.
+            <br>She'd taken one of the best-known “<em>storytelling marketing</em>” courses, and told us it was useless: no real storytelling in it, money down the drain.
+            <br>After we showed her OUR method, she told us it was serious stuff and wanted to work with us<sup>[We didn't, because we had already closed the project]</sup>.
+            <br>Above all, she told us to shift the focus from “<em>storytelling</em>” (a rotten word in marketing) to automation and AI (not a much better word...).
+            <br>At the time, we were pitching it as “<em>Brand Storyfication with AI</em>”.
+            <br>But as soon as Luca started explaining the narrative part (avoiding “<em>storytelling</em>” and using Italian synonyms), we got labeled that way anyway...
+        </p>
+
+        <h3 id="execution-vs-business-model">
+            <a href="#execution-vs-business-model">└─ Execution vs business model</a><sup>[Inspired by <a href="https://youtu.be/pkgLiW9C8Os?t=252" target="_blank">Sharran Srivatsaa</a>]</sup>
+        </h3>
+        <p class="justify">
+            Ours was definitely a problematic business model: basically, we took the model that works (the marketing agency) and made it worse.
+            <br>Operationally, it seemed to work well in our tests: the narrative models we built gave good results, fast, and so did the AI automation tests.
+            <br><br>
+            The core of the problem was thinking too much about “<em>doing storytelling marketing well</em>” and not enough about “<em>building a service that satisfies clients</em>”.
+            <br>In other words: thinking too much like <i>employees</i> and too little like <i>entrepreneurs</i>.
+            <br>If we had been two employees in a marketing department, our boss would have loved this method.
+            <br>Same if we had been a startup's in-house marketing, as founders or first employees.
+            <br>Because the model would have fixed itself:
+        </p>
+        <ul>
+            <li>We wouldn't have had to align on ICP, target, product...</li>
+            <li>We would have had all the sales data at hand</li>
+            <li>We would have been faster and more independent</li>
+        </ul>
+        <p class="justify">
+            That's <a href="https://en.wikipedia.org/wiki/The_Nature_of_the_Firm" target="_blank">the Nature of the Firm</a>: a company does in-house what's cheaper to coordinate through hierarchy than through the market.
+            <br><br>
+            In our defense: we wanted to test our own model and see if it worked.
+            <br>We never wanted to become a “<em>traditional</em>” marketing agency, since it's not what we consider a respectable way of doing business<sup>[Based on our experience with them. There might be some ok-ish ones...]</sup>.
+            <br>We wanted to try something of our own, and the market answered “<em>Not interested</em>”.
+            <br>Fair enough.
+        </p>
+
+        <h2 id="why-we-quit">
+            <a href="#why-we-quit">Why we quit</a>
+        </h2>
+        <p class="justify">
+            The market told us our service didn't work, and showed us what does (the marketing agency model).
+            <br>We don't like the marketing agency model, so we didn't pivot to it.
+            <br>Plain and simple.
+            <br><br>
+            In business, some people would tell you to persevere: with enough time and effort, it might have worked...
+            <br>But we realized we don't want to advertise just any company (like marketing agencies do).
+            <br>Partly because our approach works better with certain types of companies<sup>[One of the problems is identifying the product's value, which a company selling a commodity rarely has (and those tend to be the ones that invest the most in marketing...)]</sup>, and partly because we wanted to work with companies that share our mission and are ethically aligned with us.
+            <br>Meaning: I don't want to make an ad saying “<em>The best X for your problem</em>” if that's obviously not true, even if it's legally acceptable.
+        </p>
+
+        <h2 id="by-the-numbers">
+            <a href="#by-the-numbers">By the numbers</a>
+        </h2>
+        <ul>
+            <li>~4 months of activity</li>
+            <li>~70 workshop organizers contacted with the outreach tool, 20-30% response rate, almost all positive</li>
+            <li>5-10 meetings after the emails</li>
+            <li>3 workshops accepted and confirmed</li>
+            <li>2 “<em>pinkie promise</em>” workshops (not confirmed yet)</li>
+        </ul>
+        <p class="justify">
+            <b>Kill signals</b>
+        </p>
+        <ul>
+            <li><b>How companies pick agencies</b>: at the ~5 marketing workshops and events we attended, companies hired the biggest, best-known agencies without checking if they were the right fit.</li>
+            <li><b>Great work, but...</b>: other consultants praised our method, then warned us about the market, and about “<em>storytelling</em>” being a rotten word.</li>
+            <li><b>“<em>Take your time</em>”</b>: every “<em>interesting, let's talk</em>” was followed by an embarrassingly long silence before the next step. The classic Italian way.</li>
+        </ul>
+        <p class="justify">
+            <b>Invested resources</b>
+        </p>
+        <ul>
+            <li>A handful of tokens for the outreach tool</li>
+            <li>Time to build the presentations on Canva</li>
+            <li>One copy of Storynomics</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="what-i-would-do-differently">
+            <a href="#what-i-would-do-differently">What I'd do differently</a>
+        </h2>
+        <p class="justify">
+            With their agility and mission-driven mindset, startups might have been a better fit for this service.
+            <br>We did try to get into the local startup scene: it was disgustingly bureaucratic, slow, and really not startup-ish...?
+            <br>Even the local startups, to be honest, seemed... slow?
+            <br>Like regular companies.
+            <br>Like: “<em>Italian</em>”...?
+            <br>The problem with working with startups abroad is the language barrier: my co-founder doesn't speak English.
+            <br><br>
+            Workshop-as-a-Service would have worked, in my opinion.
+            <br>Teaching our method to companies and marketing agencies would have solved the complexity and timing problems.
+            <br>But there's the problem of being only two people (it eats into margins), and the problem of ambition: we don't want to become people who sell marketing courses...
+        </p>
+
+        <hr>
+
+        <h2 id="what-i-am-taking-away">
+            <a href="#what-i-am-taking-away">What I’m taking away</a>
+        </h2>
+        <p class="justify">
+            This is the failed project that best shows my attachment to the motto “<em>Money, yes, but on my terms</em>”.
+            <br><br>
+            The core problem was starting the project by asking ourselves “<em>How can we use storytelling?</em>”.
+            <br>At dinner, we planned to study storytelling in marketing, AI, how to reach clients...
+            <br>But not <i>who</i> the clients were, or <i>why</i> they should buy.
+            <br>We started with a dream client, the big local company, but we never worked on an ICP or anything like it.
+            <br>We fell in love with the product without caring about the clients' problems.
+            <br>It's the typical problem of startups pitching “<em>Like X, but better</em>”: it means they haven't understood the market, the clients' problems, the customer journey...
+            <br>Basically, we were too little in the “<em>business of making money</em>” (dangerous too: you can end up doing it just for the money) and too much in the “<em>business of bringing storytelling to marketing</em>”.
+            <br>The solution is known and easy: <b>don’t fall in love with your idea</b>.
+            <br><br>
+            Doing lead generation first let us gauge the market's enthusiasm, and it was a good move.
+            <br>But we misread it as “<em>this will definitely work</em>”, while the real signal for that is sales.
+            <br>The mistake was building the product right after the interested emails, when we should have waited for the first sales.
+            <br>(With the workshops we did it right: first they accepted us, then we prepared them. And they confirmed after almost a year...)
+            <br><i>Easier said than done</i>: selling before building requires knowing that, as soon as someone buys, you can deliver on time.
+            <br>We knew we could, but it's a far-from-obvious kind of proprioception.
+            <br><br>
+            When it comes to “<em>reading the market</em>” (the competitors’ models, the clients’ desires...), I think the gears are finally starting to click.
+            <br>I didn't reason any differently than in the <a href="BPI + AI consulting post-mortem.html">consulting project</a>, but I reached the same understanding in much less time.
+            <br>I still have to refine it, and above all get faster at it.
+            <br>But still: I'll give myself a small pat on the back.
+            <br><br>
+            The market showed us the model that works, and we said “<em>Nope, fuck off</em>”.
+            <br>I see it as proof of my stance on money, and at the same time a warning from capitalism: <i>your</i> terms don't always bring money.
+        </p>
+
+        <hr>
+
+        <h2 id="would-i-do-it-again">
+            <a href="#would-i-do-it-again">Would I do it again?</a>
+        </h2>
+        <p class="justify">
+            Definitely.
+            <br><br>
+            Thanks to this project, I studied marketing and put it into practice.
+            <br>My job in this “<em>storytelling marketing</em>” venture was to bring storytelling and marketing together, and that forced me to really understand the marketing side.
+            <br><i>We managed to fail fast, so what I gained from studying the subject far outweighs the time we “lost” failing this project.</i>
+        </p>
+
+    </div>
+    </main>
+
+    <!-- Footer disabled for now — uncomment to restore. -->
+    <!--
+    <script src="../javascript/footer.js"></script>
+    -->
+</body>
+
+</html>
