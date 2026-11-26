@@ -504,6 +504,12 @@ td { vertical-align: top; }
 .left_div  { float: left;  width: 58%; }
 .right_div { float: right; width: 40%; }
 
+/* "CV" link under the About me title: file icon + label, same cyan as links
+   (the icon follows the link colour on hover via currentColor). */
+.cv_link { margin: -0.6em auto 0.4em; }
+.cv_link a { display: inline-flex; align-items: center; gap: 0.35em; font-weight: bold; }
+.cv_link .fa_icon { width: 1.1em; height: 1.1em; color: currentColor; }
+
 /* ── Responsive ─────────────────────────────────────────────────────── */
 /* These must stay last: several rules above (.index_img, .poster_img,
    .divTd, .list_span, .left_div/.right_div) are deliberately overridden

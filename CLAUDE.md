@@ -490,7 +490,7 @@ Effetti di questo marcatore:
 
 ## `robots.txt` — cosa è escluso
 
-`/document/`, `_template.html`, `.claude/`.
+`/document/`, `_template.html`, `.claude/`, `/cv/` (sorgente HTML del CV, vedi §CV).
 Non aggiungere nuovi file sensibili o di staging senza aggiornarli.
 
 ---
@@ -631,12 +631,63 @@ Debugging quando `scripts/r2_check.py` fallisce:
 ├── javascript/       ← commonHeader.js, footer.js, toc.js, gallery.js
 ├── scripts/          ← gen_feed.py (feed RSS), check_site.py (controlli)
 ├── img/              ← immagini (sempre WebP)
+├── cv/               ← _cv.html: sorgente del CV in PDF (vedi §CV)
 ├── workers/          ← Worker R2-proxy + wrangler.toml (serve /audio/* e /document/* dallo stesso dominio)
 ├── r2-manifest.json  ← chiavi attese nei bucket R2 (PDF e audio NON stanno nel repo)
 ```
 
 > `document/` e `audio/` **non esistono nel repo**: sono path virtuali serviti
 > da R2 via Worker (vedi §File pesanti e R2). Non ricrearli come cartelle.
+
+---
+
+## CV in PDF
+
+Il CV è una pagina HTML con lo stile del sito, stampata in PDF da Chromium headless.
+
+- **Sorgente**: `cv/_cv.html` + `style/cv.css` (A4, sfondo scuro anche nei margini via
+  `@page { background }`, footer `~/costeve.com/cv` + numero pagina). Il `_` nel nome la
+  tiene fuori dal controllo sitemap; `/cv/` è in `robots.txt`.
+- **Contenuti**: pochi e grandi (corpo 9.6pt). Experience elenca le esperienze **per
+  business/organizzazione** (titolo = nome, ruolo in grigio a destra): ogni progetto per
+  cliente va sotto il business a cui apparteneva (vedi i post-mortem), max ~3 bullet; gli
+  altri finiscono in Projects. I fallimenti del Failure résumé stanno in Experience come
+  business, non in una sezione a parte (quelli minori — podcast, Etsy, band… — restano
+  fuori). Projects è raggruppato per anno (anno una sola volta, a sinistra), una riga di
+  descrizione per progetto, niente doppioni con Experience/Education.
+- **Link**: sempre **assoluti e canonici** (`https://costeve.com/mainPages/Projects`, senza
+  `.html`, `+` codificato come `%2B`), altrimenti nel PDF non funzionano. Alcuni
+  visualizzatori (es. l'anteprima di VS Code) non rendono cliccabili i link dei PDF: per
+  verificare, `mutool show <pdf> 'pages/1/Annots'`.
+- **Icone**: le stesse dei `.project_type_logo` del sito (`img/icon/`), con classe `.ic`,
+  più grandi nei titoli `h3`. Dove non c'è icona la riga parte a filo, **senza** segnaposto.
+  I contatti nell'header sono solo icone (busta e globo SVG, LinkedIn, GitHub), con
+  `aria-label` sul link.
+- **Titoli Experience**: **ruolo** in grande a sinistra, organizzazione in grigio, date a
+  destra. Link alle schede sempre "Post-mortem" (P maiuscola) seguito dall'icona
+  `img/icon/link.webp` (`.lk`), non da una freccia. Gerarchia dei titoli: `h2` 2.1em >
+  `h3` 1.5em > nomi dei progetti 1.15em.
+  I progetti dentro un'esperienza (`.entry li`) usano anch'essi `├─`/`└─`
+  (generati dal CSS, ultimo = `└─`), non simboli tipo `›`.
+- **Loghi**: su sfondo scuro servono versioni trasparenti: `unitn-seal.webp` (sigillo
+  bianco dall'SVG ufficiale) e `un-emblem.webp` al posto di `unitn.webp`/`un.webp`, che
+  hanno lo sfondo bianco.
+- **Giallo**: nel CV `<i>` giallo **non** si usa per l'enfasi nel testo (né TL;DR, né
+  Experience, né Projects): solo anni di Projects e chiavi degli alberi (Skills,
+  Languages…), con l'iniziale maiuscola. Nel TL;DR il corsivo è `<em>`.
+- **Lunghezza**: 3 pagine — pag. 1 Experience, pag. 2 da `Education` (che ha
+  `class="page-break"`) + Projects, pag. 3 Skills/Awards. Aggiungendo voci, rigenerare e
+  controllare con `pdfinfo … | grep Pages` e a occhio che nessun blocco resti spezzato.
+- **Build**: `python3 scripts/build_cv.py` → `~/Downloads/Stefano_Costa_CV.pdf`. L'output va
+  **fuori dal repo** (lo script rifiuta un path interno): `check_site.py` blocca qualsiasi PDF
+  nella working tree, anche se ignorato.
+- **Pubblicazione**: upload su R2 con chiave **nuova** a ogni versione (le chiavi sono
+  immutabili), nel formato `Stefano_Costa_CV_YYYY-MM.pdf`:
+  `python3 scripts/r2_upload.py documents ~/Downloads/Stefano_Costa_CV.pdf Stefano_Costa_CV_YYYY-MM.pdf`,
+  poi aggiornare **a mano** i link che puntano al CV (oggi uno solo: `.cv_link` sotto
+  il titolo di `mainPages/aboutme.html`) (nessun redirect/alias: scelta
+  voluta, il CV cambia poche volte l'anno). Versione attuale:
+  `/document/Stefano_Costa_CV_2026-11.pdf`.
 
 ---
 

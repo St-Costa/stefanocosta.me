@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /document/
 Disallow: /blogPosts/_template.html
 Disallow: /.claude/
+Disallow: /cv/
 
 Sitemap: https://costeve.com/sitemap.xml
